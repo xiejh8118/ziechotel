@@ -1,0 +1,237 @@
+{
+  "main": {
+    "id": "5324373015726ba8",
+    "type": "split",
+    "children": [
+      {
+        "id": "4509724f8bf84da7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e7a7b303c61786dc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "AI在财务中的应用SKILL.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "AI在财务中的应用SKILL"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "d4e0eb6d731e8d58",
+    "type": "split",
+    "children": [
+      {
+        "id": "a1c1e02db3b81fc0",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2feec735b185fcfc",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "d3f8909819003db3",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "b0cd87cbd7037b53",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "e8b439b65181ca9b",
+    "type": "split",
+    "children": [
+      {
+        "id": "09de240609b9ec60",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "933bda63209057cf",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "日记.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "日记 的反向链接列表"
+            }
+          },
+          {
+            "id": "d0cf24de9605c4fc",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "日记.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "日记 的出链列表"
+            }
+          },
+          {
+            "id": "62d9cfdd3135ea53",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "89b79829515fad46",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "3ef47f15e47b5f4a",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "日记.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "日记 的大纲"
+            }
+          },
+          {
+            "id": "47eeff448281018d",
+            "type": "leaf",
+            "state": {
+              "type": "claudian-view",
+              "state": {},
+              "icon": "bot",
+              "title": "Claudian"
+            }
+          }
+        ],
+        "currentTab": 5
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false,
+      "realclaudian:Open Claudian": false,
+      "remotely-save:Remotely Save": false,
+      "homepage:Open homepage": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "e7a7b303c61786dc",
+  "lastOpenFiles": [
+    "AI在财务中的应用SKILL.md",
+    "Git/mingw64/libexec/git-core/zlib1.dll",
+    "Git/mingw64/libexec/git-core/libintl-8.dll",
+    "Git/mingw64/libexec/git-core/libiconv-2.dll",
+    "Git/mingw64/lib/tcl8/8.6/tdbc/sqlite3-1.1.12.uuid",
+    "Git/mingw64/lib/tcl8/8.6/tdbc/sqlite3-1.1.12.tm",
+    "Git/mingw64/lib/tcl8/8.4/platform/shell-1.1.4.tm",
+    "Git/mingw64/lib/tcl8/8.6/tdbc",
+    "Git/mingw64/lib/tcl8/8.6/http-2.9.8.tm",
+    "Git/mingw64/lib/tcl8/8.5/tcltest-2.5.10.tm",
+    "Git/mingw64/lib/tcl8/8.5/msgcat-1.6.1.tm",
+    "Git/usr/share/vim/vim92/pack/dist/opt/netrw/README.md",
+    "Git/usr/share/vim/vim92/pack/dist/opt/editorconfig/README.md",
+    "Git/usr/share/icons/locolor/32x32/apps/gvim.png",
+    "Git/usr/share/icons/locolor/16x16/apps/gvim.png",
+    "Git/usr/share/icons/hicolor/48x48/apps/gvim.png",
+    "Git/usr/share/gtk-doc/html/p11-kit/up.png",
+    "Git/usr/share/gtk-doc/html/p11-kit/up-insensitive.png",
+    "Git/usr/share/gtk-doc/html/p11-kit/right.png",
+    "Git/usr/share/gtk-doc/html/p11-kit/right-insensitive.png",
+    "Git/usr/share/gtk-doc/html/p11-kit/left.png",
+    "Git/usr/share/gtk-doc/html/p11-kit/left-insensitive.png",
+    "Git/usr/share/gtk-doc/html/p11-kit/home.png",
+    "Git/mingw64/share/licenses/pcre2/LICENCE.md",
+    "Git/mingw64/share/licenses/c-ares/LICENSE.md",
+    "Git/mingw64/share/doc/git-lfs/README.md",
+    "Git/mingw64/doc/git-credential-manager/README.md",
+    "Obsidian内容创作系统：公众号文章没办法同步Obsidian，这个问题我终于解决了.md",
+    "【柬埔寨官员：鼓励中国企业投资农产品加工、仓储物流】.md",
+    "用 Codex + Obsidian + NotebookLM，搭建一个会生长的个人知识库.md",
+    "公众号爆款SKILL.md",
+    "SKILL.md",
+    "日记.md"
+  ]
+}
