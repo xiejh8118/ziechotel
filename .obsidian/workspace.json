@@ -11,14 +11,14 @@
             "id": "220f0a5d89c195d2",
             "type": "leaf",
             "state": {
-              "type": "split-diff-view",
+              "type": "markdown",
               "state": {
-                "aFile": ".obsidian/workspace.json",
-                "bFile": ".obsidian/workspace.json",
-                "aRef": ""
+                "file": "用 Codex + Obsidian + NotebookLM，搭建一个会生长的个人知识库.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "diff",
-              "title": "Diff: workspace.json  (Working Tree)"
+              "icon": "lucide-file",
+              "title": "用 Codex + Obsidian + NotebookLM，搭建一个会生长的个人知识库"
             }
           }
         ]
