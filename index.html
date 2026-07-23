@@ -1,254 +1,184 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="中鼎生活——连接酒店、建筑、集采与企业资源，服务在柬企业与华人生活。" />
-  <title>中鼎生活｜酒店 × 建筑 × 集采平台</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="中鼎生活——连接酒店、建筑、集采与企业资源，服务在柬企业与华人生活。">
+  <title>中鼎生活｜中鼎瑞德酒店与在柬企业服务</title>
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a class="brand" href="#home" aria-label="中鼎生活首页">
-        <span class="brand-mark">Z</span>
-        <span>
-          <strong>中鼎生活</strong>
-          <small>ZHONGDING LIFE</small>
-        </span>
-      </a>
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="#home" aria-label="中鼎生活首页">
+      <img src="./assets/logo.jpg" alt="中鼎生活企业标志">
+      <span><strong>中鼎生活</strong><small>ZHONGDING LIFE</small></span>
+    </a>
+    <button class="menu-toggle" aria-label="打开导航" aria-expanded="false">☰</button>
+    <nav class="main-nav">
+      <a href="#home">首页</a>
+      <a href="#hotel">酒店</a>
+      <a href="#rooms">客房</a>
+      <a href="#construction">建筑企业</a>
+      <a href="#procurement">集采中心</a>
+      <a href="#contact">联系我们</a>
+    </nav>
+  </div>
+</header>
 
-      <button class="menu-toggle" aria-label="打开导航" aria-expanded="false">☰</button>
-
-      <nav class="main-nav">
-        <a href="#home">首页</a>
-        <a href="#hotel">酒店</a>
-        <a href="#construction">建筑企业</a>
-        <a href="#procurement">集采中心</a>
-        <a href="#interview">企业访谈</a>
-        <a href="#contact">联系我们</a>
-      </nav>
+<main>
+<section class="hero" id="home">
+  <div class="hero-shade"></div>
+  <div class="container hero-content">
+    <span class="eyebrow">柬埔寨本地资源连接平台</span>
+    <h1>连接酒店与建筑资源<br>服务在柬企业与华人生活</h1>
+    <p>从住宿预订、企业名录、建材集采到企业访谈，依托中鼎在柬埔寨的实体资源和行业积累，提供真实、高效、可信赖的本地服务。</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#hotel">查看酒店</a>
+      <a class="btn btn-ghost" href="#contact">发布合作需求</a>
     </div>
-  </header>
-
-  <main>
-    <section class="hero" id="home">
-      <div class="hero-overlay"></div>
-      <div class="container hero-content">
-        <span class="eyebrow">柬埔寨本地资源连接平台</span>
-        <h1>连接酒店与建筑资源<br>服务在柬企业与华人生活</h1>
-        <p>从住宿预订、企业名录、建材集采到企业访谈，依托中鼎在柬埔寨的实体资源和行业积累，提供真实、高效、可信赖的本地服务。</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#services">浏览平台服务</a>
-          <a class="btn btn-ghost" href="#contact">发布合作需求</a>
-        </div>
-        <div class="hero-stats">
-          <div><strong>300+</strong><span>实体酒店房间</span></div>
-          <div><strong>10+年</strong><span>柬埔寨行业积累</span></div>
-          <div><strong>4大</strong><span>核心服务板块</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-light" id="services">
-      <div class="container">
-        <div class="section-heading">
-          <span>CORE SERVICES</span>
-          <h2>四大核心服务</h2>
-          <p>第一版先解决“找得到、看得懂、联系得上”，后续再逐步增加预订、发布、撮合和后台管理功能。</p>
-        </div>
-
-        <div class="service-grid">
-          <a class="service-card" href="#hotel">
-            <span class="service-icon">🏨</span>
-            <h3>酒店预订</h3>
-            <p>展示中鼎瑞德酒店房型、价格、设施与位置，支持电话或 WhatsApp 快速咨询。</p>
-            <b>查看酒店 →</b>
-          </a>
-          <a class="service-card" href="#construction">
-            <span class="service-icon">🏗️</span>
-            <h3>建筑企业</h3>
-            <p>汇集施工单位、钢结构、防水、机电、装修等优质企业，建立可信企业名录。</p>
-            <b>查找企业 →</b>
-          </a>
-          <a class="service-card" href="#procurement">
-            <span class="service-icon">📦</span>
-            <h3>集采中心</h3>
-            <p>连接材料供应商和项目采购需求，帮助在柬建筑企业更快找到材料与合作伙伴。</p>
-            <b>发布需求 →</b>
-          </a>
-          <a class="service-card" href="#interview">
-            <span class="service-icon">🎙️</span>
-            <h3>企业访谈</h3>
-            <p>《走进中鼎·企业访谈》记录企业成长，展示品牌实力，见证合作共赢。</p>
-            <b>观看访谈 →</b>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section hotel-section" id="hotel">
-      <div class="container split">
-        <div class="hotel-visual">
-          <div class="image-placeholder">
-            <span>中鼎瑞德酒店主图</span>
-            <small>后续替换为真实酒店照片</small>
-          </div>
-          <div class="floating-badge">
-            <strong>300+</strong>
-            <span>房间资源</span>
-          </div>
-        </div>
-        <div class="content-block">
-          <span class="section-kicker">FEATURED HOTEL</span>
-          <h2>中鼎瑞德酒店</h2>
-          <p class="lead">作为平台首个实体案例，优先上线酒店介绍、房型展示、长租短租、商务接待和企业客户合作。</p>
-          <ul class="check-list">
-            <li>酒店客房与公寓长租</li>
-            <li>企业团队及商务接待</li>
-            <li>停车、餐饮及配套服务</li>
-            <li>电话 / WhatsApp 快速咨询</li>
-          </ul>
-          <div class="action-row">
-            <a class="btn btn-primary" href="#contact">立即咨询</a>
-            <a class="text-link" href="#">查看房型（即将上线）</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-light" id="construction">
-      <div class="container">
-        <div class="section-heading left">
-          <span>ENTERPRISE DIRECTORY</span>
-          <h2>建筑企业与供应商名录</h2>
-          <p>第一批先录入最熟悉的 10–20 家企业，真实联系方式、主营业务和代表案例比数量更重要。</p>
-        </div>
-        <div class="company-grid">
-          <article class="company-card">
-            <span class="company-tag">钢结构</span>
-            <h3>华鼎钢结构</h3>
-            <p>厂房钢结构、加工安装、项目配套服务。</p>
-            <a href="#contact">联系企业 →</a>
-          </article>
-          <article class="company-card">
-            <span class="company-tag">防水工程</span>
-            <h3>专业防水施工团队</h3>
-            <p>屋面、外墙、卫生间、厂房防水维修。</p>
-            <a href="#contact">联系企业 →</a>
-          </article>
-          <article class="company-card">
-            <span class="company-tag">材料供应</span>
-            <h3>建材供应商</h3>
-            <p>钢材、水泥、装饰材料及项目集采配送。</p>
-            <a href="#contact">联系企业 →</a>
-          </article>
-        </div>
-        <div class="center-action">
-          <a class="btn btn-outline" href="#contact">申请企业入驻</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section procurement-section" id="procurement">
-      <div class="container procurement-wrap">
-        <div>
-          <span class="section-kicker light">PROCUREMENT CENTER</span>
-          <h2>中鼎集采中心</h2>
-          <p>帮助刚进入柬埔寨的建筑企业快速找到材料、设备、施工队和本地服务资源。</p>
-        </div>
-        <div class="procurement-box">
-          <h3>我有采购需求</h3>
-          <p>提交材料名称、数量、交付地点和时间，我们协助匹配供应商。</p>
-          <a class="btn btn-gold" href="#contact">提交采购需求</a>
-        </div>
-        <div class="procurement-box">
-          <h3>我是供应商</h3>
-          <p>提交企业资料、主营产品和联系方式，申请进入平台供应商库。</p>
-          <a class="btn btn-ghost-light" href="#contact">申请供应商入驻</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-light" id="interview">
-      <div class="container">
-        <div class="section-heading">
-          <span>ZHONGDING INTERVIEW</span>
-          <h2>走进中鼎·企业访谈</h2>
-          <p>记录企业成长，见证合作共赢。通过真实人物和真实项目，为企业建立长期可信的品牌内容。</p>
-        </div>
-        <article class="feature-story">
-          <div class="story-cover">
-            <span>企业访谈封面图</span>
-          </div>
-          <div class="story-content">
-            <span class="story-label">首期策划</span>
-            <h3>走进华鼎钢结构：扎根柬埔寨，服务工程建设</h3>
-            <p>从企业成长、团队建设、代表项目到未来规划，展示在柬中资企业的真实发展故事。</p>
-            <a class="text-link" href="#">查看访谈策划 →</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section contact-section" id="contact">
-      <div class="container contact-grid">
-        <div>
-          <span class="section-kicker">CONTACT US</span>
-          <h2>让资源连接更简单</h2>
-          <p>酒店预订、企业入驻、材料采购、访谈合作，均可直接联系我们。</p>
-          <div class="contact-list">
-            <p><strong>网站域名：</strong>ziechotel.top</p>
-            <p><strong>联系电话：</strong>+855 018 995 8899</p>
-            <p><strong>服务地区：</strong>柬埔寨 · 金边</p>
-          </div>
-        </div>
-        <form class="contact-form" onsubmit="return handleSubmit(event)">
-          <label>
-            您的称呼
-            <input required name="name" placeholder="请输入姓名或企业名称" />
-          </label>
-          <label>
-            联系方式
-            <input required name="contact" placeholder="电话 / 微信 / WhatsApp" />
-          </label>
-          <label>
-            合作类型
-            <select name="type">
-              <option>酒店预订</option>
-              <option>企业入驻</option>
-              <option>采购需求</option>
-              <option>供应商合作</option>
-              <option>企业访谈</option>
-            </select>
-          </label>
-          <label>
-            需求说明
-            <textarea name="message" rows="4" placeholder="请简单说明您的需求"></textarea>
-          </label>
-          <button class="btn btn-primary full" type="submit">提交需求</button>
-          <small id="form-message">当前为演示表单，下一步接入 WhatsApp 或后台。</small>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-wrap">
-      <div class="brand footer-brand">
-        <span class="brand-mark">Z</span>
-        <span>
-          <strong>中鼎生活</strong>
-          <small>酒店 × 建筑 × 集采平台</small>
-        </span>
-      </div>
-      <p>© 2026 中鼎生活 · ziechotel.top</p>
+    <div class="hero-stats">
+      <div><strong>300+</strong><span>实体酒店房间</span></div>
+      <div><strong>10+年</strong><span>柬埔寨行业积累</span></div>
+      <div><strong>4大</strong><span>核心服务板块</span></div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script src="./script.js"></script>
+<section class="section section-light" id="hotel">
+  <div class="container split">
+    <div class="hotel-image">
+      <img src="./assets/room-deluxe.jpg" alt="中鼎瑞德酒店豪华大床房">
+      <div class="floating-badge"><strong>300+</strong><span>房间资源</span></div>
+    </div>
+    <div class="content-block">
+      <span class="section-kicker">FEATURED HOTEL</span>
+      <h2>中鼎瑞德酒店</h2>
+      <p class="lead">位于柬埔寨金边，提供客房、公寓长租、企业团队接待和商务住宿服务。适合个人旅客、企业客户及项目团队长期入住。</p>
+      <ul class="check-list">
+        <li>酒店客房与公寓长租</li>
+        <li>企业团队及商务接待</li>
+        <li>停车、餐饮及配套服务</li>
+        <li>电话 / WhatsApp 快速咨询</li>
+      </ul>
+      <div class="action-row">
+        <a class="btn btn-primary" href="tel:+8550189958899">立即咨询</a>
+        <a class="text-link" href="#rooms">查看房型 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light" id="rooms">
+  <div class="container">
+    <div class="section-heading">
+      <span>ROOM GALLERY</span>
+      <h2>客房与套房展示</h2>
+      <p>以下为第一批客房实景照片。后续可继续增加房型名称、面积、床型、价格与预订按钮。</p>
+    </div>
+    <div class="room-grid">
+      <article class="room-card featured">
+        <img src="./assets/room-romantic.jpg" alt="浪漫主题大床房">
+        <div><h3>浪漫主题大床房</h3><p>适合情侣、纪念日及婚礼接待布置。</p></div>
+      </article>
+      <article class="room-card">
+        <img src="./assets/room-deluxe.jpg" alt="豪华大床房">
+        <div><h3>豪华大床房</h3><p>空间宽敞，配有办公桌、电视及休息区。</p></div>
+      </article>
+      <article class="room-card">
+        <img src="./assets/room-standard.jpg" alt="标准大床房">
+        <div><h3>标准大床房</h3><p>简洁舒适，适合商务出行与长期入住。</p></div>
+      </article>
+      <article class="room-card">
+        <img src="./assets/room-twin.jpg" alt="标准双床房">
+        <div><h3>标准双床房</h3><p>适合朋友、同事及项目团队住宿。</p></div>
+      </article>
+      <article class="room-card wide">
+        <img src="./assets/suite-living.jpg" alt="行政套房会客厅">
+        <div><h3>行政套房会客区</h3><p>带独立客厅和会客空间，适合企业客户及家庭入住。</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark" id="construction">
+  <div class="container">
+    <div class="section-heading light">
+      <span>ENTERPRISE DIRECTORY</span>
+      <h2>建筑企业与供应商名录</h2>
+      <p>连接施工单位、钢结构、防水、机电、装修、材料供应及项目服务资源。</p>
+    </div>
+    <div class="service-grid">
+      <article class="service-card"><span>🏗️</span><h3>建筑企业</h3><p>展示企业主营业务、代表项目和联系方式。</p></article>
+      <article class="service-card"><span>📦</span><h3>建材集采</h3><p>发布采购需求，匹配本地材料与设备供应商。</p></article>
+      <article class="service-card"><span>🤝</span><h3>企业合作</h3><p>连接项目方、施工方和本地服务资源。</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light" id="procurement">
+  <div class="container">
+    <div class="section-heading">
+      <span>PROCUREMENT CENTER</span>
+      <h2>中鼎集采中心</h2>
+      <p>帮助刚进入柬埔寨的建筑企业快速找到材料、设备、施工队和本地服务资源。</p>
+    </div>
+    <div class="cta-grid">
+      <div><h3>我有采购需求</h3><p>提交材料名称、数量、交付地点和时间。</p><a class="btn btn-primary" href="#contact">提交采购需求</a></div>
+      <div><h3>我是供应商</h3><p>提交企业资料、主营产品和联系方式。</p><a class="btn btn-outline" href="#contact">申请供应商入驻</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="section location-section">
+  <div class="container split location-grid">
+    <div class="map-image"><img src="./assets/map.jpg" alt="中鼎瑞德酒店地图位置"></div>
+    <div class="content-block">
+      <span class="section-kicker">HOTEL LOCATION</span>
+      <h2>酒店位置</h2>
+      <p class="lead">中鼎瑞德酒店（ZHONGDING RED HOTEL），位于柬埔寨金边。点击下方按钮可打开 Google 地图导航。</p>
+      <a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=ZHONGDING+RED+HOTEL">打开地图导航</a>
+    </div>
+  </div>
+</section>
+
+<section class="section contact-section" id="contact">
+  <div class="container contact-grid">
+    <div>
+      <span class="section-kicker">CONTACT US</span>
+      <h2>让资源连接更简单</h2>
+      <p>酒店预订、企业入驻、材料采购和商务合作，均可直接联系我们。</p>
+      <div class="contact-list">
+        <p><strong>网站：</strong>ziechotel.top</p>
+        <p><strong>电话：</strong>+855 018 995 8899</p>
+        <p><strong>地区：</strong>柬埔寨 · 金边</p>
+      </div>
+    </div>
+    <form class="contact-form" onsubmit="return handleSubmit(event)">
+      <label>您的称呼<input required name="name" placeholder="姓名或企业名称"></label>
+      <label>联系方式<input required name="contact" placeholder="电话 / 微信 / WhatsApp"></label>
+      <label>合作类型
+        <select name="type">
+          <option>酒店预订</option><option>企业入驻</option><option>采购需求</option><option>供应商合作</option>
+        </select>
+      </label>
+      <label>需求说明<textarea rows="4" placeholder="请简单说明您的需求"></textarea></label>
+      <button class="btn btn-primary full" type="submit">提交需求</button>
+      <small id="form-message">当前为演示表单，下一步可接入 WhatsApp 或邮箱。</small>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-wrap">
+    <div class="brand footer-brand">
+      <img src="./assets/logo.jpg" alt="中鼎生活标志">
+      <span><strong>中鼎生活</strong><small>酒店 × 建筑 × 集采平台</small></span>
+    </div>
+    <p>© 2026 中鼎生活 · ziechotel.top</p>
+  </div>
+</footer>
+<script src="./script.js"></script>
 </body>
 </html>
