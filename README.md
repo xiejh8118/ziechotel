@@ -1,29 +1,15 @@
-# ZHONGDING RED HOTEL — V3
+# ZHONGDING RED HOTEL V4
 
-## Deployment
+V4 正式版升级内容：
 
-1. Extract this ZIP.
-2. Upload all files and the `assets` folder to the root of your GitHub repository.
-3. Commit the changes.
-4. Vercel will deploy automatically.
+- 首页高端商务酒店视觉重构
+- 标准双床房保持 $35 / night
+- VIP 双床房使用独立 VIP 图片，价格 $70 / night
+- 统一所有房型卡片尺寸与图片比例
+- 手机、平板、电脑三端响应式优化
+- 酒店介绍、配套设施、图片画廊、位置与联系模块
+- 中文 / English 前端切换
+- WhatsApp 预订咨询表单
+- 为后续在线预订系统与后台接口预留结构
 
-## Contact details used
-
-- KH: +855 018 318 0888
-- Chinese Service: +855 018 995 8899
-- WhatsApp: +855 018 995 8899
-
-## Room rates
-
-- Standard Twin Room: USD 35/night
-- Single Room: USD 35/night
-- Triple Room: USD 45/night
-- Three-bed Suite: USD 60/night
-- VIP Twin Room: USD 70/night
-
-
-## V3 responsive update
-
-- Optimized for mobile, tablet, and desktop.
-- Refined hero presentation.
-- VIP room remains USD 70/night; only its display photo was replaced.
+部署：将全部文件上传至 GitHub 仓库根目录，Vercel 会自动更新。

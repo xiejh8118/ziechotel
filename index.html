@@ -2,9 +2,9 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="中鼎瑞德酒店，金边机场商务酒店，提供客房、VIP房、套房、公寓、健身房及企业团队接待服务。">
-  <meta name="theme-color" content="#11100e">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="中鼎瑞德酒店｜金边商务酒店，提供舒适客房、VIP房、套房、长期住宿及企业团队接待。">
+  <meta name="theme-color" content="#0d0b09">
   <title>中鼎瑞德酒店 | ZHONGDING RED HOTEL</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,135 +15,95 @@
 <header class="site-header" id="top">
   <div class="container nav-wrap">
     <a class="brand" href="#home" aria-label="中鼎瑞德酒店首页">
-      <img src="./assets/logo.jpg" alt="中鼎品牌标志">
-      <span>
-        <strong>中鼎瑞德酒店</strong>
-        <small>ZHONGDING RED HOTEL</small>
-      </span>
+      <img src="./assets/logo.jpg" alt="中鼎瑞德酒店标志">
+      <span><strong>中鼎瑞德酒店</strong><small>ZHONGDING RED HOTEL</small></span>
     </a>
-    <button class="menu-toggle" aria-label="打开导航" aria-expanded="false">☰</button>
-    <nav class="main-nav">
-      <a href="#about">酒店介绍</a>
-      <a href="#rooms">客房房型</a>
-      <a href="#facilities">配套设施</a>
-      <a href="#location">酒店位置</a>
-      <a class="nav-book" href="https://wa.me/855189958899" target="_blank" rel="noopener">立即预订</a>
+    <div class="nav-actions-mobile">
+      <button class="lang-toggle" type="button" aria-label="切换语言">EN</button>
+      <button class="menu-toggle" type="button" aria-label="打开导航" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+    <nav class="main-nav" aria-label="主导航">
+      <a href="#about" data-zh="酒店介绍" data-en="About">酒店介绍</a>
+      <a href="#rooms" data-zh="客房房型" data-en="Rooms">客房房型</a>
+      <a href="#facilities" data-zh="配套设施" data-en="Facilities">配套设施</a>
+      <a href="#gallery" data-zh="图片画廊" data-en="Gallery">图片画廊</a>
+      <a href="#location" data-zh="酒店位置" data-en="Location">酒店位置</a>
+      <button class="lang-toggle desktop-lang" type="button" aria-label="切换语言">EN</button>
+      <button class="nav-book open-booking" type="button" data-zh="立即预订" data-en="Book Now">立即预订</button>
     </nav>
   </div>
 </header>
 
 <main>
   <section class="hero" id="home">
-    <div class="hero-overlay"></div>
-    <div class="hero-glow"></div>
+    <div class="hero-overlay"></div><div class="hero-glow"></div><div class="hero-grid"></div>
     <div class="container hero-content reveal">
-      <div class="hero-badge">PHNOM PENH · AIRPORT BUSINESS HOTEL</div>
-      <p class="eyebrow">BUSINESS · COMFORT · LIFESTYLE</p>
-      <h1>中鼎瑞德酒店</h1>
-      <h2>ZHONGDING RED HOTEL</h2>
-      <p class="hero-copy">企业长包房 · 商务接待 · 舒适客房<br>为商务出行与长期住宿提供安心、便捷的金边体验</p>
+      <p class="hero-label">PHNOM PENH · BUSINESS HOTEL</p>
+      <h1><span data-zh="中鼎瑞德酒店" data-en="ZHONGDING RED HOTEL">中鼎瑞德酒店</span></h1>
+      <p class="hero-en">ZHONGDING RED HOTEL</p>
+      <p class="hero-copy" data-zh="商务出行、企业接待与长期住宿的理想之选" data-en="A refined stay for business travel, corporate guests and long-term living">商务出行、企业接待与长期住宿的理想之选</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="https://wa.me/855189958899" target="_blank" rel="noopener">WhatsApp 预订</a>
-        <a class="btn btn-light" href="tel:+855183180888">柬文热线</a>
-        <a class="btn btn-ghost" href="#rooms">查看房型</a>
+        <button class="btn btn-primary open-booking" type="button" data-zh="立即预订" data-en="Book Your Stay">立即预订</button>
+        <a class="btn btn-outline" href="#rooms" data-zh="探索房型" data-en="Explore Rooms">探索房型</a>
       </div>
       <div class="hero-facts">
-        <div><strong>24H</strong><span>前台服务</span></div>
-        <div><strong>$35</strong><span>客房起价</span></div>
-        <div><strong>10 MIN</strong><span>AEON Mall 2</span></div>
+        <article><b>24H</b><span data-zh="前台服务" data-en="Front Desk">前台服务</span></article>
+        <article><b>$35</b><span data-zh="客房起价" data-en="Starting Rate">客房起价</span></article>
+        <article><b>10 MIN</b><span data-zh="AEON Mall 2" data-en="AEON Mall 2">AEON Mall 2</span></article>
       </div>
     </div>
-    <a class="scroll-cue" href="#about" aria-label="向下浏览">⌄</a>
+    <a class="scroll-cue" href="#about" aria-label="向下浏览"><span></span></a>
+  </section>
+
+  <section class="section intro-strip">
+    <div class="container intro-grid reveal">
+      <div><span>01</span><p data-zh="商务接待" data-en="Business Hospitality">商务接待</p></div>
+      <div><span>02</span><p data-zh="长期住宿" data-en="Long Stay">长期住宿</p></div>
+      <div><span>03</span><p data-zh="团队入住" data-en="Group Stay">团队入住</p></div>
+      <div><span>04</span><p data-zh="便捷交通" data-en="Convenient Access">便捷交通</p></div>
+    </div>
   </section>
 
   <section class="section about-section" id="about">
-    <div class="container split">
-      <div class="image-frame reveal">
-        <img src="./assets/hotel-exterior.jpg" alt="中鼎瑞德酒店外观">
-        <div class="image-label">ZHONGDING RED HOTEL</div>
-      </div>
+    <div class="container about-layout">
+      <div class="about-media reveal"><img src="./assets/hotel-exterior.jpg" alt="中鼎瑞德酒店外观"><div class="frame-line"></div><div class="about-badge"><b>ZHONGDING</b><span>RED HOTEL</span></div></div>
       <div class="content-block reveal">
         <span class="section-kicker">WELCOME TO ZHONGDING</span>
-        <h2>商务出行与长期住宿的理想之选</h2>
-        <p class="lead">中鼎瑞德酒店位于金边重要交通节点，面向商务人士、企业团队和长期住客，提供舒适客房、套房、VIP房、公寓及完善配套服务。</p>
-        <div class="advantage-grid">
-          <article><b>30分钟</b><span>城市生活圈，可快速前往新机场</span></article>
-          <article><b>约2公里</b><span>金边—西港高速入口</span></article>
-          <article><b>约10分钟</b><span>AEON Mall 2</span></article>
-          <article><b>多路连接</b><span>快速衔接1/2/3/4/5/6号公路</span></article>
+        <h2 data-zh="在金边，找到舒适与效率的平衡" data-en="Where comfort meets efficiency in Phnom Penh">在金边，找到舒适与效率的平衡</h2>
+        <p class="lead" data-zh="中鼎瑞德酒店面向商务人士、企业团队和长期住客，提供舒适客房、套房、VIP房与完善配套服务。" data-en="Zhongding Red Hotel welcomes business travelers, corporate teams and long-stay guests with comfortable rooms, suites, VIP accommodation and thoughtful facilities.">中鼎瑞德酒店面向商务人士、企业团队和长期住客，提供舒适客房、套房、VIP房与完善配套服务。</p>
+        <div class="stats-grid">
+          <div><strong>24H</strong><span data-zh="贴心服务" data-en="Guest Service">贴心服务</span></div>
+          <div><strong>2 KM</strong><span data-zh="高速入口" data-en="Expressway Access">高速入口</span></div>
+          <div><strong>10 MIN</strong><span data-zh="大型商场" data-en="Shopping Mall">大型商场</span></div>
         </div>
-        <p class="nearby">邻近利美机械配件供应链市场、旧货市场及多个批发市场，为商务采购和项目团队提供便利。</p>
+        <a class="text-link" href="#facilities" data-zh="了解酒店设施 →" data-en="Discover Facilities →">了解酒店设施 →</a>
       </div>
     </div>
   </section>
 
   <section class="section rooms-section" id="rooms">
     <div class="container">
-      <div class="section-heading reveal">
-        <span>ROOMS & SUITES</span>
-        <h2>客房与套房</h2>
-        <p>价格按每晚计算，长期住宿及企业团队可联系获取专属方案。</p>
-      </div>
-
+      <div class="section-heading reveal"><span>ROOMS & SUITES</span><h2 data-zh="精选客房与套房" data-en="Rooms designed for every stay">精选客房与套房</h2><p data-zh="统一舒适标准，满足个人、团队与重要商务接待。" data-en="Consistent comfort for solo travelers, teams and executive stays.">统一舒适标准，满足个人、团队与重要商务接待。</p></div>
       <div class="room-grid">
-        <article class="room-card reveal">
-          <button class="image-button" data-full="./assets/standard-room.jpg" aria-label="查看标准双床房大图">
-            <img src="./assets/standard-room.jpg" alt="标准双床房">
-          </button>
-          <div class="room-info">
-            <div><span>STANDARD TWIN ROOM</span><h3>标准双床房</h3></div>
-            <strong>$35<small>/ night</small></strong>
-          </div>
-          <p>双床配置，适合朋友、同事及商务团队入住。</p>
-          <a href="https://wa.me/855189958899?text=Hello%2C%20I%20would%20like%20to%20book%20a%20Standard%20Twin%20Room." target="_blank" rel="noopener">立即咨询 →</a>
+        <article class="room-card reveal" data-room="标准双床房" data-price="35">
+          <button class="image-button" data-full="./assets/standard-room.jpg"><img src="./assets/standard-room.jpg" alt="标准双床房"><span class="view-label">VIEW</span></button>
+          <div class="room-body"><div class="room-title"><span>STANDARD TWIN ROOM</span><h3 data-zh="标准双床房" data-en="Standard Twin Room">标准双床房</h3></div><div class="room-price"><b>$35</b><small>/ night</small></div><p data-zh="双床配置，适合朋友、同事及商务团队入住。" data-en="Twin beds for colleagues, friends and business teams.">双床配置，适合朋友、同事及商务团队入住。</p><button class="room-book open-booking" type="button" data-zh="立即咨询" data-en="Enquire Now">立即咨询</button></div>
         </article>
-
-        <article class="room-card reveal">
-          <button class="image-button" data-full="./assets/single-room.jpg" aria-label="查看单人间大图">
-            <img src="./assets/single-room.jpg" alt="单人间">
-          </button>
-          <div class="room-info">
-            <div><span>SINGLE ROOM</span><h3>单人间</h3></div>
-            <strong>$35<small>/ night</small></strong>
-          </div>
-          <p>安静舒适，适合个人商务出行与长期住宿。</p>
-          <a href="https://wa.me/855189958899?text=Hello%2C%20I%20would%20like%20to%20book%20a%20Single%20Room." target="_blank" rel="noopener">立即咨询 →</a>
+        <article class="room-card reveal" data-room="单人间" data-price="35">
+          <button class="image-button" data-full="./assets/single-room.jpg"><img src="./assets/single-room.jpg" alt="单人间"><span class="view-label">VIEW</span></button>
+          <div class="room-body"><div class="room-title"><span>SINGLE ROOM</span><h3 data-zh="单人间" data-en="Single Room">单人间</h3></div><div class="room-price"><b>$35</b><small>/ night</small></div><p data-zh="安静舒适，适合个人商务出行与长期住宿。" data-en="A calm, comfortable choice for solo travel and long stays.">安静舒适，适合个人商务出行与长期住宿。</p><button class="room-book open-booking" type="button" data-zh="立即咨询" data-en="Enquire Now">立即咨询</button></div>
         </article>
-
-        <article class="room-card reveal">
-          <button class="image-button" data-full="./assets/twin-room.jpg" aria-label="查看三人间大图">
-            <img src="./assets/twin-room.jpg" alt="三人间">
-          </button>
-          <div class="room-info">
-            <div><span>TRIPLE ROOM</span><h3>三人间</h3></div>
-            <strong>$45<small>/ night</small></strong>
-          </div>
-          <p>适合项目团队、朋友同行及家庭入住。</p>
-          <a href="https://wa.me/855189958899?text=Hello%2C%20I%20would%20like%20to%20book%20a%20Triple%20Room." target="_blank" rel="noopener">立即咨询 →</a>
+        <article class="room-card reveal" data-room="三人间" data-price="45">
+          <button class="image-button" data-full="./assets/twin-room.jpg"><img src="./assets/twin-room.jpg" alt="三人间"><span class="view-label">VIEW</span></button>
+          <div class="room-body"><div class="room-title"><span>TRIPLE ROOM</span><h3 data-zh="三人间" data-en="Triple Room">三人间</h3></div><div class="room-price"><b>$45</b><small>/ night</small></div><p data-zh="适合项目团队、朋友同行及家庭入住。" data-en="Ideal for project teams, friends and families.">适合项目团队、朋友同行及家庭入住。</p><button class="room-book open-booking" type="button" data-zh="立即咨询" data-en="Enquire Now">立即咨询</button></div>
         </article>
-
-        <article class="room-card reveal">
-          <button class="image-button" data-full="./assets/suite-room.jpg" aria-label="查看套房大图">
-            <img src="./assets/suite-room.jpg" alt="三床套房">
-          </button>
-          <div class="room-info">
-            <div><span>THREE-BED SUITE</span><h3>套房（三床）</h3></div>
-            <strong>$60<small>/ night</small></strong>
-          </div>
-          <p>更宽敞的起居空间，适合家庭及企业客户。</p>
-          <a href="https://wa.me/855189958899?text=Hello%2C%20I%20would%20like%20to%20book%20a%20Suite." target="_blank" rel="noopener">立即咨询 →</a>
+        <article class="room-card reveal" data-room="三床套房" data-price="60">
+          <button class="image-button" data-full="./assets/suite-room.jpg"><img src="./assets/suite-room.jpg" alt="三床套房"><span class="view-label">VIEW</span></button>
+          <div class="room-body"><div class="room-title"><span>THREE-BED SUITE</span><h3 data-zh="套房（三床）" data-en="Three-Bed Suite">套房（三床）</h3></div><div class="room-price"><b>$60</b><small>/ night</small></div><p data-zh="更宽敞的起居空间，适合家庭及企业客户。" data-en="Generous living space for families and corporate guests.">更宽敞的起居空间，适合家庭及企业客户。</p><button class="room-book open-booking" type="button" data-zh="立即咨询" data-en="Enquire Now">立即咨询</button></div>
         </article>
-
-        <article class="room-card vip reveal">
-          <button class="image-button" data-full="./assets/vip-room-updated.jpg" aria-label="查看VIP房大图">
-            <img src="./assets/vip-room-updated.jpg" alt="VIP双床房">
-          </button>
-          <div class="room-info">
-            <div><span>VIP TWIN ROOM</span><h3>VIP 双床房</h3></div>
-            <strong>$70<small>/ night</small></strong>
-          </div>
-          <p>高品质空间与精致布置，适合重要商务接待。</p>
-          <a href="https://wa.me/855189958899?text=Hello%2C%20I%20would%20like%20to%20book%20a%20VIP%20Room." target="_blank" rel="noopener">立即咨询 →</a>
+        <article class="room-card vip reveal" data-room="VIP 双床房" data-price="70">
+          <button class="image-button" data-full="./assets/vip-room.jpg"><img src="./assets/vip-room.jpg" alt="VIP双床房"><span class="vip-tag">VIP</span><span class="view-label">VIEW</span></button>
+          <div class="room-body"><div class="room-title"><span>VIP TWIN ROOM</span><h3 data-zh="VIP 双床房" data-en="VIP Twin Room">VIP 双床房</h3></div><div class="room-price"><b>$70</b><small>/ night</small></div><p data-zh="高品质空间与精致布置，适合重要商务接待。" data-en="A refined setting for executive stays and important guests.">高品质空间与精致布置，适合重要商务接待。</p><button class="room-book open-booking" type="button" data-zh="立即咨询" data-en="Enquire Now">立即咨询</button></div>
         </article>
       </div>
     </div>
@@ -151,86 +111,40 @@
 
   <section class="section facilities-section" id="facilities">
     <div class="container">
-      <div class="section-heading light reveal">
-        <span>HOTEL FACILITIES</span>
-        <h2>完善配套，舒适生活</h2>
-        <p>满足短住、长住、商务接待和团队住宿的多样需求。</p>
-      </div>
-      <div class="facility-feature reveal">
-        <img src="./assets/fitness-center.jpg" alt="酒店健身房">
-        <div>
-          <span>FITNESS CENTER</span>
-          <h3>高空景观健身房</h3>
-          <p>配备跑步机、椭圆机、动感单车及力量训练设备。宽阔落地窗带来明亮视野，让住客在旅途中保持活力。</p>
-        </div>
-      </div>
+      <div class="section-heading light reveal"><span>HOTEL FACILITIES</span><h2 data-zh="舒适之外，更完整的入住体验" data-en="More than a room — a complete stay">舒适之外，更完整的入住体验</h2></div>
+      <div class="facility-feature reveal"><img src="./assets/fitness-center.jpg" alt="酒店健身房"><div><span>FITNESS CENTER</span><h3 data-zh="高空景观健身房" data-en="Skyline Fitness Center">高空景观健身房</h3><p data-zh="明亮开阔的训练空间，配备有氧与力量设备，让旅途中的生活节奏保持从容。" data-en="A bright training space with cardio and strength equipment, helping guests stay energized throughout their journey.">明亮开阔的训练空间，配备有氧与力量设备，让旅途中的生活节奏保持从容。</p></div></div>
       <div class="facility-grid">
-        <article class="reveal"><i>🏊</i><h3>游泳池</h3><p>放松身心，享受舒适休闲时光。</p></article>
-        <article class="reveal"><i>🏢</i><h3>服务式公寓</h3><p>适合长期住宿和企业项目团队。</p></article>
-        <article class="reveal"><i>🤝</i><h3>会议室</h3><p>满足小型会议、洽谈和商务活动。</p></article>
-        <article class="reveal"><i>🛎️</i><h3>企业接待</h3><p>团队入住、长期包房和定制接待服务。</p></article>
+        <article class="reveal"><span>01</span><h3 data-zh="游泳池" data-en="Swimming Pool">游泳池</h3><p data-zh="放松身心，享受舒适休闲时光。" data-en="Relax and recharge in a calm setting.">放松身心，享受舒适休闲时光。</p></article>
+        <article class="reveal"><span>02</span><h3 data-zh="服务式公寓" data-en="Serviced Apartments">服务式公寓</h3><p data-zh="适合长期住宿和企业项目团队。" data-en="Designed for long stays and project teams.">适合长期住宿和企业项目团队。</p></article>
+        <article class="reveal"><span>03</span><h3 data-zh="会议空间" data-en="Meeting Space">会议空间</h3><p data-zh="满足小型会议、洽谈和商务活动。" data-en="For meetings, discussions and business events.">满足小型会议、洽谈和商务活动。</p></article>
+        <article class="reveal"><span>04</span><h3 data-zh="企业接待" data-en="Corporate Hospitality">企业接待</h3><p data-zh="团队入住、长期包房和定制接待服务。" data-en="Tailored group stays and corporate solutions.">团队入住、长期包房和定制接待服务。</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section gallery-section" id="gallery">
+    <div class="container"><div class="section-heading reveal"><span>GALLERY</span><h2 data-zh="酒店影像" data-en="A closer look at the hotel">酒店影像</h2></div>
+      <div class="gallery-grid reveal">
+        <button class="gallery-item large image-button" data-full="./assets/hotel-exterior.jpg"><img src="./assets/hotel-exterior.jpg" alt="酒店外观"></button>
+        <button class="gallery-item image-button" data-full="./assets/standard-room.jpg"><img src="./assets/standard-room.jpg" alt="标准客房"></button>
+        <button class="gallery-item image-button" data-full="./assets/vip-room.jpg"><img src="./assets/vip-room.jpg" alt="VIP客房"></button>
+        <button class="gallery-item image-button" data-full="./assets/fitness-center.jpg"><img src="./assets/fitness-center.jpg" alt="健身房"></button>
+        <button class="gallery-item image-button" data-full="./assets/suite-room.jpg"><img src="./assets/suite-room.jpg" alt="酒店套房"></button>
       </div>
     </div>
   </section>
 
   <section class="section location-section" id="location">
-    <div class="container location-grid">
-      <div class="content-block reveal">
-        <span class="section-kicker">LOCATION</span>
-        <h2>连接机场、高速与金边城区</h2>
-        <p class="lead">优越区位让商务出行、采购考察和企业团队通勤更加高效。</p>
-        <ul class="location-list">
-          <li>可快速前往新机场，路线通畅</li>
-          <li>距金边—西港高速入口约 2,000 米</li>
-          <li>约 10 分钟抵达 AEON Mall 2</li>
-          <li>邻近多个机械配件及批发市场</li>
-        </ul>
-        <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=ZHONGDING+RED+HOTEL+Phnom+Penh" target="_blank" rel="noopener">打开 Google 地图</a>
-      </div>
-      <div class="map-card reveal">
-        <img src="./assets/map.jpg" alt="中鼎瑞德酒店地图位置">
-        <div class="map-caption">
-          <strong>ZHONGDING RED HOTEL (Airport)</strong>
-          <span>Phnom Penh · Cambodia</span>
-        </div>
-      </div>
-    </div>
+    <div class="container location-grid"><div class="content-block reveal"><span class="section-kicker">LOCATION</span><h2 data-zh="连接机场、高速与金边城区" data-en="Connected to the airport, expressway and city">连接机场、高速与金边城区</h2><p class="lead" data-zh="优越区位让商务出行、采购考察和企业团队通勤更加高效。" data-en="A strategic location makes business travel, sourcing trips and team mobility more efficient.">优越区位让商务出行、采购考察和企业团队通勤更加高效。</p><ul class="location-list"><li data-zh="可快速前往新机场，路线通畅" data-en="Convenient access to the new airport">可快速前往新机场，路线通畅</li><li data-zh="距金边—西港高速入口约 2 公里" data-en="Approx. 2 km from the Phnom Penh–Sihanoukville Expressway">距金边—西港高速入口约 2 公里</li><li data-zh="约 10 分钟抵达 AEON Mall 2" data-en="Approx. 10 minutes to AEON Mall 2">约 10 分钟抵达 AEON Mall 2</li></ul><a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=ZHONGDING+RED+HOTEL+Phnom+Penh" target="_blank" rel="noopener" data-zh="打开 Google 地图" data-en="Open Google Maps">打开 Google 地图</a></div><div class="map-card reveal"><img src="./assets/map.jpg" alt="酒店地图位置"><div><strong>ZHONGDING RED HOTEL</strong><span>Phnom Penh · Cambodia</span></div></div></div>
   </section>
 
-  <section class="section contact-section" id="contact">
-    <div class="container contact-panel reveal">
-      <div>
-        <span class="section-kicker">CONTACT & BOOKING</span>
-        <h2>立即咨询与预订</h2>
-        <p>客房预订、企业长包房、团队住宿及商务接待，请通过电话或 WhatsApp 联系我们。</p>
-      </div>
-      <div class="contact-actions">
-        <a href="tel:+855183180888"><small>KH 电话</small><strong>+855 018 318 0888</strong></a>
-        <a href="tel:+855189958899"><small>中文服务</small><strong>+855 018 995 8899</strong></a>
-        <a class="whatsapp" href="https://wa.me/855189958899" target="_blank" rel="noopener"><small>WhatsApp</small><strong>在线联系</strong></a>
-      </div>
-    </div>
-  </section>
+  <section class="section contact-section" id="contact"><div class="container contact-panel reveal"><div><span class="section-kicker">CONTACT & BOOKING</span><h2 data-zh="准备好您的金边之旅" data-en="Plan your stay in Phnom Penh">准备好您的金边之旅</h2><p data-zh="客房预订、企业长包房、团队住宿及商务接待，请随时联系我们。" data-en="For room reservations, long stays, group accommodation and corporate hospitality, contact us anytime.">客房预订、企业长包房、团队住宿及商务接待，请随时联系我们。</p></div><div class="contact-actions"><a href="tel:+855183180888"><small>KH</small><strong>+855 018 318 0888</strong></a><a href="tel:+855189958899"><small>中文服务</small><strong>+855 018 995 8899</strong></a><a class="whatsapp" href="https://wa.me/855189958899" target="_blank" rel="noopener"><small>WhatsApp</small><strong data-zh="在线联系" data-en="Chat Now">在线联系</strong></a></div></div></section>
 </main>
 
-<footer>
-  <div class="container footer-wrap">
-    <div class="brand footer-brand">
-      <img src="./assets/logo.jpg" alt="中鼎品牌标志">
-      <span><strong>中鼎瑞德酒店</strong><small>ZHONGDING RED HOTEL</small></span>
-    </div>
-    <p>© 2026 ZHONGDING RED HOTEL · ziechotel.top</p>
-  </div>
-</footer>
+<footer><div class="container footer-wrap"><div class="brand footer-brand"><img src="./assets/logo.jpg" alt="中鼎品牌标志"><span><strong>中鼎瑞德酒店</strong><small>ZHONGDING RED HOTEL</small></span></div><p>© 2026 ZHONGDING RED HOTEL · ziechotel.top</p></div></footer>
 
-<a class="floating-whatsapp" href="https://wa.me/855189958899" target="_blank" rel="noopener" aria-label="WhatsApp 联系">WA</a>
-<a class="back-top" href="#top" aria-label="返回顶部">↑</a>
-
-<div class="lightbox" aria-hidden="true">
-  <button aria-label="关闭图片">×</button>
-  <img src="" alt="客房大图">
-</div>
-
+<a class="floating-whatsapp" href="https://wa.me/855189958899" target="_blank" rel="noopener" aria-label="WhatsApp 联系">WA</a><a class="back-top" href="#top" aria-label="返回顶部">↑</a>
+<div class="lightbox" aria-hidden="true"><button class="lightbox-close" aria-label="关闭图片">×</button><img src="" alt="酒店图片"></div>
+<div class="booking-modal" aria-hidden="true"><div class="booking-card"><button class="booking-close" aria-label="关闭预订窗口">×</button><span class="section-kicker">BOOKING REQUEST</span><h2 data-zh="预订咨询" data-en="Booking Enquiry">预订咨询</h2><p data-zh="填写信息后，将通过 WhatsApp 与酒店联系。" data-en="Complete the details and continue your enquiry on WhatsApp.">填写信息后，将通过 WhatsApp 与酒店联系。</p><form id="bookingForm"><label><span data-zh="房型" data-en="Room Type">房型</span><select name="room"><option>标准双床房 - $35</option><option>单人间 - $35</option><option>三人间 - $45</option><option>套房（三床）- $60</option><option>VIP 双床房 - $70</option></select></label><div class="form-row"><label><span data-zh="入住日期" data-en="Check-in">入住日期</span><input type="date" name="checkin" required></label><label><span data-zh="退房日期" data-en="Check-out">退房日期</span><input type="date" name="checkout" required></label></div><label><span data-zh="姓名" data-en="Name">姓名</span><input type="text" name="name" placeholder="Your name" required></label><button class="btn btn-primary" type="submit" data-zh="通过 WhatsApp 咨询" data-en="Continue on WhatsApp">通过 WhatsApp 咨询</button></form><small class="future-note" data-zh="V4 已预留在线预订与后台接口，可在后续版本接入。" data-en="V4 is ready for a future booking engine and backend integration.">V4 已预留在线预订与后台接口，可在后续版本接入。</small></div></div>
 <script src="./script.js"></script>
-</body>
-</html>
+</body></html>
