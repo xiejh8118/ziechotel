@@ -126,3 +126,41 @@ document.addEventListener('keydown', (event) => {
     closeBooking();
   }
 });
+
+
+const shareUrl = 'https://www.ziechotel.top/';
+const shareTitle = '中鼎瑞德酒店 | ZHONGDING RED HOTEL';
+const shareText = '金边商务酒店：舒适客房、VIP双床房、长期住宿及企业团队接待。';
+
+document.querySelector('.native-share')?.addEventListener('click', async () => {
+  try {
+    if (navigator.share) {
+      await navigator.share({ title: shareTitle, text: shareText, url: shareUrl });
+    } else {
+      await navigator.clipboard.writeText(shareUrl);
+      const status = document.querySelector('.copy-status');
+      if (status) status.textContent = lang === 'zh' ? '您的浏览器不支持系统分享，网址已复制。' : 'Sharing is unavailable; the link has been copied.';
+    }
+  } catch (error) {
+    if (error?.name !== 'AbortError') console.error('Share failed:', error);
+  }
+});
+
+document.querySelector('.copy-link')?.addEventListener('click', async () => {
+  const status = document.querySelector('.copy-status');
+  try {
+    await navigator.clipboard.writeText(shareUrl);
+    if (status) status.textContent = lang === 'zh' ? '网站链接已复制。' : 'Website link copied.';
+  } catch {
+    const helper = document.createElement('textarea');
+    helper.value = shareUrl;
+    helper.setAttribute('readonly', '');
+    helper.style.position = 'fixed';
+    helper.style.opacity = '0';
+    document.body.appendChild(helper);
+    helper.select();
+    document.execCommand('copy');
+    helper.remove();
+    if (status) status.textContent = lang === 'zh' ? '网站链接已复制。' : 'Website link copied.';
+  }
+});
