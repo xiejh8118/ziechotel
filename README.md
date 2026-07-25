@@ -26,4 +26,4 @@
 
 - Optimized for mobile, tablet, and desktop.
 - Refined hero presentation.
-- Replaced VIP room card with Standard Twin Room at USD 35/night.
+- VIP room remains USD 70/night; only its display photo was replaced.
