@@ -20,3 +20,10 @@
 - Triple Room: USD 45/night
 - Three-bed Suite: USD 60/night
 - VIP Twin Room: USD 70/night
+
+
+## V3 responsive update
+
+- Optimized for mobile, tablet, and desktop.
+- Refined hero presentation.
+- Replaced VIP room card with Standard Twin Room at USD 35/night.

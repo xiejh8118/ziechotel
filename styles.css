@@ -162,3 +162,80 @@ footer{background:#090806;color:#fff;padding:32px 0}
   .contact-panel h2{font-size:38px}
   .footer-wrap{flex-direction:column;text-align:center}
 }
+
+/* V3 responsive refinement */
+html,body{max-width:100%;overflow-x:hidden}
+*,*::before,*::after{min-width:0}
+.hero-content{width:min(100%,860px)}
+.hero-badge{display:inline-flex;align-items:center;min-height:34px;padding:0 15px;border:1px solid rgba(234,209,158,.5);background:rgba(12,11,9,.28);backdrop-filter:blur(8px);font-size:11px;letter-spacing:.18em;color:#f2dfb8;margin-bottom:18px}
+.hero::after{content:"";position:absolute;inset:auto 0 0;height:180px;background:linear-gradient(0deg,rgba(12,11,9,.72),transparent);pointer-events:none}
+.hero-content,.scroll-cue{z-index:2}
+.room-card.featured-wide{grid-column:1/-1;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;padding-bottom:0}
+.room-card.featured-wide .image-button{height:470px;grid-row:1/4}
+.room-card.featured-wide>p,.room-card.featured-wide>a{margin-right:32px}
+
+@media (max-width:1100px){
+  .container{width:min(100% - 36px,1080px)}
+  .main-nav{gap:18px}
+  .split{gap:48px}
+  .hero h1{font-size:clamp(48px,7vw,78px)}
+  .facility-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:900px){
+  .site-header{background:rgba(12,11,9,.9)}
+  .main-nav{max-height:calc(100vh - 98px);overflow:auto;border:1px solid rgba(201,163,91,.25);box-shadow:0 24px 60px rgba(0,0,0,.35)}
+  .main-nav a{padding:10px 4px}
+  .nav-book{text-align:center}
+  .hero{min-height:760px;background-position:60% center}
+  .hero-content{padding-top:110px}
+  .hero-facts{flex-wrap:wrap}
+  .room-card.featured-wide{grid-column:auto;display:block}
+  .room-card.featured-wide .image-button{height:340px}
+  .room-card.featured-wide>p,.room-card.featured-wide>a{margin-right:24px}
+}
+@media (max-width:600px){
+  .container{width:calc(100% - 28px)}
+  .nav-wrap{gap:12px}
+  .brand{gap:9px;max-width:calc(100% - 52px)}
+  .brand img{flex:0 0 auto}
+  .brand span{overflow:hidden}
+  .brand strong,.brand small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .hero{min-height:100svh;background-position:56% center}
+  .hero-content{padding:116px 0 70px}
+  .hero-badge{font-size:9px;letter-spacing:.12em;padding:0 10px}
+  .hero h1{font-size:clamp(40px,13vw,56px);letter-spacing:.02em}
+  .hero h2{font-size:clamp(15px,5vw,21px);letter-spacing:.08em}
+  .hero-copy{font-size:15px;line-height:1.85;margin:22px auto 26px;max-width:92%}
+  .hero-actions{display:grid;grid-template-columns:1fr;width:100%;max-width:330px;margin:auto}
+  .btn{width:100%;min-height:48px;padding:0 18px}
+  .hero-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:38px}
+  .hero-facts strong{font-size:23px}
+  .hero-facts span{font-size:10px}
+  .section{padding:68px 0}
+  .section-heading{margin-bottom:34px}
+  .content-block h2,.section-heading h2{font-size:clamp(34px,10vw,46px)}
+  .image-frame img{height:300px}
+  .image-label{font-size:10px;padding:12px 14px;bottom:16px}
+  .advantage-grid{gap:10px}
+  .advantage-grid article{padding:16px}
+  .image-button,.room-card.featured-wide .image-button{height:250px}
+  .room-info{padding:18px 18px 0;gap:8px}
+  .room-info h3{font-size:21px}
+  .room-card>p,.room-card>a,.room-card.featured-wide>p,.room-card.featured-wide>a{margin-left:18px;margin-right:18px}
+  .facility-feature img{height:260px}
+  .facility-feature div{padding:24px 20px}
+  .facility-feature h3{font-size:34px}
+  .map-card{padding:9px}
+  .map-card img{height:260px}
+  .map-caption{flex-direction:column;gap:4px}
+  .contact-panel{gap:28px}
+  .contact-actions strong{font-size:16px;overflow-wrap:anywhere}
+  .floating-whatsapp,.back-top{right:14px;width:46px;height:46px}
+  .floating-whatsapp{bottom:72px}
+  .back-top{bottom:16px}
+}
+@media (max-width:380px){
+  .brand small{display:none}
+  .hero-facts{grid-template-columns:1fr}
+  .hero-facts div{align-items:center}
+}
