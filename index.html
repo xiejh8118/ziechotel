@@ -23,12 +23,11 @@
     </a>
     <button class="menu-toggle" type="button" aria-label="打开菜单" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="nav-links" aria-label="主导航">
-      <a href="#rooms">客房</a>
-      <a href="#monthly">月租公寓</a>
-      <a href="#facilities">酒店设施</a>
+      <a href="#hotel-stay">酒店住宿</a>
       <a href="#corporate">企业服务</a>
       <a href="#supply">供应链平台</a>
       <a href="#contact">联系我们</a>
+      <button class="nav-ai" type="button" data-ai-open>AI 客服</button>
       <a class="nav-cta" href="https://wa.me/855189958899" target="_blank" rel="noopener">WhatsApp 咨询</a>
     </nav>
   </div>
@@ -42,7 +41,7 @@
     <div class="hero-cn">中鼎国际酒店</div>
     <p>商务出行 · 月租公寓 · 企业接待</p>
     <div class="actions">
-      <a class="btn btn-primary" href="#rooms">查看房型</a>
+      <a class="btn btn-primary" href="#hotel-stay">查看酒店住宿</a>
       <a class="btn btn-outline" href="https://wa.me/855189958899" target="_blank" rel="noopener">立即咨询</a>
     </div>
     <div class="hero-features" aria-label="酒店核心服务">
@@ -53,16 +52,16 @@
 
 <section class="quick-links section-sm">
   <div class="container quick-grid">
-    <a href="#rooms"><small>HOTEL</small><strong>酒店客房</strong><span>舒适、真实、安心入住 →</span></a>
+    <a href="#hotel-stay"><small>HOTEL STAY</small><strong>酒店住宿</strong><span>舒适客房、安心入住 →</span></a>
     <a href="#monthly"><small>APARTMENT</small><strong>月租公寓</strong><span>US$260/月起，适合长期居住 →</span></a>
     <a href="#corporate"><small>CORPORATE</small><strong>企业服务</strong><span>团队接待、长包房、协议合作 →</span></a>
     <div class="coming"><small>CONFERENCE</small><strong>会议中心</strong><span>Coming Soon</span></div>
   </div>
 </section>
 
-<section class="section" id="rooms">
+<section class="section" id="hotel-stay">
   <div class="container">
-    <div class="section-title"><span>ROOMS & APARTMENTS</span><h2>真实房型，按需入住</h2><p class="muted">真实照片、清晰价格、直接咨询。每个房型拥有独立页面和专属分享入口。</p></div>
+    <div class="section-title"><span>ROOMS & APARTMENTS</span><h2>客房与公寓，按需入住</h2><p class="muted">客房、公寓与酒店设施集中展示，价格清晰，可直接咨询。</p></div>
     <div class="grid">
       <article class="card">
         <a href="./standard.html"><div class="card-media"><img src="./assets/standard-twin.jpg" alt="标准双床房"></div></a>
@@ -89,7 +88,7 @@
 
 <section class="section facilities" id="facilities">
   <div class="container">
-    <div class="section-title light"><span>FACILITIES & SERVICE</span><h2>真实设施，专业服务</h2><p>我们不使用虚构效果图，您在网站上看到的，就是酒店真实环境。</p></div>
+    <div class="section-title light"><span>FACILITIES & SERVICE</span><h2>酒店设施与贴心服务</h2><p>游泳池、健身房和24小时前台，为商务与长期住宿提供便利。</p></div>
     <div class="facility-grid">
       <article class="facility"><img src="./assets/pool.jpg" alt="酒店游泳池"><div><h3>游泳池</h3><p>开阔泳池空间，适合放松休闲。</p></div></article>
       <article class="facility"><img src="./assets/fitness.jpg" alt="酒店健身房"><div><h3>健身房</h3><p>满足日常训练与长期入住需求。</p></div></article>
@@ -118,7 +117,12 @@
     <div class="category-strip">
       <span>建筑材料</span><span>钢结构</span><span>工程施工</span><span>防水维修</span><span>家具设备</span><span>物流运输</span><span>财税法务</span><span>酒店及企业服务</span>
     </div>
-    <div class="actions center"><a class="btn btn-dark" href="./suppliers.html">进入供应链平台</a><a class="btn btn-primary" href="./join.html">申请供应商入驻</a></div>
+    <div class="supply-capabilities">
+      <div><b>新增供应商</b><span>企业在线提交，后台审核后上线</span></div>
+      <div><b>一键分享</b><span>供应商资料可直接转发给客户</span></div>
+      <div><b>海报生成</b><span>自动生成企业推广海报并保存</span></div>
+    </div>
+    <div class="actions center"><a class="btn btn-dark" href="./suppliers.html">浏览供应商</a><a class="btn btn-primary" href="./join.html">供应商入驻</a></div>
   </div>
 </section>
 
@@ -133,6 +137,15 @@
 
 <footer class="footer"><div class="container footer-wrap"><div class="footer-brand"><img src="./assets/logo.png" alt="ZIEC"><span><strong>ZIEC HOTEL</strong><small>中鼎国际酒店</small></span></div><div>© 2026 ZIEC HOTEL · www.ziechotel.top</div></div></footer>
 <a class="floating-wa" href="https://wa.me/855189958899" target="_blank" rel="noopener" aria-label="WhatsApp咨询">WA</a>
+
+<section class="ai-panel" id="aiPanel" aria-hidden="true">
+  <div class="ai-head"><div><strong>中鼎 AI 客服</strong><small>酒店住宿 · 企业服务 · 供应链咨询</small></div><button type="button" data-ai-close aria-label="关闭">×</button></div>
+  <div class="ai-messages" id="aiMessages"><div class="ai-message bot">您好，我是中鼎 AI 客服。您可以咨询客房、月租公寓、企业住宿、供应商入驻或采购询价。</div></div>
+  <div class="ai-quick"><button data-ai-question="酒店客房多少钱？">客房价格</button><button data-ai-question="如何申请供应商入驻？">供应商入驻</button><button data-ai-question="如何发布采购询价？">采购询价</button></div>
+  <form class="ai-form" id="aiForm"><input id="aiInput" maxlength="500" placeholder="请输入您的问题…" required><button>发送</button></form>
+  <a class="ai-human" href="https://wa.me/855189958899" target="_blank" rel="noopener">转 WhatsApp 人工服务</a>
+</section>
+<button class="floating-ai" type="button" data-ai-open aria-label="打开AI客服">AI</button>
 <div class="toast"></div>
 <script src="./script.js"></script>
 </body>

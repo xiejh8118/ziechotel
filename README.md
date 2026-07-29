@@ -1,25 +1,36 @@
-# ZIEC HOTEL V5.6 首页修改（第一版）
+# ZIEC HOTEL & SUPPLY CHAIN V6.0
 
-本版基于 V5.5 酒店供应链融合版，仅调整首页宣传内容，其他功能和数据库结构保持不变。
+## V6.0 核心升级
 
-## 本次修改
+1. 顶部导航将客房、月租公寓、酒店设施统一归入“酒店住宿”。
+2. 新增 AI 客服：酒店、月租、企业服务、供应商入驻与采购询价问答。
+3. 未配置 OPENAI_API_KEY 时自动使用内置 FAQ，不影响网站运行。
+4. 供应链平台支持新增供应商、后台审核、一键分享、供应商推广海报生成。
+5. 供应商入驻新增 Logo 图片网址和企业宣传语。
 
-1. 删除首页 `ABOUT ZIEC / 品牌成长` 整个模块。
-2. 删除导航中的“关于 ZIEC”。
-3. 供应链主标题修改为：
+## 数据库升级
 
-   **链接柬埔寨优质供应链，服务企业真实需求**
+在现有 Supabase SQL Editor 再次运行 `supabase/schema.sql`。V6.0 仅增加：
 
-4. 供应链说明修改为：
+- suppliers.logo_url
+- suppliers.slogan
 
-   **依托中鼎在柬埔寨长期积累的企业资源与本地服务能力，为工程项目、企业客户和供应商提供可靠、高效的合作对接。**
+使用 `add column if not exists`，不会删除原数据。
 
-5. 社交分享说明中删除“真实酒店”，修改为：
+## Vercel 环境变量
 
-   **商务住宿 · 企业接待 · 月租公寓 · 长期住宿**
+必需：
+- SUPABASE_URL
+- SUPABASE_SERVICE_ROLE_KEY
+- ADMIN_PASSWORD
+- ADMIN_SESSION_SECRET
+
+AI 客服可选：
+- OPENAI_API_KEY
+- OPENAI_MODEL（默认 gpt-5-mini）
+
+不配置 OpenAI Key 时，AI 客服仍能回答常见问题。
 
 ## 部署
 
-将本目录内所有文件覆盖到同一个 GitHub 仓库根目录，提交后由 Vercel 自动部署。
-
-本次不需要修改 Supabase 数据库。
+将本目录全部文件覆盖到同一个 GitHub 仓库根目录，提交后由同一个 Vercel 项目自动部署。

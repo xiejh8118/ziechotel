@@ -3,3 +3,6 @@ create table if not exists public.suppliers(id uuid primary key default gen_rand
 create table if not exists public.purchase_inquiries(id uuid primary key default gen_random_uuid(),customer_name varchar(80) not null,company_name varchar(120) default '',phone varchar(40) default '',whatsapp varchar(40) default '',category varchar(60) not null,budget varchar(80) default '',requirements text not null,delivery_time varchar(100) default '',status varchar(20) not null default 'new',created_at timestamptz not null default now());
 alter table public.suppliers enable row level security;alter table public.purchase_inquiries enable row level security;
 drop policy if exists "public approved suppliers" on public.suppliers;create policy "public approved suppliers" on public.suppliers for select using(status='approved');
+-- V6.0 supplier promotion fields
+alter table public.suppliers add column if not exists logo_url text default '';
+alter table public.suppliers add column if not exists slogan varchar(120) default '';
