@@ -1,5 +1,5 @@
 const crypto = require("crypto");
-const { db, body, text } = require("../lib/api-lib");
+const { db, body, text, databaseMessage } = require("../lib/api-lib");
 
 module.exports = async (req, res) => {
   if (req.method !== "POST") return res.status(405).end();
@@ -32,9 +32,7 @@ module.exports = async (req, res) => {
       .status(500)
       .json({
         ok: false,
-        message: error.message.includes("Bucket")
-          ? "请先执行 V6.0.2 数据库升级脚本"
-          : "图片上传失败",
+        message: databaseMessage(error, "图片上传失败，请稍后重试"),
       });
   const { data } = d.storage.from("supplier-images").getPublicUrl(path);
   return res.status(201).json({ ok: true, url: text(data.publicUrl, 800) });

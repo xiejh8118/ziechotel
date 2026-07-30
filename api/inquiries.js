@@ -1,4 +1,4 @@
-const { db, body, text, phone } = require("../lib/api-lib");
+const { db, body, text, phone, databaseMessage } = require("../lib/api-lib");
 module.exports = async (req, res) => {
   if (req.method !== "POST") return res.status(405).end();
   const d = db();
@@ -25,7 +25,10 @@ module.exports = async (req, res) => {
     status: "new",
   };
   const { error } = await d.from("purchase_inquiries").insert(row);
-  if (error) return res.status(500).json({ ok: false, message: "提交失败" });
+  if (error)
+    return res
+      .status(500)
+      .json({ ok: false, message: databaseMessage(error, "询价提交失败") });
   res
     .status(201)
     .json({ ok: true, message: "采购询价已提交，平台将尽快联系您。" });

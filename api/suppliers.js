@@ -1,4 +1,4 @@
-const { db, body, text, phone } = require("../lib/api-lib");
+const { db, body, text, phone, databaseMessage } = require("../lib/api-lib");
 module.exports = async (req, res) => {
   const d = db();
   if (!d) return res.status(503).json({ ok: false, message: "数据库尚未配置" });
@@ -10,7 +10,10 @@ module.exports = async (req, res) => {
       .order("featured", { ascending: false })
       .order("created_at", { ascending: false });
     const { data, error } = await q;
-    if (error) return res.status(500).json({ ok: false, message: "读取失败" });
+    if (error)
+      return res
+        .status(500)
+        .json({ ok: false, message: databaseMessage(error, "供应商读取失败") });
     return res.json({ ok: true, data });
   }
   if (req.method === "POST") {
@@ -59,9 +62,7 @@ module.exports = async (req, res) => {
         .status(500)
         .json({
           ok: false,
-          message: error.message.includes("image_urls")
-            ? "请先执行 V6.0.2 数据库升级脚本"
-            : "提交失败",
+          message: databaseMessage(error, "入驻申请提交失败，请稍后重试"),
         });
     return res
       .status(201)

@@ -1,5 +1,18 @@
 # ZIEC HOTEL V6.0.2
 
+## 2026-07-30 数据库连接修复
+
+- 修复 Vercel Node.js 20 与新版 Supabase SDK 不兼容导致的
+  `WebSocket is not defined`。
+- Vercel 运行环境升级为 Node.js 22，并锁定 Supabase SDK 版本，避免以后自动升级失效。
+- `/api/health` 统一使用网站数据库客户端，不再重复创建不同配置的连接。
+- 增加 `SUPABASE_URL` 格式检查。正确格式必须是：
+  `https://项目编号.supabase.co`，不能使用 `postgresql://...` 数据库连接串。
+- 供应商入驻、图片上传及采购询价返回明确的数据库错误说明。
+
+重新部署后先访问 `/api/health`。若核心表尚未创建，再到 Supabase SQL Editor
+执行一次 `supabase/schema.sql`。
+
 ## V6.0.2（2026-07-30）
 
 - 数据库健康检查只将当前实际使用的核心表设为必需，避免误报连接失败。

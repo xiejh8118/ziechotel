@@ -1,4 +1,4 @@
-const { createClient } = require("@supabase/supabase-js");
+const { db, configuration, databaseMessage } = require("../lib/api-lib");
 
 const REQUIRED_TABLES = ["suppliers", "purchase_inquiries"];
 const FEATURE_TABLES = ["site_settings"];
@@ -11,8 +11,9 @@ module.exports = async function handler(req, res) {
 
   res.setHeader("Cache-Control", "no-store, max-age=0");
 
-  const urlConfigured = Boolean(process.env.SUPABASE_URL);
-  const keyConfigured = Boolean(process.env.SUPABASE_SERVICE_ROLE_KEY);
+  const config = configuration();
+  const urlConfigured = Boolean(config.url);
+  const keyConfigured = Boolean(config.serviceRoleKey);
 
   const result = {
     ok: false,
@@ -30,17 +31,13 @@ module.exports = async function handler(req, res) {
     },
   };
 
-  if (!urlConfigured || !keyConfigured) {
-    result.message = "Supabase 环境变量尚未完整配置。";
+  if (config.error) {
+    result.message = config.error + "。";
     return res.status(503).json(result);
   }
 
   try {
-    const supabase = createClient(
-      process.env.SUPABASE_URL,
-      process.env.SUPABASE_SERVICE_ROLE_KEY,
-      { auth: { persistSession: false, autoRefreshToken: false } },
-    );
+    const supabase = db();
 
     for (const table of [...REQUIRED_TABLES, ...FEATURE_TABLES]) {
       const { error } = await supabase
@@ -66,7 +63,7 @@ module.exports = async function handler(req, res) {
 
     return res.status(result.ok ? 200 : 503).json(result);
   } catch (error) {
-    result.message = "数据库健康检查执行失败。";
+    result.message = databaseMessage(error, "数据库健康检查执行失败。");
     result.database.error =
       error instanceof Error ? error.message : String(error);
     return res.status(503).json(result);
