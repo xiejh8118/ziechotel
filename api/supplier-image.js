@@ -24,9 +24,24 @@ module.exports = async (req, res) => {
     ["image/webp"]: "webp",
   }[match[1]];
   const path = `pending/${Date.now()}-${crypto.randomBytes(8).toString("hex")}.${ext}`;
-  const { error } = await d.storage
-    .from("supplier-images")
+  const bucket = "supplier-images";
+  let { error } = await d.storage
+    .from(bucket)
     .upload(path, buffer, { contentType: match[1], upsert: false });
+  if (error && /bucket.*not found|not found/i.test(String(error.message || error))) {
+    const { error: createError } = await d.storage.createBucket(bucket, {
+      public: true,
+      fileSizeLimit: 2 * 1024 * 1024,
+      allowedMimeTypes: ["image/jpeg", "image/png", "image/webp"],
+    });
+    if (!createError || /already exists/i.test(String(createError.message || createError))) {
+      ({ error } = await d.storage
+        .from(bucket)
+        .upload(path, buffer, { contentType: match[1], upsert: false }));
+    } else {
+      error = createError;
+    }
+  }
   if (error)
     return res
       .status(500)
@@ -34,6 +49,6 @@ module.exports = async (req, res) => {
         ok: false,
         message: databaseMessage(error, "图片上传失败，请稍后重试"),
       });
-  const { data } = d.storage.from("supplier-images").getPublicUrl(path);
+  const { data } = d.storage.from(bucket).getPublicUrl(path);
   return res.status(201).json({ ok: true, url: text(data.publicUrl, 800) });
 };
