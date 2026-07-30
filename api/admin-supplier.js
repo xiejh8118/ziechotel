@@ -1,1 +1,23 @@
-const {db,body,authed}=require('../lib/api-lib');module.exports=async(req,res)=>{if(!authed(req))return res.status(401).json({ok:false});const d=db(),b=body(req),id=req.query.id;if(!d||!id)return res.status(400).json({ok:false});if(req.method==='PATCH'){const update={};if(['pending','approved','rejected','paused'].includes(b.status))update.status=b.status;if(typeof b.featured==='boolean')update.featured=b.featured;const {error}=await d.from('suppliers').update(update).eq('id',id);if(error)return res.status(500).json({ok:false});return res.json({ok:true})}if(req.method==='DELETE'){const {error}=await d.from('suppliers').delete().eq('id',id);if(error)return res.status(500).json({ok:false});return res.json({ok:true})}res.status(405).end()};
+const { db, body, authed } = require("../lib/api-lib");
+module.exports = async (req, res) => {
+  if (!authed(req)) return res.status(401).json({ ok: false });
+  const d = db(),
+    b = body(req),
+    id = req.query.id;
+  if (!d || !id) return res.status(400).json({ ok: false });
+  if (req.method === "PATCH") {
+    const update = {};
+    if (["pending", "approved", "rejected", "paused"].includes(b.status))
+      update.status = b.status;
+    if (typeof b.featured === "boolean") update.featured = b.featured;
+    const { error } = await d.from("suppliers").update(update).eq("id", id);
+    if (error) return res.status(500).json({ ok: false });
+    return res.json({ ok: true });
+  }
+  if (req.method === "DELETE") {
+    const { error } = await d.from("suppliers").delete().eq("id", id);
+    if (error) return res.status(500).json({ ok: false });
+    return res.json({ ok: true });
+  }
+  res.status(405).end();
+};

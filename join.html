@@ -1,9 +1,192 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0b1c33"><link rel="stylesheet" href="./styles.css"><title>供应商入驻 | ZIEC</title></head><body><header class="site-header"><div class="container nav"><a class="brand" href="./index.html"><img src="./assets/logo.png" alt="ZIEC Logo"><span><strong>ZIEC HOTEL</strong><small>中鼎国际酒店 · 供应链平台</small></span></a><button class="menu-toggle" type="button" aria-label="打开菜单"><span></span><span></span><span></span></button><nav class="nav-links"><a href="./index.html">首页</a><a href="./index.html#hotel-stay">酒店住宿</a><a href="./index.html#corporate">企业服务</a><a href="./suppliers.html">供应链平台</a><a href="./index.html#contact">联系我们</a><button class="nav-ai" type="button" data-ai-open>AI 客服</button><a class="nav-cta" href="https://wa.me/855189958899" target="_blank" rel="noopener">WhatsApp 咨询</a></nav></div></header><main><section class="sub-hero"><div class="container"><span>SUPPLIER JOIN</span><h1>供应商入驻申请</h1><p>填写真实企业资料。审核通过后，企业信息将在供应链平台公开展示。</p></div></section><section class="section"><div class="container form-layout"><div><div class="section-title"><span>APPLICATION</span><h2>提交企业资料</h2></div><p class="muted">带 * 为必填项。电话或 WhatsApp 至少填写一项。</p><ul class="feature-list"><li>前台仅展示审核通过的供应商</li><li>支持平台推荐标识</li><li>客户可直接 WhatsApp 联系</li><li>资料可由后台暂停或驳回</li></ul></div><form class="data-form" id="supplierJoinForm"><label>企业名称 *<input name="company_name" required maxlength="120"></label><label>供应商分类 *<select name="category" required><option value="">请选择</option><option>建筑材料</option><option>钢结构</option><option>工程施工</option><option>防水维修</option><option>家具设备</option><option>物流运输</option><option>财税法务</option><option>酒店及企业服务</option></select></label><label>所在城市<input name="city" value="金边" maxlength="60"></label><label>联系人 *<input name="contact_name" required maxlength="80"></label><label>联系电话<input name="phone" maxlength="40"></label><label>WhatsApp<input name="whatsapp" maxlength="40"></label><label class="full">企业地址<input name="address" maxlength="180"></label><label class="full">企业 Logo 图片网址（选填）<input name="logo_url" type="url" maxlength="500" placeholder="https://..."></label><label class="full">企业宣传语（选填）<input name="slogan" maxlength="120" placeholder="一句话介绍企业优势"></label><label class="full">主营产品或服务 *<textarea name="products" required maxlength="600"></textarea></label><label class="full">企业简介<textarea name="description" maxlength="1200"></textarea></label><button class="btn btn-primary full" type="submit">提交入驻申请</button><div id="joinMessage" class="form-message full"></div></form></div></section></main><footer class="footer"><div class="container footer-wrap"><div class="footer-brand"><img src="./assets/logo.png" alt="ZIEC"><span><strong>ZIEC HOTEL</strong><small>中鼎国际酒店 · 供应链平台</small></span></div><div>© 2026 ZIEC · www.ziechotel.top</div></div></footer><a class="floating-wa" href="https://wa.me/855189958899" target="_blank">WA</a>
-<section class="ai-panel" id="aiPanel" aria-hidden="true">
-  <div class="ai-head"><div><strong>中鼎 AI 客服</strong><small>酒店住宿 · 企业服务 · 供应链咨询</small></div><button type="button" data-ai-close aria-label="关闭">×</button></div>
-  <div class="ai-messages" id="aiMessages"><div class="ai-message bot">您好，我是中鼎 AI 客服。您可以咨询客房、月租公寓、企业住宿、供应商入驻或采购询价。</div></div>
-  <div class="ai-quick"><button data-ai-question="酒店客房多少钱？">客房价格</button><button data-ai-question="如何申请供应商入驻？">供应商入驻</button><button data-ai-question="如何发布采购询价？">采购询价</button></div>
-  <form class="ai-form" id="aiForm"><input id="aiInput" maxlength="500" placeholder="请输入您的问题…" required><button>发送</button></form>
-  <a class="ai-human" href="https://wa.me/855189958899" target="_blank" rel="noopener">转 WhatsApp 人工服务</a>
-</section>
-<button class="floating-ai" type="button" data-ai-open aria-label="打开AI客服">AI</button><div class="toast"></div><script src="./script.js"></script></body></html>
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#0b1c33" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>供应商入驻 | ZIEC</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="./index.html"
+          ><img src="./assets/logo.png" alt="ZIEC Logo" /><span
+            ><strong>ZIEC HOTEL</strong
+            ><small>中鼎国际酒店 · 供应链平台</small></span
+          ></a
+        ><button class="menu-toggle" type="button" aria-label="打开菜单">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="nav-links">
+          <a href="./index.html">首页</a
+          ><a href="./index.html#hotel-stay">酒店住宿</a
+          ><a href="./index.html#corporate">企业服务</a
+          ><a href="./suppliers.html">供应链平台</a
+          ><a href="./index.html#contact">联系我们</a
+          ><button class="nav-ai" type="button" data-ai-open>AI 客服</button
+          ><a
+            class="nav-cta"
+            href="https://wa.me/855189958899"
+            target="_blank"
+            rel="noopener"
+            >WhatsApp 咨询</a
+          >
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="sub-hero">
+        <div class="container">
+          <span>SUPPLIER JOIN</span>
+          <h1>供应商入驻申请</h1>
+          <p>填写真实企业资料。审核通过后，企业信息将在供应链平台公开展示。</p>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container form-layout">
+          <div>
+            <div class="section-title">
+              <span>APPLICATION</span>
+              <h2>提交企业资料</h2>
+            </div>
+            <p class="muted">带 * 为必填项。电话或 WhatsApp 至少填写一项。</p>
+            <ul class="feature-list">
+              <li>前台仅展示审核通过的供应商</li>
+              <li>支持平台推荐标识</li>
+              <li>客户可直接 WhatsApp 联系</li>
+              <li>资料可由后台暂停或驳回</li>
+            </ul>
+          </div>
+          <form class="data-form" id="supplierJoinForm">
+            <label
+              >企业名称 *<input
+                name="company_name"
+                required
+                maxlength="120" /></label
+            ><label
+              >供应商分类 *<select name="category" required>
+                <option value="">请选择</option>
+                <option>建筑材料</option>
+                <option>钢结构</option>
+                <option>工程施工</option>
+                <option>防水维修</option>
+                <option>家具设备</option>
+                <option>物流运输</option>
+                <option>财税法务</option>
+                <option>酒店及企业服务</option>
+              </select></label
+            ><label
+              >所在城市<input name="city" value="金边" maxlength="60" /></label
+            ><label
+              >联系人 *<input
+                name="contact_name"
+                required
+                maxlength="80" /></label
+            ><label>联系电话<input name="phone" maxlength="40" /></label
+            ><label>WhatsApp<input name="whatsapp" maxlength="40" /></label
+            ><label class="full"
+              >企业地址<input name="address" maxlength="180" /></label
+            ><label class="full"
+              >企业 Logo 图片网址（选填）<input
+                name="logo_url"
+                type="url"
+                maxlength="500"
+                placeholder="https://..." /></label
+            ><label class="full"
+              >企业宣传语（选填）<input
+                name="slogan"
+                maxlength="120"
+                placeholder="一句话介绍企业优势" /></label
+            ><label class="full image-upload-field"
+              >企业/产品图片 *（4–10张）<input
+                id="supplierImages"
+                name="supplier_images"
+                type="file"
+                accept="image/jpeg,image/png,image/webp"
+                multiple
+                required /><small
+                >请选择清晰的企业、产品、案例或办公环境照片；系统会自动压缩后上传。</small
+              >
+              <div id="supplierImagePreview" class="upload-preview"></div>
+              <div class="upload-progress" hidden><i></i></div></label
+            ><label class="full"
+              >主营产品或服务 *<textarea
+                name="products"
+                required
+                maxlength="600"
+              ></textarea></label
+            ><label class="full"
+              >企业简介<textarea
+                name="description"
+                maxlength="1200"
+              ></textarea></label
+            ><button class="btn btn-primary full" type="submit">
+              提交入驻申请
+            </button>
+            <div id="joinMessage" class="form-message full"></div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container footer-wrap">
+        <div class="footer-brand">
+          <img src="./assets/logo.png" alt="ZIEC" /><span
+            ><strong>ZIEC HOTEL</strong
+            ><small>中鼎国际酒店 · 供应链平台</small></span
+          >
+        </div>
+        <div>© 2026 ZIEC · www.ziechotel.top</div>
+      </div>
+    </footer>
+    <a class="floating-wa" href="https://wa.me/855189958899" target="_blank"
+      >WA</a
+    >
+    <section class="ai-panel" id="aiPanel" aria-hidden="true">
+      <div class="ai-head">
+        <div>
+          <strong>中鼎 AI 客服</strong
+          ><small>酒店住宿 · 企业服务 · 供应链咨询</small>
+        </div>
+        <button type="button" data-ai-close aria-label="关闭">×</button>
+      </div>
+      <div class="ai-messages" id="aiMessages">
+        <div class="ai-message bot">
+          您好，我是中鼎 AI
+          客服。您可以咨询客房、月租公寓、企业住宿、供应商入驻或采购询价。
+        </div>
+      </div>
+      <div class="ai-quick">
+        <button data-ai-question="酒店客房多少钱？">客房价格</button
+        ><button data-ai-question="如何申请供应商入驻？">供应商入驻</button
+        ><button data-ai-question="如何发布采购询价？">采购询价</button>
+      </div>
+      <form class="ai-form" id="aiForm">
+        <input
+          id="aiInput"
+          maxlength="500"
+          placeholder="请输入您的问题…"
+          required
+        /><button>发送</button>
+      </form>
+      <a
+        class="ai-human"
+        href="https://wa.me/855189958899"
+        target="_blank"
+        rel="noopener"
+        >转 WhatsApp 人工服务</a
+      >
+    </section>
+    <button
+      class="floating-ai"
+      type="button"
+      data-ai-open
+      aria-label="打开AI客服"
+    >
+      AI
+    </button>
+    <div class="toast"></div>
+    <script src="./script.js"></script>
+  </body>
+</html>

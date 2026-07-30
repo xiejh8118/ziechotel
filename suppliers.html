@@ -1,9 +1,156 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0b1c33"><link rel="stylesheet" href="./styles.css"><title>供应商平台 | ZIEC</title><meta name="description" content="中鼎国际酒店供应链平台，查找柬埔寨建筑、工程、物流和企业服务供应商。"></head><body><header class="site-header"><div class="container nav"><a class="brand" href="./index.html"><img src="./assets/logo.png" alt="ZIEC Logo"><span><strong>ZIEC HOTEL</strong><small>中鼎国际酒店 · 供应链平台</small></span></a><button class="menu-toggle" type="button" aria-label="打开菜单"><span></span><span></span><span></span></button><nav class="nav-links"><a href="./index.html">首页</a><a href="./index.html#hotel-stay">酒店住宿</a><a href="./index.html#corporate">企业服务</a><a href="./suppliers.html">供应链平台</a><a href="./index.html#contact">联系我们</a><button class="nav-ai" type="button" data-ai-open>AI 客服</button><a class="nav-cta" href="https://wa.me/855189958899" target="_blank" rel="noopener">WhatsApp 咨询</a></nav></div></header><main><section class="sub-hero"><div class="container"><span>ZIEC SUPPLY CHAIN</span><h1>柬埔寨供应商平台</h1><p>汇聚柬埔寨优质供应商，为工程项目与企业客户提供可审核、可联系、高效率的合作入口。</p></div></section><section class="section"><div class="container"><div class="supplier-toolbar"><div><b>供应商资料支持一键分享与推广海报生成</b><span>企业可在线申请新增，审核通过后自动展示。</span></div><a class="btn btn-primary" href="./join.html">新增供应商</a></div><form class="supplier-search" id="supplierSearch"><input id="supplierKeyword" placeholder="搜索企业、产品或服务"><select id="supplierCategory"><option value="">全部分类</option><option>建筑材料</option><option>钢结构</option><option>工程施工</option><option>防水维修</option><option>家具设备</option><option>物流运输</option><option>财税法务</option><option>酒店及企业服务</option></select><button class="btn btn-primary">搜索</button></form><div id="supplierStatus" class="muted list-status">正在读取供应商……</div><div id="supplierGrid" class="grid supplier-grid"></div></div></section><section class="section pale"><div class="container center-block"><div class="section-title"><span>JOIN ZIEC</span><h2>您的企业也可以加入</h2><p class="muted">提交后进入待审核状态，平台审核通过后才会在前台公开展示。</p></div><a class="btn btn-dark" href="./join.html">申请供应商入驻</a></div></section></main><footer class="footer"><div class="container footer-wrap"><div class="footer-brand"><img src="./assets/logo.png" alt="ZIEC"><span><strong>ZIEC HOTEL</strong><small>中鼎国际酒店 · 供应链平台</small></span></div><div>© 2026 ZIEC · www.ziechotel.top</div></div></footer><a class="floating-wa" href="https://wa.me/855189958899" target="_blank">WA</a>
-<section class="ai-panel" id="aiPanel" aria-hidden="true">
-  <div class="ai-head"><div><strong>中鼎 AI 客服</strong><small>酒店住宿 · 企业服务 · 供应链咨询</small></div><button type="button" data-ai-close aria-label="关闭">×</button></div>
-  <div class="ai-messages" id="aiMessages"><div class="ai-message bot">您好，我是中鼎 AI 客服。您可以咨询客房、月租公寓、企业住宿、供应商入驻或采购询价。</div></div>
-  <div class="ai-quick"><button data-ai-question="酒店客房多少钱？">客房价格</button><button data-ai-question="如何申请供应商入驻？">供应商入驻</button><button data-ai-question="如何发布采购询价？">采购询价</button></div>
-  <form class="ai-form" id="aiForm"><input id="aiInput" maxlength="500" placeholder="请输入您的问题…" required><button>发送</button></form>
-  <a class="ai-human" href="https://wa.me/855189958899" target="_blank" rel="noopener">转 WhatsApp 人工服务</a>
-</section>
-<button class="floating-ai" type="button" data-ai-open aria-label="打开AI客服">AI</button><div class="toast"></div><script src="./script.js"></script></body></html>
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#0b1c33" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>供应商平台 | ZIEC</title>
+    <meta
+      name="description"
+      content="中鼎国际酒店供应链平台，查找柬埔寨建筑、工程、物流和企业服务供应商。"
+    />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="./index.html"
+          ><img src="./assets/logo.png" alt="ZIEC Logo" /><span
+            ><strong>ZIEC HOTEL</strong
+            ><small>中鼎国际酒店 · 供应链平台</small></span
+          ></a
+        ><button class="menu-toggle" type="button" aria-label="打开菜单">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="nav-links">
+          <a href="./index.html">首页</a
+          ><a href="./index.html#hotel-stay">酒店住宿</a
+          ><a href="./index.html#corporate">企业服务</a
+          ><a href="./suppliers.html">供应链平台</a
+          ><a href="./index.html#contact">联系我们</a
+          ><button class="nav-ai" type="button" data-ai-open>AI 客服</button
+          ><a
+            class="nav-cta"
+            href="https://wa.me/855189958899"
+            target="_blank"
+            rel="noopener"
+            >WhatsApp 咨询</a
+          >
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="sub-hero">
+        <div class="container">
+          <span>ZIEC SUPPLY CHAIN</span>
+          <h1>柬埔寨供应商平台</h1>
+          <p>
+            汇聚柬埔寨优质供应商，为工程项目与企业客户提供可审核、可联系、高效率的合作入口。
+          </p>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container">
+          <div class="supplier-toolbar">
+            <div>
+              <b>供应商资料支持一键分享与推广海报生成</b
+              ><span>企业可在线申请新增，审核通过后自动展示。</span>
+            </div>
+            <a class="btn btn-primary" href="./join.html">新增供应商</a>
+          </div>
+          <form class="supplier-search" id="supplierSearch">
+            <input
+              id="supplierKeyword"
+              placeholder="搜索企业、产品或服务"
+            /><select id="supplierCategory">
+              <option value="">全部分类</option>
+              <option>建筑材料</option>
+              <option>钢结构</option>
+              <option>工程施工</option>
+              <option>防水维修</option>
+              <option>家具设备</option>
+              <option>物流运输</option>
+              <option>财税法务</option>
+              <option>酒店及企业服务</option></select
+            ><button class="btn btn-primary">搜索</button>
+          </form>
+          <div id="supplierStatus" class="muted list-status">
+            正在读取供应商……
+          </div>
+          <div id="supplierGrid" class="grid supplier-grid"></div>
+        </div>
+      </section>
+      <section class="section pale">
+        <div class="container center-block">
+          <div class="section-title">
+            <span>JOIN ZIEC</span>
+            <h2>您的企业也可以加入</h2>
+            <p class="muted">
+              提交后进入待审核状态，平台审核通过后才会在前台公开展示。
+            </p>
+          </div>
+          <a class="btn btn-dark" href="./join.html">申请供应商入驻</a>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container footer-wrap">
+        <div class="footer-brand">
+          <img src="./assets/logo.png" alt="ZIEC" /><span
+            ><strong>ZIEC HOTEL</strong
+            ><small>中鼎国际酒店 · 供应链平台</small></span
+          >
+        </div>
+        <div>© 2026 ZIEC · www.ziechotel.top</div>
+      </div>
+    </footer>
+    <a class="floating-wa" href="https://wa.me/855189958899" target="_blank"
+      >WA</a
+    >
+    <section class="ai-panel" id="aiPanel" aria-hidden="true">
+      <div class="ai-head">
+        <div>
+          <strong>中鼎 AI 客服</strong
+          ><small>酒店住宿 · 企业服务 · 供应链咨询</small>
+        </div>
+        <button type="button" data-ai-close aria-label="关闭">×</button>
+      </div>
+      <div class="ai-messages" id="aiMessages">
+        <div class="ai-message bot">
+          您好，我是中鼎 AI
+          客服。您可以咨询客房、月租公寓、企业住宿、供应商入驻或采购询价。
+        </div>
+      </div>
+      <div class="ai-quick">
+        <button data-ai-question="酒店客房多少钱？">客房价格</button
+        ><button data-ai-question="如何申请供应商入驻？">供应商入驻</button
+        ><button data-ai-question="如何发布采购询价？">采购询价</button>
+      </div>
+      <form class="ai-form" id="aiForm">
+        <input
+          id="aiInput"
+          maxlength="500"
+          placeholder="请输入您的问题…"
+          required
+        /><button>发送</button>
+      </form>
+      <a
+        class="ai-human"
+        href="https://wa.me/855189958899"
+        target="_blank"
+        rel="noopener"
+        >转 WhatsApp 人工服务</a
+      >
+    </section>
+    <button
+      class="floating-ai"
+      type="button"
+      data-ai-open
+      aria-label="打开AI客服"
+    >
+      AI
+    </button>
+    <div class="toast"></div>
+    <script src="./script.js"></script>
+  </body>
+</html>

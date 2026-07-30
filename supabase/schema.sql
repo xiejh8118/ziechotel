@@ -6,3 +6,18 @@ drop policy if exists "public approved suppliers" on public.suppliers;create pol
 -- V6.0 supplier promotion fields
 alter table public.suppliers add column if not exists logo_url text default '';
 alter table public.suppliers add column if not exists slogan varchar(120) default '';
+alter table public.suppliers add column if not exists image_urls text[] not null default '{}';
+
+create table if not exists public.site_settings(
+  setting_key varchar(80) primary key,
+  setting_value jsonb not null default '{}'::jsonb,
+  updated_at timestamptz not null default now()
+);
+alter table public.site_settings enable row level security;
+
+insert into storage.buckets(id,name,public,file_size_limit,allowed_mime_types)
+values('supplier-images','supplier-images',true,2097152,array['image/jpeg','image/png','image/webp'])
+on conflict(id) do update set public=true,file_size_limit=2097152,allowed_mime_types=array['image/jpeg','image/png','image/webp'];
+
+drop policy if exists "public supplier images" on storage.objects;
+create policy "public supplier images" on storage.objects for select using(bucket_id='supplier-images');
