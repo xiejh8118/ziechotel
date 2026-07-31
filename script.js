@@ -186,6 +186,7 @@ if (jf) {
     try {
       const image_urls = [];
       for (let i = 0; i < files.length; i++) {
+        msg.textContent = `正在处理第 ${i + 1}/${files.length} 张图片……`;
         const data = await compressImage(files[i]);
         const uploaded = await jsonFetch("/api/supplier-image", {
           method: "POST",
@@ -206,7 +207,7 @@ if (jf) {
       jf.reset();
       imagePreview.innerHTML = "";
     } catch (err) {
-      msg.textContent = err.message;
+      msg.textContent = `上传未完成：${err.message}`;
       msg.className = "form-message full bad";
     } finally {
       progress.hidden = true;
