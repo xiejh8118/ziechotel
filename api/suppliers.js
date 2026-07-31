@@ -1,4 +1,12 @@
-const { db, body, text, phone, databaseMessage } = require("../lib/api-lib");
+const crypto = require("crypto");
+const {
+  db,
+  body,
+  text,
+  phone,
+  databaseMessage,
+  databaseDiagnostic,
+} = require("../lib/api-lib");
 module.exports = async (req, res) => {
   const d = db();
   if (!d) return res.status(503).json({ ok: false, message: "数据库尚未配置" });
@@ -57,13 +65,26 @@ module.exports = async (req, res) => {
       featured: false,
     };
     const { error } = await d.from("suppliers").insert(row);
-    if (error)
+    if (error) {
+      const requestId = crypto.randomBytes(5).toString("hex");
+      const diagnostic = databaseDiagnostic(error);
+      console.error("[supplier-submit]", {
+        requestId,
+        code: diagnostic.code,
+        message: diagnostic.message,
+        details: diagnostic.details,
+        hint: diagnostic.hint,
+      });
       return res
         .status(500)
         .json({
           ok: false,
           message: databaseMessage(error, "入驻申请提交失败，请稍后重试"),
+          code: diagnostic.code,
+          requestId,
+          diagnostic,
         });
+    }
     return res
       .status(201)
       .json({ ok: true, message: "入驻申请已提交，等待平台审核。" });

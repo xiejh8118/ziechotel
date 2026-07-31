@@ -65,7 +65,14 @@ async function jsonFetch(url, options = {}) {
     ...options,
   });
   const j = await r.json().catch(() => ({}));
-  if (!r.ok) throw new Error(j.message || "操作失败");
+  if (!r.ok) {
+    const diagnostic = j.requestId
+      ? `（错误代码：${j.code || "UNKNOWN"}；诊断号：${j.requestId}）`
+      : j.code
+        ? `（错误代码：${j.code}）`
+        : "";
+    throw new Error(`${j.message || "操作失败"}${diagnostic}`);
+  }
   return j;
 }
 async function loadSuppliers() {
