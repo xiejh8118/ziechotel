@@ -63,5 +63,28 @@ module.exports = async (req, res) => {
       return res.status(500).json({ ok: false, message: "AI配置保存失败" });
     return res.json({ ok: true, message: "AI 客服接口配置已安全保存" });
   }
+  if (req.method === "POST") {
+    const b = body(req);
+    const baseUrl = text(b.base_url, 300).replace(/\/+$/, "") || "https://api.openai.com/v1";
+    const model = text(b.model, 100) || "gpt-5-mini";
+    let apiKey = text(b.api_key, 500);
+    if (!apiKey) {
+      const { data } = await d.from("site_settings").select("setting_value").eq("setting_key", KEY).maybeSingle();
+      apiKey = decrypt(data?.setting_value?.api_key);
+    }
+    if (!apiKey) return res.status(400).json({ ok: false, message: "请先填写或保存 API Key" });
+    try {
+      const r = await fetch(`${baseUrl}/responses`, {
+        method: "POST",
+        headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+        body: JSON.stringify({ model, input: "请只回复：连接成功", max_output_tokens: 20 }),
+      });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error(j.error?.message || `接口返回 ${r.status}`);
+      return res.json({ ok: true, message: "AI 接口测试成功" });
+    } catch (e) {
+      return res.status(400).json({ ok: false, message: `测试失败：${e.message}` });
+    }
+  }
   res.status(405).end();
 };

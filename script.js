@@ -233,6 +233,25 @@ const login = document.querySelector("#adminLogin"),
   dash = document.querySelector("#adminDashboard"),
   content = document.querySelector("#adminContent");
 let adminTab = "suppliers";
+let adminRows = [];
+const statusName = { pending: "待审核", approved: "已通过", rejected: "已驳回", paused: "已暂停", draft: "草稿", published: "已发布", new: "新询价" };
+function renderSupplierAdmin(rows) {
+  const counts = ["all", "pending", "approved", "rejected", "paused"].map((s) => `<button class="admin-filter ${s === "all" ? "active" : ""}" data-supplier-filter="${s}">${s === "all" ? "全部" : statusName[s]} (${s === "all" ? rows.length : rows.filter((x) => x.status === s).length})</button>`).join("");
+  content.innerHTML = `<div class="admin-summary">${counts}</div><div id="supplierAdminRows"></div>`;
+  const draw = (filter = "all") => {
+    const list = filter === "all" ? rows : rows.filter((x) => x.status === filter);
+    document.querySelector("#supplierAdminRows").innerHTML = list.map((x) => `<article class="admin-item"><div><div class="admin-title-row"><b>${esc(x.company_name)}</b><span class="status-badge status-${esc(x.status)}">${statusName[x.status] || esc(x.status)}</span>${x.featured ? '<span class="status-badge featured">推荐</span>' : ""}</div><p>${esc(x.category)} · ${esc(x.city)}</p><p>${esc(x.contact_name)} · ${esc(x.phone || x.whatsapp)}</p><p>${esc(x.products)}</p><div class="admin-gallery">${(x.image_urls || []).map((url, i) => `<img src="${esc(url)}" alt="企业图片${i + 1}">`).join("")}</div></div><div class="admin-item-actions"><button class="approve" onclick="supplierAct('${x.id}','approved')">通过</button><button onclick="supplierAct('${x.id}','pending')">待审</button><button class="reject" onclick="supplierAct('${x.id}','rejected')">驳回</button><button onclick="supplierAct('${x.id}','paused')">暂停</button><button onclick="supplierFeature('${x.id}',${!x.featured})">${x.featured ? "取消推荐" : "设为推荐"}</button><button class="reject" onclick="supplierDelete('${x.id}')">删除</button></div></article>`).join("") || '<div class="muted admin-empty">当前分类暂无供应商</div>';
+  };
+  document.querySelectorAll("[data-supplier-filter]").forEach((b) => b.addEventListener("click", () => { document.querySelectorAll("[data-supplier-filter]").forEach((x) => x.classList.toggle("active", x === b)); draw(b.dataset.supplierFilter); }));
+  draw();
+}
+function hotelForm(h = {}) {
+  return `<form class="hotel-admin-form" id="hotelAdminForm"><input type="hidden" name="id" value="${esc(h.id || "")}"><h3>${h.id ? "编辑酒店房型" : "新增酒店房型"}</h3><label>酒店/产品名称<input name="name" required value="${esc(h.name || "中鼎国际酒店")}"></label><label>房型名称<input name="room_type" required value="${esc(h.room_type || "")}" placeholder="标准双床房"></label><label>价格（美元）<input name="price" type="number" min="0" step="0.01" value="${esc(h.price || "")}"></label><label>计价单位<select name="price_unit"><option value="晚">每晚</option><option value="月">每月</option></select></label><label>可售房数<input name="rooms_available" type="number" min="0" value="${esc(h.rooms_available ?? 0)}"></label><label>状态<select name="status"><option value="draft">草稿</option><option value="published">发布</option><option value="paused">暂停</option></select></label><label class="full">设施（逗号分隔）<input name="facilities" value="${esc((h.facilities || []).join("，"))}" placeholder="WiFi，早餐，停车场"></label><label class="full">图片网址（每行一个，最多10张）<textarea name="image_urls">${esc((h.image_urls || []).join("\n"))}</textarea></label><label class="full">房型介绍<textarea name="description">${esc(h.description || "")}</textarea></label><label class="check"><input name="featured" type="checkbox" ${h.featured ? "checked" : ""}> 首页推荐</label><div class="full hotel-form-actions"><button class="btn btn-primary">${h.id ? "保存修改" : "新增房型"}</button>${h.id ? '<button type="button" class="btn btn-dark" onclick="hotelCancelEdit()">取消编辑</button>' : ""}</div><div id="hotelFormMessage" class="form-message full"></div></form>`;
+}
+function renderHotels(rows) {
+  content.innerHTML = hotelForm() + `<div class="admin-list hotel-list">${rows.map((h) => `<article class="admin-item"><div><div class="admin-title-row"><b>${esc(h.name)} · ${esc(h.room_type)}</b><span class="status-badge status-${esc(h.status)}">${statusName[h.status] || esc(h.status)}</span>${h.featured ? '<span class="status-badge featured">推荐</span>' : ""}</div><p>US$ ${esc(h.price)} / ${esc(h.price_unit)} · 可售 ${esc(h.rooms_available)} 间</p><p>${esc(h.description || "暂无介绍")}</p><div class="admin-gallery">${(h.image_urls || []).map((url, i) => `<img src="${esc(url)}" alt="酒店图片${i + 1}">`).join("")}</div></div><div class="admin-item-actions"><button class="approve" onclick="hotelEdit('${h.id}')">编辑</button><button class="reject" onclick="hotelDelete('${h.id}')">删除</button></div></article>`).join("") || '<div class="muted admin-empty">暂无酒店房型，请在上方新增</div>'}</div>`;
+  document.querySelector("#hotelAdminForm").addEventListener("submit", saveHotel);
+}
 async function loadAdmin() {
   try {
     if (adminTab === "ai-settings") {
@@ -240,21 +259,22 @@ async function loadAdmin() {
       login.hidden = true;
       dash.hidden = false;
       const s = j.data;
-      content.innerHTML = `<form class="ai-settings-form" id="aiSettingsForm"><label>启用 AI 客服<select name="enabled"><option value="true" ${s.enabled ? "selected" : ""}>启用</option><option value="false" ${!s.enabled ? "selected" : ""}>停用（使用FAQ）</option></select></label><label>接口类型<select name="provider"><option value="openai" selected>OpenAI 兼容接口</option></select></label><label class="full">API 接口地址<input name="base_url" type="url" required value="${esc(s.base_url)}" placeholder="https://api.openai.com/v1"></label><label>模型名称<input name="model" required value="${esc(s.model)}" placeholder="gpt-5-mini"></label><label>API Key<input name="api_key" type="password" placeholder="${s.has_api_key ? "已设置，留空表示不修改" : "请输入 API Key"}"></label><label class="full">客服指令<textarea name="system_prompt" placeholder="设置客服身份、酒店价格、服务范围和回答规则">${esc(s.system_prompt)}</textarea></label><div class="full settings-note">API Key 在服务端加密保存，不会返回浏览器。接口需兼容 OpenAI Responses API。</div><button class="btn btn-primary full">保存 AI 客服配置</button><div id="aiSettingsMessage" class="form-message full"></div></form>`;
+      content.innerHTML = `<form class="ai-settings-form" id="aiSettingsForm"><label>启用 AI 客服<select name="enabled"><option value="true" ${s.enabled ? "selected" : ""}>启用</option><option value="false" ${!s.enabled ? "selected" : ""}>停用（自动使用FAQ）</option></select></label><label>接口类型<select name="provider"><option value="openai" selected>OpenAI / 兼容接口</option></select></label><label class="full">API 接口地址<input name="base_url" type="url" required value="${esc(s.base_url)}" placeholder="https://api.openai.com/v1"></label><label>模型名称<input name="model" required value="${esc(s.model)}" placeholder="gpt-5-mini"></label><label>API Key<input name="api_key" type="password" placeholder="${s.has_api_key ? "已安全保存，留空不修改" : "请输入 API Key"}"></label><label class="full">客服指令<textarea name="system_prompt" placeholder="设置客服身份、酒店价格、服务范围和回答规则">${esc(s.system_prompt)}</textarea></label><div class="full settings-note">API Key 仅加密保存在服务器，不会返回浏览器。建议先保存，再点击测试连接。</div><div class="full ai-setting-actions"><button class="btn btn-primary">保存设置</button><button class="btn btn-dark" type="button" id="testAIConnection">测试连接</button></div><div id="aiSettingsMessage" class="form-message full"></div></form>`;
       document
         .querySelector("#aiSettingsForm")
         .addEventListener("submit", saveAISettings);
+      document.querySelector("#testAIConnection").addEventListener("click", testAIConnection);
       return;
     }
     const j = await jsonFetch("/api/admin-data?type=" + adminTab);
     login.hidden = true;
     dash.hidden = false;
-    content.innerHTML =
-      (j.data || [])
+    adminRows = j.data || [];
+    if (adminTab === "suppliers") return renderSupplierAdmin(adminRows);
+    if (adminTab === "hotels") return renderHotels(adminRows);
+    content.innerHTML = adminRows
         .map((x) =>
-          adminTab === "suppliers"
-            ? `<article class="admin-item"><div><b>${esc(x.company_name)}</b><p>${esc(x.category)} · ${esc(x.city)} · ${esc(x.status)}</p><p>${esc(x.contact_name)} · ${esc(x.phone || x.whatsapp)}</p><p>${esc(x.products)}</p><div class="admin-gallery">${(x.image_urls || []).map((url, i) => `<img src="${esc(url)}" alt="企业图片${i + 1}">`).join("")}</div></div><div class="admin-item-actions"><button class="approve" onclick="supplierAct('${x.id}','approved')">通过</button><button onclick="supplierAct('${x.id}','pending')">待审</button><button class="reject" onclick="supplierAct('${x.id}','rejected')">驳回</button><button onclick="supplierAct('${x.id}','paused')">暂停</button><button onclick="supplierFeature('${x.id}',${!x.featured})">${x.featured ? "取消推荐" : "推荐"}</button><button class="reject" onclick="supplierDelete('${x.id}')">删除</button></div></article>`
-            : `<article class="admin-item"><div><b>${esc(x.customer_name)} · ${esc(x.company_name)}</b><p>${esc(x.category)} · 预算 ${esc(x.budget)}</p><p>${esc(x.phone || x.whatsapp)}</p><p>${esc(x.requirements)}</p><p>${esc(x.delivery_time)}</p></div></article>`,
+          `<article class="admin-item"><div><b>${esc(x.customer_name)} · ${esc(x.company_name)}</b><p>${esc(x.category)} · 预算 ${esc(x.budget)}</p><p>${esc(x.phone || x.whatsapp)}</p><p>${esc(x.requirements)}</p><p>${esc(x.delivery_time)}</p></div></article>`,
         )
         .join("") || '<div class="muted">暂无数据</div>';
   } catch (e) {
@@ -262,6 +282,22 @@ async function loadAdmin() {
     dash.hidden = true;
   }
 }
+async function testAIConnection() {
+  const form = document.querySelector("#aiSettingsForm"), msg = document.querySelector("#aiSettingsMessage"), data = Object.fromEntries(new FormData(form).entries());
+  msg.textContent = "正在测试接口……";
+  try { const j = await jsonFetch("/api/admin-ai-settings", { method: "POST", body: JSON.stringify(data) }); msg.textContent = j.message; msg.className = "form-message full ok"; }
+  catch (err) { msg.textContent = err.message; msg.className = "form-message full bad"; }
+}
+async function saveHotel(e) {
+  e.preventDefault();
+  const form = e.currentTarget, data = Object.fromEntries(new FormData(form).entries()), id = data.id;
+  data.featured = form.featured.checked; delete data.id;
+  try { await jsonFetch("/api/admin-hotel" + (id ? `?id=${id}` : ""), { method: id ? "PATCH" : "POST", body: JSON.stringify(data) }); await loadAdmin(); }
+  catch (err) { const msg = document.querySelector("#hotelFormMessage"); msg.textContent = err.message; msg.className = "form-message full bad"; }
+}
+window.hotelEdit = (id) => { const h = adminRows.find((x) => x.id === id); if (!h) return; const old = document.querySelector("#hotelAdminForm"); old.outerHTML = hotelForm(h); const form = document.querySelector("#hotelAdminForm"); form.status.value = h.status; form.price_unit.value = h.price_unit; form.addEventListener("submit", saveHotel); scrollTo({ top: form.offsetTop - 90, behavior: "smooth" }); };
+window.hotelCancelEdit = () => loadAdmin();
+window.hotelDelete = async (id) => { if (!confirm("确定删除该酒店房型吗？此操作不能恢复。")) return; await jsonFetch(`/api/admin-hotel?id=${id}`, { method: "DELETE" }); loadAdmin(); };
 async function saveAISettings(e) {
   e.preventDefault();
   const form = e.currentTarget,
@@ -308,17 +344,19 @@ document.querySelector("#adminLogout")?.addEventListener("click", async () => {
   location.reload();
 });
 window.supplierAct = async (id, status) => {
-  await jsonFetch("/api/admin-supplier?id=" + id, {
+  const j = await jsonFetch("/api/admin-supplier?id=" + id, {
     method: "PATCH",
     body: JSON.stringify({ status }),
   });
+  showToast(j.message || "操作成功");
   loadAdmin();
 };
 window.supplierFeature = async (id, featured) => {
-  await jsonFetch("/api/admin-supplier?id=" + id, {
+  const j = await jsonFetch("/api/admin-supplier?id=" + id, {
     method: "PATCH",
     body: JSON.stringify({ featured }),
   });
+  showToast(j.message || "操作成功");
   loadAdmin();
 };
 window.supplierDelete = async (id) => {

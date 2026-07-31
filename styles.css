@@ -924,6 +924,26 @@ button {
   background: #7f2525;
   color: #fff;
 }
+.admin-summary { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
+.admin-filter { border:1px solid #ccd4de; background:#fff; padding:9px 13px; cursor:pointer; border-radius:6px; }
+.admin-filter.active { background:#0b1c33; color:#fff; border-color:#0b1c33; }
+.admin-title-row { display:flex; align-items:center; flex-wrap:wrap; gap:8px; }
+.status-badge { display:inline-flex; padding:3px 8px; border-radius:99px; font-size:12px; background:#edf1f5; color:#405064; }
+.status-approved,.status-published { background:#dcf5e8; color:#16704d; }
+.status-rejected,.status-paused { background:#f9e2e2; color:#9b2929; }
+.status-pending,.status-draft { background:#fff0cf; color:#855d00; }
+.status-badge.featured { background:#fff1b8; color:#775600; }
+.admin-empty { padding:28px; text-align:center; background:#fff; border:1px dashed #ccd4de; }
+.hotel-admin-form { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; padding:22px; margin-bottom:22px; background:#fff; border:1px solid #dde2e8; }
+.hotel-admin-form h3,.hotel-admin-form .full { grid-column:1/-1; }
+.hotel-admin-form label { display:grid; gap:7px; font-size:14px; }
+.hotel-admin-form input,.hotel-admin-form select,.hotel-admin-form textarea { width:100%; padding:11px; border:1px solid #cfd6de; border-radius:4px; font:inherit; }
+.hotel-admin-form textarea { min-height:90px; resize:vertical; }
+.hotel-admin-form .check { display:flex; align-items:center; grid-template-columns:auto 1fr; }
+.hotel-admin-form .check input { width:auto; }
+.hotel-form-actions,.ai-setting-actions { display:flex; flex-wrap:wrap; gap:10px; }
+.hotel-list { margin-top:16px; }
+.ai-setting-actions { align-items:center; }
 @media (max-width: 900px) {
   .supply-entry-grid {
     grid-template-columns: 1fr 1fr;
@@ -937,6 +957,9 @@ button {
   .admin-item {
     grid-template-columns: 1fr;
   }
+  .hotel-admin-form { grid-template-columns:1fr; }
+  .hotel-admin-form h3,.hotel-admin-form .full { grid-column:auto; }
+  .admin-tabs { overflow-x:auto; white-space:nowrap; padding-bottom:5px; }
 }
 
 /* V6.0.2 supplier galleries, uploads and AI settings */

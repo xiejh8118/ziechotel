@@ -15,9 +15,28 @@ create table if not exists public.site_settings(
 );
 alter table public.site_settings enable row level security;
 
+create table if not exists public.hotels(
+  id uuid primary key default gen_random_uuid(),
+  name varchar(120) not null,
+  room_type varchar(80) not null,
+  price numeric(12,2) not null default 0,
+  price_unit varchar(30) not null default '晚',
+  rooms_available integer not null default 0,
+  description text default '',
+  facilities text[] not null default '{}',
+  image_urls text[] not null default '{}',
+  status varchar(20) not null default 'draft' check(status in('draft','published','paused')),
+  featured boolean not null default false,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+alter table public.hotels enable row level security;
+drop policy if exists "public published hotels" on public.hotels;
+create policy "public published hotels" on public.hotels for select using(status='published');
+
 insert into storage.buckets(id,name,public,file_size_limit,allowed_mime_types)
-values('supplier-images','supplier-images',true,2097152,array['image/jpeg','image/png','image/webp'])
-on conflict(id) do update set public=true,file_size_limit=2097152,allowed_mime_types=array['image/jpeg','image/png','image/webp'];
+values('supplier-images','supplier-images',true,5242880,array['image/jpeg','image/png','image/webp'])
+on conflict(id) do update set public=true,file_size_limit=5242880,allowed_mime_types=array['image/jpeg','image/png','image/webp'];
 
 drop policy if exists "public supplier images" on storage.objects;
 create policy "public supplier images" on storage.objects for select using(bucket_id='supplier-images');

@@ -62,7 +62,6 @@ module.exports = async (req, res) => {
       slogan: text(b.slogan, 120),
       image_urls: images,
       status: "pending",
-      featured: false,
     };
     const { error } = await d.from("suppliers").insert(row);
     if (error) {

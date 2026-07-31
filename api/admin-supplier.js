@@ -11,13 +11,13 @@ module.exports = async (req, res) => {
       update.status = b.status;
     if (typeof b.featured === "boolean") update.featured = b.featured;
     const { error } = await d.from("suppliers").update(update).eq("id", id);
-    if (error) return res.status(500).json({ ok: false });
-    return res.json({ ok: true });
+    if (error) return res.status(500).json({ ok: false, message: error.message });
+    return res.json({ ok: true, message: "供应商状态已更新" });
   }
   if (req.method === "DELETE") {
     const { error } = await d.from("suppliers").delete().eq("id", id);
-    if (error) return res.status(500).json({ ok: false });
-    return res.json({ ok: true });
+    if (error) return res.status(500).json({ ok: false, message: error.message });
+    return res.json({ ok: true, message: "供应商已删除" });
   }
   res.status(405).end();
 };
