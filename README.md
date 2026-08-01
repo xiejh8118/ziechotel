@@ -22,14 +22,13 @@ V6.0.4 新增：
 
 ## 图片上传诊断与修复
 
-- `/api/storage-health`：检查 Supabase Secret key、Storage 连接、`supplier-images` 存储桶和 Public 状态。
 - `/api/supplier-image`：优先使用 Supabase SDK 上传，失败时自动切换 REST 直传。
 - 上传失败会返回错误编号和诊断号；Vercel Runtime Logs 可用诊断号定位同一次请求。
 - 日志不会输出 `SUPABASE_SERVICE_ROLE_KEY`。
 
 部署后先访问：
 
-`https://www.ziechotel.top/api/storage-health`
+V6.0.4 免费版部署修复说明：已移除仅用于开发排错的独立 Storage 健康检查入口，图片上传功能不受影响。
 
 若返回 `STORAGE_OK`，再测试供应商入驻图片。若失败，请提供页面显示的“错误编号”和“诊断号”。
 
