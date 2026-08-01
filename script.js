@@ -89,6 +89,30 @@ async function loadSuppliers() {
     grid.innerHTML = "";
   }
 }
+
+async function loadHomeRecommendations() {
+  const hotelGrid = document.querySelector("#homeHotelGrid");
+  const supplierGrid = document.querySelector("#homeSupplierGrid");
+  if (hotelGrid) {
+    try {
+      const j = await jsonFetch("/api/hotels?limit=10");
+      hotelGrid.innerHTML = (j.data || []).slice(0, 10).map((h) => {
+        const image = Array.isArray(h.image_urls) && h.image_urls[0];
+        return `<article class="recommend-card">${image ? `<img src="${esc(image)}" alt="${esc(h.room_type)}" loading="lazy">` : '<div class="recommend-placeholder">ZIEC HOTEL</div>'}<div><small>${h.featured ? "推荐酒店" : "酒店住宿"}</small><h3>${esc(h.name || "中鼎国际酒店")} · ${esc(h.room_type)}</h3><p>US$ ${esc(h.price)} / ${esc(h.price_unit || "晚")}</p><a href="./hotels.html">查看与预订 →</a></div></article>`;
+      }).join("") || '<p class="muted">酒店推荐即将上线。</p>';
+    } catch (e) { hotelGrid.innerHTML = `<p class="muted">${esc(e.message)}</p>`; }
+  }
+  if (supplierGrid) {
+    try {
+      const j = await jsonFetch("/api/suppliers?limit=20");
+      supplierGrid.innerHTML = (j.data || []).slice(0, 20).map((s) => {
+        const image = Array.isArray(s.image_urls) && s.image_urls[0];
+        return `<article class="recommend-card supplier-recommend">${image ? `<img src="${esc(image)}" alt="${esc(s.company_name)}" loading="lazy">` : '<div class="recommend-placeholder">ZIEC SUPPLY</div>'}<div><small>${esc(s.category || "供应商")}</small><h3>${esc(s.company_name)}</h3><p>${esc(s.city || "柬埔寨")}</p><a href="./suppliers.html">查看供应商 →</a></div></article>`;
+      }).join("") || '<p class="muted">供应商推荐即将上线。</p>';
+    } catch (e) { supplierGrid.innerHTML = `<p class="muted">${esc(e.message)}</p>`; }
+  }
+}
+loadHomeRecommendations();
 function renderSuppliers(list) {
   const grid = document.querySelector("#supplierGrid");
   grid.innerHTML =

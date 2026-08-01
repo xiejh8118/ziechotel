@@ -11,12 +11,19 @@ module.exports = async (req, res) => {
   const d = db();
   if (!d) return res.status(503).json({ ok: false, message: "数据库尚未配置" });
   if (req.method === "GET") {
+    const requestedLimit = Number.parseInt(req.query?.limit, 10);
+    const limit = Number.isFinite(requestedLimit)
+      ? Math.min(Math.max(requestedLimit, 1), 100)
+      : 100;
     let q = d
       .from("suppliers")
       .select("*")
-      .eq("status", "approved")
+      .eq("status", "approved");
+    if (req.query?.recommended === "1") q = q.eq("featured", true);
+    q = q
       .order("featured", { ascending: false })
-      .order("created_at", { ascending: false });
+      .order("created_at", { ascending: false })
+      .limit(limit);
     const { data, error } = await q;
     if (error)
       return res
