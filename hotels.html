@@ -42,33 +42,25 @@
           <span></span><span></span><span></span>
         </button>
         <nav class="nav-links" aria-label="主导航">
-          <a href="#hotel-stay">客房公寓</a>
+          <a href="./index.html">首页</a>
+          <a class="active" href="#hotel-stay">酒店公寓</a>
           <a href="#corporate">企业服务</a>
           <a href="./suppliers.html">供应链平台</a>
           <a href="#contact">联系我们</a>
-          <button class="nav-ai" type="button" data-ai-open>AI 客服</button>
+          <button class="nav-ai" type="button" data-ai-open>AI客服</button>
         </nav>
       </div>
     </header>
 
     <main>
-      <section class="hero" id="home">
-        <div class="container hero-copy">
-          <div class="eyebrow">ZIEC HOTEL · CAMBODIA</div>
-          <h1>中鼎国际酒店</h1>
-          <div class="hero-cn">客房 · 月租公寓 · 企业接待</div>
-          <p>保留原有酒店完整内容，并增加在线查询、预订和付款指南。</p>
-          <div class="actions">
-            <a class="btn btn-primary" href="#booking">查询与预订</a>
-            <a class="btn btn-outline" href="./payment.html">订单与付款</a>
-          </div>
-          <div class="hero-features" aria-label="酒店核心服务">
-            <span>24小时前台</span><span>免费 Wi‑Fi</span><span>游泳池</span
-            ><span>健身房</span><span>中英服务</span>
-          </div>
+      <section class="v608-banner hotel-banner" aria-label="酒店推广">
+        <div class="container v608-banner-copy">
+          <small>ZIEC HOTEL · PHNOM PENH</small>
+          <h1>住得舒适，也住得安心</h1>
+          <p>商务客房、月租公寓与企业团队住宿，一站查看、咨询与预订。</p>
+          <div class="actions"><a class="btn btn-primary" href="#booking">查询房型</a><a class="btn btn-outline" href="https://wa.me/855189958899" target="_blank" rel="noopener">WhatsApp咨询</a></div>
         </div>
       </section>
-
       <section class="quick-links section-sm">
         <div class="container quick-grid">
           <a href="#hotel-stay"
@@ -105,6 +97,18 @@
             <button class="btn btn-primary" type="submit">查询房型</button>
           </form>
           <div class="booking-note" id="bookingNote">请选择入住和退房日期，酒店将确认实际房态。</div>
+        </div>
+      </section>
+
+      <section class="section v608-showcase" aria-labelledby="room-picks-title">
+        <div class="container">
+          <div class="v608-heading"><div><span>FEATURED STAYS</span><h2 id="room-picks-title">酒店房型推荐</h2><p>精选客房与长租公寓，清晰展示价格、房型与预订入口。</p></div><a href="#hotel-stay">查看全部房型 →</a></div>
+          <div class="v608-card-grid hotel-picks">
+            <article class="v608-product-card"><img src="./assets/twin-room.jpg" alt="标准双床房"><div><small>商务优选</small><h3>标准双床房</h3><p>双床 · 适合2人 · 免费Wi‑Fi</p><footer><b>US$35<em>/晚</em></b><a href="./payment.html?room=标准双床房&price=35">立即预订</a></footer></div></article>
+            <article class="v608-product-card"><img src="./assets/suite-room.jpg" alt="VIP房"><div><small>品质接待</small><h3>VIP房</h3><p>宽敞空间 · 商务接待 · 设施齐全</p><footer><b>US$70<em>/晚</em></b><a href="./payment.html?room=VIP房&price=70">立即预订</a></footer></div></article>
+            <article class="v608-product-card"><img src="./assets/monthly-6.jpg" alt="月租公寓"><div><small>长住推荐</small><h3>月租公寓</h3><p>独立客厅 · 简易厨房 · 拎包入住</p><footer><b>US$260<em>/月起</em></b><a href="./payment.html?room=月租公寓&price=260">立即预订</a></footer></div></article>
+            <article class="v608-product-card v608-service-card"><div class="service-icon">24H</div><div><small>企业专属</small><h3>团队与协议住宿</h3><p>长期住宿、团队接待与企业协议价。</p><footer><b>专属方案</b><a href="#corporate">立即咨询</a></footer></div></article>
+          </div>
         </div>
       </section>
 
