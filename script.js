@@ -1,4 +1,544 @@
 const toast = document.querySelector(".toast");
+const I18N_STORAGE_KEY = "ziec_language";
+const I18N_TEXT = {
+  en: {
+    "ZIEC HOTEL | 中鼎国际酒店": "ZIEC HOTEL | Zhongding International Hotel",
+    "中鼎国际酒店": "Zhongding International Hotel",
+    "中鼎国际酒店 · 供应链平台":
+      "Zhongding International Hotel · Supply Chain Platform",
+    "首页": "Home",
+    "酒店公寓": "Hotels & Apartments",
+    "企业服务": "Corporate",
+    "供应链平台": "Supply Chain",
+    "联系我们": "Contact",
+    "AI客服": "AI Assistant",
+    "WhatsApp 咨询": "WhatsApp",
+    "WhatsApp咨询": "WhatsApp",
+    "中文人工咨询": "Chinese Support",
+    "柬埔寨中文酒店旅游服务":
+      "Cambodia Hotel & Local Business Services",
+    "懂中文 · 懂柬埔寨 · 本地团队协助入住":
+      "Chinese-speaking support · Local operation · Reliable stay assistance",
+    "服务金边、西港、暹粒｜精选酒店、公寓长租、机场接送、包车与企业团房咨询":
+      "Serving Phnom Penh, Sihanoukville and Siem Reap with curated stays, monthly apartments, airport transfers, car service and corporate group accommodation.",
+    "查看精选住宿": "View Selected Stays",
+    "中文客服": "Chinese Support",
+    "真实房源": "Verified Rooms",
+    "本地履约": "Local Fulfillment",
+    "企业协议价": "Corporate Rates",
+    "付款退款说明": "Payment & Refund Guide",
+    "运营主体": "Operator",
+    "中鼎瑞德酒店管理有限公司": "Zhongding Ruide Hotel Management Co., Ltd.",
+    "服务城市": "Service Cities",
+    "金边 · 西港 · 暹粒": "Phnom Penh · Sihanoukville · Siem Reap",
+    "中文服务热线": "Chinese Hotline",
+    "服务保障": "Service Assurance",
+    "订单 · 付款 · 退款说明 →": "Orders · Payment · Refund Guide →",
+    "四类客户，一套本地中文服务":
+      "One Local Platform for Four Customer Groups",
+    "先解决住宿与落地服务，再连接企业与酒店资源。":
+      "Start with stays and local assistance, then connect business and hotel resources.",
+    "中国游客": "Chinese Travelers",
+    "中文客服、机场接送、包车，以及金边、西港、暹粒行程咨询。":
+      "Chinese-speaking support, airport transfers, car service and itinerary help in Phnom Penh, Sihanoukville and Siem Reap.",
+    "咨询旅游住宿 →": "Ask About Travel Stays →",
+    "华人商务客": "Chinese Business Travelers",
+    "出差住宿、发票咨询、会议接待、企业协议价与长期住宿。":
+      "Business stays, invoice assistance, meeting reception, corporate rates and long-term accommodation.",
+    "查看企业服务 →": "View Corporate Services →",
+    "本地华人及企业": "Local Chinese Residents & Companies",
+    "员工宿舍、月租酒店、公寓式酒店、团房和月结方案。":
+      "Staff housing, monthly hotel stays, serviced apartments, group rooms and monthly settlement options.",
+    "查看月租公寓 →": "View Monthly Apartments →",
+    "柬埔寨酒店商家": "Cambodia Hotel Partners",
+    "连接中国客源、中文页面、客服协助、摄影翻译与代运营咨询。":
+      "Connect with Chinese guests through Chinese pages, support assistance, photography, translation and operation consulting.",
+    "申请酒店合作 →": "Apply for Hotel Partnership →",
+    "住宿之外，把落地行程一起安排好":
+      "Beyond the Room, We Help Arrange the Local Trip",
+    "接送、包车、导游及行程服务由中文客服先确认需求、价格与实际可用情况。":
+      "Transfers, car service, guides and itinerary services are confirmed by support before booking.",
+    "机场接送": "Airport Transfer",
+    "市内包车": "City Car Service",
+    "吴哥窟行程": "Angkor Wat Tours",
+    "金边商务接待": "Phnom Penh Business Reception",
+    "西港出行": "Sihanoukville Travel",
+    "签证咨询": "Visa Guidance",
+    "咨询落地服务": "Ask About Local Services",
+    "酒店住宿与月租公寓": "Hotel Stays & Monthly Apartments",
+    "在线查看房型、订单指南与付款方式 →":
+      "View rooms, booking guide and payment options →",
+    "柬埔寨供应链服务": "Cambodia Supply Chain Services",
+    "查找供应商、发布采购询价 →": "Find suppliers and post RFQs →",
+    "酒店房型推荐": "Recommended Rooms",
+    "精选酒店房型，点击查看详情并预订。":
+      "Selected room types with detail and booking entry points.",
+    "正在加载酒店推荐……": "Loading hotel recommendations...",
+    "供应商推荐": "Recommended Suppliers",
+    "展示已审核的优质供应商。":
+      "Showing reviewed and qualified suppliers.",
+    "正在加载供应商推荐……": "Loading supplier recommendations...",
+    "酒店住宿": "Hotel Stays",
+    "舒适客房、安心入住 →": "Comfortable rooms, reliable stays →",
+    "月租公寓": "Monthly Apartments",
+    "US$260/月起，适合长期居住 →":
+      "From US$260/month for long-term stays →",
+    "团队接待、长包房、协议合作 →":
+      "Group reception, long stays and corporate agreements →",
+    "会议中心": "Conference Center",
+    "客房与公寓，按需入住": "Rooms and Apartments for Every Stay",
+    "客房、公寓与酒店设施集中展示，价格清晰，可直接咨询。":
+      "Rooms, apartments and hotel facilities are shown clearly with prices and direct consultation.",
+    "标准双床房": "Standard Twin Room",
+    "适合同事、朋友及商务团队入住。":
+      "Suitable for colleagues, friends and business teams.",
+    "查看详情": "View Details",
+    "立即预订": "Book Now",
+    "分享": "Share",
+    "海报": "Poster",
+    "VIP房": "VIP Room",
+    "空间宽敞，适合重要商务接待。":
+      "Spacious room for important business reception.",
+    "适合商务人士、长住客户与企业员工。":
+      "Suitable for business travelers, long-stay guests and company staff.",
+    "/ month 起": "/ month",
+    "长住更划算，拎包即可入住。":
+      "Better value for long stays, ready to move in.",
+    "US$260": "US$260",
+    "/ 月起": "/ month",
+    "独立客厅与卧室": "Separate Living Room and Bedroom",
+    "阳台及简易厨房": "Balcony and Simple Kitchen",
+    "适合商务长住": "Designed for Business Long Stays",
+    "企业客户可咨询专属方案": "Corporate plans available on request",
+    "查看公寓详情": "View Apartment Details",
+    "咨询月租价格": "Ask Monthly Rate",
+    "酒店设施与贴心服务": "Facilities & Services",
+    "游泳池、健身房和24小时前台，为商务与长期住宿提供便利。":
+      "Pool, gym and 24-hour front desk support business and long-term stays.",
+    "游泳池": "Swimming Pool",
+    "开阔泳池空间，适合放松休闲。": "Open pool area for relaxing.",
+    "健身房": "Fitness Room",
+    "满足日常训练与长期入住需求。":
+      "Supports daily workouts and long-stay routines.",
+    "前台服务": "Front Desk",
+    "24小时接待，提供中文与 English 服务。":
+      "24-hour reception with Chinese and English support.",
+    "企业服务与长期合作": "Corporate Services & Long-Term Cooperation",
+    "面向企业客户提供团队住宿、长期接待、月租公寓及协议合作咨询。":
+      "Group accommodation, long-term reception, monthly apartments and corporate cooperation consulting.",
+    "根据入住规模和周期提供方案":
+      "Plans based on group size and stay duration",
+    "团队与长包房": "Group and Long-Term Rooms",
+    "适合工程项目、商务团队与驻柬员工":
+      "For projects, business teams and staff based in Cambodia",
+    "专属对接": "Dedicated Contact",
+    "快速沟通需求，减少企业安排成本":
+      "Fast coordination that reduces arrangement costs",
+    "联系我们获取方案": "Contact Us for a Plan",
+    "请告知入住人数、日期与预计周期。":
+      "Please share guest count, dates and expected stay period.",
+    "WhatsApp 企业咨询": "Corporate WhatsApp",
+    "V5.5 已上线：供应商入驻 · 后台审核 · 采购询价":
+      "V5.5 Live: Supplier onboarding · Admin review · RFQ",
+    "链接柬埔寨优质供应链，服务企业真实需求":
+      "Connecting Quality Cambodian Suppliers for Real Business Needs",
+    "依托中鼎在柬埔寨长期积累的企业资源与本地服务能力，为工程项目、企业客户和供应商提供可靠、高效的合作对接。":
+      "Built on ZIEC's local business resources in Cambodia, the platform supports reliable cooperation among projects, corporate clients and suppliers.",
+    "查找供应商": "Find Suppliers",
+    "建筑材料、钢结构、工程施工、物流与企业服务 →":
+      "Building materials, steel structure, construction, logistics and business services →",
+    "供应商入驻": "Supplier Onboarding",
+    "提交企业资料，审核通过后正式展示 →":
+      "Submit company information and go live after review →",
+    "发布采购询价": "Post RFQ",
+    "提交采购需求，由平台协助对接供应商 →":
+      "Submit purchasing needs and let the platform assist matching →",
+    "平台人工对接": "Manual Matching",
+    "酒店前台与中鼎团队提供线下联系支持 →":
+      "Hotel front desk and ZIEC team provide offline contact support →",
+    "建筑材料": "Building Materials",
+    "钢结构": "Steel Structure",
+    "工程施工": "Construction",
+    "防水维修": "Waterproofing & Repair",
+    "家具设备": "Furniture & Equipment",
+    "物流运输": "Logistics",
+    "财税法务": "Tax, Finance & Legal",
+    "酒店及企业服务": "Hotel & Business Services",
+    "新增供应商": "New Suppliers",
+    "企业在线提交，后台审核后上线": "Apply online, publish after admin review",
+    "一键分享": "One-Click Share",
+    "供应商资料可直接转发给客户":
+      "Supplier profiles can be shared directly with clients",
+    "海报生成": "Poster Generator",
+    "自动生成企业推广海报并保存":
+      "Automatically generate and save company promo posters",
+    "浏览供应商": "Browse Suppliers",
+    "预订前说明清楚，入住更放心":
+      "Clear Booking Terms for a Smoother Stay",
+    "提交需求后，由中文客服核实房态、最终价格和服务安排，再确认订单。":
+      "After your request, support verifies availability, final price and service arrangements before confirming.",
+    "真实信息": "Verified Information",
+    "房型图片、地址、设施和入住政策以酒店最终确认为准。":
+      "Room images, address, facilities and policies are subject to final hotel confirmation.",
+    "付款说明": "Payment Guide",
+    "支持方式由客服按订单确认；微信、支付宝及银行卡付款请先咨询。":
+      "Available payment methods are confirmed per order; ask before using WeChat, Alipay or bank card.",
+    "退款规则": "Refund Rules",
+    "免费取消期限、不可退订单及退款时间会在付款前明确告知。":
+      "Free cancellation windows, non-refundable terms and refund timing are explained before payment.",
+    "本地协助": "Local Assistance",
+    "入住、接送或行程出现问题，可联系中文客服协助处理。":
+      "Contact support if issues arise with check-in, transfers or itinerary services.",
+    "预订与咨询": "Booking & Consultation",
+    "客房预订、月租公寓和企业合作，欢迎直接联系我们。":
+      "Contact us for room bookings, monthly apartments and corporate cooperation.",
+    "电话 / KH": "Phone / KH",
+    "中文服务": "Chinese Service",
+    "中鼎 AI 客服": "ZIEC AI Assistant",
+    "酒店住宿 · 企业服务 · 供应链咨询":
+      "Hotel stays · Corporate services · Supply chain consulting",
+    "您好，我是中鼎 AI 客服。您可以咨询客房、月租公寓、企业住宿、供应商入驻或采购询价。":
+      "Hello, I am the ZIEC AI Assistant. You can ask about rooms, monthly apartments, corporate stays, supplier onboarding or RFQs.",
+    "客房价格": "Room Rates",
+    "采购询价": "RFQ",
+    "发送": "Send",
+    "转 WhatsApp 人工服务": "Switch to WhatsApp Support",
+    "住得舒适，也住得安心": "Comfortable Stays, Reliable Support",
+    "商务客房、月租公寓与企业团队住宿，一站查看、咨询与预订。":
+      "Business rooms, monthly apartments and corporate group stays in one place.",
+    "查询房型": "Check Rooms",
+    "查询入住日期与房型": "Check Dates and Room Types",
+    "先选择日期和入住人数，再查看下面完整的客房与公寓。":
+      "Choose dates and guests first, then review rooms and apartments below.",
+    "入住日期": "Check-in Date",
+    "退房日期": "Check-out Date",
+    "房间数": "Rooms",
+    "1间": "1 room",
+    "2间": "2 rooms",
+    "3间": "3 rooms",
+    "4间及以上": "4+ rooms",
+    "入住人数": "Guests",
+    "1位": "1 guest",
+    "2位": "2 guests",
+    "3位": "3 guests",
+    "4位及以上": "4+ guests",
+    "请选择入住和退房日期，酒店将确认实际房态。":
+      "Please select check-in and check-out dates; the hotel will confirm availability.",
+    "精选客房与长租公寓，清晰展示价格、房型与预订入口。":
+      "Selected rooms and long-stay apartments with clear pricing and booking entry points.",
+    "查看全部房型 →": "View All Rooms →",
+    "商务优选": "Business Pick",
+    "双床 · 适合2人 · 免费Wi‑Fi": "Twin beds · For 2 guests · Free Wi-Fi",
+    "/晚": "/ night",
+    "品质接待": "Premium Reception",
+    "宽敞空间 · 商务接待 · 设施齐全":
+      "Spacious room · Business reception · Full facilities",
+    "长住推荐": "Long-Stay Pick",
+    "独立客厅 · 简易厨房 · 拎包入住":
+      "Separate living room · Simple kitchen · Ready to move in",
+    "/月起": "/ month",
+    "企业专属": "Corporate Exclusive",
+    "团队与协议住宿": "Group & Contracted Stays",
+    "长期住宿、团队接待与企业协议价。":
+      "Long stays, group reception and corporate rates.",
+    "专属方案": "Dedicated Plan",
+    "酒店详情与入住信息": "Hotel Details & Stay Information",
+    "测试版先补齐预订前最关键的信息，后续每家精选酒店按同一标准展示。":
+      "The test version covers essential pre-booking details first; selected hotels will follow the same standard later.",
+    "地址与地图": "Address & Map",
+    "柬埔寨 · 金边。具体门牌与地图定位将在订单确认前由中文客服发送。":
+      "Phnom Penh, Cambodia. Exact address and map location will be sent before order confirmation.",
+    "获取地图定位 →": "Get Map Location →",
+    "入住政策": "Stay Policy",
+    "入住时间、退房时间、押金、加床及儿童政策以具体房型确认单为准。":
+      "Check-in, check-out, deposit, extra bed and child policies depend on the confirmed room type.",
+    "确认入住须知 →": "Confirm Stay Notes →",
+    "中文评价": "Chinese Reviews",
+    "平台将逐步收集已入住客户的真实中文反馈；不展示未经核实的评价。":
+      "The platform will gradually collect verified Chinese guest feedback.",
+    "咨询住客体验 →": "Ask About Guest Experience →",
+    "查看付款说明 →": "View Payment Guide →",
+    "付款与退款": "Payment & Refunds",
+    "房态确认后再付款；取消期限、不可退条件与退款时间会在付款前说明。":
+      "Pay only after availability is confirmed; cancellation terms, non-refundable conditions and refund timing are explained before payment.",
+    "立即咨询": "Ask Now",
+    "链接柬埔寨优质供应链": "Connecting Quality Suppliers in Cambodia",
+    "查找可信供应商、发布采购需求，让企业合作更直接、更高效。":
+      "Find trusted suppliers and post purchasing needs for faster cooperation.",
+    "采购与企业服务入口": "Purchasing & Business Service Entry",
+    "从寻找资源到发布需求，快速进入对应服务。":
+      "Move quickly from supplier search to demand submission.",
+    "按行业与关键词筛选企业 →": "Filter companies by industry and keyword →",
+    "提交4–10张企业及产品图片 →": "Submit 4-10 company or product images →",
+    "提交预算、交付时间与采购需求 →":
+      "Submit budget, delivery timeline and purchase requirements →",
+    "WhatsApp专人协助匹配资源 →":
+      "Dedicated WhatsApp support helps match resources →",
+    "优先展示平台已审核和推荐的优质企业。":
+      "Prioritizing reviewed and recommended companies.",
+    "申请入驻 →": "Apply to Join →",
+    "供应商资料支持一键分享与推广海报生成":
+      "Supplier profiles support quick sharing and promotional posters",
+    "企业可在线申请新增，审核通过后自动展示。":
+      "Companies can apply online and display after approval.",
+    "全部分类": "All Categories",
+    "搜索": "Search",
+    "正在读取供应商……": "Loading suppliers...",
+    "您的企业也可以加入": "Your Company Can Join Too",
+    "提交后进入待审核状态，平台审核通过后才会在前台公开展示。":
+      "Submissions enter review first and appear publicly only after approval.",
+    "申请供应商入驻": "Apply as Supplier",
+    "标准双床房 | ZIEC HOTEL": "Standard Twin Room | ZIEC HOTEL",
+    "ZIEC HOTEL · 中鼎国际酒店":
+      "ZIEC HOTEL · Zhongding International Hotel",
+    "房型实景": "Real Room Photos",
+    "真实双床房照片，适合同事、朋友及商务团队入住。":
+      "Real twin room photos, suitable for colleagues, friends and business teams.",
+    "双床配置": "Twin Beds",
+    "空调与电视": "Air Conditioning and TV",
+    "免费 Wi-Fi": "Free Wi-Fi",
+    "适合个人或团队入住": "For Individual or Team Stays",
+    "系统分享": "System Share",
+    "复制链接": "Copy Link",
+    "下载专属海报": "Download Poster",
+    "VIP房 | ZIEC HOTEL": "VIP Room | ZIEC HOTEL",
+    "真实 VIP 客房照片，空间宽敞，适合重要商务接待与品质住宿。":
+      "Real VIP room photos with spacious comfort for business reception and quality stays.",
+    "宽敞客房": "Spacious Room",
+    "高品质床品": "Quality Bedding",
+    "商务接待优选": "Preferred for Business Reception",
+    "供应商入驻申请": "Supplier Application",
+    "供应商平台 | ZIEC": "Supplier Platform | ZIEC",
+    "供应商入驻 | ZIEC": "Supplier Application | ZIEC",
+    "填写真实企业资料。审核通过后，企业信息将在供应链平台公开展示。":
+      "Submit real company information. After review, the profile will be shown on the supply chain platform.",
+    "提交企业资料": "Submit Company Information",
+    "带 * 为必填项。电话或 WhatsApp 至少填写一项。":
+      "Fields with * are required. Phone or WhatsApp must include at least one.",
+    "前台仅展示审核通过的供应商": "Only approved suppliers are displayed",
+    "支持平台推荐标识": "Platform recommendation badge supported",
+    "客户可直接 WhatsApp 联系": "Clients can contact directly on WhatsApp",
+    "资料可由后台暂停或驳回": "Profiles can be paused or rejected by admin",
+    "企业名称 *": "Company Name *",
+    "供应商分类 *": "Supplier Category *",
+    "请选择": "Please Select",
+    "所在城市": "City",
+    "联系人 *": "Contact Person *",
+    "联系电话": "Phone",
+    "企业地址": "Company Address",
+    "企业 Logo 图片网址（选填）": "Company Logo URL (optional)",
+    "企业宣传语（选填）": "Company Slogan (optional)",
+    "企业/产品图片 *（4–10张）": "Company/Product Images * (4-10)",
+    "请选择清晰的企业、产品、案例或办公环境照片；系统会自动压缩后上传。":
+      "Please select clear company, product, case or office photos; the system will compress and upload them.",
+    "主营产品或服务 *": "Main Products or Services *",
+    "企业简介": "Company Profile",
+    "提交入驻申请": "Submit Application",
+    "订单与付款指南": "Order & Payment Guide",
+    "酒店住宿与预订｜ZIEC HOTEL 中鼎国际酒店":
+      "Hotel Stays & Booking | ZIEC HOTEL",
+    "在线订单与付款指南｜ZIEC HOTEL": "Online Order & Payment Guide | ZIEC HOTEL",
+    "在线订单与付款指南": "Online Order & Payment Guide",
+    "先确认订单，再核对官方收款信息，付款后由酒店人工确认。":
+      "Confirm the order first, verify official payment information, then wait for manual hotel confirmation.",
+    "当前预订信息": "Current Booking Information",
+    "酒店房型": "Room Type",
+    "提交预订需求": "Submit Booking Request",
+    "预订付款步骤": "Booking and Payment Steps",
+    "提交住宿需求": "Submit Stay Requirements",
+    "告知入住日期、离店日期、房型、房间数和联系人。":
+      "Share check-in date, check-out date, room type, room count and contact person.",
+    "酒店确认订单": "Hotel Confirms Order",
+    "前台确认房态、价格、取消政策并发送订单编号。":
+      "Front desk confirms availability, price, cancellation policy and order number.",
+    "选择付款方式": "Choose Payment Method",
+    "扫码付款、Visa/Mastercard银行卡，或与前台约定的其他方式。":
+      "Pay by QR code, Visa/Mastercard, or other methods agreed with the front desk.",
+    "等待到账确认": "Wait for Payment Confirmation",
+    "付款成功页面或截图仅用于核对，最终以酒店确认到账为准。":
+      "Successful payment pages or screenshots are for checking only; final status depends on hotel confirmation.",
+    "付款方式": "Payment Methods",
+    "扫码付款": "QR Code Payment",
+    "请后台上传并核验酒店官方收款二维码后启用":
+      "Enable after uploading and verifying the official hotel payment QR code in admin.",
+    "付款前请确认收款方名称与酒店通知一致。":
+      "Before paying, make sure the payee name matches the hotel notice.",
+    "是否支持线上刷卡或到店刷卡，以酒店前台确认结果为准。网站不收集或保存银行卡号、有效期及安全码。":
+      "Online or on-site card payment depends on front desk confirmation. The website does not collect or store card numbers, expiry dates or security codes.",
+    "WhatsApp核对订单与付款": "Verify Order and Payment on WhatsApp",
+    "安全提醒": "Safety Reminder",
+    "不要向非官方联系人付款；不要在聊天或网页表单中发送完整银行卡资料、密码或验证码。付款前务必核对订单编号、金额、币种和收款方名称。":
+      "Do not pay unofficial contacts or send full card details, passwords or verification codes in chat or forms. Always verify order number, amount, currency and payee name before payment.",
+    "官方付款信息请以酒店确认结果为准":
+      "Official payment information is subject to hotel confirmation.",
+    "ZIEC AI客服": "ZIEC AI Assistant",
+    "订单与付款咨询": "Order & Payment Help",
+    "您好，我可以说明订单流程和付款注意事项。涉及具体金额与二维码时，请与酒店人工核对。":
+      "Hello, I can explain order flow and payment notes. For exact amounts and QR codes, please verify with hotel staff.",
+    "付款步骤": "Payment Steps",
+    "核验二维码": "Verify QR Code",
+    "Visa付款": "Visa Payment",
+    "客服": "Support"
+  }
+};
+const I18N_PAGE_META = {
+  en: {
+    "/": {
+      title: "ZIEC HOTEL | Cambodia Hotel & Local Business Services",
+      description:
+        "ZIEC HOTEL provides hotel stays, monthly apartments, airport transfers, car service, corporate accommodation and supplier connections in Cambodia."
+    },
+    "/index": {
+      title: "ZIEC HOTEL | Cambodia Hotel & Local Business Services",
+      description:
+        "ZIEC HOTEL provides hotel stays, monthly apartments, airport transfers, car service, corporate accommodation and supplier connections in Cambodia."
+    },
+    "/hotels": {
+      title: "Hotel Stays & Booking | ZIEC HOTEL",
+      description:
+        "Cambodia hotel booking and monthly apartment service with room details, stay policies, corporate rates and local support."
+    },
+    "/suppliers": {
+      title: "Supplier Platform | ZIEC",
+      description:
+        "ZIEC supply chain platform for Cambodia construction, engineering, logistics and business service suppliers."
+    },
+    "/standard": {
+      title: "Standard Twin Room | ZIEC HOTEL",
+      description:
+        "Real twin room photos, suitable for colleagues, friends and business teams."
+    },
+    "/vip": {
+      title: "VIP Room | ZIEC HOTEL",
+      description:
+        "Real VIP room photos with spacious comfort for business reception and quality stays."
+    },
+    "/join": {
+      title: "Supplier Application | ZIEC",
+      description:
+        "Submit company information to join the ZIEC Cambodia supply chain platform."
+    },
+    "/payment": {
+      title: "Order & Payment Guide | ZIEC HOTEL",
+      description:
+        "Confirm hotel orders, verify official payment details and learn payment safety notes."
+    }
+  }
+};
+const originalText = new WeakMap();
+const originalAttrs = new WeakMap();
+function getLanguage() {
+  try {
+    const stored = localStorage.getItem(I18N_STORAGE_KEY);
+    if (stored === "zh" || stored === "en") return stored;
+  } catch (e) {}
+  return navigator.language?.toLowerCase().startsWith("zh") ? "zh" : "en";
+}
+function normalizePageKey() {
+  let path = location.pathname.replace(/\/$/, "") || "/";
+  path = path.replace(/\.html$/, "");
+  return path;
+}
+function translateTextValue(text, lang) {
+  if (lang === "zh") return text;
+  return I18N_TEXT[lang]?.[text.trim()] || text;
+}
+function translateElementTree(lang) {
+  const walker = document.createTreeWalker(
+    document.body,
+    NodeFilter.SHOW_TEXT,
+    {
+      acceptNode(node) {
+        if (!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        const parent = node.parentElement;
+        if (!parent || ["SCRIPT", "STYLE", "TEXTAREA"].includes(parent.tagName)) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        if (parent.closest("[data-no-i18n]")) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    }
+  );
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach((node) => {
+    if (!originalText.has(node)) originalText.set(node, node.nodeValue);
+    const raw = originalText.get(node);
+    const leading = raw.match(/^\s*/)?.[0] || "";
+    const trailing = raw.match(/\s*$/)?.[0] || "";
+    const translated = translateTextValue(raw.trim(), lang);
+    node.nodeValue = `${leading}${translated}${trailing}`;
+  });
+  document.querySelectorAll("[placeholder],[aria-label],[title]").forEach((el) => {
+    if (!originalAttrs.has(el)) {
+      originalAttrs.set(el, {
+        placeholder: el.getAttribute("placeholder"),
+        ariaLabel: el.getAttribute("aria-label"),
+        title: el.getAttribute("title")
+      });
+    }
+    const attrs = originalAttrs.get(el);
+    if (attrs.placeholder) el.setAttribute("placeholder", translateTextValue(attrs.placeholder, lang));
+    if (attrs.ariaLabel) el.setAttribute("aria-label", translateTextValue(attrs.ariaLabel, lang));
+    if (attrs.title) el.setAttribute("title", translateTextValue(attrs.title, lang));
+  });
+}
+function applyPageMeta(lang) {
+  const key = normalizePageKey();
+  const meta = I18N_PAGE_META[lang]?.[key] || I18N_PAGE_META[lang]?.[key.replace(/^\//, "/")];
+  if (lang === "zh") {
+    document.title = document.documentElement.dataset.zhTitle || document.title;
+    const desc = document.querySelector('meta[name="description"]');
+    if (desc && desc.dataset.zhContent) desc.setAttribute("content", desc.dataset.zhContent);
+    return;
+  }
+  if (!meta) return;
+  document.title = meta.title;
+  document.querySelector('meta[name="description"]')?.setAttribute("content", meta.description);
+  document.querySelector('meta[property="og:title"]')?.setAttribute("content", meta.title);
+  document.querySelector('meta[property="og:description"]')?.setAttribute("content", meta.description);
+}
+function updateLanguageButtons(lang) {
+  document.querySelectorAll("[data-lang-option]").forEach((btn) => {
+    const active = btn.dataset.langOption === lang;
+    btn.classList.toggle("active", active);
+    btn.setAttribute("aria-pressed", String(active));
+  });
+}
+function setLanguage(lang) {
+  try {
+    localStorage.setItem(I18N_STORAGE_KEY, lang);
+  } catch (e) {}
+  document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+  translateElementTree(lang);
+  applyPageMeta(lang);
+  updateLanguageButtons(lang);
+}
+function refreshCurrentLanguage() {
+  const lang = getLanguage();
+  translateElementTree(lang);
+  applyPageMeta(lang);
+  updateLanguageButtons(lang);
+}
+function initLanguageSwitcher() {
+  document.documentElement.dataset.zhTitle = document.title;
+  const desc = document.querySelector('meta[name="description"]');
+  if (desc) desc.dataset.zhContent = desc.getAttribute("content") || "";
+  const nav = document.querySelector(".nav-links");
+  if (nav && !nav.querySelector(".lang-switch")) {
+    const switcher = document.createElement("div");
+    switcher.className = "lang-switch";
+    switcher.setAttribute("aria-label", "Language");
+    switcher.innerHTML = `<button type="button" data-lang-option="zh">中</button><button type="button" data-lang-option="en">EN</button>`;
+    const cta = nav.querySelector(".nav-cta");
+    nav.insertBefore(switcher, cta || null);
+    switcher.querySelectorAll("button").forEach((btn) =>
+      btn.addEventListener("click", () => setLanguage(btn.dataset.langOption))
+    );
+  }
+  setLanguage(getLanguage());
+}
+initLanguageSwitcher();
 function showToast(msg) {
   if (!toast) return;
   toast.textContent = msg;
@@ -84,6 +624,7 @@ async function loadSuppliers() {
     window.__suppliers = j.data || [];
     renderSuppliers(window.__suppliers);
     status.textContent = `共 ${window.__suppliers.length} 家已审核供应商`;
+    refreshCurrentLanguage();
   } catch (e) {
     status.textContent = e.message;
     grid.innerHTML = "";
@@ -100,6 +641,7 @@ async function loadHomeRecommendations() {
         const image = Array.isArray(h.image_urls) && h.image_urls[0];
         return `<article class="recommend-card">${image ? `<img src="${esc(image)}" alt="${esc(h.room_type)}" loading="lazy">` : '<div class="recommend-placeholder">ZIEC HOTEL</div>'}<div><small>${h.featured ? "推荐酒店" : "酒店住宿"}</small><h3>${esc(h.name || "中鼎国际酒店")} · ${esc(h.room_type)}</h3><p>US$ ${esc(h.price)} / ${esc(h.price_unit || "晚")}</p><a href="./hotels.html">查看与预订 →</a></div></article>`;
       }).join("") || '<p class="muted">酒店推荐即将上线。</p>';
+      refreshCurrentLanguage();
     } catch (e) { hotelGrid.innerHTML = `<p class="muted">${esc(e.message)}</p>`; }
   }
   if (supplierGrid) {
@@ -109,6 +651,7 @@ async function loadHomeRecommendations() {
         const image = Array.isArray(s.image_urls) && s.image_urls[0];
         return `<article class="recommend-card supplier-recommend">${image ? `<img src="${esc(image)}" alt="${esc(s.company_name)}" loading="lazy">` : '<div class="recommend-placeholder">ZIEC SUPPLY</div>'}<div><small>${esc(s.category || "供应商")}</small><h3>${esc(s.company_name)}</h3><p>${esc(s.city || "柬埔寨")}</p><a href="./suppliers.html">查看供应商 →</a></div></article>`;
       }).join("") || '<p class="muted">供应商推荐即将上线。</p>';
+      refreshCurrentLanguage();
     } catch (e) { supplierGrid.innerHTML = `<p class="muted">${esc(e.message)}</p>`; }
   }
 }
