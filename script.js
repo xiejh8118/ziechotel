@@ -22,6 +22,35 @@ const I18N_TEXT = {
     "服务金边、西港、暹粒｜精选酒店、公寓长租、机场接送、包车与企业团房咨询":
       "Serving Phnom Penh, Sihanoukville and Siem Reap with curated stays, monthly apartments, airport transfers, car service and corporate group accommodation.",
     "查看精选住宿": "View Selected Stays",
+    "ZIEC LIFE Cambodia": "ZIEC LIFE Cambodia",
+    "接送包车": "Transfers & Cars",
+    "柬埔寨本地住宿、出行、企业服务与供应链对接平台":
+      "Cambodia accommodation, mobility, business services and supply chain matching platform",
+    "酒店公寓、接送包车、企业接待与供应链资源，一站对接中文、本地与企业客户需求。":
+      "Hotels, apartments, transfers, corporate reception and supplier resources for Chinese-speaking, local and business customers.",
+    "查看服务": "View Services",
+    "住｜酒店公寓": "Stay | Hotels & Apartments",
+    "行｜接送包车": "Move | Transfers & Cars",
+    "商｜企业服务": "Business | Corporate Services",
+    "供｜供应链平台": "Supply | Supplier Platform",
+    "核心服务": "Core Services",
+    "住宿 · 出行 · 企业 · 供应链": "Stay · Move · Business · Supply",
+    "在柬埔寨，把住宿、出行和企业资源安排好":
+      "Accommodation, mobility and business resources arranged in Cambodia",
+    "从短住长租到接送包车、企业接待和采购对接，中鼎本地团队协助确认需求、价格与可用资源。":
+      "From short stays and long-term rentals to transfers, corporate reception and procurement matching, ZIEC's local team helps confirm needs, pricing and available resources.",
+    "住得安心": "Reliable Stays",
+    "酒店客房、月租公寓、长期住宿、企业团房与员工宿舍，按入住周期和预算匹配。":
+      "Hotel rooms, monthly apartments, long stays, group accommodation and staff housing matched by duration and budget.",
+    "出行省心": "Easy Mobility",
+    "机场接送、市内包车、司机服务和本地协助，适合旅游、商务和团队行程。":
+      "Airport transfers, city car service, drivers and local support for travel, business and group trips.",
+    "企业好安排": "Business Made Easier",
+    "团队住宿、会议接待、员工长住、月结方案和长期合作，减少企业落地成本。":
+      "Group stays, meeting reception, staff long stays, monthly settlement and long-term cooperation to reduce local coordination costs.",
+    "资源对得上": "Matched Resources",
+    "建筑材料、工程维修、家具设备、物流和企业服务供应商，支持采购询价与人工匹配。":
+      "Building materials, engineering repair, furniture, logistics and business service suppliers with RFQ and manual matching support.",
     "中文客服": "Chinese Support",
     "真实房源": "Verified Rooms",
     "本地履约": "Local Fulfillment",
@@ -138,8 +167,8 @@ const I18N_TEXT = {
     "请告知入住人数、日期与预计周期。":
       "Please share guest count, dates and expected stay period.",
     "WhatsApp 企业咨询": "Corporate WhatsApp",
-    "V5.5 已上线：供应商入驻 · 后台审核 · 采购询价":
-      "V5.5 Live: Supplier onboarding · Admin review · RFQ",
+    "同步支持供应商入驻、采购询价与企业资源对接":
+      "Supplier onboarding, procurement inquiries and business resource matching are also supported.",
     "链接柬埔寨优质供应链，服务企业真实需求":
       "Connecting Quality Cambodian Suppliers for Real Business Needs",
     "依托中鼎在柬埔寨长期积累的企业资源与本地服务能力，为工程项目、企业客户和供应商提供可靠、高效的合作对接。":
@@ -243,8 +272,8 @@ const I18N_TEXT = {
       "Long stays, group reception and corporate rates.",
     "专属方案": "Dedicated Plan",
     "酒店详情与入住信息": "Hotel Details & Stay Information",
-    "测试版先补齐预订前最关键的信息，后续每家精选酒店按同一标准展示。":
-      "The test version covers essential pre-booking details first; selected hotels will follow the same standard later.",
+    "预订前先确认地址、房态、入住政策与付款规则，让每一次入住更清楚。":
+      "Confirm the address, availability, stay policy and payment rules before booking for a clearer stay.",
     "地址与地图": "Address & Map",
     "柬埔寨 · 金边。具体门牌与地图定位将在订单确认前由中文客服发送。":
       "Phnom Penh, Cambodia. Exact address and map location will be sent before order confirmation.",
@@ -341,24 +370,59 @@ const I18N_TEXT = {
     "在线订单与付款指南": "Online Order & Payment Guide",
     "先确认订单，再核对官方收款信息，付款后由酒店人工确认。":
       "Confirm the order first, verify official payment information, then wait for manual hotel confirmation.",
+    "先提交预订需求，由酒店确认房态、总价和官方收款信息后再付款。":
+      "Submit your booking request first. Pay only after the hotel confirms availability, total price and official payment details.",
     "当前预订信息": "Current Booking Information",
+    "请选择房型": "Please Select a Room",
+    "房型、日期和人数将在这里显示。":
+      "Room type, dates and guests will be shown here.",
+    "WhatsApp 核对订单": "Verify Order on WhatsApp",
     "酒店房型": "Room Type",
     "提交预订需求": "Submit Booking Request",
     "预订付款步骤": "Booking and Payment Steps",
     "提交住宿需求": "Submit Stay Requirements",
+    "填写联系人，并核对入住日期、房型、房间数和入住人数。":
+      "Enter your contact details and verify dates, room type, room count and guests.",
     "告知入住日期、离店日期、房型、房间数和联系人。":
       "Share check-in date, check-out date, room type, room count and contact person.",
     "酒店确认订单": "Hotel Confirms Order",
     "前台确认房态、价格、取消政策并发送订单编号。":
       "Front desk confirms availability, price, cancellation policy and order number.",
+    "前台确认房态、总价、取消政策，并发送订单编号。":
+      "Front desk confirms availability, total price, cancellation policy and order number.",
     "选择付款方式": "Choose Payment Method",
+    "核对官方收款信息": "Verify Official Payment Details",
+    "付款前确认订单编号、金额、币种和收款方名称。":
+      "Confirm order number, amount, currency and payee name before paying.",
     "扫码付款、Visa/Mastercard银行卡，或与前台约定的其他方式。":
       "Pay by QR code, Visa/Mastercard, or other methods agreed with the front desk.",
     "等待到账确认": "Wait for Payment Confirmation",
+    "付款后人工确认": "Manual Confirmation After Payment",
+    "发送付款截图，最终以酒店确认到账为准。":
+      "Send the payment screenshot. Final status depends on hotel confirmation.",
     "付款成功页面或截图仅用于核对，最终以酒店确认到账为准。":
       "Successful payment pages or screenshots are for checking only; final status depends on hotel confirmation.",
     "付款方式": "Payment Methods",
+    "联系人 *": "Contact Person *",
+    "电话 / WhatsApp *": "Phone / WhatsApp *",
+    "备注": "Notes",
+    "提交到 WhatsApp 确认": "Submit to WhatsApp",
+    "网站不直接收取房费。请先通过官方 WhatsApp 确认订单，再按酒店发送的官方收款信息付款。":
+      "The website does not collect room fees directly. Please confirm the order via official WhatsApp first, then pay using the official payment details sent by the hotel.",
     "扫码付款": "QR Code Payment",
+    "请先与酒店确认订单编号、金额和币种，再选择对应二维码付款。":
+      "Confirm the order number, amount and currency with the hotel before choosing the matching QR code.",
+    "美元付款": "USD Payment",
+    "USD · 请核对美元金额": "USD · Verify the USD amount",
+    "瑞尔付款": "KHR Payment",
+    "KHR · 请核对瑞尔金额": "KHR · Verify the KHR amount",
+    "付款后请把付款截图发送给酒店客服，最终以酒店确认到账为准。":
+      "After payment, send the screenshot to hotel support. Final status depends on hotel confirmation.",
+    "扫码核对官方信息": "Scan to Verify Official Info",
+    "扫码后请核对网站域名与官方联系方式":
+      "After scanning, verify the website domain and official contact details.",
+    "涉及具体金额和收款二维码时，请以酒店人工确认结果为准。":
+      "For exact amounts and payment QR codes, follow the hotel's manual confirmation.",
     "请后台上传并核验酒店官方收款二维码后启用":
       "Enable after uploading and verifying the official hotel payment QR code in admin.",
     "付款前请确认收款方名称与酒店通知一致。":

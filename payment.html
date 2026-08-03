@@ -1,14 +1,262 @@
 <!doctype html>
 <html lang="zh-CN">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="ZIEC HOTEL 在线订单与付款指南。"><title>在线订单与付款指南｜ZIEC HOTEL</title><link rel="stylesheet" href="./styles.css"></head>
-<body>
-<header class="site-header"><div class="container nav"><a class="brand" href="./index.html"><img src="./assets/logo.png" alt="ZIEC"><span><strong>ZIEC HOTEL</strong><small>订单与付款指南</small></span></a><nav class="nav-links"><a href="./index.html">首页</a><a class="active" href="./hotels.html">酒店公寓</a><a href="./index.html#corporate">企业服务</a><a href="./suppliers.html">供应链平台</a><a href="./index.html#contact">联系我们</a><button class="nav-ai" type="button" data-ai-open>AI客服</button></nav></div></header>
-<main><section class="sub-hero payment-hero"><div class="container"><span>SECURE PAYMENT GUIDE</span><h1>在线订单与付款指南</h1><p>先确认订单，再核对官方收款信息，付款后由酒店人工确认。</p></div></section>
-<section class="booking-summary-section" id="bookingSummary" hidden><div class="container"><div class="booking-summary"><div><small>当前预订信息</small><h2 id="summaryRoom">酒店房型</h2><p id="summaryStay"></p></div><a class="btn btn-primary" id="summaryContact" target="_blank" rel="noopener">提交预订需求</a></div></div></section>
-<section class="section"><div class="container payment-layout"><article class="payment-steps"><h2>预订付款步骤</h2><ol><li><strong>提交住宿需求</strong><span>告知入住日期、离店日期、房型、房间数和联系人。</span></li><li><strong>酒店确认订单</strong><span>前台确认房态、价格、取消政策并发送订单编号。</span></li><li><strong>选择付款方式</strong><span>扫码付款、Visa/Mastercard银行卡，或与前台约定的其他方式。</span></li><li><strong>等待到账确认</strong><span>付款成功页面或截图仅用于核对，最终以酒店确认到账为准。</span></li></ol></article>
-<aside class="payment-methods"><h2>付款方式</h2><div class="payment-method"><b>扫码付款</b><div class="qr-frame"><img src="./assets/payment-qr.png" alt="酒店官方收款二维码" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span>请后台上传并核验酒店官方收款二维码后启用</span></div><p>付款前请确认收款方名称与酒店通知一致。</p></div><div class="payment-method"><b>Visa / Mastercard</b><div class="card-brands"><span>VISA</span><span>Mastercard</span></div><p>是否支持线上刷卡或到店刷卡，以酒店前台确认结果为准。网站不收集或保存银行卡号、有效期及安全码。</p></div><a class="btn btn-primary full-btn" href="https://wa.me/855189958899?text=您好，我想确认酒店订单和官方付款信息" target="_blank" rel="noopener">WhatsApp核对订单与付款</a></aside></div>
-<div class="container payment-warning"><strong>安全提醒</strong><p>不要向非官方联系人付款；不要在聊天或网页表单中发送完整银行卡资料、密码或验证码。付款前务必核对订单编号、金额、币种和收款方名称。</p></div></section></main>
-<footer class="footer"><div class="container"><div>© 2026 ZIEC HOTEL</div><div>官方付款信息请以酒店确认结果为准</div></div></footer>
-<div class="toast" role="status"></div><section class="ai-panel" id="aiPanel" aria-hidden="true"><div class="ai-head"><div><strong>ZIEC AI客服</strong><small>订单与付款咨询</small></div><button type="button" data-ai-close aria-label="关闭">×</button></div><div class="ai-messages" id="aiMessages"><div class="ai-message bot">您好，我可以说明订单流程和付款注意事项。涉及具体金额与二维码时，请与酒店人工核对。</div></div><div class="ai-quick"><button data-ai-question="酒店订单付款步骤是什么？">付款步骤</button><button data-ai-question="如何确认收款二维码是真的？">核验二维码</button><button data-ai-question="Visa银行卡怎么付款？">Visa付款</button></div><form class="ai-form" id="aiForm"><input id="aiInput" maxlength="500" placeholder="请输入您的问题" required><button>发送</button></form></section><button class="ai-float" type="button" data-ai-open><span>AI</span>客服</button><script src="./script.js"></script>
-<script>const booking=new URLSearchParams(location.search);if(booking.get('room')){bookingSummary.hidden=false;summaryRoom.textContent=[booking.get('hotel'),booking.get('room')].filter(Boolean).join(' · ');summaryStay.textContent=`${booking.get('checkin')||'待确认'} 至 ${booking.get('checkout')||'待确认'} · ${booking.get('rooms')||'1间'} · ${booking.get('guests')||'2位'} · 参考价 US$ ${booking.get('price')||'待确认'}`;const msg=`您好，我想预订：${summaryRoom.textContent}，入住${booking.get('checkin')}，退房${booking.get('checkout')}，${booking.get('rooms')}，${booking.get('guests')}。请确认房态和总价。`;summaryContact.href='https://wa.me/855189958899?text='+encodeURIComponent(msg)}</script>
-</body></html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="ZIEC HOTEL 在线订单与付款指南。先提交预订需求，再由酒店确认房态、价格与官方收款信息。"
+    />
+    <title>在线订单与付款指南｜ZIEC HOTEL</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="./index.html">
+          <img src="./assets/logo.png" alt="ZIEC" />
+          <span><strong>ZIEC HOTEL</strong><small>订单与付款指南</small></span>
+        </a>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="打开菜单"
+          aria-expanded="false"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="nav-links">
+          <a href="./index.html">首页</a>
+          <a class="active" href="./hotels.html">酒店公寓</a>
+          <a href="./index.html#move">接送包车</a>
+          <a href="./index.html#corporate">企业服务</a>
+          <a href="./suppliers.html">供应链平台</a>
+          <a href="./index.html#contact">联系我们</a>
+          <button class="nav-ai" type="button" data-ai-open>AI客服</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="sub-hero payment-hero">
+        <div class="container">
+          <span>SECURE PAYMENT GUIDE</span>
+          <h1>在线订单与付款指南</h1>
+          <p>先提交预订需求，由酒店确认房态、总价和官方收款信息后再付款。</p>
+        </div>
+      </section>
+
+      <section class="booking-summary-section" id="bookingSummary">
+        <div class="container">
+          <div class="booking-summary">
+            <div>
+              <small>当前预订信息</small>
+              <h2 id="summaryRoom">请选择房型</h2>
+              <p id="summaryStay">房型、日期和人数将在这里显示。</p>
+            </div>
+            <a class="btn btn-primary" id="summaryContact" target="_blank" rel="noopener">
+              WhatsApp 核对订单
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container payment-layout payment-live-layout">
+          <article class="payment-steps">
+            <h2>预订付款步骤</h2>
+            <ol>
+              <li>
+                <strong>提交预订需求</strong>
+                <span>填写联系人，并核对入住日期、房型、房间数和入住人数。</span>
+              </li>
+              <li>
+                <strong>酒店确认订单</strong>
+                <span>前台确认房态、总价、取消政策，并发送订单编号。</span>
+              </li>
+              <li>
+                <strong>核对官方收款信息</strong>
+                <span>付款前确认订单编号、金额、币种和收款方名称。</span>
+              </li>
+              <li>
+                <strong>付款后人工确认</strong>
+                <span>发送付款截图，最终以酒店确认到账为准。</span>
+              </li>
+            </ol>
+          </article>
+
+          <aside class="payment-methods">
+            <h2>提交预订需求</h2>
+            <form class="payment-request-form" id="paymentRequestForm">
+              <label>
+                联系人 *
+                <input id="payerName" maxlength="80" placeholder="请输入姓名" required />
+              </label>
+              <label>
+                电话 / WhatsApp *
+                <input id="payerContact" maxlength="60" placeholder="+855 / +86 ..." required />
+              </label>
+              <label>
+                备注
+                <textarea
+                  id="payerNote"
+                  maxlength="300"
+                  placeholder="例如：需要接机、预计到店时间、是否长期入住"
+                ></textarea>
+              </label>
+              <button class="btn btn-primary full-btn" type="submit">
+                提交到 WhatsApp 确认
+              </button>
+            </form>
+            <p class="payment-inline-note">
+              网站不直接收取房费。请先通过官方 WhatsApp 确认订单，再按酒店发送的官方收款信息付款。
+            </p>
+          </aside>
+        </div>
+
+        <div class="container payment-layout payment-method-layout">
+          <article class="payment-methods">
+            <h2>付款方式</h2>
+            <div class="payment-method payment-qr-method">
+              <b>扫码付款</b>
+              <p>请先与酒店确认订单编号、金额和币种，再选择对应二维码付款。</p>
+              <div class="payment-qr-grid">
+                <figure class="payment-qr-card">
+                  <img src="./assets/payment-usd.png" alt="瑞德美元付款二维码" />
+                  <figcaption>
+                    <strong>美元付款</strong>
+                    <span>USD · 请核对美元金额</span>
+                  </figcaption>
+                </figure>
+                <figure class="payment-qr-card">
+                  <img src="./assets/payment-khr.png" alt="瑞德瑞尔付款二维码" />
+                  <figcaption>
+                    <strong>瑞尔付款</strong>
+                    <span>KHR · 请核对瑞尔金额</span>
+                  </figcaption>
+                </figure>
+              </div>
+              <p>付款后请把付款截图发送给酒店客服，最终以酒店确认到账为准。</p>
+            </div>
+            <div class="payment-method">
+              <b>Visa / Mastercard</b>
+              <div class="card-brands"><span>VISA</span><span>Mastercard</span></div>
+              <p>是否支持线上刷卡或到店刷卡，以酒店前台确认结果为准。网站不收集或保存银行卡号、有效期及安全码。</p>
+            </div>
+          </article>
+
+          <aside class="payment-warning payment-warning-card">
+            <strong>安全提醒</strong>
+            <p>不要向非官方联系人付款；不要在聊天或网页表单中发送完整银行卡资料、密码或验证码。</p>
+            <p>付款前务必核对订单编号、金额、币种和收款方名称。</p>
+            <a
+              class="btn btn-dark full-btn"
+              href="https://wa.me/855189958899?text=您好，我想确认酒店订单和官方付款信息"
+              target="_blank"
+              rel="noopener"
+            >
+              WhatsApp 核对订单与付款
+            </a>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-wrap">
+        <div>© 2026 ZIEC HOTEL</div>
+        <div>官方付款信息请以酒店确认结果为准</div>
+      </div>
+    </footer>
+
+    <div class="toast" role="status"></div>
+    <section class="ai-panel" id="aiPanel" aria-hidden="true">
+      <div class="ai-head">
+        <div>
+          <strong>ZIEC AI客服</strong><small>订单与付款咨询</small>
+        </div>
+        <button type="button" data-ai-close aria-label="关闭">×</button>
+      </div>
+      <div class="ai-messages" id="aiMessages">
+        <div class="ai-message bot">
+          您好，我可以说明订单流程和付款注意事项。涉及具体金额与二维码时，请与酒店人工核对。
+        </div>
+      </div>
+      <div class="ai-quick">
+        <button data-ai-question="酒店订单付款步骤是什么？">付款步骤</button>
+        <button data-ai-question="如何确认收款二维码是真的？">核验二维码</button>
+        <button data-ai-question="Visa银行卡怎么付款？">Visa付款</button>
+      </div>
+      <form class="ai-form" id="aiForm">
+        <input id="aiInput" maxlength="500" placeholder="请输入您的问题" required />
+        <button>发送</button>
+      </form>
+    </section>
+    <button class="ai-float" type="button" data-ai-open><span>AI</span>客服</button>
+    <script src="./script.js"></script>
+    <script>
+      (() => {
+        const booking = new URLSearchParams(location.search);
+        const room = booking.get("room") || "";
+        const hotel = booking.get("hotel") || "";
+        const price = booking.get("price") || "";
+        const checkin = booking.get("checkin") || "待确认";
+        const checkout = booking.get("checkout") || "待确认";
+        const rooms = booking.get("rooms") || "1间";
+        const guests = booking.get("guests") || "2位";
+        const orderId = `ZIEC-${new Date().toISOString().slice(0, 10).replaceAll("-", "")}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`;
+
+        const summaryRoom = document.querySelector("#summaryRoom");
+        const summaryStay = document.querySelector("#summaryStay");
+        const summaryContact = document.querySelector("#summaryContact");
+        const form = document.querySelector("#paymentRequestForm");
+        const payerName = document.querySelector("#payerName");
+        const payerContact = document.querySelector("#payerContact");
+        const payerNote = document.querySelector("#payerNote");
+
+        const roomTitle = [hotel, room].filter(Boolean).join(" · ") || "酒店住宿需求";
+        const amountText = price ? `参考价 US$ ${price}` : "价格待确认";
+        summaryRoom.textContent = roomTitle;
+        summaryStay.textContent = `${checkin} 至 ${checkout} · ${rooms} · ${guests} · ${amountText} · 临时订单号 ${orderId}`;
+
+        const buildMessage = () => {
+          const name = payerName.value.trim() || "待补充";
+          const contact = payerContact.value.trim() || "待补充";
+          const note = payerNote.value.trim() || "无";
+          return [
+            "您好，我想确认酒店预订和付款信息：",
+            `临时订单号：${orderId}`,
+            `房型：${roomTitle}`,
+            `入住：${checkin}`,
+            `退房：${checkout}`,
+            `房间/人数：${rooms}，${guests}`,
+            `参考价：${amountText}`,
+            `联系人：${name}`,
+            `电话/WhatsApp：${contact}`,
+            `备注：${note}`,
+            "请确认房态、总价、取消政策和官方收款信息。"
+          ].join("\n");
+        };
+
+        const updateContactHref = () => {
+          summaryContact.href = "https://wa.me/855189958899?text=" + encodeURIComponent(buildMessage());
+        };
+
+        updateContactHref();
+        ["input", "change"].forEach((eventName) => {
+          form.addEventListener(eventName, updateContactHref);
+        });
+
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+          if (!payerName.value.trim() || !payerContact.value.trim()) {
+            document.querySelector(".toast").textContent = "请填写联系人和电话 / WhatsApp。";
+            return;
+          }
+          updateContactHref();
+          window.open(summaryContact.href, "_blank", "noopener");
+        });
+      })();
+    </script>
+  </body>
+</html>

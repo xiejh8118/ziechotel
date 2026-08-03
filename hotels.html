@@ -247,7 +247,7 @@
 
       <section class="section hotel-detail-standard" id="stay-info">
         <div class="container">
-          <div class="section-title"><span>BEFORE YOU BOOK</span><h2>酒店详情与入住信息</h2><p class="muted">测试版先补齐预订前最关键的信息，后续每家精选酒店按同一标准展示。</p></div>
+          <div class="section-title"><span>BEFORE YOU BOOK</span><h2>酒店详情与入住信息</h2><p class="muted">预订前先确认地址、房态、入住政策与付款规则，让每一次入住更清楚。</p></div>
           <div class="hotel-info-grid">
             <article><h3>地址与地图</h3><p>柬埔寨 · 金边。具体门牌与地图定位将在订单确认前由中文客服发送。</p><a href="https://wa.me/855189958899?text=您好，请发我酒店地址和地图定位" target="_blank" rel="noopener">获取地图定位 →</a></article>
             <article><h3>入住政策</h3><p>入住时间、退房时间、押金、加床及儿童政策以具体房型确认单为准。</p><a href="https://wa.me/855189958899?text=您好，我想确认酒店入住政策" target="_blank" rel="noopener">确认入住须知 →</a></article>
@@ -329,7 +329,7 @@
               >ziechotel@qq.com</a
             >
             <div class="future">
-              V5.5 已上线：供应商入驻 · 后台审核 · 采购询价
+              同步支持供应商入驻、采购询价与企业资源对接
             </div>
           </aside>
         </div>
@@ -482,19 +482,35 @@
         const roomCount = document.querySelector('#roomCount');
         const guestCount = document.querySelector('#guestCount');
         const note = document.querySelector('#bookingNote');
+        const bookingLinks = [...document.querySelectorAll('a[href^="./payment.html?room="]')];
         const format = (date) => date.toISOString().slice(0, 10);
+        const updateBookingLinks = () => {
+          bookingLinks.forEach((link) => {
+            const url = new URL(link.getAttribute('href'), location.href);
+            url.searchParams.set('checkin', checkin.value);
+            url.searchParams.set('checkout', checkout.value);
+            url.searchParams.set('rooms', roomCount.value);
+            url.searchParams.set('guests', guestCount.value);
+            link.href = './payment.html?' + url.searchParams.toString();
+          });
+        };
         const today = new Date();
         const tomorrow = new Date(Date.now() + 86400000);
         checkin.min = format(today);
         checkout.min = format(tomorrow);
         checkin.value = format(today);
         checkout.value = format(tomorrow);
+        updateBookingLinks();
+        [checkin, checkout, roomCount, guestCount].forEach((field) => {
+          field.addEventListener('change', updateBookingLinks);
+        });
         form.addEventListener('submit', (event) => {
           event.preventDefault();
           if (checkout.value <= checkin.value) {
             note.textContent = '退房日期必须晚于入住日期。';
             return;
           }
+          updateBookingLinks();
           note.textContent = `已选择 ${checkin.value} 至 ${checkout.value}，${roomCount.value}、${guestCount.value}。请选择下面房型预订。`;
           document.querySelector('#hotel-stay').scrollIntoView({ behavior: 'smooth' });
         });
