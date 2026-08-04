@@ -1106,9 +1106,10 @@ document.querySelectorAll("[data-tab]").forEach((b) =>
     loadAdmin();
   }),
 );
-document.querySelector("#adminLogout")?.addEventListener("click", async () => {
-  await jsonFetch("/api/admin-logout", { method: "POST" });
-  location.reload();
+document.querySelector("#adminLogout")?.addEventListener("click", () => {
+  jsonFetch("/api/admin-login?action=logout", { method: "POST" }).finally(() =>
+    location.reload(),
+  );
 });
 window.supplierAct = async (id, status) => {
   const j = await jsonFetch("/api/admin-supplier?id=" + id, {

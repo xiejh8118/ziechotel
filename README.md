@@ -70,13 +70,12 @@ V6.0.4 免费版部署修复说明：已移除仅用于开发排错的独立 Sto
 - 修复 Vercel Node.js 20 与新版 Supabase SDK 不兼容导致的
   `WebSocket is not defined`。
 - Vercel 运行环境升级为 Node.js 22，并锁定 Supabase SDK 版本，避免以后自动升级失效。
-- `/api/health` 统一使用网站数据库客户端，不再重复创建不同配置的连接。
+- 数据库连接统一使用网站 API 客户端，不再保留独立健康检查函数，以符合 Vercel Hobby 的 12 个函数限制。
 - 增加 `SUPABASE_URL` 格式检查。正确格式必须是：
   `https://项目编号.supabase.co`，不能使用 `postgresql://...` 数据库连接串。
 - 供应商入驻、图片上传及采购询价返回明确的数据库错误说明。
 
-重新部署后先访问 `/api/health`。若核心表尚未创建，再到 Supabase SQL Editor
-执行一次 `supabase/schema.sql`。
+重新部署后先打开网站首页、供应商列表和后台登录页检查。若提示核心表尚未创建，再到 Supabase SQL Editor 执行一次 `supabase/schema.sql`。
 
 ## V6.0.2（2026-07-30）
 
@@ -116,18 +115,9 @@ V6.0.4 免费版部署修复说明：已移除仅用于开发排错的独立 Sto
 
 本次不需要修改 Supabase 数据库。
 
-## V6.0.1 数据库健康检查
+## V6.0.1 数据库连接检查
 
-新增接口：
-
-```text
-/api/health
-```
-
-检查内容：
-
-- Supabase 环境变量是否存在
-- Supabase 是否可连接
+数据库连接通过网站 API 页面流程检查，不再单独占用 `/api/health` 函数名额。
 - suppliers
 - supplier_categories
 - purchase_inquiries
