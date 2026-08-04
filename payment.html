@@ -247,11 +247,41 @@
           form.addEventListener(eventName, updateContactHref);
         });
 
-        form.addEventListener("submit", (event) => {
+        form.addEventListener("submit", async (event) => {
           event.preventDefault();
           if (!payerName.value.trim() || !payerContact.value.trim()) {
             document.querySelector(".toast").textContent = "请填写联系人和电话 / WhatsApp。";
             return;
+          }
+          const toast = document.querySelector(".toast");
+          toast.textContent = "正在提交预订需求……";
+          try {
+            const response = await fetch("/api/bookings", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                order_no: orderId,
+                customer_name: payerName.value.trim(),
+                contact: payerContact.value.trim(),
+                hotel_name: hotel || "中鼎国际酒店",
+                room_type: room || roomTitle,
+                checkin,
+                checkout,
+                rooms,
+                guests,
+                price,
+                currency: "USD",
+                note: payerNote.value.trim()
+              })
+            });
+            if (response.ok) {
+              const payload = await response.json();
+              toast.textContent = payload.message || "预订需求已提交。";
+            } else {
+              toast.textContent = "在线订单暂未保存，请继续通过 WhatsApp 确认。";
+            }
+          } catch {
+            toast.textContent = "在线订单暂未保存，请继续通过 WhatsApp 确认。";
           }
           updateContactHref();
           window.open(summaryContact.href, "_blank", "noopener");

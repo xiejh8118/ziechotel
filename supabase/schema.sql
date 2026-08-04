@@ -34,9 +34,35 @@ alter table public.hotels enable row level security;
 drop policy if exists "public published hotels" on public.hotels;
 create policy "public published hotels" on public.hotels for select using(status='published');
 
+create table if not exists public.booking_orders(
+  id uuid primary key default gen_random_uuid(),
+  order_no varchar(40) not null,
+  customer_name varchar(80) not null,
+  contact varchar(40) not null,
+  hotel_name varchar(120) default '中鼎国际酒店',
+  room_type varchar(80) default '',
+  checkin varchar(30) default '',
+  checkout varchar(30) default '',
+  rooms varchar(30) default '',
+  guests varchar(30) default '',
+  price numeric(12,2) default 0,
+  currency varchar(10) default 'USD',
+  note text default '',
+  status varchar(20) not null default 'new',
+  created_at timestamptz not null default now()
+);
+alter table public.booking_orders enable row level security;
+
 insert into storage.buckets(id,name,public,file_size_limit,allowed_mime_types)
 values('supplier-images','supplier-images',true,5242880,array['image/jpeg','image/png','image/webp'])
 on conflict(id) do update set public=true,file_size_limit=5242880,allowed_mime_types=array['image/jpeg','image/png','image/webp'];
 
 drop policy if exists "public supplier images" on storage.objects;
 create policy "public supplier images" on storage.objects for select using(bucket_id='supplier-images');
+
+insert into storage.buckets(id,name,public,file_size_limit,allowed_mime_types)
+values('hotel-images','hotel-images',true,5242880,array['image/jpeg','image/png','image/webp'])
+on conflict(id) do update set public=true,file_size_limit=5242880,allowed_mime_types=array['image/jpeg','image/png','image/webp'];
+
+drop policy if exists "public hotel images" on storage.objects;
+create policy "public hotel images" on storage.objects for select using(bucket_id='hotel-images');

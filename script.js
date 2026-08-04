@@ -698,25 +698,84 @@ async function loadSuppliers() {
 async function loadHomeRecommendations() {
   const hotelGrid = document.querySelector("#homeHotelGrid");
   const supplierGrid = document.querySelector("#homeSupplierGrid");
+  const fallbackHotels = [
+    {
+      label: "酒店住宿",
+      title: "中鼎国际酒店 · 标准双床房",
+      price: "US$ 35 / 晚",
+      image: "assets/twin-room.jpg",
+      href: "./payment.html?room=%E6%A0%87%E5%87%86%E5%8F%8C%E5%BA%8A%E6%88%BF&price=35",
+    },
+    {
+      label: "酒店住宿",
+      title: "中鼎国际酒店 · VIP房",
+      price: "US$ 70 / 晚",
+      image: "assets/suite-room.jpg",
+      href: "./payment.html?room=VIP%E6%88%BF&price=70",
+    },
+    {
+      label: "长租公寓",
+      title: "金边月租公寓 · 长住方案",
+      price: "US$ 260 / 月起",
+      image: "assets/monthly-6.jpg",
+      href: "./hotels.html",
+    },
+    {
+      label: "企业住宿",
+      title: "企业协议住宿 · 团队接待",
+      price: "月结、长住与接待需求可核价",
+      href: "./hotels.html",
+    },
+  ];
+  const fallbackSuppliers = [
+    { label: "供应链入口", title: "建筑材料与工程物资", meta: "采购、报价、交付对接", href: "./suppliers.html" },
+    { label: "供应链入口", title: "家具设备与酒店用品", meta: "房间、办公与餐饮配套", href: "./suppliers.html" },
+    { label: "供应链入口", title: "维修安装与本地协助", meta: "长期合作供应商招募", href: "./join.html" },
+    { label: "供应链入口", title: "物流运输与资源对接", meta: "中柬、本地与项目协同", href: "./suppliers.html" },
+  ];
+  const renderHotelRecommendations = (list) =>
+    list
+      .slice(0, 10)
+      .map((h) => {
+        const image = Array.isArray(h.image_urls) ? h.image_urls[0] : h.image;
+        const title = h.title || `${h.name || "中鼎国际酒店"} · ${h.room_type || ""}`;
+        const price =
+          typeof h.price === "number" || /^\d+(\.\d+)?$/.test(String(h.price || ""))
+            ? `US$ ${h.price} / ${h.price_unit || "晚"}`
+            : h.price || h.meta || "";
+        const href = h.href || "./hotels.html";
+        return `<article class="recommend-card">${image ? `<img src="${esc(image)}" alt="${esc(title)}" loading="lazy">` : '<div class="recommend-placeholder">ZIEC HOTEL</div>'}<div><small>${esc(h.label || (h.featured ? "推荐酒店" : "酒店住宿"))}</small><h3>${esc(title)}</h3><p>${esc(price)}</p><a href="${esc(href)}">查看与预订 →</a></div></article>`;
+      })
+      .join("");
+  const renderSupplierRecommendations = (list) =>
+    list
+      .slice(0, 20)
+      .map((s) => {
+        const image = Array.isArray(s.image_urls) ? s.image_urls[0] : s.image;
+        const title = s.title || s.company_name || "供应链服务入口";
+        const href = s.href || "./suppliers.html";
+        return `<article class="recommend-card supplier-recommend">${image ? `<img src="${esc(image)}" alt="${esc(title)}" loading="lazy">` : '<div class="recommend-placeholder">ZIEC SUPPLY</div>'}<div><small>${esc(s.label || s.category || "供应商")}</small><h3>${esc(title)}</h3><p>${esc(s.meta || s.city || "柬埔寨本地资源对接")}</p><a href="${esc(href)}">查看供应商 →</a></div></article>`;
+      })
+      .join("");
   if (hotelGrid) {
     try {
       const j = await jsonFetch("/api/hotels?limit=10");
-      hotelGrid.innerHTML = (j.data || []).slice(0, 10).map((h) => {
-        const image = Array.isArray(h.image_urls) && h.image_urls[0];
-        return `<article class="recommend-card">${image ? `<img src="${esc(image)}" alt="${esc(h.room_type)}" loading="lazy">` : '<div class="recommend-placeholder">ZIEC HOTEL</div>'}<div><small>${h.featured ? "推荐酒店" : "酒店住宿"}</small><h3>${esc(h.name || "中鼎国际酒店")} · ${esc(h.room_type)}</h3><p>US$ ${esc(h.price)} / ${esc(h.price_unit || "晚")}</p><a href="./hotels.html">查看与预订 →</a></div></article>`;
-      }).join("") || '<p class="muted">酒店推荐即将上线。</p>';
+      hotelGrid.innerHTML = renderHotelRecommendations((j.data || []).length ? j.data : fallbackHotels);
       refreshCurrentLanguage();
-    } catch (e) { hotelGrid.innerHTML = `<p class="muted">${esc(e.message)}</p>`; }
+    } catch (e) {
+      hotelGrid.innerHTML = renderHotelRecommendations(fallbackHotels);
+      refreshCurrentLanguage();
+    }
   }
   if (supplierGrid) {
     try {
       const j = await jsonFetch("/api/suppliers?limit=20");
-      supplierGrid.innerHTML = (j.data || []).slice(0, 20).map((s) => {
-        const image = Array.isArray(s.image_urls) && s.image_urls[0];
-        return `<article class="recommend-card supplier-recommend">${image ? `<img src="${esc(image)}" alt="${esc(s.company_name)}" loading="lazy">` : '<div class="recommend-placeholder">ZIEC SUPPLY</div>'}<div><small>${esc(s.category || "供应商")}</small><h3>${esc(s.company_name)}</h3><p>${esc(s.city || "柬埔寨")}</p><a href="./suppliers.html">查看供应商 →</a></div></article>`;
-      }).join("") || '<p class="muted">供应商推荐即将上线。</p>';
+      supplierGrid.innerHTML = renderSupplierRecommendations((j.data || []).length ? j.data : fallbackSuppliers);
       refreshCurrentLanguage();
-    } catch (e) { supplierGrid.innerHTML = `<p class="muted">${esc(e.message)}</p>`; }
+    } catch (e) {
+      supplierGrid.innerHTML = renderSupplierRecommendations(fallbackSuppliers);
+      refreshCurrentLanguage();
+    }
   }
 }
 loadHomeRecommendations();
@@ -877,11 +936,37 @@ function renderSupplierAdmin(rows) {
   draw();
 }
 function hotelForm(h = {}) {
-  return `<form class="hotel-admin-form" id="hotelAdminForm"><input type="hidden" name="id" value="${esc(h.id || "")}"><h3>${h.id ? "编辑酒店房型" : "新增酒店房型"}</h3><label>酒店/产品名称<input name="name" required value="${esc(h.name || "中鼎国际酒店")}"></label><label>房型名称<input name="room_type" required value="${esc(h.room_type || "")}" placeholder="标准双床房"></label><label>价格（美元）<input name="price" type="number" min="0" step="0.01" value="${esc(h.price || "")}"></label><label>计价单位<select name="price_unit"><option value="晚">每晚</option><option value="月">每月</option></select></label><label>可售房数<input name="rooms_available" type="number" min="0" value="${esc(h.rooms_available ?? 0)}"></label><label>状态<select name="status"><option value="draft">草稿</option><option value="published">发布</option><option value="paused">暂停</option></select></label><label class="full">设施（逗号分隔）<input name="facilities" value="${esc((h.facilities || []).join("，"))}" placeholder="WiFi，早餐，停车场"></label><label class="full">图片网址（每行一个，最多10张）<textarea name="image_urls">${esc((h.image_urls || []).join("\n"))}</textarea></label><label class="full">房型介绍<textarea name="description">${esc(h.description || "")}</textarea></label><label class="check"><input name="featured" type="checkbox" ${h.featured ? "checked" : ""}> 首页推荐</label><div class="full hotel-form-actions"><button class="btn btn-primary">${h.id ? "保存修改" : "新增房型"}</button>${h.id ? '<button type="button" class="btn btn-dark" onclick="hotelCancelEdit()">取消编辑</button>' : ""}</div><div id="hotelFormMessage" class="form-message full"></div></form>`;
+  const existing = (h.image_urls || [])
+    .map(
+      (url, i) =>
+        `<figure><img src="${esc(url)}" alt="房型图片 ${i + 1}"><span>${i + 1}</span></figure>`,
+    )
+    .join("");
+  return `<form class="hotel-admin-form" id="hotelAdminForm"><input type="hidden" name="id" value="${esc(h.id || "")}"><h3>${h.id ? "编辑酒店房型" : "新增酒店房型"}</h3><label>酒店/产品名称<input name="name" required value="${esc(h.name || "中鼎国际酒店")}"></label><label>房型名称<input name="room_type" required value="${esc(h.room_type || "")}" placeholder="标准双床房"></label><label>价格（美元）<input name="price" type="number" min="0" step="0.01" value="${esc(h.price || "")}"></label><label>计价单位<select name="price_unit"><option value="晚">每晚</option><option value="月">每月</option></select></label><label>可售房数<input name="rooms_available" type="number" min="0" value="${esc(h.rooms_available ?? 0)}"></label><label>状态<select name="status"><option value="draft">草稿</option><option value="published">发布</option><option value="paused">暂停</option></select></label><label class="full">设施（逗号分隔）<input name="facilities" value="${esc((h.facilities || []).join("，"))}" placeholder="WiFi，早餐，停车场"></label><label class="full image-upload-field">房型图片自动上传<input id="hotelImages" name="hotel_images" type="file" accept="image/jpeg,image/png,image/webp" multiple><small>可选1–10张，系统会自动压缩上传；下方图片网址可继续手动维护。</small><div id="hotelImagePreview" class="upload-preview">${existing}</div><div class="upload-progress" hidden><i></i></div></label><label class="full">图片网址（每行一个，最多10张）<textarea name="image_urls">${esc((h.image_urls || []).join("\n"))}</textarea></label><label class="full">房型介绍<textarea name="description">${esc(h.description || "")}</textarea></label><label class="check"><input name="featured" type="checkbox" ${h.featured ? "checked" : ""}> 首页推荐</label><div class="full hotel-form-actions"><button class="btn btn-primary">${h.id ? "保存修改" : "新增房型"}</button>${h.id ? '<button type="button" class="btn btn-dark" onclick="hotelCancelEdit()">取消编辑</button>' : ""}</div><div id="hotelFormMessage" class="form-message full"></div></form>`;
+}
+function wireHotelImagePreview(form) {
+  const input = form.querySelector("#hotelImages");
+  const preview = form.querySelector("#hotelImagePreview");
+  input?.addEventListener("change", () => {
+    const files = [...input.files].slice(0, 10);
+    if (input.files.length > 10) {
+      input.value = "";
+      preview.innerHTML = '<span class="form-message bad">最多上传10张房型图片</span>';
+      return;
+    }
+    preview.innerHTML = files
+      .map(
+        (file, i) =>
+          `<figure><img src="${URL.createObjectURL(file)}" alt="房型预览 ${i + 1}"><span>${i + 1}</span></figure>`,
+      )
+      .join("");
+  });
 }
 function renderHotels(rows) {
   content.innerHTML = hotelForm() + `<div class="admin-list hotel-list">${rows.map((h) => `<article class="admin-item"><div><div class="admin-title-row"><b>${esc(h.name)} · ${esc(h.room_type)}</b><span class="status-badge status-${esc(h.status)}">${statusName[h.status] || esc(h.status)}</span>${h.featured ? '<span class="status-badge featured">推荐</span>' : ""}</div><p>US$ ${esc(h.price)} / ${esc(h.price_unit)} · 可售 ${esc(h.rooms_available)} 间</p><p>${esc(h.description || "暂无介绍")}</p><div class="admin-gallery">${(h.image_urls || []).map((url, i) => `<img src="${esc(url)}" alt="酒店图片${i + 1}">`).join("")}</div></div><div class="admin-item-actions"><button class="approve" onclick="hotelEdit('${h.id}')">编辑</button><button class="reject" onclick="hotelDelete('${h.id}')">删除</button></div></article>`).join("") || '<div class="muted admin-empty">暂无酒店房型，请在上方新增</div>'}</div>`;
-  document.querySelector("#hotelAdminForm").addEventListener("submit", saveHotel);
+  const form = document.querySelector("#hotelAdminForm");
+  form.addEventListener("submit", saveHotel);
+  wireHotelImagePreview(form);
 }
 async function loadAdmin() {
   try {
@@ -903,6 +988,17 @@ async function loadAdmin() {
     adminRows = j.data || [];
     if (adminTab === "suppliers") return renderSupplierAdmin(adminRows);
     if (adminTab === "hotels") return renderHotels(adminRows);
+    if (adminTab === "bookings") {
+      const bookingStatusName = { new: "新订单", confirmed: "已确认", paid: "已付款", cancelled: "已取消" };
+      content.innerHTML =
+        adminRows
+          .map(
+            (x) =>
+              `<article class="admin-item"><div><div class="admin-title-row"><b>${esc(x.order_no)} · ${esc(x.customer_name)}</b><span class="status-badge status-${esc(x.status)}">${bookingStatusName[x.status] || statusName[x.status] || esc(x.status)}</span></div><p>${esc(x.room_type)} · ${esc(x.checkin)} 至 ${esc(x.checkout)} · ${esc(x.rooms)} · ${esc(x.guests)}</p><p>联系：${esc(x.contact)} · 参考价 ${esc(x.currency || "USD")} ${esc(x.price || 0)}</p><p>${esc(x.note || "无备注")}</p></div></article>`,
+          )
+          .join("") || '<div class="muted">暂无在线订单</div>';
+      return;
+    }
     content.innerHTML = adminRows
         .map((x) =>
           `<article class="admin-item"><div><b>${esc(x.customer_name)} · ${esc(x.company_name)}</b><p>${esc(x.category)} · 预算 ${esc(x.budget)}</p><p>${esc(x.phone || x.whatsapp)}</p><p>${esc(x.requirements)}</p><p>${esc(x.delivery_time)}</p></div></article>`,
@@ -921,12 +1017,52 @@ async function testAIConnection() {
 }
 async function saveHotel(e) {
   e.preventDefault();
-  const form = e.currentTarget, data = Object.fromEntries(new FormData(form).entries()), id = data.id;
-  data.featured = form.featured.checked; delete data.id;
-  try { await jsonFetch("/api/admin-hotel" + (id ? `?id=${id}` : ""), { method: id ? "PATCH" : "POST", body: JSON.stringify(data) }); await loadAdmin(); }
-  catch (err) { const msg = document.querySelector("#hotelFormMessage"); msg.textContent = err.message; msg.className = "form-message full bad"; }
+  const form = e.currentTarget,
+    data = Object.fromEntries(new FormData(form).entries()),
+    id = data.id,
+    msg = document.querySelector("#hotelFormMessage"),
+    fileInput = form.querySelector("#hotelImages"),
+    progress = form.querySelector(".upload-progress"),
+    bar = progress?.querySelector("i");
+  data.featured = form.featured.checked;
+  delete data.id;
+  delete data.hotel_images;
+  try {
+    const files = [...(fileInput?.files || [])].slice(0, 10);
+    if (files.length) {
+      const uploadedUrls = [];
+      progress.hidden = false;
+      for (let i = 0; i < files.length; i++) {
+        msg.textContent = `正在上传房型图片 ${i + 1}/${files.length}……`;
+        msg.className = "form-message full";
+        const image = await compressImage(files[i]);
+        const uploaded = await jsonFetch("/api/hotel-image", {
+          method: "POST",
+          body: JSON.stringify({ data: image }),
+        });
+        uploadedUrls.push(uploaded.url);
+        if (bar) bar.style.width = `${Math.round(((i + 1) / files.length) * 100)}%`;
+      }
+      const manualUrls = String(data.image_urls || "")
+        .split(/[\n,]/)
+        .map((x) => x.trim())
+        .filter(Boolean);
+      data.image_urls = [...uploadedUrls, ...manualUrls].slice(0, 10);
+    }
+    await jsonFetch("/api/admin-hotel" + (id ? `?id=${id}` : ""), {
+      method: id ? "PATCH" : "POST",
+      body: JSON.stringify(data),
+    });
+    await loadAdmin();
+  } catch (err) {
+    msg.textContent = err.message;
+    msg.className = "form-message full bad";
+  } finally {
+    if (progress) progress.hidden = true;
+    if (bar) bar.style.width = "0";
+  }
 }
-window.hotelEdit = (id) => { const h = adminRows.find((x) => x.id === id); if (!h) return; const old = document.querySelector("#hotelAdminForm"); old.outerHTML = hotelForm(h); const form = document.querySelector("#hotelAdminForm"); form.status.value = h.status; form.price_unit.value = h.price_unit; form.addEventListener("submit", saveHotel); scrollTo({ top: form.offsetTop - 90, behavior: "smooth" }); };
+window.hotelEdit = (id) => { const h = adminRows.find((x) => x.id === id); if (!h) return; const old = document.querySelector("#hotelAdminForm"); old.outerHTML = hotelForm(h); const form = document.querySelector("#hotelAdminForm"); form.status.value = h.status; form.price_unit.value = h.price_unit; form.addEventListener("submit", saveHotel); wireHotelImagePreview(form); scrollTo({ top: form.offsetTop - 90, behavior: "smooth" }); };
 window.hotelCancelEdit = () => loadAdmin();
 window.hotelDelete = async (id) => { if (!confirm("确定删除该酒店房型吗？此操作不能恢复。")) return; await jsonFetch(`/api/admin-hotel?id=${id}`, { method: "DELETE" }); loadAdmin(); };
 async function saveAISettings(e) {
