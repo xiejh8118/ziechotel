@@ -1,7 +1,0 @@
-module.exports = (req, res) => {
-  res.setHeader(
-    "Set-Cookie",
-    "ziec_admin=; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=0",
-  );
-  res.json({ ok: true });
-};

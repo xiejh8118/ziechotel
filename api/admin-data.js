@@ -7,6 +7,7 @@ module.exports = async (req, res) => {
     suppliers: "suppliers",
     inquiries: "purchase_inquiries",
     hotels: "hotels",
+    bookings: "booking_orders",
   };
   const type = tables[req.query.type] || "suppliers";
   const { data, error } = await d
