@@ -1,0 +1,12 @@
+{
+  "name": "ZIEC HOTEL Cambodia",
+  "short_name": "ZIEC HOTEL",
+  "description": "柬埔寨中文酒店、月租公寓、企业住宿与供应链服务平台",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4f7f5",
+  "theme_color": "#0b1c33",
+  "lang": "zh-CN",
+  "icons": [{"src":"/assets/logo.png","sizes":"512x512","type":"image/png"}]
+}
+
