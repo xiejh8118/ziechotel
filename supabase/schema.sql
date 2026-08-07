@@ -53,6 +53,9 @@ create table if not exists public.booking_orders(
 );
 alter table public.booking_orders enable row level security;
 
+-- Ensure PostgREST sees newly created or upgraded booking fields immediately.
+notify pgrst, 'reload schema';
+
 insert into storage.buckets(id,name,public,file_size_limit,allowed_mime_types)
 values('supplier-images','supplier-images',true,5242880,array['image/jpeg','image/png','image/webp'])
 on conflict(id) do update set public=true,file_size_limit=5242880,allowed_mime_types=array['image/jpeg','image/png','image/webp'];
