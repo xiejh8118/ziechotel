@@ -779,6 +779,16 @@ async function loadHomeRecommendations() {
   }
 }
 loadHomeRecommendations();
+
+// V6.3: all pages show a clear release marker without changing the existing layout.
+document.querySelectorAll(".footer-wrap").forEach((footer) => {
+  if (!footer.textContent.includes("ZIEC HOTEL V6.3")) {
+    const version = document.createElement("div");
+    version.className = "site-version";
+    version.textContent = "ZIEC HOTEL V6.3";
+    footer.appendChild(version);
+  }
+});
 function renderSuppliers(list) {
   const grid = document.querySelector("#supplierGrid");
   grid.innerHTML =

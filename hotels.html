@@ -12,6 +12,7 @@
     />
     <meta name="theme-color" content="#0b1c33" />
     <title>酒店住宿与预订｜ZIEC HOTEL 中鼎国际酒店</title>
+    <link rel="canonical" href="https://www.ziechotel.top/hotels" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="ZIEC HOTEL | 中鼎国际酒店" />
     <meta
@@ -58,7 +59,7 @@
           <small>ZIEC HOTEL · PHNOM PENH</small>
           <h1>住得舒适，也住得安心</h1>
           <p>商务客房、月租公寓与企业团队住宿，一站查看、咨询与预订。</p>
-          <div class="actions"><a class="btn btn-primary" href="#booking">查询房型</a><a class="btn btn-outline" href="https://wa.me/855189958899" target="_blank" rel="noopener">WhatsApp咨询</a></div>
+          <div class="actions"><a class="btn btn-primary" href="#booking">提交入住需求</a><a class="btn btn-outline" href="https://wa.me/855189958899" target="_blank" rel="noopener">WhatsApp咨询</a></div>
         </div>
       </section>
       <section class="quick-links section-sm">
@@ -86,17 +87,21 @@
         <div class="container">
           <div class="section-title">
             <span>BOOKING</span>
-            <h2>查询入住日期与房型</h2>
-            <p class="muted">先选择日期和入住人数，再查看下面完整的客房与公寓。</p>
+            <h2>提交入住需求</h2>
+            <p class="muted">填写后由中文客服确认实际房态与价格，正常情况下预计10分钟内回复。</p>
           </div>
           <form class="hotel-booking-bar" id="hotelBookingForm">
-            <label>入住日期<input type="date" id="checkin" required /></label>
-            <label>退房日期<input type="date" id="checkout" required /></label>
-            <label>房间数<select id="roomCount"><option>1间</option><option>2间</option><option>3间</option><option>4间及以上</option></select></label>
-            <label>入住人数<select id="guestCount"><option>1位</option><option selected>2位</option><option>3位</option><option>4位及以上</option></select></label>
-            <button class="btn btn-primary" type="submit">查询房型</button>
+            <label>姓名<input name="customer_name" required maxlength="80" /></label>
+            <label>电话 / WhatsApp<input name="contact" required maxlength="40" /></label>
+            <label>入住日期<input name="checkin" type="date" id="checkin" required /></label>
+            <label>退房日期<input name="checkout" type="date" id="checkout" required /></label>
+            <label>房型<select name="room_type"><option>标准双床房</option><option>VIP房</option><option>月租公寓</option><option>企业团队住宿</option></select></label>
+            <label>房间数<select name="rooms" id="roomCount"><option>1间</option><option>2间</option><option>3间</option><option>4间及以上</option></select></label>
+            <label>入住人数<select name="guests" id="guestCount"><option>1位</option><option selected>2位</option><option>3位</option><option>4位及以上</option></select></label>
+            <label>接送需求<select name="note"><option value="">暂不需要</option><option>需要机场接送，请联系报价</option><option>需要包车服务，请联系报价</option></select></label>
+            <button class="btn btn-primary" type="submit">提交入住需求</button>
           </form>
-          <div class="booking-note" id="bookingNote">请选择入住和退房日期，酒店将确认实际房态。</div>
+          <div class="booking-note" id="bookingNote">此表单不是实时房态查询；提交后由中文客服确认房态、总价和入住安排。</div>
         </div>
       </section>
 
@@ -504,15 +509,26 @@
         [checkin, checkout, roomCount, guestCount].forEach((field) => {
           field.addEventListener('change', updateBookingLinks);
         });
-        form.addEventListener('submit', (event) => {
+        form.addEventListener('submit', async (event) => {
           event.preventDefault();
           if (checkout.value <= checkin.value) {
             note.textContent = '退房日期必须晚于入住日期。';
             return;
           }
-          updateBookingLinks();
-          note.textContent = `已选择 ${checkin.value} 至 ${checkout.value}，${roomCount.value}、${guestCount.value}。请选择下面房型预订。`;
-          document.querySelector('#hotel-stay').scrollIntoView({ behavior: 'smooth' });
+          note.textContent = '正在提交入住需求……';
+          try {
+            const payload = Object.fromEntries(new FormData(form).entries());
+            const response = await fetch('/api/bookings', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload),
+            });
+            const result = await response.json();
+            if (!response.ok) throw new Error(result.message || '提交失败');
+            note.textContent = '入住需求已提交。中文客服确认实际房态与价格后会联系您。';
+          } catch (error) {
+            note.textContent = `${error.message}。您也可以点击 WhatsApp 直接联系中文客服。`;
+          }
         });
       })();
     </script>
