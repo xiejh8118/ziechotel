@@ -885,14 +885,18 @@ button {
 .supplier-contact a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
 .supplier-products { min-height: 44px; }
 .supplier-consult-title { margin: 4px 0 8px; color: #7b8490; font-size: 12px; font-weight: 700; letter-spacing: .08em; }
-.supplier-consult-actions { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 7px; margin-bottom: 10px; }
+.supplier-consult-actions { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 7px; margin-bottom: 10px; }
 .consult-channel { min-width: 0; min-height: 46px; padding: 7px 4px; border: 1px solid transparent; border-radius: 12px; color: #fff; display: flex; align-items: center; justify-content: center; gap: 5px; font: inherit; font-size: 11px; font-weight: 800; cursor: pointer; box-shadow: 0 7px 16px rgba(18,37,58,.12); transition: transform .18s ease, box-shadow .18s ease, filter .18s ease; }
 .consult-channel:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(18,37,58,.18); filter: saturate(1.08); }
 .consult-channel:active { transform: translateY(0); }
+.consult-channel { text-decoration: none; }
 .consult-icon { width: 23px; height: 23px; flex: 0 0 23px; border-radius: 50%; display: inline-grid; place-items: center; background: rgba(255,255,255,.2); color: #fff; font-size: 12px; font-weight: 900; }
 .consult-wechat { background: linear-gradient(135deg,#19b45b,#08a246); }
 .consult-telegram { background: linear-gradient(135deg,#35aee2,#168dcc); }
 .consult-messenger { background: linear-gradient(135deg,#087fff,#8a3bff); }
+.consult-whatsapp { background: linear-gradient(135deg,#31c86a,#129447); }
+.universal-consult { width: 100%; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(127,142,160,.22); }
+.universal-consult .supplier-consult-actions { max-width: 620px; }
 .supplier-secondary-actions { margin-top: 0 !important; }
 .supplier-meta {
   color: #6b7480;
@@ -929,7 +933,8 @@ button {
   .supplier-lightbox-stage { min-height: 280px; }
   .supplier-lightbox-stage > img { height: 56vh; }
   .supplier-platforms { grid-template-columns: 1fr 1fr; }
-  .consult-channel { min-height: 44px; font-size: 10px; gap: 3px; }
+  .supplier-consult-actions { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .consult-channel { min-height: 44px; font-size: 11px; gap: 3px; }
   .consult-icon { width: 21px; height: 21px; flex-basis: 21px; }
 }
 .list-status {
