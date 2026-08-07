@@ -589,6 +589,44 @@ function refreshCurrentLanguage() {
   applyPageMeta(lang);
   updateLanguageButtons(lang);
 }
+function normalizePublicNavigation() {
+  const nav = document.querySelector(".nav-links");
+  if (!nav || normalizePageKey() === "/admin") return;
+
+  const page = normalizePageKey();
+  const hotelPages = new Set([
+    "/hotels",
+    "/standard",
+    "/vip",
+    "/monthly",
+    "/three-bedroom-suite",
+    "/payment"
+  ]);
+  const supplierPages = new Set(["/suppliers", "/join", "/inquiry"]);
+  const active = page === "/" || page === "/index"
+    ? "home"
+    : hotelPages.has(page)
+      ? "hotel"
+      : page === "/corporate"
+        ? "corporate"
+        : supplierPages.has(page)
+          ? "suppliers"
+          : page === "/contact"
+            ? "contact"
+            : "";
+
+  const item = (key, href, label) =>
+    `<a${active === key ? ' class="active"' : ""} href="${href}">${label}</a>`;
+  nav.setAttribute("aria-label", "主导航");
+  nav.innerHTML = [
+    item("home", "./index.html", "首页"),
+    item("hotel", "./hotels.html#hotel-stay", "酒店公寓"),
+    item("corporate", "./hotels.html#corporate", "企业服务"),
+    item("suppliers", "./suppliers.html", "供应链平台"),
+    item("contact", "./hotels.html#contact", "联系我们"),
+    '<button class="nav-ai" type="button" data-ai-open>AI客服</button>'
+  ].join("");
+}
 function initLanguageSwitcher() {
   document.documentElement.dataset.zhTitle = document.title;
   const desc = document.querySelector('meta[name="description"]');
@@ -607,6 +645,7 @@ function initLanguageSwitcher() {
   }
   setLanguage(getLanguage());
 }
+normalizePublicNavigation();
 initLanguageSwitcher();
 function showToast(msg) {
   if (!toast) return;
