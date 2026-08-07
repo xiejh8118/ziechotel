@@ -477,6 +477,11 @@ const I18N_PAGE_META = {
       description:
         "Real VIP room photos with spacious comfort for business reception and quality stays."
     },
+    "/three-bedroom-suite": {
+      title: "Three-Bedroom Suite · US$60/night | ZIEC HOTEL",
+      description:
+        "A three-bedroom suite with a separate living room for families, groups and corporate stays."
+    },
     "/join": {
       title: "Supplier Application | ZIEC",
       description:
@@ -712,6 +717,13 @@ async function loadHomeRecommendations() {
       price: "US$ 70 / 晚",
       image: "assets/suite-room.jpg",
       href: "./payment.html?room=VIP%E6%88%BF&price=70",
+    },
+    {
+      label: "家庭与多人入住",
+      title: "中鼎国际酒店 · 精美三室一厅套房",
+      price: "US$ 60 / 晚",
+      image: "assets/room-3-1.jpg",
+      href: "./payment.html?room=%E7%B2%BE%E7%BE%8E%E4%B8%89%E5%AE%A4%E4%B8%80%E5%8E%85%E5%A5%97%E6%88%BF&price=60",
     },
     {
       label: "长租公寓",

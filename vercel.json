@@ -5,6 +5,7 @@
     { "source": "/index.html", "destination": "/", "permanent": true },
     { "source": "/standard.html", "destination": "/standard", "permanent": true },
     { "source": "/vip.html", "destination": "/vip", "permanent": true },
+    { "source": "/three-bedroom-suite.html", "destination": "/three-bedroom-suite", "permanent": true },
     { "source": "/monthly.html", "destination": "/monthly", "permanent": true },
     { "source": "/hotels.html", "destination": "/hotels", "permanent": true }
   ]
