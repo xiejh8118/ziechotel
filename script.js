@@ -845,19 +845,48 @@ function renderSuppliers(list) {
   grid.innerHTML =
     list
       .map((s) => {
-        const wa = (s.whatsapp || s.phone || "").replace(/\D/g, "");
         const initials = esc((s.company_name || "Z").slice(0, 1));
         const images = Array.isArray(s.image_urls) ? s.image_urls.filter(Boolean) : [];
         const rawSupplier = JSON.stringify(JSON.stringify(s));
         const media = images.length
           ? `<button class="supplier-cover" type="button" onclick='openSupplierGallery(${rawSupplier},0)' aria-label="查看${esc(s.company_name)}全部图片"><img src="${esc(images[0])}" alt="${esc(s.company_name)} 推荐图片" loading="lazy"><span>共 ${images.length} 张 · 查看全部</span></button>`
           : `<div class="supplier-brand">${s.logo_url ? `<img src="${esc(s.logo_url)}" alt="${esc(s.company_name)} Logo" onerror="this.remove()">` : `<span>${initials}</span>`}</div>`;
-        const consultHref = wa ? `https://wa.me/${wa}?text=${encodeURIComponent(`您好，我想咨询${s.company_name || "贵公司"}的产品与服务`)}` : `tel:${esc(s.phone || "")}`;
-        return `<article class="card supplier-card">${media}${s.featured ? '<div class="card-label supplier-featured">推荐供应商</div>' : ""}<div class="card-body"><div class="card-label">${esc(s.category || "企业服务")}</div><h3 class="supplier-company-name">${esc(s.company_name)}</h3>${s.slogan ? `<p class="supplier-slogan">${esc(s.slogan)}</p>` : ""}<dl class="supplier-contact"><div><dt>联系人</dt><dd>${esc(s.contact_name || "平台客服")}</dd></div><div><dt>电话</dt><dd>${s.phone || s.whatsapp ? `<a href="tel:${esc(s.phone || s.whatsapp)}">${esc(s.phone || s.whatsapp)}</a>` : "待补充"}</dd></div><div><dt>地址</dt><dd>${esc(s.address || s.city || "柬埔寨")}</dd></div></dl><p class="muted supplier-products">${esc(s.products || s.description || "")}</p><div class="supplier-actions"><a class="btn btn-primary" target="_blank" rel="noopener" href="${consultHref}">立即咨询</a><button class="share-btn" onclick='openSupplierShare(${rawSupplier})'>分享推广</button><button class="share-btn" onclick='createSupplierPoster(${rawSupplier})'>生成海报</button></div></div></article>`;
+        return `<article class="card supplier-card">${media}${s.featured ? '<div class="card-label supplier-featured">推荐供应商</div>' : ""}<div class="card-body"><div class="card-label">${esc(s.category || "企业服务")}</div><h3 class="supplier-company-name">${esc(s.company_name)}</h3>${s.slogan ? `<p class="supplier-slogan">${esc(s.slogan)}</p>` : ""}<dl class="supplier-contact"><div><dt>联系人</dt><dd>${esc(s.contact_name || "平台客服")}</dd></div><div><dt>电话</dt><dd>${s.phone || s.whatsapp ? `<a href="tel:${esc(s.phone || s.whatsapp)}">${esc(s.phone || s.whatsapp)}</a>` : "待补充"}</dd></div><div><dt>地址</dt><dd>${esc(s.address || s.city || "柬埔寨")}</dd></div></dl><p class="muted supplier-products">${esc(s.products || s.description || "")}</p><div class="supplier-consult-title">选择咨询方式</div><div class="supplier-consult-actions"><button class="consult-channel consult-wechat" onclick='consultSupplier("wechat",${rawSupplier})' aria-label="微信咨询"><span class="consult-icon">微</span><span>微信</span></button><button class="consult-channel consult-telegram" onclick='consultSupplier("telegram",${rawSupplier})' aria-label="Telegram咨询"><span class="consult-icon">➤</span><span>Telegram</span></button><button class="consult-channel consult-messenger" onclick='consultSupplier("messenger",${rawSupplier})' aria-label="Messenger咨询"><span class="consult-icon">⚡</span><span>Messenger</span></button></div><div class="supplier-actions supplier-secondary-actions"><button class="share-btn" onclick='openSupplierShare(${rawSupplier})'>分享推广</button><button class="share-btn" onclick='createSupplierPoster(${rawSupplier})'>生成海报</button></div></div></article>`;
       })
       .join("") || '<div class="muted">暂无符合条件的供应商。</div>';
   requestAnimationFrame(fitSupplierNames);
 }
+
+window.consultSupplier = async (platform, raw) => {
+  const s = typeof raw === "string" ? JSON.parse(raw) : raw;
+  const company = s.company_name || "该企业";
+  const contact = s.phone || s.whatsapp || "";
+  const message = `您好，我想咨询${company}的产品与服务。`;
+  let account = String(s[platform] || "").trim();
+  if (platform === "wechat") {
+    const value = account || contact;
+    if (!value) return alert("该企业暂未填写微信或联系电话，请使用平台人工客服咨询。");
+    try { await navigator.clipboard.writeText(value); } catch (_) {}
+    alert(`微信联系信息已复制：${value}\n请打开微信添加好友，并发送：${message}`);
+    return;
+  }
+  if (platform === "telegram" && account) {
+    account = account.replace(/^https?:\/\/t\.me\//, "").replace(/^@/, "");
+    window.open(`https://t.me/${encodeURIComponent(account)}`, "_blank", "noopener");
+    return;
+  }
+  if (platform === "messenger" && account) {
+    account = account.replace(/^https?:\/\/(?:www\.)?(?:m\.me\/|facebook\.com\/messages\/t\/)/, "");
+    window.open(`https://m.me/${encodeURIComponent(account)}`, "_blank", "noopener");
+    return;
+  }
+  if (contact) {
+    try { await navigator.clipboard.writeText(`${company}\n${contact}\n${message}`); } catch (_) {}
+    alert(`${platform === "telegram" ? "Telegram" : "Messenger"}账号尚未填写，企业联系电话与咨询内容已复制：\n${contact}`);
+  } else {
+    alert(`该企业暂未填写${platform === "telegram" ? "Telegram" : "Messenger"}账号，请使用平台人工客服咨询。`);
+  }
+};
 
 function fitSupplierNames() {
   document.querySelectorAll(".supplier-company-name").forEach((name) => {
