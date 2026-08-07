@@ -1,0 +1,34 @@
+ZIEC HOTEL V6.3 Google SEO 更新包
+日期：2026-08-07
+
+适用仓库：xiejh8118/ziechotel
+
+上传方法：
+1. 先解压本 ZIP。
+2. 电脑打开 GitHub 仓库 xiejh8118/ziechotel。
+3. 点击 Add file → Upload files。
+4. 将解压后的 9 个网站文件一起拖入上传区域（不要上传“上传说明.txt”）。
+5. 在 Commit changes 输入：V6.3 Google SEO优化
+6. 点击 Commit changes。
+7. Vercel 会自动部署，通常等待 1–3 分钟。
+
+需要覆盖的文件：
+index.html
+hotels.html
+standard.html
+vip.html
+monthly.html
+payment.html
+robots.txt
+sitemap.xml
+vercel.json
+
+主要更新：
+- 优化首页 Google 标题与描述
+- 统一 canonical 与分享网址
+- 修复 .html 和无后缀网址重复收录
+- 更新 sitemap 日期
+- 阻止后台、API、付款和询价页面被搜索引擎抓取
+- 保留 V6.3 导航及三室一厅套房内容
+
+注意：上传时如 GitHub 提示文件已存在，属于正常覆盖更新。

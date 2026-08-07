@@ -7,6 +7,15 @@
     { "source": "/vip.html", "destination": "/vip", "permanent": true },
     { "source": "/three-bedroom-suite.html", "destination": "/three-bedroom-suite", "permanent": true },
     { "source": "/monthly.html", "destination": "/monthly", "permanent": true },
-    { "source": "/hotels.html", "destination": "/hotels", "permanent": true }
+    { "source": "/hotels.html", "destination": "/hotels", "permanent": true },
+    { "source": "/corporate.html", "destination": "/corporate", "permanent": true },
+    { "source": "/contact.html", "destination": "/contact", "permanent": true },
+    { "source": "/faq.html", "destination": "/faq", "permanent": true },
+    { "source": "/suppliers.html", "destination": "/suppliers", "permanent": true },
+    { "source": "/join.html", "destination": "/join", "permanent": true },
+    { "source": "/geo.html", "destination": "/geo", "permanent": true },
+    { "source": "/payment.html", "destination": "/payment", "permanent": true },
+    { "source": "/inquiry.html", "destination": "/inquiry", "permanent": true },
+    { "source": "/admin.html", "destination": "/admin", "permanent": true }
   ]
 }
