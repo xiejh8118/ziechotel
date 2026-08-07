@@ -847,15 +847,27 @@ function renderSuppliers(list) {
       .map((s) => {
         const wa = (s.whatsapp || s.phone || "").replace(/\D/g, "");
         const initials = esc((s.company_name || "Z").slice(0, 1));
-        const images = Array.isArray(s.image_urls)
-          ? s.image_urls.slice(0, 4)
-          : [];
+        const images = Array.isArray(s.image_urls) ? s.image_urls.filter(Boolean) : [];
+        const rawSupplier = JSON.stringify(JSON.stringify(s));
         const media = images.length
-          ? `<div class="supplier-gallery">${images.map((url, i) => `<div class="${i === 3 && s.image_urls.length > 4 ? "gallery-more" : ""}" ${i === 3 && s.image_urls.length > 4 ? `data-more="+${s.image_urls.length - 4}"` : ""}><img src="${esc(url)}" alt="${esc(s.company_name)} 企业图片 ${i + 1}" loading="lazy"></div>`).join("")}</div>`
+          ? `<button class="supplier-cover" type="button" onclick='openSupplierGallery(${rawSupplier},0)' aria-label="查看${esc(s.company_name)}全部图片"><img src="${esc(images[0])}" alt="${esc(s.company_name)} 推荐图片" loading="lazy"><span>共 ${images.length} 张 · 查看全部</span></button>`
           : `<div class="supplier-brand">${s.logo_url ? `<img src="${esc(s.logo_url)}" alt="${esc(s.company_name)} Logo" onerror="this.remove()">` : `<span>${initials}</span>`}</div>`;
-        return `<article class="card supplier-card">${media}${s.featured ? '<div class="card-label">推荐供应商</div>' : ""}<div class="card-body"><div class="card-label">${esc(s.category)}</div><h3>${esc(s.company_name)}</h3>${s.slogan ? `<p class="supplier-slogan">${esc(s.slogan)}</p>` : ""}<div class="supplier-meta">${esc(s.city || "柬埔寨")} · 联系人：${esc(s.contact_name)}</div><p class="muted">${esc(s.products || s.description || "")}</p><div class="supplier-actions">${wa ? `<a class="btn btn-primary" target="_blank" rel="noopener" href="https://wa.me/${wa}">WhatsApp</a>` : ""}<button class="share-btn" onclick='shareSupplier(${JSON.stringify(JSON.stringify(s))})'>分享</button><button class="share-btn" onclick='createSupplierPoster(${JSON.stringify(JSON.stringify(s))})'>生成海报</button><a class="btn btn-dark" target="_blank" rel="noopener" href="https://wa.me/855189958899?text=您好，我想发布采购询价">采购询价</a></div></div></article>`;
+        const consultHref = wa ? `https://wa.me/${wa}?text=${encodeURIComponent(`您好，我想咨询${s.company_name || "贵公司"}的产品与服务`)}` : `tel:${esc(s.phone || "")}`;
+        return `<article class="card supplier-card">${media}${s.featured ? '<div class="card-label supplier-featured">推荐供应商</div>' : ""}<div class="card-body"><div class="card-label">${esc(s.category || "企业服务")}</div><h3 class="supplier-company-name">${esc(s.company_name)}</h3>${s.slogan ? `<p class="supplier-slogan">${esc(s.slogan)}</p>` : ""}<dl class="supplier-contact"><div><dt>联系人</dt><dd>${esc(s.contact_name || "平台客服")}</dd></div><div><dt>电话</dt><dd>${s.phone || s.whatsapp ? `<a href="tel:${esc(s.phone || s.whatsapp)}">${esc(s.phone || s.whatsapp)}</a>` : "待补充"}</dd></div><div><dt>地址</dt><dd>${esc(s.address || s.city || "柬埔寨")}</dd></div></dl><p class="muted supplier-products">${esc(s.products || s.description || "")}</p><div class="supplier-actions"><a class="btn btn-primary" target="_blank" rel="noopener" href="${consultHref}">立即咨询</a><button class="share-btn" onclick='openSupplierShare(${rawSupplier})'>分享推广</button><button class="share-btn" onclick='createSupplierPoster(${rawSupplier})'>生成海报</button></div></div></article>`;
       })
       .join("") || '<div class="muted">暂无符合条件的供应商。</div>';
+  requestAnimationFrame(fitSupplierNames);
+}
+
+function fitSupplierNames() {
+  document.querySelectorAll(".supplier-company-name").forEach((name) => {
+    let size = 28;
+    name.style.fontSize = `${size}px`;
+    while (name.scrollWidth > name.clientWidth && size > 16) {
+      size -= 1;
+      name.style.fontSize = `${size}px`;
+    }
+  });
 }
 document.querySelector("#supplierSearch")?.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -1198,6 +1210,54 @@ if (login) loadAdmin();
 loadSuppliers();
 
 // V6.0 supplier share and poster
+function supplierShareData(s) {
+  const url = `${location.origin}${location.pathname}?supplier=${encodeURIComponent(s.id || "")}`;
+  const text = `${s.company_name || "供应商"}\n联系人：${s.contact_name || ""}\n电话：${s.phone || s.whatsapp || ""}\n地址：${s.address || s.city || "柬埔寨"}\n${s.products || s.description || ""}`;
+  return { url, text };
+}
+
+function ensureSupplierModal() {
+  let modal = document.querySelector("#supplierModal");
+  if (modal) return modal;
+  modal = document.createElement("div");
+  modal.id = "supplierModal";
+  modal.className = "supplier-modal";
+  modal.innerHTML = '<div class="supplier-modal-backdrop" data-close-supplier-modal></div><section class="supplier-modal-panel" role="dialog" aria-modal="true"><button class="supplier-modal-close" type="button" data-close-supplier-modal aria-label="关闭">×</button><div id="supplierModalContent"></div></section>';
+  document.body.appendChild(modal);
+  modal.querySelectorAll("[data-close-supplier-modal]").forEach((el) => el.addEventListener("click", () => modal.classList.remove("open")));
+  return modal;
+}
+
+window.openSupplierGallery = (raw, start = 0) => {
+  const s = JSON.parse(raw);
+  const images = Array.isArray(s.image_urls) ? s.image_urls.filter(Boolean) : [];
+  if (!images.length) return;
+  let active = Math.max(0, Math.min(start, images.length - 1));
+  const modal = ensureSupplierModal();
+  const draw = () => {
+    modal.querySelector("#supplierModalContent").innerHTML = `<div class="supplier-lightbox"><div class="supplier-lightbox-stage"><img src="${esc(images[active])}" alt="${esc(s.company_name)} 图片 ${active + 1}">${images.length > 1 ? '<button type="button" class="gallery-prev" aria-label="上一张">‹</button><button type="button" class="gallery-next" aria-label="下一张">›</button>' : ""}</div><div class="supplier-lightbox-caption"><b>${esc(s.company_name)}</b><span>${active + 1} / ${images.length}</span></div><div class="supplier-thumbs">${images.map((url, i) => `<button type="button" class="${i === active ? "active" : ""}" data-gallery-index="${i}"><img src="${esc(url)}" alt="缩略图 ${i + 1}"></button>`).join("")}</div></div>`;
+    modal.querySelector(".gallery-prev")?.addEventListener("click", () => { active = (active - 1 + images.length) % images.length; draw(); });
+    modal.querySelector(".gallery-next")?.addEventListener("click", () => { active = (active + 1) % images.length; draw(); });
+    modal.querySelectorAll("[data-gallery-index]").forEach((button) => button.addEventListener("click", () => { active = Number(button.dataset.galleryIndex); draw(); }));
+  };
+  draw();
+  modal.classList.add("open");
+};
+
+window.openSupplierShare = (raw) => {
+  const s = JSON.parse(raw);
+  const { url, text } = supplierShareData(s);
+  const encodedUrl = encodeURIComponent(url);
+  const encodedText = encodeURIComponent(text);
+  const modal = ensureSupplierModal();
+  modal.querySelector("#supplierModalContent").innerHTML = `<div class="supplier-share-panel"><span class="eyebrow">分享企业名片</span><h3>${esc(s.company_name)}</h3><p>将公司资料分享到柬埔寨常用社交平台，或复制链接发给客户。</p><div class="supplier-platforms"><a target="_blank" rel="noopener" href="https://wa.me/?text=${encodedText}%0A${encodedUrl}">WhatsApp</a><a target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}">Facebook</a><a target="_blank" rel="noopener" href="https://t.me/share/url?url=${encodedUrl}&text=${encodedText}">Telegram</a><button type="button" id="copySupplierLink">复制链接</button></div></div>`;
+  modal.querySelector("#copySupplierLink").addEventListener("click", async () => {
+    await navigator.clipboard.writeText(`${text}\n${url}`);
+    showToast("企业资料及链接已复制");
+  });
+  modal.classList.add("open");
+};
+
 window.shareSupplier = async (raw) => {
   const s = JSON.parse(raw);
   const url =

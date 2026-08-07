@@ -2,7 +2,5 @@ User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /api/
-Disallow: /payment
-Disallow: /inquiry
 
 Sitemap: https://www.ziechotel.top/sitemap.xml
