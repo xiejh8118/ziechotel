@@ -939,12 +939,12 @@ async function applyConsultationSettings() {
 }
 applyConsultationSettings();
 
-// V6.4: all pages show a clear release marker without changing the existing layout.
+// V6.5: all pages show a clear release marker without changing the existing layout.
 document.querySelectorAll(".footer-wrap").forEach((footer) => {
-  if (!footer.textContent.includes("ZIEC HOTEL V6.4")) {
+  if (!footer.textContent.includes("ZIEC HOTEL V6.5")) {
     const version = document.createElement("div");
     version.className = "site-version";
-    version.textContent = "ZIEC HOTEL V6.4";
+    version.textContent = "ZIEC HOTEL V6.5";
     footer.appendChild(version);
   }
 });

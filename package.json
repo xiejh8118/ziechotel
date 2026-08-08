@@ -1,6 +1,6 @@
 {
-  "name": "ziec-hotel-v6-4",
-  "version": "6.4.0",
+  "name": "ziec-hotel-v6-5",
+  "version": "6.5.0",
   "private": true,
   "engines": {
     "node": "22.x"

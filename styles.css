@@ -10,6 +10,176 @@
   --line: #e5dccd;
   --shadow: 0 18px 55px rgba(11, 28, 51, 0.1);
 }
+
+/* V6.5 品牌视觉焕新：保留原有结构，仅升级色彩、层次与响应式体验 */
+:root {
+  --navy: #102c2a;
+  --navy2: #17433e;
+  --gold: #c89b53;
+  --gold2: #f0d7a4;
+  --cream: #f3f5f0;
+  --paper: #ffffff;
+  --ink: #17312e;
+  --muted: #65726e;
+  --line: #dce4de;
+  --shadow: 0 22px 60px rgba(16, 44, 42, 0.11);
+}
+
+body {
+  background:
+    radial-gradient(circle at 92% 10%, rgba(200, 155, 83, .10), transparent 28rem),
+    var(--cream);
+}
+
+.site-header {
+  background: rgba(248, 250, 246, .92);
+  border-bottom-color: rgba(16, 44, 42, .09);
+  box-shadow: 0 8px 30px rgba(16, 44, 42, .05);
+}
+
+.nav-links > a,
+.nav-ai {
+  font-weight: 700;
+}
+
+.nav-links > a {
+  position: relative;
+}
+
+.nav-links > a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -8px;
+  height: 2px;
+  background: var(--gold);
+  transition: right .25s ease;
+}
+
+.nav-links > a:hover::after { right: 0; }
+
+.hero {
+  min-height: min(760px, 86vh);
+  background:
+    linear-gradient(90deg, rgba(8, 35, 33, .94) 0%, rgba(8, 35, 33, .69) 45%, rgba(8, 35, 33, .12) 100%),
+    linear-gradient(0deg, rgba(8, 35, 33, .34), transparent 45%),
+    url("./assets/hotel-exterior.jpg") center/cover no-repeat;
+  border-radius: 0 0 42px 42px;
+  overflow: hidden;
+}
+
+.hero-copy { padding-bottom: 105px; }
+
+.hero h1 {
+  max-width: 900px;
+  font-size: clamp(48px, 7.4vw, 92px);
+  letter-spacing: -.025em;
+  text-wrap: balance;
+}
+
+.hero-cn {
+  max-width: 860px;
+  color: #f7f0df;
+  font-size: clamp(24px, 3.2vw, 42px);
+}
+
+.hero p { max-width: 720px; color: rgba(255,255,255,.84); }
+
+.hero-features span {
+  padding: 9px 15px;
+  border-color: rgba(240, 215, 164, .36);
+  background: rgba(255, 255, 255, .09);
+  backdrop-filter: blur(8px);
+}
+
+.btn { min-height: 46px; transition: transform .2s ease, box-shadow .2s ease; }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(16,44,42,.16); }
+.btn-primary { background: linear-gradient(135deg, #ddb873, var(--gold)); }
+
+.trust-strip { margin-top: -38px; position: relative; z-index: 6; }
+.trust-strip-grid {
+  background: rgba(255,255,255,.96);
+  border: 1px solid rgba(200,155,83,.24);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.section-title { max-width: 820px; }
+.section-title h2 { letter-spacing: -.035em; text-wrap: balance; }
+
+.audience-grid article,
+.card,
+.recommend-card,
+.ad-card,
+.quick-grid {
+  border-color: rgba(23, 67, 62, .11);
+  box-shadow: 0 18px 46px rgba(16, 44, 42, .08);
+}
+
+.audience-grid article,
+.card,
+.recommend-card,
+.ad-card {
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.audience-grid article:hover,
+.card:hover,
+.recommend-card:hover,
+.ad-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(200,155,83,.42);
+  box-shadow: 0 26px 55px rgba(16,44,42,.13);
+}
+
+.card-media img,
+.recommend-card img { transition: transform .55s cubic-bezier(.2,.7,.2,1); }
+.card:hover .card-media img,
+.recommend-card:hover img { transform: scale(1.045); }
+
+.travel-service-layout {
+  background: linear-gradient(120deg, var(--navy), var(--navy2));
+  border: 1px solid rgba(240,215,164,.18);
+  box-shadow: 0 24px 65px rgba(16,44,42,.18);
+}
+
+.quick-grid { border-radius: 26px; }
+.quick-grid a:hover { background: #f5f8f3; }
+
+.site-footer {
+  background: linear-gradient(135deg, #0b2523, #143c38);
+}
+
+@media (max-width: 760px) {
+  .container { width: min(100% - 28px, 1180px); }
+  .nav { min-height: 68px; }
+  .brand img { width: 104px; height: 40px; }
+  .hero {
+    min-height: 670px;
+    align-items: flex-end;
+    border-radius: 0 0 28px 28px;
+    background-position: 58% center;
+  }
+  .hero-copy { padding: 120px 0 70px; }
+  .hero h1 { font-size: clamp(42px, 14vw, 62px); }
+  .hero-cn { font-size: clamp(22px, 7vw, 30px); line-height: 1.3; }
+  .hero p { font-size: 16px; }
+  .hero-features { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .hero-features span { text-align: center; white-space: nowrap; font-size: 12px; padding-inline: 7px; }
+  .trust-strip { margin-top: -24px; }
+  .trust-strip-grid { border-radius: 18px; }
+  .section { padding: 66px 0; }
+  .section-title h2 { font-size: clamp(32px, 10vw, 44px); }
+  .audience-grid article,
+  .card,
+  .recommend-card { border-radius: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+}
 * {
   box-sizing: border-box;
 }
@@ -2436,3 +2606,30 @@ body {
 .hotel-booking-bar label.full { grid-column: 1 / -1; }
 .hotel-booking-bar textarea { width: 100%; min-height: 78px; }
 @media (max-width: 760px) { .home-video-layout { grid-template-columns: 1fr; } .home-video-cover span { width: 54px; height: 54px; } }
+
+/* V6.5 final cascade layer */
+body { background: radial-gradient(circle at 92% 10%, rgba(200,155,83,.10), transparent 28rem), var(--cream); }
+.site-header { background: rgba(248,250,246,.92); border-bottom-color: rgba(16,44,42,.09); box-shadow: 0 8px 30px rgba(16,44,42,.05); }
+.hero { min-height: min(760px,86vh); border-radius: 0 0 42px 42px; overflow: hidden; background: linear-gradient(90deg,rgba(8,35,33,.94) 0%,rgba(8,35,33,.69) 45%,rgba(8,35,33,.12) 100%),linear-gradient(0deg,rgba(8,35,33,.34),transparent 45%),url("./assets/hotel-exterior.jpg") center/cover no-repeat; }
+.hero-copy { max-width: 900px; padding-bottom: 105px; }
+.hero h1 { font-size: clamp(48px,7.4vw,92px); letter-spacing: -.025em; }
+.hero-cn { color: #f7f0df; font-size: clamp(24px,3.2vw,42px); }
+.hero p { max-width: 720px; color: rgba(255,255,255,.84); }
+.hero-features span { padding: 9px 15px; border-color: rgba(240,215,164,.36); background: rgba(255,255,255,.09); backdrop-filter: blur(8px); }
+.trust-strip { margin-top: -38px; position: relative; z-index: 6; }
+.trust-strip-grid { background: rgba(255,255,255,.96); border: 1px solid rgba(200,155,83,.24); border-radius: 22px; box-shadow: var(--shadow); overflow: hidden; }
+.section-title h2 { letter-spacing: -.035em; }
+.audience-grid article,.card,.recommend-card,.ad-card { border-color: rgba(23,67,62,.11); box-shadow: 0 18px 46px rgba(16,44,42,.08); transition: transform .25s ease,box-shadow .25s ease,border-color .25s ease; }
+.audience-grid article:hover,.card:hover,.recommend-card:hover,.ad-card:hover { transform: translateY(-5px); border-color: rgba(200,155,83,.42); box-shadow: 0 26px 55px rgba(16,44,42,.13); }
+.travel-service-layout { background: linear-gradient(120deg,var(--navy),var(--navy2)); border: 1px solid rgba(240,215,164,.18); box-shadow: 0 24px 65px rgba(16,44,42,.18); }
+.site-footer { background: linear-gradient(135deg,#0b2523,#143c38); }
+@media (max-width: 760px) {
+  .container { width: min(100% - 28px,1180px); }
+  .hero { min-height: 670px; border-radius: 0 0 28px 28px; background-position: 58% center; }
+  .hero-copy { padding: 120px 0 70px; }
+  .hero h1 { font-size: clamp(34px,10.6vw,48px); }
+  .hero-cn { font-size: clamp(17px,5vw,24px); }
+  .hero-features { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .hero-features span { text-align: center; white-space: nowrap; font-size: 12px; padding-inline: 7px; }
+  .trust-strip { margin-top: -24px; }
+}

@@ -91,14 +91,14 @@ module.exports = async (req, res) => {
     const diagnostic = databaseDiagnostic(error);
     return res.status(500).json({
       ok: false,
-      version: "V6.4-FIX3",
+      version: "V6.5",
       message: `${databaseMessage(error, "订单提交失败")}（错误代码：${code}；${diagnostic.message}）`,
       diagnostic,
     });
   }
   res.status(201).json({
     ok: true,
-    version: "V6.4-FIX3",
+    version: "V6.5",
     data,
     message: `入住需求已提交，订单编号：${data.order_no}`,
   });
