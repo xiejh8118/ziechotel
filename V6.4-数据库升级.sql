@@ -16,6 +16,20 @@ create table if not exists public.booking_orders (
 );
 
 alter table public.booking_orders add column if not exists country_region varchar(80) default '';
+alter table public.booking_orders add column if not exists order_no varchar(40);
+alter table public.booking_orders add column if not exists customer_name varchar(80);
+alter table public.booking_orders add column if not exists contact varchar(40);
+alter table public.booking_orders add column if not exists hotel_name varchar(120) default '中鼎国际酒店';
+alter table public.booking_orders add column if not exists room_type varchar(80) default '';
+alter table public.booking_orders add column if not exists checkin varchar(30) default '';
+alter table public.booking_orders add column if not exists checkout varchar(30) default '';
+alter table public.booking_orders add column if not exists rooms varchar(30) default '';
+alter table public.booking_orders add column if not exists guests varchar(30) default '';
+alter table public.booking_orders add column if not exists price numeric(12,2) default 0;
+alter table public.booking_orders add column if not exists currency varchar(10) default 'USD';
+alter table public.booking_orders add column if not exists note text default '';
+alter table public.booking_orders add column if not exists status varchar(30) default 'pending_contact';
+alter table public.booking_orders add column if not exists created_at timestamptz default now();
 alter table public.booking_orders add column if not exists wechat varchar(100) default '';
 alter table public.booking_orders add column if not exists telegram varchar(160) default '';
 alter table public.booking_orders add column if not exists messenger varchar(200) default '';
@@ -25,8 +39,28 @@ alter table public.booking_orders add column if not exists stay_purpose varchar(
 alter table public.booking_orders add column if not exists source varchar(200) default 'website';
 alter table public.booking_orders add column if not exists follow_up_note text default '';
 alter table public.booking_orders add column if not exists updated_at timestamptz default now();
+alter table public.booking_orders alter column status type varchar(30);
+
+-- 清理旧版本可能遗留的 status 检查约束，再建立 V6.4 状态范围。
+do $$
+declare constraint_name text;
+begin
+  for constraint_name in
+    select c.conname
+    from pg_constraint c
+    where c.conrelid = 'public.booking_orders'::regclass
+      and c.contype = 'c'
+      and pg_get_constraintdef(c.oid) ilike '%status%'
+  loop
+    execute format('alter table public.booking_orders drop constraint %I', constraint_name);
+  end loop;
+end $$;
+
 alter table public.booking_orders alter column status set default 'pending_contact';
-update public.booking_orders set status='pending_contact' where status='new';
+update public.booking_orders set status='pending_contact' where status is null or status='new';
+alter table public.booking_orders
+  add constraint booking_orders_status_check
+  check(status in('pending_contact','contacted','quoted','confirmed','checked_in','cancelled'));
 alter table public.booking_orders enable row level security;
 revoke all on table public.booking_orders from anon, authenticated;
 

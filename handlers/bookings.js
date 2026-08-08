@@ -39,15 +39,60 @@ module.exports = async (req, res) => {
     status: "pending_contact",
   };
 
-  const { data, error } = await d
+  let { data, error } = await d
     .from("booking_orders")
     .insert(row)
     .select("id,order_no")
     .single();
-  if (error)
-    return res
-      .status(500)
-      .json({ ok: false, message: databaseMessage(error, "订单提交失败") });
+
+  // 兼容尚未完整执行 V6.4 SQL 的旧订单表。只有字段缓存或状态约束
+  // 不兼容时才降级重试，网络等不确定错误不会重复写入订单。
+  const compatibilityError = (value) =>
+    ["PGRST204", "23514", "42703"].includes(String(value?.code || "")) ||
+    /could not find.*column|column.*does not exist|check constraint/i.test(
+      String(value?.message || ""),
+    );
+  if (error && compatibilityError(error)) {
+    const legacyRow = {
+      order_no: row.order_no,
+      customer_name: row.customer_name,
+      contact: row.contact,
+      hotel_name: row.hotel_name,
+      room_type: row.room_type,
+      checkin: row.checkin,
+      checkout: row.checkout,
+      rooms: row.rooms,
+      guests: row.guests,
+      price: row.price,
+      currency: row.currency,
+      note: row.note,
+      status: "new",
+    };
+    ({ data, error } = await d
+      .from("booking_orders")
+      .insert(legacyRow)
+      .select("id,order_no")
+      .single());
+  }
+  if (error && compatibilityError(error)) {
+    const noStatusRow = { ...row };
+    [
+      "country_region", "wechat", "telegram", "messenger", "whatsapp",
+      "transfer_need", "stay_purpose", "source", "follow_up_note", "status",
+    ].forEach((key) => delete noStatusRow[key]);
+    ({ data, error } = await d
+      .from("booking_orders")
+      .insert(noStatusRow)
+      .select("id,order_no")
+      .single());
+  }
+  if (error) {
+    const code = String(error.code || "DB_ERROR").slice(0, 30);
+    return res.status(500).json({
+      ok: false,
+      message: `${databaseMessage(error, "订单提交失败")}（错误代码：${code}）`,
+    });
+  }
   res.status(201).json({
     ok: true,
     data,
