@@ -133,3 +133,9 @@
 - 确认前端 `/api/bookings` 请求正确，问题为线上 Vercel 未向 `req.query.path` 注入动态路由参数。
 - 单入口现同时兼容 `req.query.path`、`req.url` 与 `req.originalUrl`，保持一个 Serverless Function。
 - 增加诊断标识 `V6.5-ROUTE-FIX1`，不改整体框架、数据库字段及页面功能。
+# 2026-08-08：V6.5 订单 42501 权限修复
+
+- 线上订单接口已正确进入 `/api/bookings`，Supabase 返回 `42501 permission denied for table booking_orders`。
+- 根因范围收敛为 `service_role` 表权限缺失，或 Vercel 的 `SUPABASE_SERVICE_ROLE_KEY` 误填为公开 anon key。
+- 新增 `V6.5-订单42501权限修复.sql`，明确只给服务端 `service_role` 授权，不开放匿名浏览器直接写入。
+- 同步补充 sequence 权限并刷新 PostgREST Schema Cache。

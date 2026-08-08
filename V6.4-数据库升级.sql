@@ -63,6 +63,8 @@ alter table public.booking_orders
   check(status in('pending_contact','contacted','quoted','confirmed','checked_in','cancelled'));
 alter table public.booking_orders enable row level security;
 revoke all on table public.booking_orders from anon, authenticated;
+grant select, insert, update, delete on table public.booking_orders to service_role;
+grant usage, select on all sequences in schema public to service_role;
 
 create table if not exists public.site_settings(
   setting_key varchar(80) primary key,
@@ -71,6 +73,7 @@ create table if not exists public.site_settings(
 );
 alter table public.site_settings enable row level security;
 revoke all on table public.site_settings from anon, authenticated;
+grant select, insert, update, delete on table public.site_settings to service_role;
 
 create index if not exists booking_orders_created_at_idx on public.booking_orders(created_at desc);
 create index if not exists booking_orders_status_idx on public.booking_orders(status);
