@@ -880,7 +880,11 @@ async function loadHomeRecommendations() {
 }
 loadHomeRecommendations();
 
+<<<<<<< HEAD
 // V6.4: every public consultation area offers four channels for guests from
+=======
+// V6.3: every public consultation area offers four channels for guests from
+>>>>>>> 6f2be1b3c5ea813ffc0f6745664447af16c412ff
 // different countries. Supplier cards render their own company-specific set.
 function universalConsultationChannels(message = "您好，我想咨询ZIEC HOTEL的服务。") {
   const encoded = encodeURIComponent(message);
@@ -899,11 +903,16 @@ function enhanceConsultationAreas() {
 document.addEventListener("click", async (event) => {
   const button = event.target.closest("[data-contact-copy]");
   if (!button) return;
+<<<<<<< HEAD
   const content = `ZIEC HOTEL\n${button.dataset.contactAccount ? `${button.dataset.contactCopy}：${button.dataset.contactAccount}\n` : ""}WhatsApp/电话：+855 018 995 8899\n${button.dataset.contactMessage || "咨询服务"}`;
+=======
+  const content = `ZIEC HOTEL\nWhatsApp/电话：+855 018 995 8899\n${button.dataset.contactMessage || "咨询服务"}`;
+>>>>>>> 6f2be1b3c5ea813ffc0f6745664447af16c412ff
   try { await navigator.clipboard.writeText(content); } catch (_) {}
   alert(`${button.dataset.contactCopy}联系资料已复制，请打开对应应用继续咨询。`);
 });
 enhanceConsultationAreas();
+<<<<<<< HEAD
 async function applyConsultationSettings() {
   try {
     const response = await fetch("/api/site-settings"), payload = await response.json(), s = payload.data || {};
@@ -916,6 +925,10 @@ async function applyConsultationSettings() {
 applyConsultationSettings();
 
 // V6.4: all pages show a clear release marker without changing the existing layout.
+=======
+
+// V6.3: all pages show a clear release marker without changing the existing layout.
+>>>>>>> 6f2be1b3c5ea813ffc0f6745664447af16c412ff
 document.querySelectorAll(".footer-wrap").forEach((footer) => {
   if (!footer.textContent.includes("ZIEC HOTEL V6.4")) {
     const version = document.createElement("div");
