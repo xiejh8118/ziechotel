@@ -12,9 +12,8 @@ module.exports = async (req, res) => {
       .status(400)
       .json({ ok: false, message: "请填写联系人和电话 / WhatsApp" });
 
-  const orderNo =
-    text(b.order_no, 40) ||
-    `ZIEC-${new Date().toISOString().slice(0, 10).replace(/-/g, "")}`;
+  const orderNo = text(b.order_no, 40) ||
+    `ZIEC-${Date.now().toString(36).toUpperCase()}`;
   const row = {
     order_no: orderNo,
     customer_name: text(b.customer_name, 80),
@@ -28,7 +27,16 @@ module.exports = async (req, res) => {
     price: Number(b.price) || 0,
     currency: text(b.currency, 10) || "USD",
     note: text(b.note, 500),
-    status: "new",
+    country_region: text(b.country_region, 80),
+    wechat: text(b.wechat, 100),
+    telegram: text(b.telegram, 160),
+    messenger: text(b.messenger, 200),
+    whatsapp: phone(b.whatsapp),
+    transfer_need: text(b.transfer_need, 120),
+    stay_purpose: text(b.stay_purpose, 80),
+    source: text(b.source, 80) || text(req.headers.referer, 200) || "website",
+    follow_up_note: "",
+    status: "pending_contact",
   };
 
   const { data, error } = await d
@@ -43,6 +51,6 @@ module.exports = async (req, res) => {
   res.status(201).json({
     ok: true,
     data,
-    message: "预订需求已提交，请继续通过 WhatsApp 核对订单与付款信息。",
+    message: `入住需求已提交，订单编号：${data.order_no}`,
   });
 };

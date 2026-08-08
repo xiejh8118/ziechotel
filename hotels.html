@@ -92,13 +92,20 @@
           </div>
           <form class="hotel-booking-bar" id="hotelBookingForm">
             <label>姓名<input name="customer_name" required maxlength="80" /></label>
-            <label>电话 / WhatsApp<input name="contact" required maxlength="40" /></label>
+            <label>国家 / 地区<input name="country_region" maxlength="80" placeholder="中国 / Cambodia" /></label>
+            <label>联系电话<input name="contact" required maxlength="40" /></label>
+            <label>微信<input name="wechat" maxlength="100" /></label>
+            <label>Telegram<input name="telegram" maxlength="160" /></label>
+            <label>Messenger<input name="messenger" maxlength="200" /></label>
+            <label>WhatsApp<input name="whatsapp" maxlength="40" /></label>
             <label>入住日期<input name="checkin" type="date" id="checkin" required /></label>
             <label>退房日期<input name="checkout" type="date" id="checkout" required /></label>
             <label>房型<select name="room_type"><option>标准双床房</option><option>VIP房</option><option>精美三室一厅套房</option><option>月租公寓</option><option>企业团队住宿</option></select></label>
             <label>房间数<select name="rooms" id="roomCount"><option>1间</option><option>2间</option><option>3间</option><option>4间及以上</option></select></label>
             <label>入住人数<select name="guests" id="guestCount"><option>1位</option><option selected>2位</option><option>3位</option><option>4位及以上</option></select></label>
-            <label>接送需求<select name="note"><option value="">暂不需要</option><option>需要机场接送，请联系报价</option><option>需要包车服务，请联系报价</option></select></label>
+            <label>入住类型<select name="stay_purpose"><option>短期住宿</option><option>月租长住</option><option>企业团队住宿</option><option>员工宿舍</option></select></label>
+            <label>接送需求<select name="transfer_need"><option value="">暂不需要</option><option>需要机场接送，请联系报价</option><option>需要包车服务，请联系报价</option></select></label>
+            <label class="full">备注<textarea name="note" maxlength="500" placeholder="其他入住要求"></textarea></label>
             <button class="btn btn-primary" type="submit">提交入住需求</button>
           </form>
           <div class="booking-note" id="bookingNote">此表单不是实时房态查询；提交后由中文客服确认房态、总价和入住安排。</div>
@@ -439,7 +446,7 @@
             ><strong>ZIEC HOTEL</strong><small>中鼎国际酒店</small></span
           >
         </div>
-        <div>© 2026 ZIEC HOTEL · www.ziechotel.top</div>
+        <div>© 2026 ZIEC HOTEL V6.4 · www.ziechotel.top</div>
       </div>
     </footer>
     <a
@@ -543,7 +550,7 @@
             });
             const result = await response.json();
             if (!response.ok) throw new Error(result.message || '提交失败');
-            note.textContent = '入住需求已提交。中文客服确认实际房态与价格后会联系您。';
+            note.textContent = `${result.message}。客服确认房态与价格后会联系您。`;
           } catch (error) {
             note.textContent = `${error.message}。您也可以点击 WhatsApp 直接联系中文客服。`;
           }

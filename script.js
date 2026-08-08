@@ -443,6 +443,17 @@ const I18N_TEXT = {
     "核验二维码": "Verify QR Code",
     "Visa付款": "Visa Payment",
     "客服": "Support"
+  },
+  kh: {
+    "首页": "ទំព័រដើម", "酒店公寓": "សណ្ឋាគារ និងអាផាតមិន", "企业服务": "សេវាកម្មសហគ្រាស",
+    "供应链平台": "វេទិកាផ្គត់ផ្គង់", "联系我们": "ទាក់ទងយើង", "AI客服": "ជំនួយការ AI",
+    "提交入住需求": "ដាក់សំណើស្នាក់នៅ", "姓名": "ឈ្មោះ", "国家 / 地区": "ប្រទេស / តំបន់",
+    "联系电话": "លេខទូរស័ព្ទ", "入住日期": "ថ្ងៃចូលស្នាក់", "退房日期": "ថ្ងៃចាកចេញ",
+    "房型": "ប្រភេទបន្ទប់", "房间数": "ចំនួនបន្ទប់", "入住人数": "ចំនួនភ្ញៀវ",
+    "入住类型": "ប្រភេទការស្នាក់នៅ", "接送需求": "តម្រូវការដឹកជញ្ជូន", "备注": "កំណត់សម្គាល់",
+    "查看服务": "មើលសេវាកម្ម", "酒店房型推荐": "បន្ទប់ដែលណែនាំ", "供应商推荐": "អ្នកផ្គត់ផ្គង់ដែលណែនាំ",
+    "查看详情": "មើលព័ត៌មានលម្អិត", "立即预订": "កក់ឥឡូវ", "联系我们获取方案": "ទាក់ទងយើងសម្រាប់ដំណោះស្រាយ",
+    "微信": "WeChat", "客房价格": "តម្លៃបន្ទប់", "发送": "ផ្ញើ", "转 WhatsApp 人工服务": "ទាក់ទងតាម WhatsApp"
   }
 };
 const I18N_PAGE_META = {
@@ -492,14 +503,22 @@ const I18N_PAGE_META = {
       description:
         "Confirm hotel orders, verify official payment details and learn payment safety notes."
     }
+  },
+  kh: {
+    "/": { title: "ZIEC HOTEL | សណ្ឋាគារ និងសេវាកម្មនៅកម្ពុជា", description: "សណ្ឋាគារ អាផាតមិន សេវាកម្មសហគ្រាស និងបណ្តាញអ្នកផ្គត់ផ្គង់នៅកម្ពុជា។" },
+    "/index": { title: "ZIEC HOTEL | សណ្ឋាគារ និងសេវាកម្មនៅកម្ពុជា", description: "សណ្ឋាគារ អាផាតមិន សេវាកម្មសហគ្រាស និងបណ្តាញអ្នកផ្គត់ផ្គង់នៅកម្ពុជា។" },
+    "/hotels": { title: "សណ្ឋាគារ និងការកក់ | ZIEC HOTEL", description: "មើលបន្ទប់ អាផាតមិន និងដាក់សំណើស្នាក់នៅ។" },
+    "/suppliers": { title: "វេទិកាផ្គត់ផ្គង់ | ZIEC", description: "បណ្តាញអ្នកផ្គត់ផ្គង់ និងសេវាកម្មសហគ្រាសនៅកម្ពុជា។" }
   }
 };
 const originalText = new WeakMap();
 const originalAttrs = new WeakMap();
 function getLanguage() {
+  const requested = new URLSearchParams(location.search).get("lang");
+  if (["zh", "en", "kh"].includes(requested)) return requested;
   try {
     const stored = localStorage.getItem(I18N_STORAGE_KEY);
-    if (stored === "zh" || stored === "en") return stored;
+    if (["zh", "en", "kh"].includes(stored)) return stored;
   } catch (e) {}
   return navigator.language?.toLowerCase().startsWith("zh") ? "zh" : "en";
 }
@@ -578,7 +597,11 @@ function setLanguage(lang) {
   try {
     localStorage.setItem(I18N_STORAGE_KEY, lang);
   } catch (e) {}
-  document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+  document.documentElement.lang = lang === "zh" ? "zh-CN" : lang === "kh" ? "km" : "en";
+  const languageUrl = new URL(location.href);
+  if (lang === "zh") languageUrl.searchParams.delete("lang");
+  else languageUrl.searchParams.set("lang", lang);
+  history.replaceState(null, "", languageUrl);
   translateElementTree(lang);
   applyPageMeta(lang);
   updateLanguageButtons(lang);
@@ -631,12 +654,19 @@ function initLanguageSwitcher() {
   document.documentElement.dataset.zhTitle = document.title;
   const desc = document.querySelector('meta[name="description"]');
   if (desc) desc.dataset.zhContent = desc.getAttribute("content") || "";
+  const canonical = document.querySelector('link[rel="canonical"]')?.href || location.href.split("?")[0];
+  [["zh-CN", "zh"], ["en", "en"], ["km", "kh"]].forEach(([code, lang]) => {
+    if (document.head.querySelector(`link[hreflang="${code}"]`)) return;
+    const link = document.createElement("link"); link.rel = "alternate"; link.hreflang = code;
+    link.href = lang === "zh" ? canonical : `${canonical}${canonical.includes("?") ? "&" : "?"}lang=${lang}`;
+    document.head.appendChild(link);
+  });
   const nav = document.querySelector(".nav-links");
   if (nav && !nav.querySelector(".lang-switch")) {
     const switcher = document.createElement("div");
     switcher.className = "lang-switch";
     switcher.setAttribute("aria-label", "Language");
-    switcher.innerHTML = `<button type="button" data-lang-option="zh">中</button><button type="button" data-lang-option="en">EN</button>`;
+    switcher.innerHTML = `<button type="button" data-lang-option="zh">中</button><button type="button" data-lang-option="en">EN</button><button type="button" data-lang-option="kh">KH</button>`;
     const cta = nav.querySelector(".nav-cta");
     nav.insertBefore(switcher, cta || null);
     switcher.querySelectorAll("button").forEach((btn) =>
@@ -647,6 +677,25 @@ function initLanguageSwitcher() {
 }
 normalizePublicNavigation();
 initLanguageSwitcher();
+async function initPublicSiteSettings() {
+  const section = document.querySelector("#homeVideo");
+  if (!section) return;
+  try {
+    const response = await fetch("/api/site-settings");
+    const payload = await response.json();
+    if (!response.ok || !payload.data?.video_enabled || !payload.data.video_url) return;
+    const s = payload.data;
+    section.hidden = false;
+    document.querySelector("#homeVideoTitle").textContent = s.video_title;
+    document.querySelector("#homeVideoDescription").textContent = s.video_description;
+    document.querySelector("#homeVideoCover").src = s.video_cover || "./assets/hotel-exterior.jpg";
+    document.querySelector("#homeVideoPlay").addEventListener("click", () => window.open(s.video_url, "_blank", "noopener"));
+    [["#wechatChannelsLink", s.wechat_channels_url], ["#youtubeLink", s.youtube_url]].forEach(([selector, url]) => {
+      const link = document.querySelector(selector); if (url) { link.href = url; link.hidden = false; }
+    });
+  } catch (e) { /* Keep the original homepage available if settings are offline. */ }
+}
+initPublicSiteSettings();
 function showToast(msg) {
   if (!toast) return;
   toast.textContent = msg;
@@ -831,12 +880,47 @@ async function loadHomeRecommendations() {
 }
 loadHomeRecommendations();
 
-// V6.3: all pages show a clear release marker without changing the existing layout.
+// V6.4: every public consultation area offers four channels for guests from
+// different countries. Supplier cards render their own company-specific set.
+function universalConsultationChannels(message = "您好，我想咨询ZIEC HOTEL的服务。") {
+  const encoded = encodeURIComponent(message);
+  return `<div class="universal-consult" data-universal-consult><div class="supplier-consult-title">选择咨询方式</div><div class="supplier-consult-actions"><button class="consult-channel consult-wechat" type="button" data-contact-copy="微信" data-contact-message="${esc(message)}"><span class="consult-icon">微</span><span>微信</span></button><a class="consult-channel consult-telegram" href="https://t.me/share/url?url=${encodeURIComponent(location.href)}&text=${encoded}" target="_blank" rel="noopener"><span class="consult-icon">➤</span><span>Telegram</span></a><button class="consult-channel consult-messenger" type="button" data-contact-copy="Messenger" data-contact-message="${esc(message)}"><span class="consult-icon">⚡</span><span>Messenger</span></button><a class="consult-channel consult-whatsapp" href="https://wa.me/855189958899?text=${encoded}" target="_blank" rel="noopener"><span class="consult-icon">WA</span><span>WhatsApp</span></a></div></div>`;
+}
+function enhanceConsultationAreas() {
+  const hosts = new Set();
+  document.querySelectorAll("a,button").forEach((el) => {
+    if (!/咨询|consult/i.test(el.textContent || "")) return;
+    if (el.closest("nav,.ai-widget,.supplier-card,[data-universal-consult]")) return;
+    const host = el.closest(".actions,.share-actions,.info-panel,.contact-card") || el.parentElement;
+    if (host && !host.querySelector(":scope > [data-universal-consult]")) hosts.add(host);
+  });
+  hosts.forEach((host) => host.insertAdjacentHTML("beforeend", universalConsultationChannels()));
+}
+document.addEventListener("click", async (event) => {
+  const button = event.target.closest("[data-contact-copy]");
+  if (!button) return;
+  const content = `ZIEC HOTEL\n${button.dataset.contactAccount ? `${button.dataset.contactCopy}：${button.dataset.contactAccount}\n` : ""}WhatsApp/电话：+855 018 995 8899\n${button.dataset.contactMessage || "咨询服务"}`;
+  try { await navigator.clipboard.writeText(content); } catch (_) {}
+  alert(`${button.dataset.contactCopy}联系资料已复制，请打开对应应用继续咨询。`);
+});
+enhanceConsultationAreas();
+async function applyConsultationSettings() {
+  try {
+    const response = await fetch("/api/site-settings"), payload = await response.json(), s = payload.data || {};
+    document.querySelectorAll(".consult-wechat").forEach((el) => el.dataset.contactAccount = s.wechat || "");
+    document.querySelectorAll(".consult-telegram").forEach((el) => { if (s.telegram) el.href = /^https?:/i.test(s.telegram) ? s.telegram : `https://t.me/${s.telegram.replace(/^@/, "")}`; });
+    document.querySelectorAll(".consult-messenger").forEach((el) => { if (s.messenger) { el.dataset.contactAccount = s.messenger; if (el.tagName === "A") el.href = s.messenger; } });
+    document.querySelectorAll(".consult-whatsapp").forEach((el) => { if (s.whatsapp && el.tagName === "A") el.href = `https://wa.me/${s.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent("您好，我想咨询ZIEC HOTEL的服务。")}`; });
+  } catch (e) { /* Default public contacts remain available. */ }
+}
+applyConsultationSettings();
+
+// V6.4: all pages show a clear release marker without changing the existing layout.
 document.querySelectorAll(".footer-wrap").forEach((footer) => {
-  if (!footer.textContent.includes("ZIEC HOTEL V6.3")) {
+  if (!footer.textContent.includes("ZIEC HOTEL V6.4")) {
     const version = document.createElement("div");
     version.className = "site-version";
-    version.textContent = "ZIEC HOTEL V6.3";
+    version.textContent = "ZIEC HOTEL V6.4";
     footer.appendChild(version);
   }
 });
@@ -845,17 +929,63 @@ function renderSuppliers(list) {
   grid.innerHTML =
     list
       .map((s) => {
-        const wa = (s.whatsapp || s.phone || "").replace(/\D/g, "");
         const initials = esc((s.company_name || "Z").slice(0, 1));
-        const images = Array.isArray(s.image_urls)
-          ? s.image_urls.slice(0, 4)
-          : [];
+        const images = Array.isArray(s.image_urls) ? s.image_urls.filter(Boolean) : [];
+        const rawSupplier = JSON.stringify(JSON.stringify(s));
         const media = images.length
-          ? `<div class="supplier-gallery">${images.map((url, i) => `<div class="${i === 3 && s.image_urls.length > 4 ? "gallery-more" : ""}" ${i === 3 && s.image_urls.length > 4 ? `data-more="+${s.image_urls.length - 4}"` : ""}><img src="${esc(url)}" alt="${esc(s.company_name)} 企业图片 ${i + 1}" loading="lazy"></div>`).join("")}</div>`
+          ? `<button class="supplier-cover" type="button" onclick='openSupplierGallery(${rawSupplier},0)' aria-label="查看${esc(s.company_name)}全部图片"><img src="${esc(images[0])}" alt="${esc(s.company_name)} 推荐图片" loading="lazy"><span>共 ${images.length} 张 · 查看全部</span></button>`
           : `<div class="supplier-brand">${s.logo_url ? `<img src="${esc(s.logo_url)}" alt="${esc(s.company_name)} Logo" onerror="this.remove()">` : `<span>${initials}</span>`}</div>`;
-        return `<article class="card supplier-card">${media}${s.featured ? '<div class="card-label">推荐供应商</div>' : ""}<div class="card-body"><div class="card-label">${esc(s.category)}</div><h3>${esc(s.company_name)}</h3>${s.slogan ? `<p class="supplier-slogan">${esc(s.slogan)}</p>` : ""}<div class="supplier-meta">${esc(s.city || "柬埔寨")} · 联系人：${esc(s.contact_name)}</div><p class="muted">${esc(s.products || s.description || "")}</p><div class="supplier-actions">${wa ? `<a class="btn btn-primary" target="_blank" rel="noopener" href="https://wa.me/${wa}">WhatsApp</a>` : ""}<button class="share-btn" onclick='shareSupplier(${JSON.stringify(JSON.stringify(s))})'>分享</button><button class="share-btn" onclick='createSupplierPoster(${JSON.stringify(JSON.stringify(s))})'>生成海报</button><a class="btn btn-dark" target="_blank" rel="noopener" href="https://wa.me/855189958899?text=您好，我想发布采购询价">采购询价</a></div></div></article>`;
+        return `<article class="card supplier-card">${media}${s.featured ? '<div class="card-label supplier-featured">推荐供应商</div>' : ""}<div class="card-body"><div class="card-label">${esc(s.category || "企业服务")}</div><h3 class="supplier-company-name">${esc(s.company_name)}</h3>${s.slogan ? `<p class="supplier-slogan">${esc(s.slogan)}</p>` : ""}<dl class="supplier-contact"><div><dt>联系人</dt><dd>${esc(s.contact_name || "平台客服")}</dd></div><div><dt>电话</dt><dd>${s.phone || s.whatsapp ? `<a href="tel:${esc(s.phone || s.whatsapp)}">${esc(s.phone || s.whatsapp)}</a>` : "待补充"}</dd></div><div><dt>地址</dt><dd>${esc(s.address || s.city || "柬埔寨")}</dd></div></dl><p class="muted supplier-products">${esc(s.products || s.description || "")}</p><div class="supplier-consult-title">选择咨询方式</div><div class="supplier-consult-actions"><button class="consult-channel consult-wechat" onclick='consultSupplier("wechat",${rawSupplier})' aria-label="微信咨询"><span class="consult-icon">微</span><span>微信</span></button><button class="consult-channel consult-telegram" onclick='consultSupplier("telegram",${rawSupplier})' aria-label="Telegram咨询"><span class="consult-icon">➤</span><span>Telegram</span></button><button class="consult-channel consult-messenger" onclick='consultSupplier("messenger",${rawSupplier})' aria-label="Messenger咨询"><span class="consult-icon">⚡</span><span>Messenger</span></button><button class="consult-channel consult-whatsapp" onclick='consultSupplier("whatsapp",${rawSupplier})' aria-label="WhatsApp咨询"><span class="consult-icon">WA</span><span>WhatsApp</span></button></div><div class="supplier-actions supplier-secondary-actions"><button class="share-btn" onclick='openSupplierShare(${rawSupplier})'>分享推广</button><button class="share-btn" onclick='createSupplierPoster(${rawSupplier})'>生成海报</button></div></div></article>`;
       })
       .join("") || '<div class="muted">暂无符合条件的供应商。</div>';
+  requestAnimationFrame(fitSupplierNames);
+}
+
+window.consultSupplier = async (platform, raw) => {
+  const s = typeof raw === "string" ? JSON.parse(raw) : raw;
+  const company = s.company_name || "该企业";
+  const contact = s.phone || s.whatsapp || "";
+  const message = `您好，我想咨询${company}的产品与服务。`;
+  let account = String(s[platform] || "").trim();
+  if (platform === "whatsapp") {
+    const number = (account || contact || "855189958899").replace(/\D/g, "");
+    window.open(`https://wa.me/${number}?text=${encodeURIComponent(message)}`, "_blank", "noopener");
+    return;
+  }
+  if (platform === "wechat") {
+    const value = account || contact;
+    if (!value) return alert("该企业暂未填写微信或联系电话，请使用平台人工客服咨询。");
+    try { await navigator.clipboard.writeText(value); } catch (_) {}
+    alert(`微信联系信息已复制：${value}\n请打开微信添加好友，并发送：${message}`);
+    return;
+  }
+  if (platform === "telegram" && account) {
+    account = account.replace(/^https?:\/\/t\.me\//, "").replace(/^@/, "");
+    window.open(`https://t.me/${encodeURIComponent(account)}`, "_blank", "noopener");
+    return;
+  }
+  if (platform === "messenger" && account) {
+    account = account.replace(/^https?:\/\/(?:www\.)?(?:m\.me\/|facebook\.com\/messages\/t\/)/, "");
+    window.open(`https://m.me/${encodeURIComponent(account)}`, "_blank", "noopener");
+    return;
+  }
+  if (contact) {
+    try { await navigator.clipboard.writeText(`${company}\n${contact}\n${message}`); } catch (_) {}
+    alert(`${platform === "telegram" ? "Telegram" : "Messenger"}账号尚未填写，企业联系电话与咨询内容已复制：\n${contact}`);
+  } else {
+    alert(`该企业暂未填写${platform === "telegram" ? "Telegram" : "Messenger"}账号，请使用平台人工客服咨询。`);
+  }
+};
+
+function fitSupplierNames() {
+  document.querySelectorAll(".supplier-company-name").forEach((name) => {
+    let size = 28;
+    name.style.fontSize = `${size}px`;
+    while (name.scrollWidth > name.clientWidth && size > 16) {
+      size -= 1;
+      name.style.fontSize = `${size}px`;
+    }
+  });
 }
 document.querySelector("#supplierSearch")?.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -1031,6 +1161,13 @@ function renderHotels(rows) {
 }
 async function loadAdmin() {
   try {
+    if (adminTab === "site-settings") {
+      const j = await jsonFetch("/api/site-settings");
+      login.hidden = true; dash.hidden = false; const s = j.data;
+      content.innerHTML = `<form class="ai-settings-form" id="siteSettingsForm"><h3 class="full">首页视频与四平台咨询</h3><label>首页视频<select name="video_enabled"><option value="true" ${s.video_enabled ? "selected" : ""}>显示</option><option value="false" ${!s.video_enabled ? "selected" : ""}>隐藏</option></select></label><label>视频标题<input name="video_title" value="${esc(s.video_title)}"></label><label class="full">视频简介<textarea name="video_description">${esc(s.video_description)}</textarea></label><label class="full">宣传视频链接<input name="video_url" type="url" value="${esc(s.video_url)}" placeholder="YouTube 或可打开的视频链接"></label><label class="full">视频封面链接<input name="video_cover" value="${esc(s.video_cover)}"></label><label>视频号链接/二维码页<input name="wechat_channels_url" value="${esc(s.wechat_channels_url)}"></label><label>YouTube频道/视频<input name="youtube_url" value="${esc(s.youtube_url)}"></label><label>微信<input name="wechat" value="${esc(s.wechat)}"></label><label>Telegram<input name="telegram" value="${esc(s.telegram)}"></label><label>Messenger<input name="messenger" value="${esc(s.messenger)}"></label><label>WhatsApp<input name="whatsapp" value="${esc(s.whatsapp)}"></label><div class="full"><button class="btn btn-primary">保存设置</button></div><div id="siteSettingsMessage" class="form-message full"></div></form>`;
+      document.querySelector("#siteSettingsForm").addEventListener("submit", saveSiteSettings);
+      return;
+    }
     if (adminTab === "ai-settings") {
       const j = await jsonFetch("/api/admin-ai-settings");
       login.hidden = true;
@@ -1050,12 +1187,12 @@ async function loadAdmin() {
     if (adminTab === "suppliers") return renderSupplierAdmin(adminRows);
     if (adminTab === "hotels") return renderHotels(adminRows);
     if (adminTab === "bookings") {
-      const bookingStatusName = { new: "新订单", confirmed: "已确认", paid: "已付款", cancelled: "已取消" };
+      const bookingStatusName = { pending_contact: "待联系", contacted: "已联系", quoted: "已报价", confirmed: "已确认", checked_in: "已入住", cancelled: "已取消", new: "待联系" };
       content.innerHTML =
         adminRows
           .map(
             (x) =>
-              `<article class="admin-item"><div><div class="admin-title-row"><b>${esc(x.order_no)} · ${esc(x.customer_name)}</b><span class="status-badge status-${esc(x.status)}">${bookingStatusName[x.status] || statusName[x.status] || esc(x.status)}</span></div><p>${esc(x.room_type)} · ${esc(x.checkin)} 至 ${esc(x.checkout)} · ${esc(x.rooms)} · ${esc(x.guests)}</p><p>联系：${esc(x.contact)} · 参考价 ${esc(x.currency || "USD")} ${esc(x.price || 0)}</p><p>${esc(x.note || "无备注")}</p></div></article>`,
+              `<article class="admin-item booking-lead"><div><div class="admin-title-row"><b>${esc(x.order_no)} · ${esc(x.customer_name)}</b><span class="status-badge status-${esc(x.status)}">${bookingStatusName[x.status] || esc(x.status)}</span></div><p>${esc(x.country_region || "地区未填")} · ${esc(x.room_type)} · ${esc(x.checkin)} 至 ${esc(x.checkout)} · ${esc(x.rooms)} · ${esc(x.guests)}</p><p>电话：${esc(x.contact)}　微信：${esc(x.wechat)}　Telegram：${esc(x.telegram)}　Messenger：${esc(x.messenger)}　WhatsApp：${esc(x.whatsapp)}</p><p>${esc(x.stay_purpose)} · ${esc(x.transfer_need)} · 来源：${esc(x.source || "website")}</p><p>${esc(x.note || "无备注")}</p><label>跟进备注<textarea id="follow-${x.id}">${esc(x.follow_up_note || "")}</textarea></label></div><div class="admin-item-actions"><select id="status-${x.id}">${Object.entries(bookingStatusName).filter(([k]) => k !== "new").map(([k,v]) => `<option value="${k}" ${x.status === k ? "selected" : ""}>${v}</option>`).join("")}</select><button class="approve" onclick="bookingSave('${x.id}')">保存跟进</button></div></article>`,
           )
           .join("") || '<div class="muted">暂无在线订单</div>';
       return;
@@ -1070,6 +1207,18 @@ async function loadAdmin() {
     dash.hidden = true;
   }
 }
+async function saveSiteSettings(e) {
+  e.preventDefault(); const form = e.currentTarget, msg = document.querySelector("#siteSettingsMessage");
+  const data = Object.fromEntries(new FormData(form).entries()); data.video_enabled = data.video_enabled === "true";
+  try { const j = await jsonFetch("/api/site-settings", { method: "PUT", body: JSON.stringify(data) }); msg.textContent = j.message; msg.className = "form-message full ok"; }
+  catch (err) { msg.textContent = err.message; msg.className = "form-message full bad"; }
+}
+window.bookingSave = async (id) => {
+  const status = document.querySelector(`#status-${id}`).value;
+  const follow_up_note = document.querySelector(`#follow-${id}`).value;
+  const j = await jsonFetch(`/api/admin-booking?id=${id}`, { method: "PATCH", body: JSON.stringify({ status, follow_up_note }) });
+  showToast(j.message); loadAdmin();
+};
 async function testAIConnection() {
   const form = document.querySelector("#aiSettingsForm"), msg = document.querySelector("#aiSettingsMessage"), data = Object.fromEntries(new FormData(form).entries());
   msg.textContent = "正在测试接口……";
@@ -1198,6 +1347,54 @@ if (login) loadAdmin();
 loadSuppliers();
 
 // V6.0 supplier share and poster
+function supplierShareData(s) {
+  const url = `${location.origin}${location.pathname}?supplier=${encodeURIComponent(s.id || "")}`;
+  const text = `${s.company_name || "供应商"}\n联系人：${s.contact_name || ""}\n电话：${s.phone || s.whatsapp || ""}\n地址：${s.address || s.city || "柬埔寨"}\n${s.products || s.description || ""}`;
+  return { url, text };
+}
+
+function ensureSupplierModal() {
+  let modal = document.querySelector("#supplierModal");
+  if (modal) return modal;
+  modal = document.createElement("div");
+  modal.id = "supplierModal";
+  modal.className = "supplier-modal";
+  modal.innerHTML = '<div class="supplier-modal-backdrop" data-close-supplier-modal></div><section class="supplier-modal-panel" role="dialog" aria-modal="true"><button class="supplier-modal-close" type="button" data-close-supplier-modal aria-label="关闭">×</button><div id="supplierModalContent"></div></section>';
+  document.body.appendChild(modal);
+  modal.querySelectorAll("[data-close-supplier-modal]").forEach((el) => el.addEventListener("click", () => modal.classList.remove("open")));
+  return modal;
+}
+
+window.openSupplierGallery = (raw, start = 0) => {
+  const s = JSON.parse(raw);
+  const images = Array.isArray(s.image_urls) ? s.image_urls.filter(Boolean) : [];
+  if (!images.length) return;
+  let active = Math.max(0, Math.min(start, images.length - 1));
+  const modal = ensureSupplierModal();
+  const draw = () => {
+    modal.querySelector("#supplierModalContent").innerHTML = `<div class="supplier-lightbox"><div class="supplier-lightbox-stage"><img src="${esc(images[active])}" alt="${esc(s.company_name)} 图片 ${active + 1}">${images.length > 1 ? '<button type="button" class="gallery-prev" aria-label="上一张">‹</button><button type="button" class="gallery-next" aria-label="下一张">›</button>' : ""}</div><div class="supplier-lightbox-caption"><b>${esc(s.company_name)}</b><span>${active + 1} / ${images.length}</span></div><div class="supplier-thumbs">${images.map((url, i) => `<button type="button" class="${i === active ? "active" : ""}" data-gallery-index="${i}"><img src="${esc(url)}" alt="缩略图 ${i + 1}"></button>`).join("")}</div></div>`;
+    modal.querySelector(".gallery-prev")?.addEventListener("click", () => { active = (active - 1 + images.length) % images.length; draw(); });
+    modal.querySelector(".gallery-next")?.addEventListener("click", () => { active = (active + 1) % images.length; draw(); });
+    modal.querySelectorAll("[data-gallery-index]").forEach((button) => button.addEventListener("click", () => { active = Number(button.dataset.galleryIndex); draw(); }));
+  };
+  draw();
+  modal.classList.add("open");
+};
+
+window.openSupplierShare = (raw) => {
+  const s = JSON.parse(raw);
+  const { url, text } = supplierShareData(s);
+  const encodedUrl = encodeURIComponent(url);
+  const encodedText = encodeURIComponent(text);
+  const modal = ensureSupplierModal();
+  modal.querySelector("#supplierModalContent").innerHTML = `<div class="supplier-share-panel"><span class="eyebrow">分享企业名片</span><h3>${esc(s.company_name)}</h3><p>将公司资料分享到柬埔寨常用社交平台，或复制链接发给客户。</p><div class="supplier-platforms"><a target="_blank" rel="noopener" href="https://wa.me/?text=${encodedText}%0A${encodedUrl}">WhatsApp</a><a target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}">Facebook</a><a target="_blank" rel="noopener" href="https://t.me/share/url?url=${encodedUrl}&text=${encodedText}">Telegram</a><button type="button" id="copySupplierLink">复制链接</button></div></div>`;
+  modal.querySelector("#copySupplierLink").addEventListener("click", async () => {
+    await navigator.clipboard.writeText(`${text}\n${url}`);
+    showToast("企业资料及链接已复制");
+  });
+  modal.classList.add("open");
+};
+
 window.shareSupplier = async (raw) => {
   const s = JSON.parse(raw);
   const url =
@@ -1217,7 +1414,24 @@ window.shareSupplier = async (raw) => {
     if (e.name !== "AbortError") showToast("分享未完成");
   }
 };
-window.createSupplierPoster = (raw) => {
+function loadPosterImage(src) {
+  return new Promise((resolve, reject) => {
+    const image = new Image();
+    image.crossOrigin = "anonymous";
+    image.onload = () => resolve(image);
+    image.onerror = reject;
+    image.src = src;
+  });
+}
+function drawCoverImage(c, image, x, y, width, height) {
+  const scale = Math.max(width / image.naturalWidth, height / image.naturalHeight);
+  const sourceWidth = width / scale;
+  const sourceHeight = height / scale;
+  const sourceX = (image.naturalWidth - sourceWidth) / 2;
+  const sourceY = (image.naturalHeight - sourceHeight) / 2;
+  c.drawImage(image, sourceX, sourceY, sourceWidth, sourceHeight, x, y, width, height);
+}
+window.createSupplierPoster = async (raw) => {
   const s = JSON.parse(raw);
   const canvas = document.createElement("canvas");
   canvas.width = 1080;
@@ -1232,14 +1446,32 @@ window.createSupplierPoster = (raw) => {
   c.fillRect(70, 70, 940, 12);
   c.font = "bold 34px Arial";
   c.fillText("ZIEC SUPPLY CHAIN", 80, 145);
+  const mainImageUrl = Array.isArray(s.image_urls) ? s.image_urls.filter(Boolean)[0] : "";
+  c.fillStyle = "rgba(255,255,255,.10)";
+  c.fillRect(70, 185, 940, 400);
+  if (mainImageUrl) {
+    try {
+      const mainImage = await loadPosterImage(mainImageUrl);
+      c.save();
+      c.beginPath();
+      c.roundRect(70, 185, 940, 400, 18);
+      c.clip();
+      drawCoverImage(c, mainImage, 70, 185, 940, 400);
+      c.restore();
+    } catch (_) {
+      c.fillStyle = "rgba(255,255,255,.7)";
+      c.font = "28px Arial";
+      c.fillText("企业推荐主图", 430, 395);
+    }
+  }
   c.fillStyle = "#fff";
-  c.font = "bold 66px Arial";
-  wrapCanvas(c, s.company_name, 80, 280, 900, 82);
+  c.font = "bold 54px Arial";
+  wrapCanvas(c, s.company_name, 80, 665, 900, 64);
   c.fillStyle = "#e5c98d";
-  c.font = "bold 36px Arial";
-  c.fillText(s.category || "企业供应商", 80, 470);
+  c.font = "bold 32px Arial";
+  c.fillText(s.category || "企业供应商", 80, 745);
   c.fillStyle = "#fff";
-  c.font = "32px Arial";
+  c.font = "26px Arial";
   wrapCanvas(
     c,
     s.slogan ||
@@ -1247,23 +1479,35 @@ window.createSupplierPoster = (raw) => {
       s.description ||
       "链接柬埔寨优质供应链，服务企业真实需求",
     80,
-    570,
+    795,
     900,
-    52,
+    38,
   );
   c.fillStyle = "rgba(255,255,255,.12)";
-  c.fillRect(70, 900, 940, 280);
+  c.fillRect(70, 895, 650, 250);
   c.fillStyle = "#fff";
-  c.font = "30px Arial";
-  c.fillText(`城市：${s.city || "柬埔寨"}`, 110, 980);
-  c.fillText(`联系人：${s.contact_name || ""}`, 110, 1040);
-  c.fillText(`电话：${s.phone || s.whatsapp || ""}`, 110, 1100);
+  c.font = "27px Arial";
+  c.fillText(`城市：${s.city || "柬埔寨"}`, 105, 955);
+  c.fillText(`联系人：${s.contact_name || "平台客服"}`, 105, 1015);
+  c.fillText(`电话：${s.phone || s.whatsapp || "待补充"}`, 105, 1075);
+  c.fillStyle = "#e5c98d";
+  c.font = "bold 21px Arial";
+  c.fillText("微信 · Telegram · Messenger · WhatsApp", 105, 1120);
+  try {
+    const qr = await loadPosterImage("./assets/website-qr.png");
+    c.fillStyle = "#fff";
+    c.fillRect(770, 895, 240, 250);
+    c.drawImage(qr, 790, 915, 200, 200);
+  } catch (_) {}
   c.fillStyle = "#caa45e";
   c.font = "bold 30px Arial";
-  c.fillText("www.ziechotel.top", 80, 1315);
+  c.fillText("www.ziechotel.top", 80, 1265);
   c.fillStyle = "#fff";
   c.font = "24px Arial";
-  c.fillText("中鼎供应链平台 · 企业资料以平台审核信息为准", 80, 1360);
+  c.fillText("扫码查看企业资料 · 中鼎供应链平台", 80, 1310);
+  c.fillStyle = "rgba(255,255,255,.72)";
+  c.font = "20px Arial";
+  c.fillText("企业资料以平台审核信息为准", 80, 1350);
   const a = document.createElement("a");
   a.download = `${s.company_name || "供应商"}-中鼎供应链海报.png`;
   a.href = canvas.toDataURL("image/png");

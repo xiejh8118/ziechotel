@@ -48,8 +48,10 @@ create table if not exists public.booking_orders(
   price numeric(12,2) default 0,
   currency varchar(10) default 'USD',
   note text default '',
-  status varchar(20) not null default 'new',
-  created_at timestamptz not null default now()
+  country_region varchar(80) default '', wechat varchar(100) default '', telegram varchar(160) default '',
+  messenger varchar(200) default '', whatsapp varchar(40) default '', transfer_need varchar(120) default '',
+  stay_purpose varchar(80) default '', source varchar(200) default 'website', follow_up_note text default '',
+  status varchar(30) not null default 'pending_contact', created_at timestamptz not null default now(), updated_at timestamptz default now()
 );
 alter table public.booking_orders enable row level security;
 

@@ -274,14 +274,11 @@
                 note: payerNote.value.trim()
               })
             });
-            if (response.ok) {
-              const payload = await response.json();
-              toast.textContent = payload.message || "预订需求已提交。";
-            } else {
-              toast.textContent = "在线订单暂未保存，请继续通过 WhatsApp 确认。";
-            }
-          } catch {
-            toast.textContent = "在线订单暂未保存，请继续通过 WhatsApp 确认。";
+            const payload = await response.json();
+            if (!response.ok) throw new Error(payload.message || "订单提交失败");
+            toast.textContent = payload.message || "预订需求已提交。";
+          } catch (error) {
+            toast.textContent = `${error.message}。您填写的内容仍保留，可稍后重试或通过下方咨询入口联系。`;
           }
           updateContactHref();
           window.open(summaryContact.href, "_blank", "noopener");
