@@ -2423,7 +2423,6 @@ body {
   line-height: 1.18;
   white-space: nowrap;
 }
-<<<<<<< HEAD
 
 /* V6.4: lightweight homepage video and lead-management controls. */
 .home-video { background: linear-gradient(135deg, #f5f8f5, #fff); }
@@ -2436,5 +2435,3 @@ body {
 .hotel-booking-bar label.full { grid-column: 1 / -1; }
 .hotel-booking-bar textarea { width: 100%; min-height: 78px; }
 @media (max-width: 760px) { .home-video-layout { grid-template-columns: 1fr; } .home-video-cover span { width: 54px; height: 54px; } }
-=======
->>>>>>> 6f2be1b3c5ea813ffc0f6745664447af16c412ff

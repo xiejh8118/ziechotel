@@ -56,8 +56,9 @@ module.exports = async (req, res) => {
       "image/png": "png",
       "image/webp": "webp",
     }[match[1]];
-    const bucket = "supplier-images";
-    const path = `pending/${Date.now()}-${crypto.randomBytes(8).toString("hex")}.${ext}`;
+    const isHotel = b.kind === "hotel";
+    const bucket = isHotel ? "hotel-images" : "supplier-images";
+    const path = `${isHotel ? "rooms" : "pending"}/${Date.now()}-${crypto.randomBytes(8).toString("hex")}.${ext}`;
 
     let sdkError = await uploadWithSdk(d, bucket, path, buffer, match[1]);
     if (sdkError && isMissingBucket(sdkError)) {
@@ -234,7 +235,7 @@ function friendlyMessage(error) {
     case "IMG_PERMISSION":
       return "Supabase Storage 拒绝上传，请确认使用 Secret/service_role key";
     case "IMG_BUCKET_MISSING":
-      return "未找到 supplier-images 存储桶，请在 Supabase Storage 中创建";
+      return "未找到对应图片存储桶，请在 Supabase Storage 中创建 supplier-images 和 hotel-images";
     case "IMG_TOO_LARGE":
       return "图片超过 Storage 允许大小，请提高存储桶限制或更换图片";
     case "IMG_RATE_LIMIT":
