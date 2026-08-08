@@ -127,3 +127,9 @@
 - 手机端优化首屏高度、Logo尺寸、双列服务标签、标题字号和卡片圆角。
 - 继续保留单一Serverless Function结构，不增加Vercel Hobby函数数量。
 - 全站版本标识更新为ZIEC HOTEL V6.5。
+# 2026-08-08 V6.5 单接口路由修复
+
+- 根据线上入住表单“接口不存在”截图复查单函数入口。
+- 确认前端 `/api/bookings` 请求正确，问题为线上 Vercel 未向 `req.query.path` 注入动态路由参数。
+- 单入口现同时兼容 `req.query.path`、`req.url` 与 `req.originalUrl`，保持一个 Serverless Function。
+- 增加诊断标识 `V6.5-ROUTE-FIX1`，不改整体框架、数据库字段及页面功能。
