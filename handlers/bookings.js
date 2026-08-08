@@ -1,4 +1,4 @@
-const { db, body, text, phone, databaseMessage } = require("../lib/api-lib");
+const { db, body, text, phone, databaseMessage, databaseDiagnostic } = require("../lib/api-lib");
 
 module.exports = async (req, res) => {
   if (req.method !== "POST") return res.status(405).end();
@@ -88,13 +88,17 @@ module.exports = async (req, res) => {
   }
   if (error) {
     const code = String(error.code || "DB_ERROR").slice(0, 30);
+    const diagnostic = databaseDiagnostic(error);
     return res.status(500).json({
       ok: false,
-      message: `${databaseMessage(error, "订单提交失败")}（错误代码：${code}）`,
+      version: "V6.4-FIX3",
+      message: `${databaseMessage(error, "订单提交失败")}（错误代码：${code}；${diagnostic.message}）`,
+      diagnostic,
     });
   }
   res.status(201).json({
     ok: true,
+    version: "V6.4-FIX3",
     data,
     message: `入住需求已提交，订单编号：${data.order_no}`,
   });

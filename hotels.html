@@ -59,7 +59,7 @@
           <small>ZIEC HOTEL · PHNOM PENH</small>
           <h1>住得舒适，也住得安心</h1>
           <p>商务客房、月租公寓与企业团队住宿，一站查看、咨询与预订。</p>
-          <div class="actions"><a class="btn btn-primary" href="#booking">提交入住需求</a><a class="btn btn-outline" href="https://wa.me/855189958899" target="_blank" rel="noopener">WhatsApp咨询</a></div>
+          <div class="actions"><a class="btn btn-primary" href="#booking">提交入住需求</a></div>
         </div>
       </section>
       <section class="quick-links section-sm">
@@ -446,7 +446,7 @@
             ><strong>ZIEC HOTEL</strong><small>中鼎国际酒店</small></span
           >
         </div>
-        <div>© 2026 ZIEC HOTEL V6.4 · www.ziechotel.top</div>
+        <div>© 2026 ZIEC HOTEL V6.4-FIX3 · www.ziechotel.top</div>
       </div>
     </footer>
     <a
@@ -549,10 +549,10 @@
               body: JSON.stringify(payload),
             });
             const result = await response.json();
-            if (!response.ok) throw new Error(result.message || '提交失败');
+            if (!response.ok) throw new Error(result.message || `提交失败（HTTP ${response.status}）`);
             note.textContent = `${result.message}。客服确认房态与价格后会联系您。`;
           } catch (error) {
-            note.textContent = `${error.message}。您也可以点击 WhatsApp 直接联系中文客服。`;
+            note.textContent = `${error.message}。您填写的内容仍保留，请把本提示截图发给客服。`;
           }
         });
       })();

@@ -560,6 +560,7 @@ button {
   color: rgba(255, 255, 255, 0.65);
 }
 .floating-wa {
+  display: none !important;
   position: fixed;
   right: 20px;
   bottom: 20px;
