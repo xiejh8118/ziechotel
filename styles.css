@@ -64,7 +64,7 @@ body {
   background:
     linear-gradient(90deg, rgba(8, 35, 33, .94) 0%, rgba(8, 35, 33, .69) 45%, rgba(8, 35, 33, .12) 100%),
     linear-gradient(0deg, rgba(8, 35, 33, .34), transparent 45%),
-    url("./assets/hotel-exterior.jpg") center/cover no-repeat;
+    url("./assets/ziec-cover-v66.png") center/cover no-repeat;
   border-radius: 0 0 42px 42px;
   overflow: hidden;
 }
@@ -318,7 +318,7 @@ button {
   color: #fff;
   background:
     linear-gradient(90deg, rgba(5, 15, 30, 0.87), rgba(5, 15, 30, 0.22)),
-    url("./assets/hotel-exterior.jpg") center/cover no-repeat;
+    url("./assets/ziec-cover-v66.png") center/cover no-repeat;
 }
 .hero-copy {
   padding: 155px 0 82px;
@@ -1371,7 +1371,7 @@ button {
 .hero {
   background-image:
     linear-gradient(90deg, rgba(5, 15, 30, 0.9), rgba(5, 15, 30, 0.28)),
-    url("./assets/og-hotel.jpg");
+    url("./assets/ziec-cover-v66.png");
   background-position: center;
   background-size: cover;
 }
@@ -1806,7 +1806,7 @@ button {
 .hero {
   background-image:
     linear-gradient(90deg, rgba(5, 15, 30, 0.9), rgba(5, 15, 30, 0.28)),
-    url("./assets/og-hotel.jpg");
+    url("./assets/ziec-cover-v66.png");
   background-position: center;
   background-size: cover;
 }
@@ -1840,7 +1840,7 @@ body{background:var(--v608-bg);color:var(--v608-text)}
 .site-header .nav-cta{background:var(--v608-gold);color:var(--v608-navy);font-weight:800}
 .site-header .menu-toggle span{background:#fff}
 .nav-links a.active{color:var(--v608-gold);position:relative}.nav-links a.active::after{content:"";height:2px;background:var(--v608-gold);position:absolute;left:0;right:0;bottom:-9px}
-.v608-banner{min-height:440px;display:flex;align-items:center;color:#fff;background-size:cover;background-position:center;position:relative}.v608-banner::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,27,39,.9),rgba(20,68,51,.4),rgba(6,27,39,.14))}.v608-banner-copy{position:relative;padding-top:84px;padding-bottom:64px}.v608-banner-copy small,.v608-heading span{color:var(--v608-gold);font-weight:800;letter-spacing:.16em}.v608-banner-copy h1{font-size:clamp(38px,6vw,68px);margin:14px 0 10px;max-width:720px}.v608-banner-copy p{font-size:18px;max-width:650px;line-height:1.8}.hotel-banner{background-image:url("./assets/og-hotel.jpg")}.supply-banner{background-image:radial-gradient(circle at 78% 34%,rgba(207,169,91,.28),transparent 24%),linear-gradient(125deg,#09223f 0%,#315c46 58%,#6f8c72 100%)}
+.v608-banner{min-height:440px;display:flex;align-items:center;color:#fff;background-size:cover;background-position:center;position:relative}.v608-banner::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,27,39,.9),rgba(20,68,51,.4),rgba(6,27,39,.14))}.v608-banner-copy{position:relative;padding-top:84px;padding-bottom:64px}.v608-banner-copy small,.v608-heading span{color:var(--v608-gold);font-weight:800;letter-spacing:.16em}.v608-banner-copy h1{font-size:clamp(38px,6vw,68px);margin:14px 0 10px;max-width:720px}.v608-banner-copy p{font-size:18px;max-width:650px;line-height:1.8}.hotel-banner{background-image:url("./assets/ziec-cover-v66.png")}.supply-banner{background-image:radial-gradient(circle at 78% 34%,rgba(207,169,91,.28),transparent 24%),linear-gradient(125deg,#09223f 0%,#315c46 58%,#6f8c72 100%)}
 .v608-showcase,.supply-actions-section{background:var(--v608-pale)}.v608-heading{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:26px}.v608-heading h2{font-size:clamp(30px,4vw,46px);margin:8px 0}.v608-heading p{margin:0;color:#637168}.v608-heading>a{color:var(--v608-green);font-weight:800;white-space:nowrap}.v608-card-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}.v608-product-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 12px 30px rgba(39,65,50,.09);border:1px solid rgba(49,92,70,.1)}.v608-product-card>img{width:100%;height:190px;object-fit:cover}.v608-product-card>div{padding:20px}.v608-product-card small{color:var(--v608-green);font-weight:800}.v608-product-card h3{margin:8px 0;font-size:21px}.v608-product-card p{color:#6b756f;min-height:44px}.v608-product-card footer{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:18px}.v608-product-card footer b{color:#b17c24;font-size:20px}.v608-product-card footer em{font-size:12px;font-style:normal;color:#78827c}.v608-product-card footer a{background:var(--v608-green);color:#fff;padding:9px 12px;border-radius:8px;font-weight:700}.v608-service-card{display:flex;flex-direction:column;justify-content:center;background:linear-gradient(145deg,var(--v608-navy),#214b45);color:#fff}.v608-service-card p,.v608-service-card footer em{color:#dfe9e3}.service-icon{width:62px;height:62px!important;padding:0!important;border-radius:50%;display:grid;place-items:center;background:var(--v608-gold);color:var(--v608-navy);font-weight:900;font-size:18px;margin:24px 20px 0}
 .supply-service-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.supply-service-grid a{background:#fff;border:1px solid rgba(49,92,70,.13);border-radius:14px;padding:22px;display:grid;gap:10px;box-shadow:0 8px 22px rgba(39,65,50,.06);transition:.2s}.supply-service-grid a:hover{transform:translateY(-3px);border-color:var(--v608-gold)}.supply-service-grid b{font-size:19px;color:var(--v608-navy)}.supply-service-grid span{font-size:13px;color:#6b756f}.v608-categories{margin-top:22px}.supplier-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.supplier-card{border-radius:15px;overflow:hidden;box-shadow:0 10px 28px rgba(39,65,50,.08)}
 @media(max-width:1000px){.v608-card-grid,.supply-service-grid,.supplier-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.v608-banner{min-height:390px}}
@@ -2607,10 +2607,12 @@ body {
 .hotel-booking-bar textarea { width: 100%; min-height: 78px; }
 @media (max-width: 760px) { .home-video-layout { grid-template-columns: 1fr; } .home-video-cover span { width: 54px; height: 54px; } }
 
-/* V6.5 final cascade layer */
+/* V6.6 final cascade layer: unified real-hotel cover, original proportions preserved. */
 body { background: radial-gradient(circle at 92% 10%, rgba(200,155,83,.10), transparent 28rem), var(--cream); }
 .site-header { background: rgba(248,250,246,.92); border-bottom-color: rgba(16,44,42,.09); box-shadow: 0 8px 30px rgba(16,44,42,.05); }
-.hero { min-height: min(760px,86vh); border-radius: 0 0 42px 42px; overflow: hidden; background: linear-gradient(90deg,rgba(8,35,33,.94) 0%,rgba(8,35,33,.69) 45%,rgba(8,35,33,.12) 100%),linear-gradient(0deg,rgba(8,35,33,.34),transparent 45%),url("./assets/hotel-exterior.jpg") center/cover no-repeat; }
+.hero { min-height: min(760px,86vh); border-radius: 0 0 42px 42px; overflow: hidden; background: linear-gradient(90deg,rgba(8,35,33,.94) 0%,rgba(8,35,33,.69) 45%,rgba(8,35,33,.12) 100%),linear-gradient(0deg,rgba(8,35,33,.34),transparent 45%),url("./assets/ziec-cover-v66.png") center/cover no-repeat; }
+.hero, .hotel-banner { background-position: center 48%; }
+#homeVideoCover { object-fit: cover; object-position: center 48%; }
 .hero-copy { max-width: 900px; padding-bottom: 105px; }
 .hero h1 { font-size: clamp(48px,7.4vw,92px); letter-spacing: -.025em; }
 .hero-cn { color: #f7f0df; font-size: clamp(24px,3.2vw,42px); }

@@ -2,7 +2,7 @@ const { db, body, text, authed, databaseMessage } = require("../lib/api-lib");
 
 const defaults = {
   video_enabled: false, video_title: "30秒了解 ZIEC HOTEL", video_description: "酒店实景、月租公寓、企业团房与本地服务。",
-  video_url: "", video_cover: "./assets/hotel-exterior.jpg", wechat_channels_url: "", youtube_url: "",
+  video_url: "", video_cover: "./assets/ziec-cover-v66.png", wechat_channels_url: "", youtube_url: "",
   wechat: "", telegram: "", messenger: "", whatsapp: "855189958899"
 };
 
