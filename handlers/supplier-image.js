@@ -5,6 +5,8 @@ const {
   text,
   configuration,
   databaseMessage,
+  rateLimit,
+  authed,
 } = require("../lib/api-lib");
 
 module.exports = async (req, res) => {
@@ -19,6 +21,8 @@ module.exports = async (req, res) => {
       requestId,
       message: "图片接口仅支持 POST 请求",
     });
+
+  if (!rateLimit(req, res, authed(req) ? "admin-image" : "public-image", authed(req) ? 50 : 12, 10 * 60_000)) return;
 
   try {
     const config = configuration();
@@ -50,6 +54,8 @@ module.exports = async (req, res) => {
         requestId,
         "单张图片压缩后不能超过 2MB",
       );
+    if (!hasValidSignature(buffer, match[1]))
+      return fail(res, 400, "IMG_SIGNATURE", requestId, "图片内容与文件格式不一致");
 
     const ext = {
       "image/jpeg": "jpg",
@@ -141,6 +147,13 @@ module.exports = async (req, res) => {
     );
   }
 };
+
+function hasValidSignature(buffer, mime) {
+  if (mime === "image/jpeg") return buffer[0] === 0xff && buffer[1] === 0xd8 && buffer[2] === 0xff;
+  if (mime === "image/png") return buffer.subarray(0, 8).equals(Buffer.from([137,80,78,71,13,10,26,10]));
+  if (mime === "image/webp") return buffer.subarray(0, 4).toString() === "RIFF" && buffer.subarray(8, 12).toString() === "WEBP";
+  return false;
+}
 
 async function uploadWithSdk(client, bucket, path, buffer, contentType) {
   try {

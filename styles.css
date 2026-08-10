@@ -2635,3 +2635,29 @@ body { background: radial-gradient(circle at 92% 10%, rgba(200,155,83,.10), tran
   .hero-features span { text-align: center; white-space: nowrap; font-size: 12px; padding-inline: 7px; }
   .trust-strip { margin-top: -24px; }
 }
+
+/* V6.7: practical homepage, icon-only contact bar and supplier image manager. */
+.ad-zone { display: none; }
+.floating-wa { display: none !important; }
+.icon-only-consult { display: flex; gap: 12px; align-items: center; }
+.icon-only-consult .consult-channel,
+.supplier-consult-actions .consult-channel { flex: 0 0 44px; width: 44px; min-height: 44px; padding: 0; border-radius: 50%; }
+.icon-only-consult .consult-icon,
+.supplier-consult-actions .consult-icon { width: 30px; height: 30px; flex-basis: 30px; font-size: 12px; }
+.supplier-consult-actions .consult-channel > span:last-child:not(.consult-icon) { display: none; }
+.admin-gallery figure { position: relative; margin: 0; }
+.admin-gallery figure img { display: block; }
+.admin-gallery figure span { position: absolute; left: 4px; bottom: 4px; padding: 2px 6px; border-radius: 999px; color: #fff; background: rgba(5,18,34,.78); font-size: 10px; }
+.supplier-image-manager { padding: 42px 30px 30px; }
+.supplier-image-manager h3 { margin: 7px 0; font-size: 28px; }
+.supplier-manage-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(150px,1fr)); gap: 12px; margin: 20px 0; }
+.supplier-manage-grid figure { margin: 0; padding: 8px; border: 1px solid #dbe2e8; border-radius: 12px; }
+.supplier-manage-grid img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; }
+.supplier-manage-grid figcaption { padding: 7px 0; font-weight: 700; }
+.supplier-manage-grid figure div { display: flex; gap: 5px; }
+.supplier-manage-grid button { min-width: 34px; padding: 7px; border: 0; border-radius: 6px; cursor: pointer; }
+.supplier-manage-grid button.danger { margin-left: auto; color: #fff; background: #a62d2d; }
+@media (max-width: 640px) { .icon-only-consult { gap: 9px; } .supplier-image-manager { padding: 38px 16px 22px; } }
+html[lang="km"] .eyebrow,
+html[lang="km"] .sub-hero > .container > span,
+html[lang="km"] .ad-card small { display: none; }

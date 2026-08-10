@@ -484,6 +484,15 @@ const I18N_TEXT = {
 // Exact Khmer is preferred; the English dictionary is used only as a final
 // safety net so KH mode never falls back to Chinese text.
 Object.assign(I18N_TEXT.kh, {
+  "首页": "ទំព័រដើម", "酒店公寓": "សណ្ឋាគារ និងអាផាតមិន", "酒店住宿": "ការស្នាក់នៅសណ្ឋាគារ", "企业服务": "សេវាសហគ្រាស", "供应链平台": "វេទិកាផ្គត់ផ្គង់", "联系我们": "ទាក់ទងយើង", "AI客服": "ជំនួយការ AI",
+  "中鼎国际酒店": "សណ្ឋាគារអន្តរជាតិ Zhongding", "中鼎瑞德酒店管理有限公司": "ក្រុមហ៊ុនគ្រប់គ្រងសណ្ឋាគារ Zhongding Ruide", "运营主体": "អង្គភាពប្រតិបត្តិការ", "核心服务": "សេវាសំខាន់", "服务城市": "ទីក្រុងសេវាកម្ម", "服务保障": "ការធានាសេវា",
+  "住得安心": "ស្នាក់នៅដោយទំនុកចិត្ត", "出行省心": "ធ្វើដំណើរដោយងាយស្រួល", "企业好安排": "ការរៀបចំងាយស្រួលសម្រាប់សហគ្រាស", "资源对得上": "ភ្ជាប់ធនធានត្រឹមត្រូវ", "查看企业服务 →": "មើលសេវាសហគ្រាស →",
+  "供应商平台 | ZIEC": "វេទិកាអ្នកផ្គត់ផ្គង់ | ZIEC", "供应商入驻 | ZIEC": "ចុះឈ្មោះអ្នកផ្គត់ផ្គង់ | ZIEC", "供应商入驻申请": "ពាក្យស្នើចុះឈ្មោះអ្នកផ្គត់ផ្គង់", "提交企业资料": "ដាក់ស្នើព័ត៌មានក្រុមហ៊ុន",
+  "房型实景": "រូបភាពបន្ទប់ពិត", "系统分享": "ចែករំលែកតាមប្រព័ន្ធ", "复制链接": "ចម្លងតំណ", "下载专属海报": "ទាញយកផ្ទាំងផ្សព្វផ្សាយ", "立即咨询": "សាកសួរឥឡូវ", "查看全部房型 →": "មើលបន្ទប់ទាំងអស់ →",
+  "/ night": "/ យប់", "/ month 起": "/ ខែឡើងទៅ", "/ 月起": "/ ខែឡើងទៅ", "US$35 / night": "US$35 / យប់", "US$60 / night": "US$60 / យប់", "US$70 / night": "US$70 / យប់",
+  "4间及以上": "4 បន្ទប់ឡើងទៅ", "4位及以上": "4 នាក់ឡើងទៅ", "请选择": "សូមជ្រើសរើស", "待补充": "រង់ចាំបំពេញ", "平台客服": "សេវាកម្មវេទិកា",
+  "在线订单与付款指南": "ការណែនាំការកក់ និងបង់ប្រាក់តាមអ៊ីនធឺណិត", "当前预订信息": "ព័ត៌មានកក់បច្ចុប្បន្ន", "请选择房型": "សូមជ្រើសរើសប្រភេទបន្ទប់", "预订付款步骤": "ជំហានកក់ និងបង់ប្រាក់", "核对官方收款信息": "ផ្ទៀងផ្ទាត់ព័ត៌មានទទួលប្រាក់ផ្លូវការ", "付款后人工确认": "ការបញ្ជាក់ដោយបុគ្គលិកបន្ទាប់ពីបង់ប្រាក់", "扫码付款": "ស្កេនដើម្បីបង់ប្រាក់", "美元付款": "បង់ជាដុល្លារ", "瑞尔付款": "បង់ជារៀល",
+  "客房价格": "តម្លៃបន្ទប់", "采购询价": "សំណើតម្លៃទិញ", "客服": "សេវាអតិថិជន", "付款步骤": "ជំហានបង់ប្រាក់", "核验二维码": "ផ្ទៀងផ្ទាត់ QR", "Visa付款": "បង់តាម Visa",
   "柬埔寨本地住宿、出行、企业服务与供应链对接平台": "វេទិកាភ្ជាប់ការស្នាក់នៅ ការធ្វើដំណើរ សេវាសហគ្រាស និងខ្សែសង្វាក់ផ្គត់ផ្គង់នៅកម្ពុជា",
   "酒店公寓、接送包车、企业接待与供应链资源，一站对接中文、本地与企业客户需求。": "សណ្ឋាគារ អាផាតមិន សេវាដឹកជញ្ជូន រថយន្តជួល ការទទួលភ្ញៀវសហគ្រាស និងធនធានផ្គត់ផ្គង់ ក្នុងកន្លែងតែមួយ។",
   "住｜酒店公寓": "ស្នាក់｜សណ្ឋាគារ និងអាផាតមិន", "行｜接送包车": "ធ្វើដំណើរ｜ដឹកជញ្ជូន និងជួលរថយន្ត",
@@ -677,7 +686,7 @@ function normalizePageKey() {
 function translateTextValue(text, lang) {
   if (lang === "zh") return text;
   if (lang === "kh") {
-    return I18N_TEXT.kh?.[text.trim()] || I18N_TEXT.en?.[text.trim()] || text;
+    return I18N_TEXT.kh?.[text.trim()] || text;
   }
   return I18N_TEXT[lang]?.[text.trim()] || text;
 }
@@ -1034,7 +1043,7 @@ loadHomeRecommendations();
 // different countries. Supplier cards render their own company-specific set.
 function universalConsultationChannels(message = "您好，我想咨询ZIEC HOTEL的服务。") {
   const encoded = encodeURIComponent(message);
-  return `<div class="universal-consult" data-universal-consult><div class="supplier-consult-title">选择咨询方式</div><div class="supplier-consult-actions"><button class="consult-channel consult-wechat" type="button" data-contact-copy="微信" data-contact-message="${esc(message)}"><span class="consult-icon">微</span><span>微信</span></button><a class="consult-channel consult-telegram" href="https://t.me/share/url?url=${encodeURIComponent(location.href)}&text=${encoded}" target="_blank" rel="noopener"><span class="consult-icon">➤</span><span>Telegram</span></a><button class="consult-channel consult-messenger" type="button" data-contact-copy="Messenger" data-contact-message="${esc(message)}"><span class="consult-icon">⚡</span><span>Messenger</span></button><a class="consult-channel consult-whatsapp" href="https://wa.me/855189958899?text=${encoded}" target="_blank" rel="noopener"><span class="consult-icon">WA</span><span>WhatsApp</span></a></div></div>`;
+  return `<div class="universal-consult" data-universal-consult><div class="supplier-consult-title">选择咨询方式</div><div class="supplier-consult-actions icon-only-consult"><button class="consult-channel consult-wechat" type="button" title="微信" aria-label="微信咨询" data-contact-copy="微信" data-contact-message="${esc(message)}"><span class="consult-icon">微</span></button><a class="consult-channel consult-telegram" title="Telegram" aria-label="Telegram咨询" href="https://t.me/share/url?url=${encodeURIComponent(location.href)}&text=${encoded}" target="_blank" rel="noopener"><span class="consult-icon">➤</span></a><button class="consult-channel consult-messenger" type="button" title="Messenger" aria-label="Messenger咨询" data-contact-copy="Messenger" data-contact-message="${esc(message)}"><span class="consult-icon">⚡</span></button><a class="consult-channel consult-whatsapp" title="WhatsApp" aria-label="WhatsApp咨询" href="https://wa.me/855189958899?text=${encoded}" target="_blank" rel="noopener"><span class="consult-icon">WA</span></a></div></div>`;
 }
 function enhanceConsultationAreas() {
   const hosts = new Set();
@@ -1065,12 +1074,12 @@ async function applyConsultationSettings() {
 }
 applyConsultationSettings();
 
-// V6.6: all pages show a clear release marker without changing the existing layout.
+// V6.7: all pages show a clear release marker without changing the existing layout.
 document.querySelectorAll(".footer-wrap").forEach((footer) => {
-  if (!footer.textContent.includes("ZIEC HOTEL V6.6")) {
+  if (!footer.textContent.includes("ZIEC HOTEL V6.7")) {
     const version = document.createElement("div");
     version.className = "site-version";
-    version.textContent = "ZIEC HOTEL V6.6";
+    version.textContent = "ZIEC HOTEL V6.7";
     footer.appendChild(version);
   }
 });
@@ -1271,7 +1280,7 @@ function renderSupplierAdmin(rows) {
   content.innerHTML = `<div class="admin-summary">${counts}</div><div id="supplierAdminRows"></div>`;
   const draw = (filter = "all") => {
     const list = filter === "all" ? rows : rows.filter((x) => x.status === filter);
-    document.querySelector("#supplierAdminRows").innerHTML = list.map((x) => `<article class="admin-item"><div><div class="admin-title-row"><b>${esc(x.company_name)}</b><span class="status-badge status-${esc(x.status)}">${statusName[x.status] || esc(x.status)}</span>${x.featured ? '<span class="status-badge featured">推荐</span>' : ""}</div><p>${esc(x.category)} · ${esc(x.city)}</p><p>${esc(x.contact_name)} · ${esc(x.phone || x.whatsapp)}</p><p>${esc(x.products)}</p><div class="admin-gallery">${(x.image_urls || []).map((url, i) => `<img src="${esc(url)}" alt="企业图片${i + 1}">`).join("")}</div></div><div class="admin-item-actions"><button class="approve" onclick="supplierAct('${x.id}','approved')">通过</button><button onclick="supplierAct('${x.id}','pending')">待审</button><button class="reject" onclick="supplierAct('${x.id}','rejected')">驳回</button><button onclick="supplierAct('${x.id}','paused')">暂停</button><button onclick="supplierFeature('${x.id}',${!x.featured})">${x.featured ? "取消推荐" : "设为推荐"}</button><button class="reject" onclick="supplierDelete('${x.id}')">删除</button></div></article>`).join("") || '<div class="muted admin-empty">当前分类暂无供应商</div>';
+    document.querySelector("#supplierAdminRows").innerHTML = list.map((x) => `<article class="admin-item"><div><div class="admin-title-row"><b>${esc(x.company_name)}</b><span class="status-badge status-${esc(x.status)}">${statusName[x.status] || esc(x.status)}</span>${x.featured ? '<span class="status-badge featured">推荐</span>' : ""}</div><p>${esc(x.category)} · ${esc(x.city)}</p><p>${esc(x.contact_name)} · ${esc(x.phone || x.whatsapp)}</p><p>${esc(x.products)}</p><div class="admin-gallery">${(x.image_urls || []).map((url, i) => `<figure><img src="${esc(url)}" alt="企业图片${i + 1}"><span>${i === 0 ? "主图" : i + 1}</span></figure>`).join("")}</div></div><div class="admin-item-actions"><button class="approve" onclick="supplierAct('${x.id}','approved')">通过</button><button onclick="supplierAct('${x.id}','pending')">待审</button><button class="reject" onclick="supplierAct('${x.id}','rejected')">驳回</button><button onclick="supplierAct('${x.id}','paused')">暂停</button><button onclick="supplierFeature('${x.id}',${!x.featured})">${x.featured ? "取消推荐" : "设为推荐"}</button><button class="approve" onclick="supplierImages('${x.id}')">管理图片</button><button class="reject" onclick="supplierDelete('${x.id}')">删除</button></div></article>`).join("") || '<div class="muted admin-empty">当前分类暂无供应商</div>';
   };
   document.querySelectorAll("[data-supplier-filter]").forEach((b) => b.addEventListener("click", () => { document.querySelectorAll("[data-supplier-filter]").forEach((x) => x.classList.toggle("active", x === b)); draw(b.dataset.supplierFilter); }));
   draw();
@@ -1498,10 +1507,45 @@ loadSuppliers();
 
 // V6.0 supplier share and poster
 function supplierShareData(s) {
-  const url = `${location.origin}${location.pathname}?supplier=${encodeURIComponent(s.id || "")}`;
+  const url = `${location.origin}/api/supplier-share?id=${encodeURIComponent(s.id || "")}`;
   const text = `${s.company_name || "供应商"}\n联系人：${s.contact_name || ""}\n电话：${s.phone || s.whatsapp || ""}\n地址：${s.address || s.city || "柬埔寨"}\n${s.products || s.description || ""}`;
   return { url, text };
 }
+
+window.supplierImages = (id) => {
+  const supplier = adminRows.find((row) => String(row.id) === String(id));
+  if (!supplier) return;
+  let images = Array.isArray(supplier.image_urls) ? supplier.image_urls.filter(Boolean).slice(0, 10) : [];
+  const modal = ensureSupplierModal();
+  const draw = () => {
+    modal.querySelector("#supplierModalContent").innerHTML = `<form class="supplier-image-manager" id="supplierImageManager"><span class="eyebrow">供应商图片管理</span><h3>${esc(supplier.company_name)}</h3><p>第一张为公司主图，可调整排序、删除或新增；发布状态建议保留4—10张。</p><div class="supplier-manage-grid">${images.map((url, i) => `<figure><img src="${esc(url)}" alt="企业图片${i + 1}"><figcaption>${i === 0 ? "公司主图" : `第 ${i + 1} 张`}</figcaption><div><button type="button" data-up="${i}" ${i === 0 ? "disabled" : ""}>←</button><button type="button" data-down="${i}" ${i === images.length - 1 ? "disabled" : ""}>→</button><button type="button" class="danger" data-remove="${i}">删除</button></div></figure>`).join("") || '<p class="muted">暂无图片</p>'}</div><label class="image-upload-field">增加图片<input id="supplierAdminImages" type="file" accept="image/jpeg,image/png,image/webp" multiple><small>最多增加到10张，系统自动压缩。</small></label><div class="actions"><button class="btn btn-primary" type="submit">保存图片与排序</button><button class="btn btn-dark" type="button" data-close-manager>取消</button></div><div class="form-message" id="supplierImageMessage"></div></form>`;
+    const form = modal.querySelector("#supplierImageManager");
+    form.querySelectorAll("[data-up]").forEach((button) => button.onclick = () => { const i = Number(button.dataset.up); [images[i - 1], images[i]] = [images[i], images[i - 1]]; draw(); });
+    form.querySelectorAll("[data-down]").forEach((button) => button.onclick = () => { const i = Number(button.dataset.down); [images[i + 1], images[i]] = [images[i], images[i + 1]]; draw(); });
+    form.querySelectorAll("[data-remove]").forEach((button) => button.onclick = () => { if (confirm("确定删除这张图片吗？保存后生效。")) { images.splice(Number(button.dataset.remove), 1); draw(); } });
+    form.querySelector("[data-close-manager]").onclick = () => modal.classList.remove("open");
+    form.onsubmit = async (event) => {
+      event.preventDefault();
+      const msg = form.querySelector("#supplierImageMessage");
+      try {
+        const files = [...form.querySelector("#supplierAdminImages").files];
+        if (images.length + files.length > 10) throw new Error("每家供应商最多10张图片");
+        for (let i = 0; i < files.length; i++) {
+          msg.textContent = `正在上传 ${i + 1}/${files.length}……`;
+          const uploaded = await jsonFetch("/api/supplier-image", { method: "POST", body: JSON.stringify({ data: await compressImage(files[i]), kind: "supplier-admin" }) });
+          images.push(uploaded.url);
+        }
+        if (supplier.status === "approved" && images.length < 4) throw new Error("已发布供应商至少保留4张图片");
+        await jsonFetch(`/api/admin-supplier?id=${encodeURIComponent(id)}`, { method: "PATCH", body: JSON.stringify({ image_urls: images }) });
+        modal.classList.remove("open");
+        showToast("供应商图片已更新");
+        loadAdmin();
+      } catch (error) { msg.textContent = error.message; msg.className = "form-message bad"; }
+    };
+  };
+  draw();
+  modal.classList.add("open");
+};
 
 function ensureSupplierModal() {
   let modal = document.querySelector("#supplierModal");
@@ -1547,11 +1591,7 @@ window.openSupplierShare = (raw) => {
 
 window.shareSupplier = async (raw) => {
   const s = JSON.parse(raw);
-  const url =
-    location.origin +
-    location.pathname +
-    "?supplier=" +
-    encodeURIComponent(s.id || "");
+  const url = `${location.origin}/api/supplier-share?id=${encodeURIComponent(s.id || "")}`;
   const text = `${s.company_name}\n分类：${s.category}\n主营：${s.products || s.description || ""}\n来自中鼎供应链平台`;
   try {
     if (navigator.share)

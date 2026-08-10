@@ -10,6 +10,7 @@ const routes = {
   inquiries: require("../handlers/inquiries"),
   "site-settings": require("../handlers/site-settings"),
   "supplier-image": require("../handlers/supplier-image"),
+  "supplier-share": require("../handlers/supplier-share"),
   suppliers: require("../handlers/suppliers"),
 };
 
