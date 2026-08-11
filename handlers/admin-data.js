@@ -12,10 +12,30 @@ module.exports = async (req, res) => {
     const update = {};
     if (allowed.includes(b.status)) update.status = b.status;
     if (Object.prototype.hasOwnProperty.call(b, "follow_up_note")) update.follow_up_note = text(b.follow_up_note, 1000);
+    const editableText = {
+      customer_name: 80, contact: 80, country_region: 80, hotel_name: 120,
+      room_type: 80, checkin: 30, checkout: 30, rooms: 30, guests: 30,
+      transfer_need: 120, stay_purpose: 80, source: 200, note: 500,
+      wechat: 100, telegram: 160, messenger: 200, whatsapp: 80,
+    };
+    Object.entries(editableText).forEach(([key, max]) => {
+      if (Object.prototype.hasOwnProperty.call(b, key)) update[key] = text(b[key], max);
+    });
+    if (Object.prototype.hasOwnProperty.call(b, "price")) update.price = Math.max(0, Number(b.price) || 0);
+    if (b.mark_printed === true) {
+      update.printed_at = new Date().toISOString();
+      update.print_count = Math.max(1, Number(b.print_count) || 1);
+    }
     update.updated_at = new Date().toISOString();
     if (!id || Object.keys(update).length === 1)
       return res.status(400).json({ ok: false, message: "没有可保存的内容" });
-    const { error } = await d.from("booking_orders").update(update).eq("id", id);
+    let { error } = await d.from("booking_orders").update(update).eq("id", id);
+    // 未执行V6.8数据库升级时，仍允许编辑订单；仅跳过打印标记字段。
+    if (error && /printed_at|print_count|column.*does not exist|schema cache/i.test(String(error.message || ""))) {
+      delete update.printed_at;
+      delete update.print_count;
+      ({ error } = await d.from("booking_orders").update(update).eq("id", id));
+    }
     if (error) return res.status(500).json({ ok: false, message: databaseMessage(error) });
     return res.json({ ok: true, message: "客户线索已更新" });
   }

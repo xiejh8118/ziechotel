@@ -1074,12 +1074,12 @@ async function applyConsultationSettings() {
 }
 applyConsultationSettings();
 
-// V6.7: all pages show a clear release marker without changing the existing layout.
+// V6.8: all pages show a clear release marker without changing the existing layout.
 document.querySelectorAll(".footer-wrap").forEach((footer) => {
-  if (!footer.textContent.includes("ZIEC HOTEL V6.7")) {
+  if (!footer.textContent.includes("ZIEC HOTEL V6.8")) {
     const version = document.createElement("div");
     version.className = "site-version";
-    version.textContent = "ZIEC HOTEL V6.7";
+    version.textContent = "ZIEC HOTEL V6.8";
     footer.appendChild(version);
   }
 });
@@ -1347,11 +1347,11 @@ async function loadAdmin() {
     if (adminTab === "hotels") return renderHotels(adminRows);
     if (adminTab === "bookings") {
       const bookingStatusName = { pending_contact: "待联系", contacted: "已联系", quoted: "已报价", confirmed: "已确认", checked_in: "已入住", cancelled: "已取消", new: "待联系" };
-      content.innerHTML =
+      content.innerHTML = `<div class="order-tools"><div><b>客户订单管理</b><small>共 ${adminRows.length} 笔订单</small></div><button class="btn btn-dark" onclick="exportBookingsExcel()">批量导出 Excel</button></div>` +
         adminRows
           .map(
             (x) =>
-              `<article class="admin-item booking-lead"><div><div class="admin-title-row"><b>${esc(x.order_no)} · ${esc(x.customer_name)}</b><span class="status-badge status-${esc(x.status)}">${bookingStatusName[x.status] || esc(x.status)}</span></div><p>${esc(x.country_region || "地区未填")} · ${esc(x.room_type)} · ${esc(x.checkin)} 至 ${esc(x.checkout)} · ${esc(x.rooms)} · ${esc(x.guests)}</p><p>电话：${esc(x.contact)}　微信：${esc(x.wechat)}　Telegram：${esc(x.telegram)}　Messenger：${esc(x.messenger)}　WhatsApp：${esc(x.whatsapp)}</p><p>${esc(x.stay_purpose)} · ${esc(x.transfer_need)} · 来源：${esc(x.source || "website")}</p><p>${esc(x.note || "无备注")}</p><label>跟进备注<textarea id="follow-${x.id}">${esc(x.follow_up_note || "")}</textarea></label></div><div class="admin-item-actions"><select id="status-${x.id}">${Object.entries(bookingStatusName).filter(([k]) => k !== "new").map(([k,v]) => `<option value="${k}" ${x.status === k ? "selected" : ""}>${v}</option>`).join("")}</select><button class="approve" onclick="bookingSave('${x.id}')">保存跟进</button></div></article>`,
+              `<article class="admin-item booking-lead"><div><div class="admin-title-row"><b>${esc(x.order_no)} · ${esc(x.customer_name)}</b><span class="status-badge status-${esc(x.status)}">${bookingStatusName[x.status] || esc(x.status)}</span>${x.printed_at ? `<span class="status-badge printed">已打印 ${esc(x.print_count || 1)}次</span>` : '<span class="status-badge unprinted">未打印</span>'}</div><p>${esc(x.country_region || "地区未填")} · ${esc(x.room_type)} · ${esc(x.checkin)} 至 ${esc(x.checkout)} · ${esc(x.rooms)} · ${esc(x.guests)}</p><p>电话：${esc(x.contact)}　微信：${esc(x.wechat)}　Telegram：${esc(x.telegram)}　Messenger：${esc(x.messenger)}　WhatsApp：${esc(x.whatsapp)}</p><p>${esc(x.stay_purpose)} · ${esc(x.transfer_need)} · 来源：${esc(x.source || "website")}</p><p>${esc(x.note || "无备注")}</p><label>跟进备注<textarea id="follow-${x.id}">${esc(x.follow_up_note || "")}</textarea></label></div><div class="admin-item-actions"><select id="status-${x.id}">${Object.entries(bookingStatusName).filter(([k]) => k !== "new").map(([k,v]) => `<option value="${k}" ${x.status === k ? "selected" : ""}>${v}</option>`).join("")}</select><button class="approve" onclick="bookingSave('${x.id}')">保存跟进</button><button onclick="bookingView('${x.id}')">查看/编辑</button><button onclick="bookingPrint('${x.id}')">打印 / PDF</button></div></article>`,
           )
           .join("") || '<div class="muted">暂无在线订单</div>';
       return;
@@ -1378,6 +1378,21 @@ window.bookingSave = async (id) => {
   const j = await jsonFetch(`/api/admin-data?type=bookings&id=${id}`, { method: "PATCH", body: JSON.stringify({ status, follow_up_note }) });
   showToast(j.message); loadAdmin();
 };
+const bookingFieldNames = { customer_name:"客户姓名",contact:"联系电话",country_region:"国家/地区",hotel_name:"酒店",room_type:"房型",checkin:"入住日期",checkout:"退房日期",rooms:"房间数量",guests:"入住人数",transfer_need:"接送需求",stay_purpose:"入住需求",source:"咨询来源",note:"客户备注",wechat:"微信",telegram:"Telegram",messenger:"Messenger",whatsapp:"WhatsApp",price:"参考金额" };
+window.bookingView = (id) => {
+  const x = adminRows.find((r) => String(r.id) === String(id)); if (!x) return;
+  const fields = Object.entries(bookingFieldNames).map(([k,n]) => `<label>${n}${k === "note" ? `<textarea name="${k}">${esc(x[k] || "")}</textarea>` : `<input name="${k}" value="${esc(x[k] ?? "")}" ${["checkin","checkout"].includes(k) ? 'type="date"' : k === "price" ? 'type="number" min="0" step="0.01"' : ""}>`}</label>`).join("");
+  const modal = document.createElement("div"); modal.className = "order-modal"; modal.innerHTML = `<form class="order-edit-card"><div class="order-modal-head"><h2>编辑订单 ${esc(x.order_no)}</h2><button type="button" aria-label="关闭">×</button></div><div class="order-edit-grid">${fields}</div><label>跟进状态<select name="status">${["pending_contact","contacted","quoted","confirmed","checked_in","cancelled"].map(k=>`<option value="${k}" ${x.status===k?"selected":""}>${({pending_contact:"待联系",contacted:"已联系",quoted:"已报价",confirmed:"已确认",checked_in:"已入住",cancelled:"已取消"})[k]}</option>`).join("")}</select></label><label>跟进备注<textarea name="follow_up_note">${esc(x.follow_up_note || "")}</textarea></label><div class="order-modal-actions"><button type="button" class="btn" onclick="bookingPrint('${x.id}')">打印 / PDF</button><button class="btn btn-primary">保存修改</button></div></form>`;
+  document.body.appendChild(modal); modal.querySelector(".order-modal-head button").onclick=()=>modal.remove(); modal.onclick=e=>{if(e.target===modal)modal.remove()};
+  modal.querySelector("form").onsubmit=async e=>{e.preventDefault();const data=Object.fromEntries(new FormData(e.currentTarget).entries());const j=await jsonFetch(`/api/admin-data?type=bookings&id=${encodeURIComponent(id)}`,{method:"PATCH",body:JSON.stringify(data)});showToast(j.message);modal.remove();loadAdmin();};
+};
+function printableBooking(x) {
+  const row=(a,b)=>`<tr><th>${a}</th><td>${esc(b || "—")}</td></tr>`;
+  return `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>${esc(x.order_no)} ZIEC HOTEL订单</title><style>@page{size:A4;margin:14mm}body{font-family:Arial,"Microsoft YaHei",sans-serif;color:#172b3d;margin:0}.head{display:flex;align-items:center;border-bottom:3px solid #b8862b;padding-bottom:14px;margin-bottom:18px}.head img{width:72px;height:72px;object-fit:contain;margin-right:16px}h1{font-size:22px;margin:0 0 5px}.meta{color:#617182;font-size:12px}table{width:100%;border-collapse:collapse;font-size:14px}th,td{border:1px solid #d9e0e7;padding:9px;text-align:left;vertical-align:top}th{width:26%;background:#f4f7f9}.foot{margin-top:20px;font-size:12px;color:#617182}.actions{margin:18px 0;text-align:center}.actions button{padding:10px 18px}@media print{.actions{display:none}}</style></head><body><div class="head"><img src="${new URL('./assets/logo.png',location.href).href}"><div><h1>ZIEC HOTEL 客户订单</h1><div class="meta">www.ziechotel.top · 打印时间：${new Date().toLocaleString("zh-CN")}</div></div></div><table>${row("订单编号",x.order_no)}${row("客户姓名",x.customer_name)}${row("联系电话",x.contact)}${row("微信 / Telegram",[x.wechat,x.telegram].filter(Boolean).join(" / "))}${row("Messenger / WhatsApp",[x.messenger,x.whatsapp].filter(Boolean).join(" / "))}${row("国家/地区",x.country_region)}${row("入住日期",x.checkin)}${row("退房日期",x.checkout)}${row("房型",x.room_type)}${row("房间数量",x.rooms)}${row("入住人数",x.guests)}${row("接送需求",x.transfer_need)}${row("入住需求",x.stay_purpose)}${row("咨询来源",x.source)}${row("跟进状态",x.status)}${row("客户备注",x.note)}${row("跟进备注",x.follow_up_note)}</table><div class="foot">ZIEC HOTEL · 本订单由后台生成，房态与最终价格以客服确认为准。</div><div class="actions"><button onclick="window.print()">打印或保存为 PDF</button></div><script>setTimeout(()=>window.print(),500)<\/script></body></html>`;
+}
+window.bookingPrint = async (id) => { const x=adminRows.find(r=>String(r.id)===String(id));if(!x)return;const w=window.open("","_blank");if(!w){showToast("浏览器阻止了打印窗口，请允许弹出窗口");return;}w.document.write(printableBooking(x));w.document.close();try{await jsonFetch(`/api/admin-data?type=bookings&id=${encodeURIComponent(id)}`,{method:"PATCH",body:JSON.stringify({mark_printed:true,print_count:(Number(x.print_count)||0)+1})});x.printed_at=new Date().toISOString();x.print_count=(Number(x.print_count)||0)+1;}catch(e){showToast("订单可打印，但打印标记需先执行V6.8数据库升级SQL");}};
+function xmlCell(v){return `<Cell><Data ss:Type="String">${String(v??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}</Data></Cell>`}
+window.exportBookingsExcel=()=>{const heads=["订单编号",...Object.values(bookingFieldNames),"跟进状态","跟进备注","已打印","打印时间"];const keys=["order_no",...Object.keys(bookingFieldNames),"status","follow_up_note","print_count","printed_at"];const rows=[heads,...adminRows.map(x=>keys.map(k=>x[k]??""))];const xml=`<?xml version="1.0"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"><Worksheet ss:Name="客户订单"><Table>${rows.map(r=>`<Row>${r.map(xmlCell).join("")}</Row>`).join("")}</Table></Worksheet></Workbook>`;const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["\ufeff",xml],{type:"application/vnd.ms-excel"}));a.download=`ZIEC客户订单-${new Date().toISOString().slice(0,10)}.xls`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);};
 async function testAIConnection() {
   const form = document.querySelector("#aiSettingsForm"), msg = document.querySelector("#aiSettingsMessage"), data = Object.fromEntries(new FormData(form).entries());
   msg.textContent = "正在测试接口……";
