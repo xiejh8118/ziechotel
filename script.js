@@ -484,6 +484,14 @@ const I18N_TEXT = {
 // Exact Khmer is preferred; the English dictionary is used only as a final
 // safety net so KH mode never falls back to Chinese text.
 Object.assign(I18N_TEXT.kh, {
+  "ZIEC HOTEL Cambodia": "ZIEC HOTEL Cambodia", "金边酒店住宿 · 月租公寓 · 企业团房": "សណ្ឋាគារនៅភ្នំពេញ · អាផាតមិនប្រចាំខែ · បន្ទប់សហគ្រាស",
+  "查询房态": "សាកសួរបន្ទប់ទំនេរ", "获取企业报价": "ទទួលសម្រង់តម្លៃសហគ្រាស", "打开 Google Maps 导航": "បើកការណែនាំផ្លូវ Google Maps",
+  "酒店位置与到店导航": "ទីតាំងសណ្ឋាគារ និងការណែនាំផ្លូវ", "点击打开酒店准确定位 →": "ចុចបើកទីតាំងសណ្ឋាគារត្រឹមត្រូវ →",
+  "联系酒店与到店导航": "ទាក់ទងសណ្ឋាគារ និងការណែនាំផ្លូវ", "客户评价征集中": "កំពុងប្រមូលមតិអតិថិជន",
+  "企业团房与管理人员长期住宿": "បន្ទប់ជាក្រុមសហគ្រាស និងការស្នាក់នៅរយៈពេលវែងសម្រាប់អ្នកគ្រប់គ្រង", "企业住宿统一安排，一次获取报价": "រៀបចំការស្នាក់នៅសហគ្រាស និងទទួលសម្រង់តម្លៃតែម្តង",
+  "公司名称": "ឈ្មោះក្រុមហ៊ុន", "联系人": "អ្នកទំនាក់ទំនង", "入住日期与期限": "ថ្ងៃចូលស្នាក់ និងរយៈពេល", "其他需求": "តម្រូវការផ្សេងៗ",
+  "入住前需要确认的信息": "ព័ត៌មានត្រូវបញ្ជាក់មុនចូលស្នាក់", "房态、价格及下列政策以客服发送的最终确认单为准。": "បន្ទប់ទំនេរ តម្លៃ និងគោលការណ៍ខាងក្រោមអាស្រ័យលើការបញ្ជាក់ចុងក្រោយពីសេវាអតិថិជន។",
+  "房间与入住": "បន្ទប់ និងការស្នាក់នៅ", "设施与服务": "បរិក្ខារ និងសេវាកម្ម", "入住政策": "គោលការណ៍ចូលស្នាក់", "取消与退款": "ការលុបចោល និងសងប្រាក់", "酒店地图": "ផែនទីសណ្ឋាគារ", "指定日期房态": "បន្ទប់ទំនេរតាមកាលបរិច្ឆេទ",
   "首页": "ទំព័រដើម", "酒店公寓": "សណ្ឋាគារ និងអាផាតមិន", "酒店住宿": "ការស្នាក់នៅសណ្ឋាគារ", "企业服务": "សេវាសហគ្រាស", "供应链平台": "វេទិកាផ្គត់ផ្គង់", "联系我们": "ទាក់ទងយើង", "AI客服": "ជំនួយការ AI",
   "中鼎国际酒店": "សណ្ឋាគារអន្តរជាតិ Zhongding", "中鼎瑞德酒店管理有限公司": "ក្រុមហ៊ុនគ្រប់គ្រងសណ្ឋាគារ Zhongding Ruide", "运营主体": "អង្គភាពប្រតិបត្តិការ", "核心服务": "សេវាសំខាន់", "服务城市": "ទីក្រុងសេវាកម្ម", "服务保障": "ការធានាសេវា",
   "住得安心": "ស្នាក់នៅដោយទំនុកចិត្ត", "出行省心": "ធ្វើដំណើរដោយងាយស្រួល", "企业好安排": "ការរៀបចំងាយស្រួលសម្រាប់សហគ្រាស", "资源对得上": "ភ្ជាប់ធនធានត្រឹមត្រូវ", "查看企业服务 →": "មើលសេវាសហគ្រាស →",
@@ -670,6 +678,8 @@ const I18N_PAGE_META = {
 const originalText = new WeakMap();
 const originalAttrs = new WeakMap();
 function getLanguage() {
+  if (location.pathname === "/en" || location.pathname.startsWith("/en/")) return "en";
+  if (location.pathname === "/kh" || location.pathname.startsWith("/kh/")) return "kh";
   const requested = new URLSearchParams(location.search).get("lang");
   if (["zh", "en", "kh"].includes(requested)) return requested;
   try {
@@ -680,6 +690,7 @@ function getLanguage() {
 }
 function normalizePageKey() {
   let path = location.pathname.replace(/\/$/, "") || "/";
+  path = path.replace(/^\/(en|kh)(?=\/|$)/, "") || "/";
   path = path.replace(/\.html$/, "");
   return path;
 }
@@ -817,7 +828,8 @@ function initLanguageSwitcher() {
   [["zh-CN", "zh"], ["en", "en"], ["km", "kh"]].forEach(([code, lang]) => {
     if (document.head.querySelector(`link[hreflang="${code}"]`)) return;
     const link = document.createElement("link"); link.rel = "alternate"; link.hreflang = code;
-    link.href = lang === "zh" ? canonical : `${canonical}${canonical.includes("?") ? "&" : "?"}lang=${lang}`;
+    const base = new URL(canonical); const cleanPath = base.pathname.replace(/^\/(en|kh)(?=\/|$)/, "") || "/";
+    link.href = lang === "zh" ? `${base.origin}${cleanPath}` : `${base.origin}/${lang}${cleanPath === "/" ? "/" : cleanPath}`;
     document.head.appendChild(link);
   });
   const nav = document.querySelector(".nav-links");
@@ -836,6 +848,28 @@ function initLanguageSwitcher() {
 }
 normalizePublicNavigation();
 initLanguageSwitcher();
+
+document.querySelector(".v69-corporate-form")?.addEventListener("submit", (event) => {
+  event.preventDefault(); const data = new FormData(event.currentTarget);
+  const message = ["ZIEC HOTEL 企业住宿报价", `公司：${data.get("company")}`, `联系人：${data.get("contact_name")}`, `电话：${data.get("phone")}`, `入住人数：${data.get("guests")}`, `日期与期限：${data.get("dates")}`, `其他需求：${data.get("needs") || "无"}`].join("\n");
+  window.open(`https://wa.me/855189958899?text=${encodeURIComponent(message)}`, "_blank", "noopener");
+});
+if (normalizePageKey() !== "/admin" && !document.querySelector(".v69-mobile-conversion")) {
+  const bar = document.createElement("nav"); bar.className = "v69-mobile-conversion"; bar.setAttribute("aria-label", "快速咨询");
+  bar.innerHTML = '<a href="https://wa.me/855189958899?text=您好，我想咨询ZIEC HOTEL" target="_blank" rel="noopener">WhatsApp咨询</a><a href="./hotels.html#booking">查询房态</a>'; document.body.appendChild(bar);
+}
+if (normalizePageKey() === "/monthly") {
+  const list = document.querySelector(".info-panel .feature-list");
+  ["包含服务、最短租期与押金：请咨询客服确认", "水电、网络、停车与清洁费用：请咨询客服确认", "发票与企业长租优惠：请咨询客服确认"].forEach((text) => { const li = document.createElement("li"); li.textContent = text; list?.appendChild(li); });
+  const first = document.querySelector(".info-panel .share-actions .btn-primary"); if (first) { first.href = "./hotels.html#booking"; first.textContent = "提交入住需求"; }
+}
+const roomDetailPages = new Set(["/standard", "/vip", "/three-bedroom-suite", "/monthly"]);
+if (roomDetailPages.has(normalizePageKey())) {
+  const section = document.createElement("section"); section.className = "section v69-room-facts";
+  section.innerHTML = `<div class="container"><div class="section-title"><span>STAY INFORMATION</span><h2>入住前需要确认的信息</h2><p class="muted">房态、价格及下列政策以客服发送的最终确认单为准。</p></div><div class="hotel-info-grid"><article><h3>房间与入住</h3><p>入住人数、房间面积、床型尺寸、早餐、窗户及阳台情况：请咨询客服确认。</p></article><article><h3>设施与服务</h3><p>Wi-Fi、停车、洗衣、厨房及清洁服务：请咨询客服确认。</p></article><article><h3>入住政策</h3><p>入住与退房时间、押金、加床及儿童政策：请咨询客服确认。</p></article><article><h3>取消与退款</h3><p>客服确认房态后发送价格、取消期限和退款规则；确认前不要求直接付款。</p></article><article><h3>酒店地图</h3><p><a href="https://maps.app.goo.gl/pG3x9t78Urur73bYA?g_st=ac" target="_blank" rel="noopener">打开 Google Maps 导航 →</a></p></article><article><h3>指定日期房态</h3><p><a href="./hotels.html#booking">选择日期并提交入住需求 →</a></p></article></div></div>`;
+  document.querySelector("footer.footer")?.before(section);
+  refreshCurrentLanguage();
+}
 async function initPublicSiteSettings() {
   const section = document.querySelector("#homeVideo");
   if (!section) return;
@@ -956,21 +990,21 @@ async function loadHomeRecommendations() {
       title: "中鼎国际酒店 · 标准双床房",
       price: "US$ 35 / 晚",
       image: "assets/twin-room.jpg",
-      href: "./payment.html?room=%E6%A0%87%E5%87%86%E5%8F%8C%E5%BA%8A%E6%88%BF&price=35",
+      href: "./standard.html",
     },
     {
       label: "酒店住宿",
       title: "中鼎国际酒店 · VIP房",
       price: "US$ 70 / 晚",
       image: "assets/suite-room.jpg",
-      href: "./payment.html?room=VIP%E6%88%BF&price=70",
+      href: "./vip.html",
     },
     {
       label: "家庭与多人入住",
       title: "中鼎国际酒店 · 精美三室一厅套房",
       price: "US$ 60 / 晚",
       image: "assets/room-3-1.jpg",
-      href: "./payment.html?room=%E7%B2%BE%E7%BE%8E%E4%B8%89%E5%AE%A4%E4%B8%80%E5%8E%85%E5%A5%97%E6%88%BF&price=60",
+      href: "./three-bedroom-suite.html",
     },
     {
       label: "长租公寓",
@@ -1074,12 +1108,12 @@ async function applyConsultationSettings() {
 }
 applyConsultationSettings();
 
-// V6.8: all pages show a clear release marker without changing the existing layout.
+// V6.9: all pages show a clear release marker without changing the existing layout.
 document.querySelectorAll(".footer-wrap").forEach((footer) => {
-  if (!footer.textContent.includes("ZIEC HOTEL V6.8")) {
+  if (!footer.textContent.includes("ZIEC HOTEL V6.9")) {
     const version = document.createElement("div");
     version.className = "site-version";
-    version.textContent = "ZIEC HOTEL V6.8";
+    version.textContent = "ZIEC HOTEL V6.9";
     footer.appendChild(version);
   }
 });

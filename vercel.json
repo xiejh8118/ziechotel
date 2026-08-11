@@ -20,5 +20,9 @@
     { "source": "/three-bedroom-suite.html", "destination": "/three-bedroom-suite", "permanent": true },
     { "source": "/monthly.html", "destination": "/monthly", "permanent": true },
     { "source": "/hotels.html", "destination": "/hotels", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/en", "destination": "/?lang=en" }, { "source": "/en/:path*", "destination": "/:path*?lang=en" },
+    { "source": "/kh", "destination": "/?lang=kh" }, { "source": "/kh/:path*", "destination": "/:path*?lang=kh" }
   ]
 }
