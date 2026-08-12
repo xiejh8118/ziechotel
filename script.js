@@ -143,6 +143,8 @@ const I18N_TEXT = {
     "查看公寓详情": "View Apartment Details",
     "咨询月租价格": "Ask Monthly Rate",
     "酒店设施与贴心服务": "Facilities & Services",
+    "查看设施详情与更多图片": "View Facility Details & More Photos",
+    "酒店公共区域与配套实景，具体开放时间和服务安排请咨询前台确认。": "Real views of the hotel's public areas and amenities. Please confirm opening hours and service arrangements with reception.",
     "游泳池、健身房和24小时前台，为商务与长期住宿提供便利。":
       "Pool, gym and 24-hour front desk support business and long-term stays.",
     "游泳池": "Swimming Pool",
@@ -536,7 +538,7 @@ Object.assign(I18N_TEXT.kh, {
   "长住更划算，拎包即可入住。": "ស្នាក់នៅយូរកាន់តែសន្សំ និងអាចចូលនៅបានភ្លាម។", "独立客厅与卧室": "បន្ទប់ទទួលភ្ញៀវ និងបន្ទប់គេងដាច់ដោយឡែក",
   "阳台及简易厨房": "យ៉រ និងផ្ទះបាយតូច", "适合商务长住": "សមស្របសម្រាប់ការស្នាក់នៅអាជីវកម្មរយៈពេលវែង",
   "企业客户可咨询专属方案": "អតិថិជនសហគ្រាសអាចសាកសួរផែនការពិសេស", "咨询月租价格": "សាកសួរតម្លៃប្រចាំខែ",
-  "酒店设施与贴心服务": "បរិក្ខារសណ្ឋាគារ និងសេវាយកចិត្តទុកដាក់", "游泳池、健身房和24小时前台，为商务与长期住宿提供便利。": "អាងហែលទឹក កន្លែងហាត់ប្រាណ និងទទួលភ្ញៀវ 24 ម៉ោង ផ្តល់ភាពងាយស្រួលសម្រាប់អាជីវកម្ម និងការស្នាក់នៅយូរ។",
+  "酒店设施与贴心服务": "បរិក្ខារសណ្ឋាគារ និងសេវាយកចិត្តទុកដាក់", "查看设施详情与更多图片": "មើលព័ត៌មានលម្អិត និងរូបភាពបន្ថែមនៃបរិក្ខារ", "酒店公共区域与配套实景，具体开放时间和服务安排请咨询前台确认。": "រូបភាពជាក់ស្តែងនៃតំបន់សាធារណៈ និងបរិក្ខាររបស់សណ្ឋាគារ។ សូមបញ្ជាក់ម៉ោងបើក និងការរៀបចំសេវាជាមួយផ្នែកទទួលភ្ញៀវ។", "游泳池、健身房和24小时前台，为商务与长期住宿提供便利。": "អាងហែលទឹក កន្លែងហាត់ប្រាណ និងទទួលភ្ញៀវ 24 ម៉ោង ផ្តល់ភាពងាយស្រួលសម្រាប់អាជីវកម្ម និងការស្នាក់នៅយូរ។",
   "游泳池": "អាងហែលទឹក", "健身房": "កន្លែងហាត់ប្រាណ", "前台服务": "សេវាទទួលភ្ញៀវ",
   "开阔泳池空间，适合放松休闲。": "អាងហែលទឹកធំទូលាយ សម្រាប់សម្រាកលំហែ។", "满足日常训练与长期入住需求。": "បំពេញតម្រូវការហាត់ប្រាណប្រចាំថ្ងៃ និងការស្នាក់នៅយូរ។",
   "24小时接待，提供中文与 English 服务。": "ទទួលភ្ញៀវ 24 ម៉ោង និងផ្តល់សេវាភាសាចិន និងអង់គ្លេស។",
@@ -1119,10 +1121,10 @@ applyConsultationSettings();
 
 // V6.9: all pages show a clear release marker without changing the existing layout.
 document.querySelectorAll(".footer-wrap").forEach((footer) => {
-  if (!footer.textContent.includes("ZIEC HOTEL V7.0")) {
+  if (!footer.textContent.includes("ZIEC HOTEL V7.0.1")) {
     const version = document.createElement("div");
     version.className = "site-version";
-    version.textContent = "ZIEC HOTEL V7.0";
+    version.textContent = "ZIEC HOTEL V7.0.1";
     footer.appendChild(version);
   }
 });
