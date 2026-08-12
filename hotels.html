@@ -100,7 +100,7 @@
             <label>WhatsApp<input name="whatsapp" maxlength="40" /></label>
             <label>入住日期<input name="checkin" type="date" id="checkin" required /></label>
             <label>退房日期<input name="checkout" type="date" id="checkout" required /></label>
-            <label>房型<select name="room_type"><option>标准双床房</option><option>VIP房</option><option>精美三室一厅套房</option><option>月租公寓</option><option>企业团队住宿</option></select></label>
+            <label>房型<select name="room_type"><option>豪华大床房</option><option>豪华双床房</option><option>家庭两房一厅</option><option>家庭三房一厅</option><option>三卧室套房</option><option>行政大床房</option><option>行政双床房</option><option>月租公寓</option><option>企业团队住宿</option></select></label>
             <label>房间数<select name="rooms" id="roomCount"><option>1间</option><option>2间</option><option>3间</option><option>4间及以上</option></select></label>
             <label>入住人数<select name="guests" id="guestCount"><option>1位</option><option selected>2位</option><option>3位</option><option>4位及以上</option></select></label>
             <label>入住类型<select name="stay_purpose"><option>短期住宿</option><option>月租长住</option><option>企业团队住宿</option><option>员工宿舍</option></select></label>
@@ -116,9 +116,9 @@
         <div class="container">
           <div class="v608-heading"><div><span>FEATURED STAYS</span><h2 id="room-picks-title">酒店房型推荐</h2><p>精选客房与长租公寓，清晰展示价格、房型与预订入口。</p></div><a href="#hotel-stay">查看全部房型 →</a></div>
           <div class="v608-card-grid hotel-picks">
-            <article class="v608-product-card"><img src="./assets/twin-room.jpg" alt="标准双床房"><div><small>商务优选</small><h3>标准双床房</h3><p>双床 · 适合2人 · 免费Wi‑Fi</p><footer><b>US$35<em>/晚</em></b><a href="#booking">查询房态</a></footer></div></article>
-            <article class="v608-product-card"><img src="./assets/suite-room.jpg" alt="VIP房"><div><small>品质接待</small><h3>VIP房</h3><p>宽敞空间 · 商务接待 · 设施齐全</p><footer><b>US$70<em>/晚</em></b><a href="#booking">查询房态</a></footer></div></article>
-            <article class="v608-product-card"><img src="./assets/room-3-1.jpg" alt="精美三室一厅套房"><div><small>家庭与多人入住</small><h3>精美三室一厅套房</h3><p>三间卧室 · 独立客厅 · 舒适多人入住</p><footer><b>US$60<em>/晚</em></b><a href="#booking">查询房态</a></footer></div></article>
+            <article class="v608-product-card"><img src="./assets/rooms/deluxe-king/H-1-1.webp" alt="豪华大床房"><div><small>舒适入住</small><h3>豪华大床房</h3><p>大床 · 商务出行 · 免费Wi‑Fi</p><footer><b>US$35<em>/晚</em></b><a href="#booking" data-room-pick="豪华大床房">查询房态</a></footer></div></article>
+            <article class="v608-product-card"><img src="./assets/rooms/deluxe-twin/H-2-1.webp" alt="豪华双床房"><div><small>双人优选</small><h3>豪华双床房</h3><p>双床 · 同事朋友 · 舒适入住</p><footer><b>US$35<em>/晚</em></b><a href="#booking" data-room-pick="豪华双床房">查询房态</a></footer></div></article>
+            <article class="v608-product-card"><img src="./assets/rooms/family-two-bedroom/F-2-1.webp" alt="家庭两房一厅"><div><small>家庭入住</small><h3>家庭两房一厅</h3><p>两间卧室 · 独立客厅 · 多人入住</p><footer><b>US$70<em>/晚</em></b><a href="#booking" data-room-pick="家庭两房一厅">查询房态</a></footer></div></article>
             <article class="v608-product-card"><img src="./assets/monthly-6.jpg" alt="月租公寓"><div><small>长住推荐</small><h3>月租公寓</h3><p>独立客厅 · 简易厨房 · 拎包入住</p><footer><b>US$260<em>/月起</em></b><a href="#booking">提交入住需求</a></footer></div></article>
             <article class="v608-product-card v608-service-card"><div class="service-icon">24H</div><div><small>企业专属</small><h3>团队与协议住宿</h3><p>长期住宿、团队接待与企业协议价。</p><footer><b>专属方案</b><a href="#corporate">立即咨询</a></footer></div></article>
           </div>
@@ -134,79 +134,14 @@
               客房、公寓与酒店设施集中展示，价格清晰，可直接咨询。
             </p>
           </div>
-          <div class="grid">
-            <article class="card">
-              <a href="./standard.html"
-                ><div class="card-media">
-                  <img src="./assets/twin-room.jpg" alt="标准双床房实景" /></div
-              ></a>
-              <div class="card-body">
-                <div class="card-label">STANDARD TWIN</div>
-                <h3>标准双床房</h3>
-                <div class="price">US$35 <small>/ night</small></div>
-                <p class="muted">适合同事、朋友及商务团队入住。</p>
-                <div class="card-actions">
-                  <a class="btn btn-dark" href="./standard.html">查看详情</a
-                  ><a class="btn btn-primary" href="#booking">查询房态</a
-                  ><button
-                    class="share-btn"
-                    data-share
-                    data-url="https://www.ziechotel.top/standard.html"
-                    data-title="标准双床房｜ZIEC HOTEL"
-                  >
-                    分享</button
-                  ><a
-                    class="share-btn"
-                    href="./assets/poster-standard.jpg"
-                    download
-                    >海报</a
-                  >
-                </div>
-              </div>
-            </article>
-            <article class="card">
-              <a href="./vip.html"
-                ><div class="card-media">
-                  <img src="./assets/suite-room.jpg" alt="VIP房实景" /></div
-              ></a>
-              <div class="card-body">
-                <div class="card-label">VIP ROOM</div>
-                <h3>VIP房</h3>
-                <div class="price">US$70 <small>/ night</small></div>
-                <p class="muted">空间宽敞，适合重要商务接待。</p>
-                <div class="card-actions">
-                  <a class="btn btn-dark" href="./vip.html">查看详情</a
-                  ><a class="btn btn-primary" href="#booking">查询房态</a
-                  ><button
-                    class="share-btn"
-                    data-share
-                    data-url="https://www.ziechotel.top/vip.html"
-                    data-title="VIP房｜ZIEC HOTEL"
-                  >
-                    分享</button
-                  ><a class="share-btn" href="./assets/poster-vip.jpg" download
-                    >海报</a
-                  >
-                </div>
-              </div>
-            </article>
-            <article class="card">
-              <a href="./three-bedroom-suite.html"
-                ><div class="card-media">
-                  <img src="./assets/room-3-1.jpg" alt="三室一厅精美套房实景" /></div
-              ></a>
-              <div class="card-body">
-                <div class="card-label">THREE-BEDROOM SUITE</div>
-                <h3>精美三室一厅套房</h3>
-                <div class="price">US$60 <small>/ night</small></div>
-                <p class="muted">三间卧室与独立客厅，适合家庭、多人及企业接待。</p>
-                <div class="card-actions">
-                  <a class="btn btn-dark" href="./three-bedroom-suite.html">查看详情</a
-                  ><a class="btn btn-primary" href="#booking">查询房态</a
-                  ><button class="share-btn" data-share data-url="https://www.ziechotel.top/three-bedroom-suite" data-title="精美三室一厅套房｜ZIEC HOTEL">分享</button>
-                </div>
-              </div>
-            </article>
+          <div class="grid room-catalog-grid">
+            <article class="card"><div class="card-media"><img src="./assets/rooms/deluxe-king/H-1-1.webp" alt="豪华大床房实景" loading="lazy"></div><div class="card-body"><div class="card-label">DELUXE KING</div><h3>豪华大床房</h3><div class="price">US$35 <small>/ 晚</small></div><p class="muted">适合商务出行、情侣及单人舒适入住。</p><div class="card-actions"><a class="btn btn-primary" href="#booking" data-room-pick="豪华大床房">查询房态</a></div></div></article>
+            <article class="card"><div class="card-media"><img src="./assets/rooms/deluxe-twin/H-2-1.webp" alt="豪华双床房实景" loading="lazy"></div><div class="card-body"><div class="card-label">DELUXE TWIN</div><h3>豪华双床房</h3><div class="price">US$35 <small>/ 晚</small></div><p class="muted">适合同事、朋友及商务团队双人入住。</p><div class="card-actions"><a class="btn btn-primary" href="#booking" data-room-pick="豪华双床房">查询房态</a></div></div></article>
+            <article class="card"><div class="card-media"><img src="./assets/rooms/family-two-bedroom/F-2-1.webp" alt="家庭两房一厅实景" loading="lazy"></div><div class="card-body"><div class="card-label">TWO-BEDROOM FAMILY</div><h3>家庭两房一厅</h3><div class="price">US$70 <small>/ 晚</small></div><p class="muted">两间卧室与独立客厅，适合家庭及多人入住。</p><div class="card-actions"><a class="btn btn-primary" href="#booking" data-room-pick="家庭两房一厅">查询房态</a></div></div></article>
+            <article class="card"><div class="card-media"><img src="./assets/rooms/family-three-bedroom/F-3-1.webp" alt="家庭三房一厅实景" loading="lazy"></div><div class="card-body"><div class="card-label">THREE-BEDROOM FAMILY</div><h3>家庭三房一厅</h3><div class="price">US$65 <small>/ 晚</small></div><p class="muted">三间卧室与客厅，适合家庭、朋友及多人同行。</p><div class="card-actions"><a class="btn btn-primary" href="#booking" data-room-pick="家庭三房一厅">查询房态</a></div></div></article>
+            <article class="card"><div class="card-media"><img src="./assets/rooms/three-bedroom-suite-new/R-3-1.webp" alt="三卧室套房实景" loading="lazy"></div><div class="card-body"><div class="card-label">THREE-BEDROOM SUITE</div><h3>三卧室套房</h3><div class="price">US$65 <small>/ 晚</small></div><p class="muted">三卧室套房布局，适合家庭、团队及企业接待。</p><div class="card-actions"><a class="btn btn-primary" href="#booking" data-room-pick="三卧室套房">查询房态</a></div></div></article>
+            <article class="card"><div class="card-media"><img src="./assets/rooms/executive-king/X-1-1.webp" alt="行政大床房实景" loading="lazy"></div><div class="card-body"><div class="card-label">EXECUTIVE KING</div><h3>行政大床房</h3><div class="price">US$35 <small>/ 晚</small></div><p class="muted">大床配置，适合商务客人与管理人员长住。</p><div class="card-actions"><a class="btn btn-primary" href="#booking" data-room-pick="行政大床房">查询房态</a></div></div></article>
+            <article class="card"><div class="card-media"><img src="./assets/rooms/executive-twin/R-2-1.webp" alt="行政双床房实景" loading="lazy"></div><div class="card-body"><div class="card-label">EXECUTIVE TWIN</div><h3>行政双床房</h3><div class="price">US$35 <small>/ 晚</small></div><p class="muted">双床配置，适合商务同行及企业团队入住。</p><div class="card-actions"><a class="btn btn-primary" href="#booking" data-room-pick="行政双床房">查询房态</a></div></div></article>
             <article class="card">
               <a href="#monthly"
                 ><div class="card-media">
@@ -236,6 +171,20 @@
                 </div>
               </div>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section room-facilities" id="facilities">
+        <div class="container">
+          <div class="section-title"><span>SERVICES & FACILITIES</span><h2>服务及设施</h2><p class="muted">酒店公共区域与配套实景，具体开放时间和服务安排请咨询前台确认。</p></div>
+          <div class="facility-photo-grid">
+            <img src="./assets/rooms/facilities/Q-1.webp" alt="ZIEC HOTEL 服务及设施实景1" loading="lazy">
+            <img src="./assets/rooms/facilities/Q-2.webp" alt="ZIEC HOTEL 服务及设施实景2" loading="lazy">
+            <img src="./assets/rooms/facilities/Q-3.webp" alt="ZIEC HOTEL 服务及设施实景3" loading="lazy">
+            <img src="./assets/rooms/facilities/Q-4.webp" alt="ZIEC HOTEL 服务及设施实景4" loading="lazy">
+            <img src="./assets/rooms/facilities/Q-5.webp" alt="ZIEC HOTEL 服务及设施实景5" loading="lazy">
+            <img src="./assets/rooms/facilities/Q-7.webp" alt="ZIEC HOTEL 服务及设施实景6" loading="lazy">
           </div>
         </div>
       </section>

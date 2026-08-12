@@ -2,6 +2,7 @@ const toast = document.querySelector(".toast");
 const I18N_STORAGE_KEY = "ziec_language";
 const I18N_TEXT = {
   en: {
+    "豪华大床房": "Deluxe King Room", "豪华双床房": "Deluxe Twin Room", "家庭两房一厅": "Two-Bedroom Family Suite", "家庭三房一厅": "Three-Bedroom Family Suite", "三卧室套房": "Three-Bedroom Suite", "行政大床房": "Executive King Room", "行政双床房": "Executive Twin Room", "服务及设施": "Services & Facilities", "查看全部房型": "View All Rooms",
     "ZIEC HOTEL | 中鼎国际酒店": "ZIEC HOTEL | Zhongding International Hotel",
     "中鼎国际酒店": "Zhongding International Hotel",
     "中鼎国际酒店 · 供应链平台":
@@ -484,6 +485,7 @@ const I18N_TEXT = {
 // Exact Khmer is preferred; the English dictionary is used only as a final
 // safety net so KH mode never falls back to Chinese text.
 Object.assign(I18N_TEXT.kh, {
+  "豪华大床房": "បន្ទប់ Deluxe គ្រែធំ", "豪华双床房": "បន្ទប់ Deluxe គ្រែពីរ", "家庭两房一厅": "ស៊ុយគ្រួសារ 2 បន្ទប់គេង និងបន្ទប់ទទួលភ្ញៀវ", "家庭三房一厅": "ស៊ុយគ្រួសារ 3 បន្ទប់គេង និងបន្ទប់ទទួលភ្ញៀវ", "三卧室套房": "ស៊ុយ 3 បន្ទប់គេង", "行政大床房": "បន្ទប់ Executive គ្រែធំ", "行政双床房": "បន្ទប់ Executive គ្រែពីរ", "服务及设施": "សេវាកម្ម និងបរិក្ខារ", "查看全部房型": "មើលបន្ទប់ទាំងអស់",
   "ZIEC HOTEL Cambodia": "ZIEC HOTEL Cambodia", "金边酒店住宿 · 月租公寓 · 企业团房": "សណ្ឋាគារនៅភ្នំពេញ · អាផាតមិនប្រចាំខែ · បន្ទប់សហគ្រាស",
   "查询房态": "សាកសួរបន្ទប់ទំនេរ", "获取企业报价": "ទទួលសម្រង់តម្លៃសហគ្រាស", "打开 Google Maps 导航": "បើកការណែនាំផ្លូវ Google Maps",
   "酒店位置与到店导航": "ទីតាំងសណ្ឋាគារ និងការណែនាំផ្លូវ", "点击打开酒店准确定位 →": "ចុចបើកទីតាំងសណ្ឋាគារត្រឹមត្រូវ →",
@@ -864,6 +866,13 @@ if (normalizePageKey() === "/monthly") {
   const first = document.querySelector(".info-panel .share-actions .btn-primary"); if (first) { first.href = "./hotels.html#booking"; first.textContent = "提交入住需求"; }
 }
 const roomDetailPages = new Set(["/standard", "/vip", "/three-bedroom-suite", "/monthly"]);
+
+document.querySelectorAll("[data-room-pick]").forEach((link) => {
+  link.addEventListener("click", () => {
+    const select = document.querySelector('#hotelBookingForm select[name="room_type"]');
+    if (select) select.value = link.dataset.roomPick || select.value;
+  });
+});
 if (roomDetailPages.has(normalizePageKey())) {
   const section = document.createElement("section"); section.className = "section v69-room-facts";
   section.innerHTML = `<div class="container"><div class="section-title"><span>STAY INFORMATION</span><h2>入住前需要确认的信息</h2><p class="muted">房态、价格及下列政策以客服发送的最终确认单为准。</p></div><div class="hotel-info-grid"><article><h3>房间与入住</h3><p>入住人数、房间面积、床型尺寸、早餐、窗户及阳台情况：请咨询客服确认。</p></article><article><h3>设施与服务</h3><p>Wi-Fi、停车、洗衣、厨房及清洁服务：请咨询客服确认。</p></article><article><h3>入住政策</h3><p>入住与退房时间、押金、加床及儿童政策：请咨询客服确认。</p></article><article><h3>取消与退款</h3><p>客服确认房态后发送价格、取消期限和退款规则；确认前不要求直接付款。</p></article><article><h3>酒店地图</h3><p><a href="https://maps.app.goo.gl/pG3x9t78Urur73bYA?g_st=ac" target="_blank" rel="noopener">打开 Google Maps 导航 →</a></p></article><article><h3>指定日期房态</h3><p><a href="./hotels.html#booking">选择日期并提交入住需求 →</a></p></article></div></div>`;
@@ -987,24 +996,24 @@ async function loadHomeRecommendations() {
   const fallbackHotels = [
     {
       label: "酒店住宿",
-      title: "中鼎国际酒店 · 标准双床房",
+      title: "中鼎国际酒店 · 豪华大床房",
       price: "US$ 35 / 晚",
-      image: "assets/twin-room.jpg",
-      href: "./standard.html",
+      image: "assets/rooms/deluxe-king/H-1-1.webp",
+      href: "./hotels.html#hotel-stay",
     },
     {
       label: "酒店住宿",
-      title: "中鼎国际酒店 · VIP房",
-      price: "US$ 70 / 晚",
-      image: "assets/suite-room.jpg",
-      href: "./vip.html",
+      title: "中鼎国际酒店 · 豪华双床房",
+      price: "US$ 35 / 晚",
+      image: "assets/rooms/deluxe-twin/H-2-1.webp",
+      href: "./hotels.html#hotel-stay",
     },
     {
       label: "家庭与多人入住",
-      title: "中鼎国际酒店 · 精美三室一厅套房",
-      price: "US$ 60 / 晚",
-      image: "assets/room-3-1.jpg",
-      href: "./three-bedroom-suite.html",
+      title: "中鼎国际酒店 · 家庭两房一厅",
+      price: "US$ 70 / 晚",
+      image: "assets/rooms/family-two-bedroom/F-2-1.webp",
+      href: "./hotels.html#hotel-stay",
     },
     {
       label: "长租公寓",
@@ -1110,10 +1119,10 @@ applyConsultationSettings();
 
 // V6.9: all pages show a clear release marker without changing the existing layout.
 document.querySelectorAll(".footer-wrap").forEach((footer) => {
-  if (!footer.textContent.includes("ZIEC HOTEL V6.9")) {
+  if (!footer.textContent.includes("ZIEC HOTEL V7.0")) {
     const version = document.createElement("div");
     version.className = "site-version";
-    version.textContent = "ZIEC HOTEL V6.9";
+    version.textContent = "ZIEC HOTEL V7.0";
     footer.appendChild(version);
   }
 });
