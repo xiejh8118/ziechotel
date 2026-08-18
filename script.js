@@ -680,6 +680,7 @@ Object.assign(I18N_TEXT.kh, {
   "网站不直接收取房费。请先通过官方 WhatsApp 确认订单，再按酒店发送的官方收款信息付款。":"គេហទំព័រមិនទទួលថ្លៃបន្ទប់ដោយផ្ទាល់ទេ។ សូមបញ្ជាក់ការកក់តាម WhatsApp ផ្លូវការ ហើយបង់តាមព័ត៌មានដែលសណ្ឋាគារផ្ញើ។", "请先与酒店确认订单编号、金额和币种，再选择对应二维码付款。":"សូមបញ្ជាក់លេខកក់ ចំនួនប្រាក់ និងរូបិយប័ណ្ណ មុនជ្រើស QR សម្រាប់បង់។", "USD · 请核对美元金额":"USD · សូមពិនិត្យចំនួនដុល្លារ", "KHR · 请核对瑞尔金额":"KHR · សូមពិនិត្យចំនួនរៀល", "付款后请把付款截图发送给酒店客服，最终以酒店确认到账为准。":"បន្ទាប់ពីបង់ សូមផ្ញើរូបថតទៅបុគ្គលិក និងរង់ចាំការបញ្ជាក់ទទួលប្រាក់។", "是否支持线上刷卡或到店刷卡，以酒店前台确认结果为准。网站不收集或保存银行卡号、有效期及安全码。":"ការទូទាត់តាមកាតអាស្រ័យលើការបញ្ជាក់ពីសណ្ឋាគារ។ គេហទំព័រមិនប្រមូលលេខកាត កាលបរិច្ឆេទផុតកំណត់ ឬលេខសុវត្ថិភាពទេ។", "官方付款信息请以酒店确认结果为准":"ព័ត៌មានបង់ប្រាក់ផ្លូវការអាស្រ័យលើការបញ្ជាក់របស់សណ្ឋាគារ", "ZIEC AI客服":"ជំនួយការ AI ZIEC", "订单与付款咨询":"សាកសួរអំពីការកក់ និងបង់ប្រាក់", "您好，我可以说明订单流程和付款注意事项。涉及具体金额与二维码时，请与酒店人工核对。":"សួស្តី ខ្ញុំអាចពន្យល់ដំណើរការកក់ និងការបង់ប្រាក់។ សូមផ្ទៀងផ្ទាត់ចំនួនប្រាក់ និង QR ជាមួយបុគ្គលិកសណ្ឋាគារ។",
   "真实双床房照片，适合同事、朋友及商务团队入住。":"រូបបន្ទប់គ្រែពីរពិត សម្រាប់មិត្តរួមការងារ មិត្តភក្តិ និងក្រុមអាជីវកម្ម។", "双床配置":"គ្រែពីរ", "空调与电视":"ម៉ាស៊ីនត្រជាក់ និងទូរទស្សន៍", "免费 Wi-Fi":"Wi‑Fi ឥតគិតថ្លៃ", "适合个人或团队入住":"សម្រាប់បុគ្គល ឬក្រុម", "真实 VIP 客房照片，空间宽敞，适合重要商务接待与品质住宿。":"រូបបន្ទប់ VIP ពិត ទូលាយ សម្រាប់ការទទួលភ្ញៀវអាជីវកម្ម និងការស្នាក់នៅគុណភាព។", "宽敞客房":"បន្ទប់ទូលាយ", "高品质床品":"សម្ភារៈគ្រែគុណភាពខ្ពស់", "商务接待优选":"ជម្រើសល្អសម្រាប់ការទទួលភ្ញៀវអាជីវកម្ម"
 });
+<<<<<<< HEAD
 Object.assign(I18N_TEXT.kh, {
   "公司简介":"ប្រវត្តិក្រុមហ៊ុន", "主营产品或服务":"ផលិតផល ឬសេវាសំខាន់", "资料正在完善，请联系企业或平台客服确认。":"ព័ត៌មានកំពុងរៀបចំ។ សូមទាក់ទងក្រុមហ៊ុន ឬបុគ្គលិកវេទិកាដើម្បីបញ្ជាក់។", "请咨询确认":"សូមសាកសួរដើម្បីបញ្ជាក់", "联系人":"អ្នកទំនាក់ទំនង", "电话":"ទូរស័ព្ទ", "地址":"អាសយដ្ឋាន", "待补充":"រង់ចាំបំពេញ", "WhatsApp咨询":"សាកសួរតាម WhatsApp", "分享推广":"ចែករំលែកផ្សព្វផ្សាយ", "生成海报":"បង្កើតផ្ទាំងផ្សព្វផ្សាយ"
 });
@@ -713,6 +714,8 @@ Object.assign(I18N_TEXT.kh, {
 Object.assign(I18N_TEXT.en, {
   "快速咨询":"Quick Contact", "查询房态":"Check Availability", "包含服务、最短租期与押金：请咨询客服确认":"Included services, minimum term and deposit: please confirm with support", "水电、网络、停车与清洁费用：请咨询客服确认":"Utilities, internet, parking and cleaning: please confirm with support", "发票与企业长租优惠：请咨询客服确认":"Invoice and corporate long-stay rates: please confirm with support", "链接已复制":"Link copied", "分享未完成":"Sharing was not completed", "复制失败，请手动复制":"Copy failed; please copy manually", "共":"Total ", "家已审核供应商":" approved suppliers", "供应链入口":"Supply Chain Entry", "建筑材料与工程物资":"Construction and Engineering Materials", "采购、报价、交付对接":"Procurement, quotation and delivery coordination", "家具设备与酒店用品":"Furniture, Equipment and Hotel Supplies", "房间、办公与餐饮配套":"Room, office and catering supplies", "维修安装与本地协助":"Repair, installation and local support", "长期合作供应商招募":"Long-term supplier recruitment", "物流运输与资源对接":"Logistics and resource matching", "中柬、本地与项目协同":"China-Cambodia, local and project coordination", "供应链服务入口":"Supply Chain Service Entry", "供应商":"Supplier", "柬埔寨本地资源对接":"Cambodia local resource matching", "查看供应商 →":"View Supplier →", "暂无符合条件的供应商。":"No matching suppliers found."
 });
+=======
+>>>>>>> 38be6aefdfe80cd62fa910635205d78eb5e5da11
 
 const I18N_PAGE_META = {
   en: {
@@ -1218,12 +1221,21 @@ async function applyConsultationSettings() {
 }
 applyConsultationSettings();
 
+<<<<<<< HEAD
 // V7.2: all pages show a clear release marker without changing the existing layout.
 document.querySelectorAll(".footer-wrap").forEach((footer) => {
   if (!footer.textContent.includes("ZIEC HOTEL V7.2")) {
     const version = document.createElement("div");
     version.className = "site-version";
     version.textContent = "ZIEC HOTEL V7.2";
+=======
+// V7.1: all pages show a clear release marker without changing the existing layout.
+document.querySelectorAll(".footer-wrap").forEach((footer) => {
+  if (!footer.textContent.includes("ZIEC HOTEL V7.1")) {
+    const version = document.createElement("div");
+    version.className = "site-version";
+    version.textContent = "ZIEC HOTEL V7.1";
+>>>>>>> 38be6aefdfe80cd62fa910635205d78eb5e5da11
     footer.appendChild(version);
   }
 });
