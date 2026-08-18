@@ -88,24 +88,16 @@
           <div class="section-title">
             <span>BOOKING</span>
             <h2>提交入住需求</h2>
-            <p class="muted">填写后由中文客服确认实际房态与价格，正常情况下预计10分钟内回复。</p>
+            <p class="muted">填写后由中文客服确认实际房态与价格，正常情况下预计10分钟内回复；无需立即付款。</p>
           </div>
-          <form class="hotel-booking-bar" id="hotelBookingForm">
+          <form class="hotel-booking-bar v72-booking-form" id="hotelBookingForm">
             <label>姓名<input name="customer_name" required maxlength="80" /></label>
-            <label>国家 / 地区<input name="country_region" maxlength="80" placeholder="中国 / Cambodia" /></label>
             <label>联系电话<input name="contact" required maxlength="40" /></label>
-            <label>微信<input name="wechat" maxlength="100" /></label>
-            <label>Telegram<input name="telegram" maxlength="160" /></label>
-            <label>Messenger<input name="messenger" maxlength="200" /></label>
-            <label>WhatsApp<input name="whatsapp" maxlength="40" /></label>
             <label>入住日期<input name="checkin" type="date" id="checkin" required /></label>
             <label>退房日期<input name="checkout" type="date" id="checkout" required /></label>
             <label>房型<select name="room_type"><option>豪华大床房</option><option>豪华双床房</option><option>家庭两房一厅</option><option>家庭三房一厅</option><option>三卧室套房</option><option>行政大床房</option><option>行政双床房</option><option>月租公寓</option><option>企业团队住宿</option></select></label>
-            <label>房间数<select name="rooms" id="roomCount"><option>1间</option><option>2间</option><option>3间</option><option>4间及以上</option></select></label>
             <label>入住人数<select name="guests" id="guestCount"><option>1位</option><option selected>2位</option><option>3位</option><option>4位及以上</option></select></label>
-            <label>入住类型<select name="stay_purpose"><option>短期住宿</option><option>月租长住</option><option>企业团队住宿</option><option>员工宿舍</option></select></label>
-            <label>接送需求<select name="transfer_need"><option value="">暂不需要</option><option>需要机场接送，请联系报价</option><option>需要包车服务，请联系报价</option></select></label>
-            <label class="full">备注<textarea name="note" maxlength="500" placeholder="其他入住要求"></textarea></label>
+            <details class="v72-booking-more full"><summary>补充其他需求（选填）</summary><div class="v72-booking-more-grid"><label>国家 / 地区<input name="country_region" maxlength="80" placeholder="中国 / Cambodia" /></label><label>WhatsApp<input name="whatsapp" maxlength="40" /></label><label>微信<input name="wechat" maxlength="100" /></label><label>Telegram<input name="telegram" maxlength="160" /></label><label>Messenger<input name="messenger" maxlength="200" /></label><label>房间数<select name="rooms" id="roomCount"><option>1间</option><option>2间</option><option>3间</option><option>4间及以上</option></select></label><label>入住类型<select name="stay_purpose"><option>短期住宿</option><option>月租长住</option><option>企业团队住宿</option><option>员工宿舍</option></select></label><label>接送需求<select name="transfer_need"><option value="">暂不需要</option><option>需要机场接送，请联系报价</option><option>需要包车服务，请联系报价</option></select></label><label class="full">备注<textarea name="note" maxlength="500" placeholder="其他入住要求"></textarea></label></div></details>
             <button class="btn btn-primary" type="submit">提交入住需求</button>
           </form>
           <div class="booking-note" id="bookingNote">此表单不是实时房态查询；提交后由中文客服确认房态、总价和入住安排。</div>
@@ -248,7 +240,7 @@
               </div>
             </article>
             <article class="facility">
-              <img src="./assets/reception.jpg" alt="酒店前台服务" />
+              <img class="facility-image-contain" src="./assets/reception.jpg" alt="酒店前台服务" />
               <div>
                 <h3>前台服务</h3>
                 <p>24小时接待，提供中文与 English 服务。</p>
@@ -492,10 +484,10 @@
         form.addEventListener('submit', async (event) => {
           event.preventDefault();
           if (checkout.value <= checkin.value) {
-            note.textContent = '退房日期必须晚于入住日期。';
+            note.textContent = translateTextValue('退房日期必须晚于入住日期。', getLanguage());
             return;
           }
-          note.textContent = '正在提交入住需求……';
+          note.textContent = translateTextValue('正在提交入住需求……', getLanguage());
           try {
             const payload = Object.fromEntries(new FormData(form).entries());
             const response = await fetch('/api/bookings', {
@@ -505,9 +497,9 @@
             });
             const result = await response.json();
             if (!response.ok) throw new Error(result.message || `提交失败（HTTP ${response.status}）`);
-            note.textContent = `${result.message}。客服确认房态与价格后会联系您。`;
+            note.textContent = translateTextValue(`${result.message}。客服确认房态与价格后会联系您。`, getLanguage());
           } catch (error) {
-            note.textContent = `${error.message}。您填写的内容仍保留，请把本提示截图发给客服。`;
+            note.textContent = translateTextValue(`${error.message}。您填写的内容仍保留，请把本提示截图发给客服。`, getLanguage());
           }
         });
       })();

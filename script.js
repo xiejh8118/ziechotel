@@ -624,6 +624,102 @@ Object.assign(I18N_TEXT.kh, {
   "客厅与独立睡眠区": "បន្ទប់ទទួលភ្ញៀវ និងកន្លែងគេងដាច់ដោយឡែក", "阳台与简易厨房": "យ៉រ និងផ្ទះបាយតូច", "长期入住可咨询优惠": "សាកសួរអំពីតម្លៃពិសេសសម្រាប់ការស្នាក់នៅយូរ"
 });
 
+// V7.1: Khmer coverage for content introduced in V6.9–V7.1.
+Object.assign(I18N_TEXT.kh, {
+  "金边酒店与月租公寓｜企业团房｜ZIEC HOTEL Cambodia":"សណ្ឋាគារ និងអាផាតមិនប្រចាំខែនៅភ្នំពេញ｜បន្ទប់ក្រុមហ៊ុន｜ZIEC HOTEL Cambodia",
+  "豪华及行政客房 US$35/晚，家庭套房 US$65/晚起。提交需求后由客服确认实际房态与价格。":"បន្ទប់ប្រណីត និងប្រតិបត្តិចាប់ពី US$35/យប់ និងស៊ុយគ្រួសារចាប់ពី US$65/យប់។ បុគ្គលិកនឹងបញ្ជាក់បន្ទប់ និងតម្លៃបន្ទាប់ពីទទួលសំណើ។",
+  "WhatsApp咨询":"សាកសួរតាម WhatsApp", "WhatsApp 咨询":"សាកសួរតាម WhatsApp",
+  "查看房型 →":"មើលប្រភេទបន្ទប់ →", "查看联系方式":"មើលព័ត៌មានទំនាក់ទំនង",
+  "舒适入住":"ការស្នាក់នៅប្រកបដោយផាសុកភាព", "双人优选":"ជម្រើសល្អសម្រាប់ពីរនាក់", "家庭入住":"ការស្នាក់នៅជាគ្រួសារ",
+  "酒店位于柬埔寨金边。准确门牌、周边工厂及机场车程正在核准，出发前请以客服确认信息为准。":"សណ្ឋាគារស្ថិតនៅភ្នំពេញ ប្រទេសកម្ពុជា។ សូមបញ្ជាក់អាសយដ្ឋាន ពេលធ្វើដំណើរទៅរោងចក្រជិតខាង និងអាកាសយានដ្ឋានជាមួយបុគ្គលិកមុនចេញដំណើរ។",
+  "7种客房与家庭套房":"បន្ទប់ និងស៊ុយគ្រួសារ 7 ប្រភេទ", "US$35/晚起":"ចាប់ពី US$35/យប់", "真实房型照片":"រូបភាពបន្ទប់ពិត",
+  "同步支持供应商入驻、采购询价与企业资源对接":"គាំទ្រការចុះឈ្មោះអ្នកផ្គត់ផ្គង់ សំណើតម្លៃទិញ និងការភ្ជាប់ធនធានសហគ្រាស",
+  "建筑材料、钢结构、工程施工、物流与企业服务 →":"សម្ភារៈសំណង់ រចនាសម្ព័ន្ធដែក សំណង់ ដឹកជញ្ជូន និងសេវាសហគ្រាស →",
+  "提交企业资料，审核通过后正式展示 →":"ដាក់ព័ត៌មានសហគ្រាស ហើយបង្ហាញបន្ទាប់ពីអនុម័ត →",
+  "提交采购需求，由平台协助对接供应商 →":"ដាក់តម្រូវការទិញ ហើយវេទិកាជួយភ្ជាប់អ្នកផ្គត់ផ្គង់ →",
+  "酒店前台与中鼎团队提供线下联系支持 →":"ផ្នែកទទួលភ្ញៀវ និងក្រុម Zhongding ផ្តល់ជំនួយទំនាក់ទំនងផ្ទាល់ →",
+  "金边 · 西港 · 暹粒":"ភ្នំពេញ · ព្រះសីហនុ · សៀមរាប", "订单 · 付款 · 退款说明 →":"ការកក់ · ការបង់ប្រាក់ · ការសងប្រាក់ →",
+  "酒店客房、月租公寓、长期住宿、企业团房与员工宿舍，按入住周期和预算匹配。":"បន្ទប់សណ្ឋាគារ អាផាតមិនប្រចាំខែ ការស្នាក់នៅយូរ បន្ទប់ក្រុមហ៊ុន និងកន្លែងស្នាក់បុគ្គលិក ត្រូវបានផ្គូផ្គងតាមរយៈពេល និងថវិកា។",
+  "团队住宿、会议接待、员工长住、月结方案和长期合作，减少企业落地成本。":"ការស្នាក់នៅជាក្រុម ការទទួលកិច្ចប្រជុំ បុគ្គលិកស្នាក់យូរ ការទូទាត់ប្រចាំខែ និងកិច្ចសហការរយៈពេលវែង។",
+  "建筑材料、工程维修、家具设备、物流和企业服务供应商，支持采购询价与人工匹配。":"អ្នកផ្គត់ផ្គង់សម្ភារៈសំណង់ ជួសជុលវិស្វកម្ម គ្រឿងសង្ហារឹម ដឹកជញ្ជូន និងសេវាសហគ្រាស ដោយគាំទ្រសំណើតម្លៃ និងការផ្គូផ្គងដោយបុគ្គលិក។",
+  "金边酒店、月租公寓与企业团房｜ZIEC HOTEL Cambodia":"សណ្ឋាគារ អាផាតមិនប្រចាំខែ និងបន្ទប់ក្រុមហ៊ុននៅភ្នំពេញ｜ZIEC HOTEL Cambodia",
+  "住得舒适，也住得安心":"ស្នាក់នៅប្រកបដោយផាសុកភាព និងទំនុកចិត្ត",
+  "商务客房、月租公寓与企业团队住宿，一站查看、咨询与预订。":"មើល សាកសួរ និងកក់បន្ទប់អាជីវកម្ម អាផាតមិនប្រចាំខែ និងការស្នាក់នៅក្រុមហ៊ុននៅកន្លែងតែមួយ។",
+  "精选客房与长租公寓，清晰展示价格、房型与预订入口。":"បន្ទប់ និងអាផាតមិនជួលយូរដែលបានជ្រើសរើស បង្ហាញតម្លៃ ប្រភេទបន្ទប់ និងច្រកកក់យ៉ាងច្បាស់។",
+  "大床 · 商务出行 · 免费Wi‑Fi":"គ្រែធំ · ដំណើរអាជីវកម្ម · Wi‑Fi ឥតគិតថ្លៃ", "双床 · 同事朋友 · 舒适入住":"គ្រែពីរ · មិត្តរួមការងារ និងមិត្តភក្តិ · ស្នាក់នៅផាសុកភាព",
+  "两间卧室 · 独立客厅 · 多人入住":"បន្ទប់គេងពីរ · បន្ទប់ទទួលភ្ញៀវដាច់ដោយឡែក · សម្រាប់ភ្ញៀវច្រើន", "独立客厅 · 简易厨房 · 拎包入住":"បន្ទប់ទទួលភ្ញៀវដាច់ដោយឡែក · ផ្ទះបាយតូច · រួចរាល់សម្រាប់ចូលស្នាក់",
+  "企业专属":"សម្រាប់សហគ្រាស", "团队与协议住宿":"ការស្នាក់នៅជាក្រុម និងតាមកិច្ចព្រមព្រៀង", "长期住宿、团队接待与企业协议价。":"ការស្នាក់នៅយូរ ការទទួលក្រុម និងតម្លៃកិច្ចព្រមព្រៀងសហគ្រាស។", "专属方案":"ផែនការផ្ទាល់ខ្លួន",
+  "适合商务出行、情侣及单人舒适入住。":"សម្រាប់ដំណើរអាជីវកម្ម គូស្នេហ៍ និងភ្ញៀវម្នាក់។", "适合同事、朋友及商务团队双人入住。":"សម្រាប់មិត្តរួមការងារ មិត្តភក្តិ និងក្រុមអាជីវកម្មពីរនាក់។",
+  "两间卧室与独立客厅，适合家庭及多人入住。":"មានបន្ទប់គេងពីរ និងបន្ទប់ទទួលភ្ញៀវដាច់ដោយឡែក សម្រាប់គ្រួសារ និងភ្ញៀវច្រើន។", "三间卧室与客厅，适合家庭、朋友及多人同行。":"មានបន្ទប់គេងបី និងបន្ទប់ទទួលភ្ញៀវ សម្រាប់គ្រួសារ មិត្តភក្តិ និងភ្ញៀវច្រើន។",
+  "三卧室套房布局，适合家庭、团队及企业接待。":"ស៊ុយបីបន្ទប់គេង សម្រាប់គ្រួសារ ក្រុម និងការទទួលភ្ញៀវសហគ្រាស។", "大床配置，适合商务客人与管理人员长住。":"គ្រែធំ សម្រាប់ភ្ញៀវអាជីវកម្ម និងអ្នកគ្រប់គ្រងស្នាក់យូរ។", "双床配置，适合商务同行及企业团队入住。":"គ្រែពីរ សម្រាប់អ្នកធ្វើដំណើរអាជីវកម្ម និងក្រុមហ៊ុន។",
+  "US$260/月具体包含服务：请咨询客服确认":"សេវាដែលរួមក្នុង US$260/ខែ៖ សូមបញ្ជាក់ជាមួយបុគ្គលិក", "最短租期、押金、水电费：请咨询客服确认":"រយៈពេលជួលអប្បបរមា ប្រាក់កក់ ទឹក និងភ្លើង៖ សូមបញ្ជាក់ជាមួយបុគ្គលិក", "网络、停车、清洁及发票：请咨询客服确认":"អ៊ីនធឺណិត ចំណត ការសម្អាត និងវិក្កយបត្រ៖ សូមបញ្ជាក់ជាមួយបុគ្គលិក",
+  "酒店详情与入住信息":"ព័ត៌មានសណ្ឋាគារ និងការចូលស្នាក់", "地址与地图":"អាសយដ្ឋាន និងផែនទី", "打开 Google Maps 导航 →":"បើកការណែនាំ Google Maps →", "入住政策":"គោលការណ៍ចូលស្នាក់", "付款与退款":"ការបង់ប្រាក់ និងការសងប្រាក់",
+  "链接柬埔寨优质供应链":"ភ្ជាប់ខ្សែសង្វាក់ផ្គត់ផ្គង់ដែលមានគុណភាពនៅកម្ពុជា", "查找可信供应商、发布采购需求，让企业合作更直接、更高效。":"ស្វែងរកអ្នកផ្គត់ផ្គង់ដែលគួរឱ្យទុកចិត្ត និងផ្សព្វផ្សាយតម្រូវការទិញ ដើម្បីឱ្យកិច្ចសហការកាន់តែមានប្រសិទ្ធភាព។",
+  "采购与企业服务入口":"ច្រកសេវាទិញ និងសហគ្រាស", "从寻找资源到发布需求，快速进入对应服务。":"ចូលទៅសេវាដែលត្រូវការបានលឿន ចាប់ពីស្វែងរកធនធានដល់ដាក់តម្រូវការ។", "按行业与关键词筛选企业 →":"ត្រងសហគ្រាសតាមវិស័យ និងពាក្យគន្លឹះ →", "提交4–10张企业及产品图片 →":"ដាក់រូបសហគ្រាស និងផលិតផល 4–10 សន្លឹក →", "提交预算、交付时间与采购需求 →":"ដាក់ថវិកា ពេលប្រគល់ និងតម្រូវការទិញ →", "WhatsApp专人协助匹配资源 →":"បុគ្គលិក WhatsApp ជួយផ្គូផ្គងធនធាន →",
+  "优先展示平台已审核和推荐的优质企业。":"បង្ហាញអាទិភាពដល់សហគ្រាសដែលបានពិនិត្យ និងណែនាំដោយវេទិកា។", "申请入驻 →":"ស្នើចូលរួម →", "供应商资料支持一键分享与推广海报生成":"ព័ត៌មានអ្នកផ្គត់ផ្គង់អាចចែករំលែក និងបង្កើតផ្ទាំងផ្សព្វផ្សាយ", "企业可在线申请新增，审核通过后自动展示。":"សហគ្រាសអាចស្នើតាមអនឡាញ ហើយនឹងបង្ហាញដោយស្វ័យប្រវត្តិបន្ទាប់ពីអនុម័ត។", "全部分类":"គ្រប់ប្រភេទ", "正在读取供应商……":"កំពុងទាញយកអ្នកផ្គត់ផ្គង់…", "您的企业也可以加入":"សហគ្រាសរបស់អ្នកក៏អាចចូលរួមបាន", "提交后进入待审核状态，平台审核通过后才会在前台公开展示。":"បន្ទាប់ពីដាក់ស្នើ វានឹងរង់ចាំការពិនិត្យ ហើយបង្ហាញជាសាធារណៈតែបន្ទាប់ពីអនុម័ត។",
+  "推荐供应商":"អ្នកផ្គត់ផ្គង់ណែនាំ", "查看详情":"មើលព័ត៌មានលម្អិត", "查看详情与更多图片":"មើលព័ត៌មានលម្អិត និងរូបភាពបន្ថែម",
+  "柬埔寨金边":"ភ្នំពេញ ប្រទេសកម្ពុជា", "柬语／酒店前台：":"ភាសាខ្មែរ／ផ្នែកទទួលភ្ញៀវ៖", "中文客服／WhatsApp：":"សេវាភាសាចិន／WhatsApp៖", "WhatsApp中文咨询":"សាកសួរជាភាសាចិនតាម WhatsApp", "拨打酒店前台":"ហៅទៅផ្នែកទទួលភ្ញៀវ",
+  "面向附近工厂、工程项目、驻柬企业和商务团队，提供短租、月租、员工住宿及长期协议方案。":"ផ្តល់ការជួលខ្លី ប្រចាំខែ កន្លែងស្នាក់បុគ្គលិក និងកិច្ចព្រមព្រៀងរយៈពេលវែង សម្រាប់រោងចក្រ គម្រោងវិស្វកម្ម សហគ្រាស និងក្រុមអាជីវកម្មនៅកម្ពុជា។",
+  "适合客户":"អតិថិជនសមស្រប", "短租与月租":"ជួលខ្លី និងប្រចាំខែ", "配套服务":"សេវាបន្ថែម", "结算与发票":"ការទូទាត់ និងវិក្កយបត្រ", "企业办理流程":"ដំណើរការសហគ្រាស", "提交6项需求":"ដាក់តម្រូវការ 6 មុខ", "客服核对房态":"បុគ្គលិកពិនិត្យបន្ទប់", "发送企业报价":"ផ្ញើសម្រង់តម្លៃសហគ្រាស", "确认协议与入住":"បញ្ជាក់កិច្ចព្រមព្រៀង និងការចូលស្នាក់", "WhatsApp企业咨询":"សាកសួរសហគ្រាសតាម WhatsApp"
+});
+Object.assign(I18N_TEXT.kh, {
+  "住宿、月租、企业团房与到店路线，由客服根据实际需求确认。":"ការស្នាក់នៅ ជួលប្រចាំខែ បន្ទប់ក្រុមហ៊ុន និងផ្លូវទៅសណ្ឋាគារ ត្រូវបានបញ្ជាក់តាមតម្រូវការជាក់ស្តែង។",
+  "中、英、柬三语完整门牌地址正在按地图正式信息核准；导航请直接使用下方已确认定位。":"អាសយដ្ឋានពេញជាភាសាចិន អង់គ្លេស និងខ្មែរកំពុងផ្ទៀងផ្ទាត់តាមផែនទី។ សូមប្រើទីតាំងដែលបានបញ្ជាក់ខាងក្រោម។",
+  "工厂管理人员、工程项目团队、企业员工、商务接待与轮换入住。":"អ្នកគ្រប់គ្រងរោងចក្រ ក្រុមគម្រោងវិស្វកម្ម បុគ្គលិកសហគ្រាស ការទទួលភ្ញៀវអាជីវកម្ម និងការស្នាក់នៅប្តូរវេន។",
+  "客房和公寓组合安排；协议价按人数、房型与入住期限确认。":"រៀបចំបន្ទប់ និងអាផាតមិនរួមគ្នា។ តម្លៃកិច្ចព្រមព្រៀងតាមចំនួនមនុស្ស ប្រភេទបន្ទប់ និងរយៈពេល។",
+  "接送、洗衣、停车、清洁等项目以企业确认方案为准。":"ការដឹកជញ្ជូន បោកគក់ ចំណត និងសម្អាត អាស្រ័យលើផែនការដែលសហគ្រាសបានបញ្ជាក់។",
+  "发票、对公结算与月结申请条件，请咨询客服确认。":"សូមសាកសួរបុគ្គលិកអំពីវិក្កយបត្រ ការទូទាត់សហគ្រាស និងលក្ខខណ្ឌទូទាត់ប្រចាំខែ។",
+  "US$260/月起，适合长期居住 →":"ចាប់ពី US$260/ខែ សម្រាប់ការស្នាក់នៅយូរ →", "1间":"1 បន្ទប់", "2间":"2 បន្ទប់", "3间":"3 បន្ទប់", "1位":"1 នាក់", "2位":"2 នាក់", "3位":"3 នាក់", "/晚":"/យប់", "/ 晚":"/ យប់", "/月起":"/ខែឡើង", "长住推荐":"ណែនាំសម្រាប់ស្នាក់យូរ",
+  "预订前先确认地址、房态、入住政策与付款规则，让每一次入住更清楚。":"មុនកក់ សូមបញ្ជាក់អាសយដ្ឋាន បន្ទប់ គោលការណ៍ចូលស្នាក់ និងការបង់ប្រាក់។",
+  "柬埔寨 · 金边。三语完整门牌地址正在按地图正式资料核准。":"ភ្នំពេញ · កម្ពុជា។ អាសយដ្ឋានពេញបីភាសាកំពុងផ្ទៀងផ្ទាត់តាមផែនទី។",
+  "入住时间、退房时间、押金、加床及儿童政策以具体房型确认单为准。":"ម៉ោងចូល និងចេញ ប្រាក់កក់ គ្រែបន្ថែម និងគោលការណ៍កុមារ អាស្រ័យលើការបញ្ជាក់បន្ទប់។", "确认入住须知 →":"បញ្ជាក់ការណែនាំចូលស្នាក់ →",
+  "只展示已核实的真实入住评价；没有真实评价前不虚构、不代写。":"បង្ហាញតែមតិភ្ញៀវពិតដែលបានផ្ទៀងផ្ទាត់ ហើយមិនបង្កើតមតិក្លែងក្លាយទេ។", "咨询入住体验 →":"សាកសួរអំពីបទពិសោធន៍ស្នាក់នៅ →",
+  "房态确认后再付款；取消期限、不可退条件与退款时间会在付款前说明。":"បង់ប្រាក់បន្ទាប់ពីបញ្ជាក់បន្ទប់។ លក្ខខណ្ឌលុបចោល និងសងប្រាក់នឹងជូនដំណឹងមុនបង់។", "查看付款说明 →":"មើលការណែនាំបង់ប្រាក់ →", "接送包车":"ដឹកជញ្ជូន និងជួលរថយន្ត",
+  "填写真实企业资料。审核通过后，企业信息将在供应链平台公开展示。":"បំពេញព័ត៌មានសហគ្រាសពិត។ បន្ទាប់ពីអនុម័ត ព័ត៌មាននឹងបង្ហាញលើវេទិកាផ្គត់ផ្គង់។", "前台仅展示审核通过的供应商":"បង្ហាញតែអ្នកផ្គត់ផ្គង់ដែលបានអនុម័ត", "支持平台推荐标识":"គាំទ្រស្លាកណែនាំរបស់វេទិកា", "客户可直接 WhatsApp 联系":"អតិថិជនអាចទាក់ទងតាម WhatsApp", "资料可由后台暂停或驳回":"ព័ត៌មានអាចផ្អាក ឬបដិសេធដោយអ្នកគ្រប់គ្រង", "企业 Logo 图片网址（选填）":"តំណរូប Logo សហគ្រាស (ស្រេចចិត្ត)", "企业宣传语（选填）":"ពាក្យផ្សព្វផ្សាយសហគ្រាស (ស្រេចចិត្ត)", "企业/产品图片 *（4–10张）":"រូបសហគ្រាស/ផលិតផល * (4–10 សន្លឹក)", "请选择清晰的企业、产品、案例或办公环境照片；系统会自动压缩后上传。":"សូមជ្រើសរូបច្បាស់នៃសហគ្រាស ផលិតផល គម្រោង ឬការិយាល័យ។ ប្រព័ន្ធនឹងបង្រួម និងផ្ទុកឡើង។",
+  "在线订单与付款指南｜ZIEC HOTEL":"ការណែនាំកក់ និងបង់ប្រាក់តាមអនឡាញ｜ZIEC HOTEL", "先提交预订需求，由酒店确认房态、总价和官方收款信息后再付款。":"ដាក់សំណើកក់ជាមុន ហើយបង់ប្រាក់បន្ទាប់ពីសណ្ឋាគារបញ្ជាក់បន្ទប់ តម្លៃសរុប និងព័ត៌មានទទួលប្រាក់ផ្លូវការ។", "房型、日期和人数将在这里显示。":"ប្រភេទបន្ទប់ កាលបរិច្ឆេទ និងចំនួនភ្ញៀវនឹងបង្ហាញនៅទីនេះ។", "WhatsApp 核对订单":"ផ្ទៀងផ្ទាត់ការកក់តាម WhatsApp", "填写联系人，并核对入住日期、房型、房间数和入住人数。":"បំពេញអ្នកទំនាក់ទំនង ហើយពិនិត្យថ្ងៃស្នាក់ ប្រភេទបន្ទប់ ចំនួនបន្ទប់ និងភ្ញៀវ។", "前台确认房态、总价、取消政策，并发送订单编号。":"ផ្នែកទទួលភ្ញៀវបញ្ជាក់បន្ទប់ តម្លៃសរុប គោលការណ៍លុបចោល និងផ្ញើលេខកក់។", "付款前确认订单编号、金额、币种和收款方名称。":"មុនបង់ សូមបញ្ជាក់លេខកក់ ចំនួនប្រាក់ រូបិយប័ណ្ណ និងឈ្មោះអ្នកទទួល។", "发送付款截图，最终以酒店确认到账为准。":"ផ្ញើរូបថតការបង់ប្រាក់ ហើយរង់ចាំសណ្ឋាគារបញ្ជាក់ថាបានទទួល។", "提交到 WhatsApp 确认":"ផ្ញើទៅ WhatsApp ដើម្បីបញ្ជាក់",
+  "网站不直接收取房费。请先通过官方 WhatsApp 确认订单，再按酒店发送的官方收款信息付款。":"គេហទំព័រមិនទទួលថ្លៃបន្ទប់ដោយផ្ទាល់ទេ។ សូមបញ្ជាក់ការកក់តាម WhatsApp ផ្លូវការ ហើយបង់តាមព័ត៌មានដែលសណ្ឋាគារផ្ញើ។", "请先与酒店确认订单编号、金额和币种，再选择对应二维码付款。":"សូមបញ្ជាក់លេខកក់ ចំនួនប្រាក់ និងរូបិយប័ណ្ណ មុនជ្រើស QR សម្រាប់បង់។", "USD · 请核对美元金额":"USD · សូមពិនិត្យចំនួនដុល្លារ", "KHR · 请核对瑞尔金额":"KHR · សូមពិនិត្យចំនួនរៀល", "付款后请把付款截图发送给酒店客服，最终以酒店确认到账为准。":"បន្ទាប់ពីបង់ សូមផ្ញើរូបថតទៅបុគ្គលិក និងរង់ចាំការបញ្ជាក់ទទួលប្រាក់។", "是否支持线上刷卡或到店刷卡，以酒店前台确认结果为准。网站不收集或保存银行卡号、有效期及安全码。":"ការទូទាត់តាមកាតអាស្រ័យលើការបញ្ជាក់ពីសណ្ឋាគារ។ គេហទំព័រមិនប្រមូលលេខកាត កាលបរិច្ឆេទផុតកំណត់ ឬលេខសុវត្ថិភាពទេ។", "官方付款信息请以酒店确认结果为准":"ព័ត៌មានបង់ប្រាក់ផ្លូវការអាស្រ័យលើការបញ្ជាក់របស់សណ្ឋាគារ", "ZIEC AI客服":"ជំនួយការ AI ZIEC", "订单与付款咨询":"សាកសួរអំពីការកក់ និងបង់ប្រាក់", "您好，我可以说明订单流程和付款注意事项。涉及具体金额与二维码时，请与酒店人工核对。":"សួស្តី ខ្ញុំអាចពន្យល់ដំណើរការកក់ និងការបង់ប្រាក់។ សូមផ្ទៀងផ្ទាត់ចំនួនប្រាក់ និង QR ជាមួយបុគ្គលិកសណ្ឋាគារ។",
+  "真实双床房照片，适合同事、朋友及商务团队入住。":"រូបបន្ទប់គ្រែពីរពិត សម្រាប់មិត្តរួមការងារ មិត្តភក្តិ និងក្រុមអាជីវកម្ម។", "双床配置":"គ្រែពីរ", "空调与电视":"ម៉ាស៊ីនត្រជាក់ និងទូរទស្សន៍", "免费 Wi-Fi":"Wi‑Fi ឥតគិតថ្លៃ", "适合个人或团队入住":"សម្រាប់បុគ្គល ឬក្រុម", "真实 VIP 客房照片，空间宽敞，适合重要商务接待与品质住宿。":"រូបបន្ទប់ VIP ពិត ទូលាយ សម្រាប់ការទទួលភ្ញៀវអាជីវកម្ម និងការស្នាក់នៅគុណភាព។", "宽敞客房":"បន្ទប់ទូលាយ", "高品质床品":"សម្ភារៈគ្រែគុណភាពខ្ពស់", "商务接待优选":"ជម្រើសល្អសម្រាប់ការទទួលភ្ញៀវអាជីវកម្ម"
+});
+<<<<<<< HEAD
+<<<<<<< HEAD
+Object.assign(I18N_TEXT.kh, {
+  "公司简介":"ប្រវត្តិក្រុមហ៊ុន", "主营产品或服务":"ផលិតផល ឬសេវាសំខាន់", "资料正在完善，请联系企业或平台客服确认。":"ព័ត៌មានកំពុងរៀបចំ។ សូមទាក់ទងក្រុមហ៊ុន ឬបុគ្គលិកវេទិកាដើម្បីបញ្ជាក់។", "请咨询确认":"សូមសាកសួរដើម្បីបញ្ជាក់", "联系人":"អ្នកទំនាក់ទំនង", "电话":"ទូរស័ព្ទ", "地址":"អាសយដ្ឋាន", "待补充":"រង់ចាំបំពេញ", "WhatsApp咨询":"សាកសួរតាម WhatsApp", "分享推广":"ចែករំលែកផ្សព្វផ្សាយ", "生成海报":"បង្កើតផ្ទាំងផ្សព្វផ្សាយ"
+});
+Object.assign(I18N_TEXT.kh, {
+  "中鼎国际酒店 · 豪华大床房":"សណ្ឋាគារអន្តរជាតិ Zhongding · បន្ទប់គ្រែធំប្រណីត", "中鼎国际酒店 · 豪华双床房":"សណ្ឋាគារអន្តរជាតិ Zhongding · បន្ទប់គ្រែពីរប្រណីត", "中鼎国际酒店 · 家庭两房一厅":"សណ្ឋាគារអន្តរជាតិ Zhongding · ស៊ុយគ្រួសារពីរបន្ទប់គេង", "金边月租公寓 · 长住方案":"អាផាតមិនប្រចាំខែនៅភ្នំពេញ · ផែនការស្នាក់នៅយូរ", "企业协议住宿 · 团队接待":"ការស្នាក់នៅតាមកិច្ចព្រមព្រៀងសហគ្រាស · ការទទួលក្រុម", "推荐酒店":"សណ្ឋាគារណែនាំ", "家庭与多人入住":"សម្រាប់គ្រួសារ និងភ្ញៀវច្រើន", "长租公寓":"អាផាតមិនជួលយូរ", "企业住宿":"ការស្នាក់នៅសហគ្រាស", "US$ 35 / 晚":"US$ 35 / យប់", "US$ 65 / 晚":"US$ 65 / យប់", "US$ 70 / 晚":"US$ 70 / យប់", "US$ 260 / 月起":"ចាប់ពី US$ 260 / ខែ", "月结、长住与接待需求可核价":"សូមសាកសួរតម្លៃសម្រាប់ការទូទាត់ប្រចាំខែ ការស្នាក់នៅយូរ និងការទទួលក្រុម", "查看与预订 →":"មើល និងកក់ →"
+});
+Object.assign(I18N_TEXT.en, {
+  "中鼎国际酒店 · 豪华大床房":"Zhongding International Hotel · Deluxe King Room", "中鼎国际酒店 · 豪华双床房":"Zhongding International Hotel · Deluxe Twin Room", "中鼎国际酒店 · 家庭两房一厅":"Zhongding International Hotel · Two-Bedroom Family Suite", "金边月租公寓 · 长住方案":"Phnom Penh Monthly Apartment · Long-Stay Plan", "企业协议住宿 · 团队接待":"Corporate Contract Stay · Group Reception", "推荐酒店":"Recommended Hotel", "家庭与多人入住":"Family & Group Stay", "长租公寓":"Long-Stay Apartment", "企业住宿":"Corporate Stay", "US$ 35 / 晚":"US$ 35 / night", "US$ 65 / 晚":"US$ 65 / night", "US$ 70 / 晚":"US$ 70 / night", "US$ 260 / 月起":"From US$ 260 / month", "月结、长住与接待需求可核价":"Rates available for monthly settlement, long stays and group reception", "查看与预订 →":"View & Book →"
+});
+Object.assign(I18N_TEXT.kh, {
+  "预订保障":"ការធានាការកក់", "客房US$35/晚起":"បន្ទប់ចាប់ពី US$35/យប់", "提交需求无需付款":"ដាក់សំណើដោយមិនចាំបាច់បង់ប្រាក់", "预计10分钟内回复":"រំពឹងឆ្លើយក្នុង 10 នាទី", "已提供Google地图":"មានទីតាំង Google Maps"
+});
+Object.assign(I18N_TEXT.en, {
+  "预订保障":"Booking Assurance", "客房US$35/晚起":"Rooms from US$35/night", "提交需求无需付款":"No payment to submit a request", "预计10分钟内回复":"Response expected within 10 minutes", "已提供Google地图":"Google Maps available"
+});
+Object.assign(I18N_TEXT.kh, {
+  "补充其他需求（选填）":"បន្ថែមតម្រូវការផ្សេងទៀត (ស្រេចចិត្ត)", "填写后由中文客服确认实际房态与价格，正常情况下预计10分钟内回复；无需立即付款。":"បន្ទាប់ពីបំពេញ បុគ្គលិកនឹងបញ្ជាក់បន្ទប់ និងតម្លៃ។ ជាទូទៅនឹងឆ្លើយក្នុងរយៈពេល 10 នាទី ហើយមិនចាំបាច់បង់ប្រាក់ភ្លាមទេ។", "例如：9月1日起，预计3个月":"ឧទាហរណ៍៖ ចាប់ពីថ្ងៃទី 1 ខែកញ្ញា ប្រហែល 3 ខែ", "房型、接送、洗衣、停车、结算等":"ប្រភេទបន្ទប់ ដឹកជញ្ជូន បោកគក់ ចំណត និងការទូទាត់", "ZIEC HOTEL 首页":"ទំព័រដើម ZIEC HOTEL", "酒店推广":"ការផ្សព្វផ្សាយសណ្ឋាគារ", "月租公寓｜ZIEC HOTEL":"អាផាតមិនប្រចាំខែ｜ZIEC HOTEL", "ZIEC LIFE 核心服务":"សេវាសំខាន់ ZIEC LIFE", "平台广告":"ការផ្សព្វផ្សាយវេទិកា", "播放酒店宣传视频":"ចាក់វីដេអូផ្សព្វផ្សាយសណ្ឋាគារ", "例如：US$5,000–10,000":"ឧទាហរណ៍៖ US$5,000–10,000", "一句话介绍企业优势":"ពិពណ៌នាអត្ថប្រយោជន៍សហគ្រាសក្នុងមួយប្រយោគ", "请输入姓名":"សូមបញ្ចូលឈ្មោះ", "例如：需要接机、预计到店时间、是否长期入住":"ឧទាហរណ៍៖ ត្រូវការទទួលពីអាកាសយានដ្ឋាន ពេលមកដល់ និងការស្នាក់នៅយូរ", "请输入您的问题":"សូមបញ្ចូលសំណួររបស់អ្នក", "标准双床房｜ZIEC HOTEL":"បន្ទប់គ្រែពីរស្តង់ដារ｜ZIEC HOTEL", "供应链招商推广":"ការផ្សព្វផ្សាយវេទិកាផ្គត់ផ្គង់", "搜索企业、产品或服务":"ស្វែងរកសហគ្រាស ផលិតផល ឬសេវា", "精美三室一厅套房｜ZIEC HOTEL":"ស៊ុយបីបន្ទប់គេង និងបន្ទប់ទទួលភ្ញៀវ｜ZIEC HOTEL", "VIP房｜ZIEC HOTEL":"បន្ទប់ VIP｜ZIEC HOTEL"
+});
+Object.assign(I18N_TEXT.en, {
+  "补充其他需求（选填）":"Add Other Requirements (Optional)", "填写后由中文客服确认实际房态与价格，正常情况下预计10分钟内回复；无需立即付款。":"Submit your details and support will confirm availability and price, usually within 10 minutes. No immediate payment is required.", "例如：9月1日起，预计3个月":"Example: from September 1 for about 3 months", "房型、接送、洗衣、停车、结算等":"Room type, transfer, laundry, parking and settlement", "ZIEC HOTEL 首页":"ZIEC HOTEL Home", "酒店推广":"Hotel Promotion", "月租公寓｜ZIEC HOTEL":"Monthly Apartment｜ZIEC HOTEL", "ZIEC LIFE 核心服务":"ZIEC LIFE Core Services", "平台广告":"Platform Promotion", "播放酒店宣传视频":"Play Hotel Video", "例如：US$5,000–10,000":"Example: US$5,000–10,000", "一句话介绍企业优势":"Describe the company advantage in one sentence", "请输入姓名":"Enter your name", "例如：需要接机、预计到店时间、是否长期入住":"Example: airport pickup, arrival time or long stay", "请输入您的问题":"Enter your question", "标准双床房｜ZIEC HOTEL":"Standard Twin Room｜ZIEC HOTEL", "供应链招商推广":"Supply Chain Promotion", "搜索企业、产品或服务":"Search companies, products or services", "精美三室一厅套房｜ZIEC HOTEL":"Three-Bedroom Suite｜ZIEC HOTEL", "VIP房｜ZIEC HOTEL":"VIP Room｜ZIEC HOTEL"
+});
+Object.assign(I18N_TEXT.kh, {
+  "退房日期必须晚于入住日期。":"ថ្ងៃចេញត្រូវតែក្រោយថ្ងៃចូល។", "正在提交入住需求……":"កំពុងដាក់សំណើស្នាក់នៅ…", "入住需求已提交，订单编号：":"បានដាក់សំណើស្នាក់នៅ។ លេខកក់៖ ", "客服确认房态与价格后会联系您。":"បុគ្គលិកនឹងទាក់ទងអ្នកបន្ទាប់ពីបញ្ជាក់បន្ទប់ និងតម្លៃ។", "您填写的内容仍保留，请把本提示截图发给客服。":"ព័ត៌មានដែលអ្នកបានបំពេញនៅតែរក្សាទុក។ សូមថតអេក្រង់សារនេះផ្ញើទៅបុគ្គលិក។", "提交失败":"ការដាក់ស្នើបរាជ័យ", "操作失败":"ប្រតិបត្តិការបរាជ័យ"
+});
+Object.assign(I18N_TEXT.en, {
+  "退房日期必须晚于入住日期。":"Check-out must be later than check-in.", "正在提交入住需求……":"Submitting your stay request…", "入住需求已提交，订单编号：":"Stay request submitted. Order number: ", "客服确认房态与价格后会联系您。":"Support will contact you after confirming availability and price.", "您填写的内容仍保留，请把本提示截图发给客服。":"Your entries are still saved. Please send a screenshot of this message to support.", "提交失败":"Submission failed", "操作失败":"Operation failed"
+});
+Object.assign(I18N_TEXT.kh, {
+  "快速咨询":"ការសាកសួររហ័ស", "查询房态":"ពិនិត្យបន្ទប់ទំនេរ", "包含服务、最短租期与押金：请咨询客服确认":"សេវារួម រយៈពេលជួលអប្បបរមា និងប្រាក់កក់៖ សូមបញ្ជាក់ជាមួយបុគ្គលិក", "水电、网络、停车与清洁费用：请咨询客服确认":"ថ្លៃទឹក ភ្លើង អ៊ីនធឺណិត ចំណត និងសម្អាត៖ សូមបញ្ជាក់ជាមួយបុគ្គលិក", "发票与企业长租优惠：请咨询客服确认":"វិក្កយបត្រ និងតម្លៃពិសេសសម្រាប់សហគ្រាសជួលយូរ៖ សូមបញ្ជាក់ជាមួយបុគ្គលិក", "链接已复制":"បានចម្លងតំណ", "分享未完成":"ការចែករំលែកមិនបានបញ្ចប់", "复制失败，请手动复制":"ចម្លងបរាជ័យ សូមចម្លងដោយដៃ", "共":"សរុប ", "家已审核供应商":" អ្នកផ្គត់ផ្គង់បានអនុម័ត", "供应链入口":"ច្រកវេទិកាផ្គត់ផ្គង់", "建筑材料与工程物资":"សម្ភារៈសំណង់ និងវិស្វកម្ម", "采购、报价、交付对接":"ការទិញ សម្រង់តម្លៃ និងការប្រគល់", "家具设备与酒店用品":"គ្រឿងសង្ហារឹម ឧបករណ៍ និងសម្ភារៈសណ្ឋាគារ", "房间、办公与餐饮配套":"សម្ភារៈបន្ទប់ ការិយាល័យ និងអាហារ", "维修安装与本地协助":"ជួសជុល ដំឡើង និងជំនួយក្នុងស្រុក", "长期合作供应商招募":"ស្វែងរកអ្នកផ្គត់ផ្គង់សហការរយៈពេលវែង", "物流运输与资源对接":"ដឹកជញ្ជូន និងភ្ជាប់ធនធាន", "中柬、本地与项目协同":"សហការចិន-កម្ពុជា ក្នុងស្រុក និងគម្រោង", "供应链服务入口":"ច្រកសេវាផ្គត់ផ្គង់", "供应商":"អ្នកផ្គត់ផ្គង់", "柬埔寨本地资源对接":"ការភ្ជាប់ធនធានក្នុងកម្ពុជា", "查看供应商 →":"មើលអ្នកផ្គត់ផ្គង់ →", "暂无符合条件的供应商。":"មិនមានអ្នកផ្គត់ផ្គង់ដែលត្រូវនឹងលក្ខខណ្ឌទេ។"
+});
+Object.assign(I18N_TEXT.en, {
+  "快速咨询":"Quick Contact", "查询房态":"Check Availability", "包含服务、最短租期与押金：请咨询客服确认":"Included services, minimum term and deposit: please confirm with support", "水电、网络、停车与清洁费用：请咨询客服确认":"Utilities, internet, parking and cleaning: please confirm with support", "发票与企业长租优惠：请咨询客服确认":"Invoice and corporate long-stay rates: please confirm with support", "链接已复制":"Link copied", "分享未完成":"Sharing was not completed", "复制失败，请手动复制":"Copy failed; please copy manually", "共":"Total ", "家已审核供应商":" approved suppliers", "供应链入口":"Supply Chain Entry", "建筑材料与工程物资":"Construction and Engineering Materials", "采购、报价、交付对接":"Procurement, quotation and delivery coordination", "家具设备与酒店用品":"Furniture, Equipment and Hotel Supplies", "房间、办公与餐饮配套":"Room, office and catering supplies", "维修安装与本地协助":"Repair, installation and local support", "长期合作供应商招募":"Long-term supplier recruitment", "物流运输与资源对接":"Logistics and resource matching", "中柬、本地与项目协同":"China-Cambodia, local and project coordination", "供应链服务入口":"Supply Chain Service Entry", "供应商":"Supplier", "柬埔寨本地资源对接":"Cambodia local resource matching", "查看供应商 →":"View Supplier →", "暂无符合条件的供应商。":"No matching suppliers found."
+});
+=======
+>>>>>>> 38be6aefdfe80cd62fa910635205d78eb5e5da11
+=======
+>>>>>>> 38be6aefdfe80cd62fa910635205d78eb5e5da11
+
 const I18N_PAGE_META = {
   en: {
     "/": {
@@ -700,10 +796,17 @@ function normalizePageKey() {
 }
 function translateTextValue(text, lang) {
   if (lang === "zh") return text;
-  if (lang === "kh") {
-    return I18N_TEXT.kh?.[text.trim()] || text;
-  }
-  return I18N_TEXT[lang]?.[text.trim()] || text;
+  const value = text.trim();
+  const dictionary = lang === "kh" ? I18N_TEXT.kh : I18N_TEXT[lang];
+  if (dictionary?.[value]) return dictionary[value];
+  let translated = value;
+  Object.entries(dictionary || {})
+    .filter(([source]) => source.length > 1 && translated.includes(source))
+    .sort(([a], [b]) => b.length - a.length)
+    .forEach(([source, target]) => {
+      translated = translated.split(source).join(target);
+    });
+  return translated;
 }
 function translateElementTree(lang) {
   const walker = document.createTreeWalker(
@@ -867,6 +970,7 @@ if (normalizePageKey() === "/monthly") {
   ["包含服务、最短租期与押金：请咨询客服确认", "水电、网络、停车与清洁费用：请咨询客服确认", "发票与企业长租优惠：请咨询客服确认"].forEach((text) => { const li = document.createElement("li"); li.textContent = text; list?.appendChild(li); });
   const first = document.querySelector(".info-panel .share-actions .btn-primary"); if (first) { first.href = "./hotels.html#booking"; first.textContent = "提交入住需求"; }
 }
+refreshCurrentLanguage();
 const roomDetailPages = new Set(["/standard", "/vip", "/three-bedroom-suite", "/monthly"]);
 
 document.querySelectorAll("[data-room-pick]").forEach((link) => {
@@ -902,7 +1006,7 @@ async function initPublicSiteSettings() {
 initPublicSiteSettings();
 function showToast(msg) {
   if (!toast) return;
-  toast.textContent = msg;
+  toast.textContent = translateTextValue(msg, getLanguage());
   toast.classList.add("show");
   setTimeout(() => toast.classList.remove("show"), 1800);
 }
@@ -1108,6 +1212,7 @@ document.addEventListener("click", async (event) => {
   alert(`${button.dataset.contactCopy}联系资料已复制，请打开对应应用继续咨询。`);
 });
 enhanceConsultationAreas();
+refreshCurrentLanguage();
 async function applyConsultationSettings() {
   try {
     const response = await fetch("/api/site-settings"), payload = await response.json(), s = payload.data || {};
@@ -1119,12 +1224,30 @@ async function applyConsultationSettings() {
 }
 applyConsultationSettings();
 
-// V6.9: all pages show a clear release marker without changing the existing layout.
+<<<<<<< HEAD
+<<<<<<< HEAD
+// V7.2: all pages show a clear release marker without changing the existing layout.
 document.querySelectorAll(".footer-wrap").forEach((footer) => {
-  if (!footer.textContent.includes("ZIEC HOTEL V7.0.1")) {
+  if (!footer.textContent.includes("ZIEC HOTEL V7.2")) {
     const version = document.createElement("div");
     version.className = "site-version";
-    version.textContent = "ZIEC HOTEL V7.0.1";
+    version.textContent = "ZIEC HOTEL V7.2";
+=======
+// V7.1: all pages show a clear release marker without changing the existing layout.
+document.querySelectorAll(".footer-wrap").forEach((footer) => {
+  if (!footer.textContent.includes("ZIEC HOTEL V7.1")) {
+    const version = document.createElement("div");
+    version.className = "site-version";
+    version.textContent = "ZIEC HOTEL V7.1";
+>>>>>>> 38be6aefdfe80cd62fa910635205d78eb5e5da11
+=======
+// V7.1: all pages show a clear release marker without changing the existing layout.
+document.querySelectorAll(".footer-wrap").forEach((footer) => {
+  if (!footer.textContent.includes("ZIEC HOTEL V7.1")) {
+    const version = document.createElement("div");
+    version.className = "site-version";
+    version.textContent = "ZIEC HOTEL V7.1";
+>>>>>>> 38be6aefdfe80cd62fa910635205d78eb5e5da11
     footer.appendChild(version);
   }
 });
@@ -1137,9 +1260,9 @@ function renderSuppliers(list) {
         const images = Array.isArray(s.image_urls) ? s.image_urls.filter(Boolean) : [];
         const rawSupplier = JSON.stringify(JSON.stringify(s));
         const media = images.length
-          ? `<button class="supplier-cover" type="button" onclick='openSupplierGallery(${rawSupplier},0)' aria-label="查看${esc(s.company_name)}全部图片"><img src="${esc(images[0])}" alt="${esc(s.company_name)} 推荐图片" loading="lazy"><span>共 ${images.length} 张 · 查看全部</span></button>`
+          ? `<button class="supplier-cover" type="button" onclick='openSupplierGallery(${rawSupplier},0)' aria-label="查看${esc(s.company_name)}详情"><img src="${esc(images[0])}" alt="${esc(s.company_name)} 主图" loading="lazy"></button>`
           : `<div class="supplier-brand">${s.logo_url ? `<img src="${esc(s.logo_url)}" alt="${esc(s.company_name)} Logo" onerror="this.remove()">` : `<span>${initials}</span>`}</div>`;
-        return `<article class="card supplier-card">${media}${s.featured ? '<div class="card-label supplier-featured">推荐供应商</div>' : ""}<div class="card-body"><div class="card-label">${esc(s.category || "企业服务")}</div><h3 class="supplier-company-name">${esc(s.company_name)}</h3>${s.slogan ? `<p class="supplier-slogan">${esc(s.slogan)}</p>` : ""}<dl class="supplier-contact"><div><dt>联系人</dt><dd>${esc(s.contact_name || "平台客服")}</dd></div><div><dt>电话</dt><dd>${s.phone || s.whatsapp ? `<a href="tel:${esc(s.phone || s.whatsapp)}">${esc(s.phone || s.whatsapp)}</a>` : "待补充"}</dd></div><div><dt>地址</dt><dd>${esc(s.address || s.city || "柬埔寨")}</dd></div></dl><p class="muted supplier-products">${esc(s.products || s.description || "")}</p><div class="supplier-consult-title">选择咨询方式</div><div class="supplier-consult-actions"><button class="consult-channel consult-wechat" onclick='consultSupplier("wechat",${rawSupplier})' aria-label="微信咨询"><span class="consult-icon">微</span><span>微信</span></button><button class="consult-channel consult-telegram" onclick='consultSupplier("telegram",${rawSupplier})' aria-label="Telegram咨询"><span class="consult-icon">➤</span><span>Telegram</span></button><button class="consult-channel consult-messenger" onclick='consultSupplier("messenger",${rawSupplier})' aria-label="Messenger咨询"><span class="consult-icon">⚡</span><span>Messenger</span></button><button class="consult-channel consult-whatsapp" onclick='consultSupplier("whatsapp",${rawSupplier})' aria-label="WhatsApp咨询"><span class="consult-icon">WA</span><span>WhatsApp</span></button></div><div class="supplier-actions supplier-secondary-actions"><button class="share-btn" onclick='openSupplierShare(${rawSupplier})'>分享推广</button><button class="share-btn" onclick='createSupplierPoster(${rawSupplier})'>生成海报</button></div></div></article>`;
+        return `<article class="card supplier-card supplier-card-compact">${media}${s.featured ? '<div class="card-label supplier-featured">推荐供应商</div>' : ""}<div class="card-body"><h3 class="supplier-company-name">${esc(s.company_name)}</h3><button class="supplier-detail-button" type="button" onclick='openSupplierGallery(${rawSupplier},0)'>查看详情</button></div></article>`;
       })
       .join("") || '<div class="muted">暂无符合条件的供应商。</div>';
   requestAnimationFrame(fitSupplierNames);
@@ -1622,14 +1745,19 @@ function ensureSupplierModal() {
 window.openSupplierGallery = (raw, start = 0) => {
   const s = JSON.parse(raw);
   const images = Array.isArray(s.image_urls) ? s.image_urls.filter(Boolean) : [];
-  if (!images.length) return;
+  if (!images.length && !s.logo_url) return;
+  if (!images.length && s.logo_url) images.push(s.logo_url);
   let active = Math.max(0, Math.min(start, images.length - 1));
   const modal = ensureSupplierModal();
   const draw = () => {
-    modal.querySelector("#supplierModalContent").innerHTML = `<div class="supplier-lightbox"><div class="supplier-lightbox-stage"><img src="${esc(images[active])}" alt="${esc(s.company_name)} 图片 ${active + 1}">${images.length > 1 ? '<button type="button" class="gallery-prev" aria-label="上一张">‹</button><button type="button" class="gallery-next" aria-label="下一张">›</button>' : ""}</div><div class="supplier-lightbox-caption"><b>${esc(s.company_name)}</b><span>${active + 1} / ${images.length}</span></div><div class="supplier-thumbs">${images.map((url, i) => `<button type="button" class="${i === active ? "active" : ""}" data-gallery-index="${i}"><img src="${esc(url)}" alt="缩略图 ${i + 1}"></button>`).join("")}</div></div>`;
+    modal.querySelector("#supplierModalContent").innerHTML = `<div class="supplier-detail-panel"><div class="supplier-lightbox"><div class="supplier-lightbox-stage"><img src="${esc(images[active])}" alt="${esc(s.company_name)} 图片 ${active + 1}">${images.length > 1 ? '<button type="button" class="gallery-prev" aria-label="上一张">‹</button><button type="button" class="gallery-next" aria-label="下一张">›</button>' : ""}</div><div class="supplier-lightbox-caption"><b>${esc(s.company_name)}</b><span>${active + 1} / ${images.length}</span></div><div class="supplier-thumbs">${images.map((url, i) => `<button type="button" class="${i === active ? "active" : ""}" data-gallery-index="${i}"><img src="${esc(url)}" alt="缩略图 ${i + 1}"></button>`).join("")}</div></div><div class="supplier-detail-copy"><span class="eyebrow">${esc(s.category || "企业服务")}</span><h2>${esc(s.company_name)}</h2>${s.slogan ? `<p class="supplier-detail-slogan">${esc(s.slogan)}</p>` : ""}<div class="supplier-detail-info"><div><b>公司简介</b><p>${esc(s.description || s.products || "资料正在完善，请联系企业或平台客服确认。")}</p></div><div><b>主营产品或服务</b><p>${esc(s.products || "请咨询确认")}</p></div><dl><div><dt>联系人</dt><dd>${esc(s.contact_name || "平台客服")}</dd></div><div><dt>电话</dt><dd>${s.phone || s.whatsapp ? `<a href="tel:${esc(s.phone || s.whatsapp)}">${esc(s.phone || s.whatsapp)}</a>` : "待补充"}</dd></div><div><dt>地址</dt><dd>${esc(s.address || s.city || "柬埔寨")}</dd></div></dl></div><div class="supplier-detail-actions"><button class="btn btn-primary" type="button" data-detail-whatsapp>WhatsApp咨询</button><button class="btn btn-dark" type="button" data-detail-share>分享推广</button><button class="btn btn-outline" type="button" data-detail-poster>生成海报</button></div></div></div>`;
     modal.querySelector(".gallery-prev")?.addEventListener("click", () => { active = (active - 1 + images.length) % images.length; draw(); });
     modal.querySelector(".gallery-next")?.addEventListener("click", () => { active = (active + 1) % images.length; draw(); });
     modal.querySelectorAll("[data-gallery-index]").forEach((button) => button.addEventListener("click", () => { active = Number(button.dataset.galleryIndex); draw(); }));
+    modal.querySelector("[data-detail-whatsapp]")?.addEventListener("click", () => consultSupplier("whatsapp", s));
+    modal.querySelector("[data-detail-share]")?.addEventListener("click", () => openSupplierShare(JSON.stringify(s)));
+    modal.querySelector("[data-detail-poster]")?.addEventListener("click", () => createSupplierPoster(JSON.stringify(s)));
+    refreshCurrentLanguage();
   };
   draw();
   modal.classList.add("open");
@@ -1646,6 +1774,7 @@ window.openSupplierShare = (raw) => {
     await navigator.clipboard.writeText(`${text}\n${url}`);
     showToast("企业资料及链接已复制");
   });
+  refreshCurrentLanguage();
   modal.classList.add("open");
 };
 
