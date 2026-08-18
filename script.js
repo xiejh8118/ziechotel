@@ -1220,10 +1220,10 @@ applyConsultationSettings();
 
 // V7.2: all pages show a clear release marker without changing the existing layout.
 document.querySelectorAll(".footer-wrap").forEach((footer) => {
-  if (!footer.textContent.includes("ZIEC HOTEL V7.2")) {
+  if (!footer.textContent.includes("ZIEC HOTEL V7.2.1")) {
     const version = document.createElement("div");
     version.className = "site-version";
-    version.textContent = "ZIEC HOTEL V7.2";
+    version.textContent = "ZIEC HOTEL V7.2.1";
     footer.appendChild(version);
   }
 });
