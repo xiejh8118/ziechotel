@@ -713,6 +713,12 @@ Object.assign(I18N_TEXT.kh, {
 Object.assign(I18N_TEXT.en, {
   "快速咨询":"Quick Contact", "查询房态":"Check Availability", "包含服务、最短租期与押金：请咨询客服确认":"Included services, minimum term and deposit: please confirm with support", "水电、网络、停车与清洁费用：请咨询客服确认":"Utilities, internet, parking and cleaning: please confirm with support", "发票与企业长租优惠：请咨询客服确认":"Invoice and corporate long-stay rates: please confirm with support", "链接已复制":"Link copied", "分享未完成":"Sharing was not completed", "复制失败，请手动复制":"Copy failed; please copy manually", "共":"Total ", "家已审核供应商":" approved suppliers", "供应链入口":"Supply Chain Entry", "建筑材料与工程物资":"Construction and Engineering Materials", "采购、报价、交付对接":"Procurement, quotation and delivery coordination", "家具设备与酒店用品":"Furniture, Equipment and Hotel Supplies", "房间、办公与餐饮配套":"Room, office and catering supplies", "维修安装与本地协助":"Repair, installation and local support", "长期合作供应商招募":"Long-term supplier recruitment", "物流运输与资源对接":"Logistics and resource matching", "中柬、本地与项目协同":"China-Cambodia, local and project coordination", "供应链服务入口":"Supply Chain Service Entry", "供应商":"Supplier", "柬埔寨本地资源对接":"Cambodia local resource matching", "查看供应商 →":"View Supplier →", "暂无符合条件的供应商。":"No matching suppliers found."
 });
+Object.assign(I18N_TEXT.kh, {
+  "柬埔寨供应链平台":"វេទិកាផ្គត់ផ្គង់នៅកម្ពុជា", "团队住宿、长期接待、月租公寓及企业协议方案。":"ការស្នាក់នៅជាក្រុម ការទទួលរយៈពេលវែង អាផាតមិនប្រចាំខែ និងផែនការកិច្ចព្រមព្រៀងសហគ្រាស។", "查找供应商、发布采购需求及申请企业入驻。":"ស្វែងរកអ្នកផ្គត់ផ្គង់ ដាក់សំណើទិញ និងស្នើសុំចូលរួមជាសហគ្រាស។", "进入供应链平台 →":"ចូលវេទិកាផ្គត់ផ្គង់ →"
+});
+Object.assign(I18N_TEXT.en, {
+  "柬埔寨供应链平台":"Cambodia Supply Chain Platform", "团队住宿、长期接待、月租公寓及企业协议方案。":"Group stays, long-term reception, monthly apartments and corporate agreement plans.", "查找供应商、发布采购需求及申请企业入驻。":"Find suppliers, submit procurement needs and apply to join the platform.", "进入供应链平台 →":"Enter Supply Chain Platform →"
+});
 
 const I18N_PAGE_META = {
   en: {
@@ -1220,10 +1226,10 @@ applyConsultationSettings();
 
 // V7.2: all pages show a clear release marker without changing the existing layout.
 document.querySelectorAll(".footer-wrap").forEach((footer) => {
-  if (!footer.textContent.includes("ZIEC HOTEL V7.2.1")) {
+  if (!footer.textContent.includes("ZIEC HOTEL V7.2.2")) {
     const version = document.createElement("div");
     version.className = "site-version";
-    version.textContent = "ZIEC HOTEL V7.2.1";
+    version.textContent = "ZIEC HOTEL V7.2.2";
     footer.appendChild(version);
   }
 });
