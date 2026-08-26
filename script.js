@@ -101,7 +101,7 @@ const I18N_TEXT = {
     "柬埔寨供应链服务": "Cambodia Supply Chain Services",
     "查找供应商、发布采购询价 →": "Find suppliers and post RFQs →",
     "酒店房型推荐": "Recommended Rooms",
-    "精选酒店房型，点击查看详情并预订。":
+    "精选酒店房型，点击查看详情并咨询实际房态。":
       "Selected room types with detail and booking entry points.",
     "正在加载酒店推荐……": "Loading hotel recommendations...",
     "供应商推荐": "Recommended Suppliers",
@@ -518,7 +518,7 @@ Object.assign(I18N_TEXT.kh, {
   "30秒了解 ZIEC HOTEL": "ស្គាល់ ZIEC HOTEL ក្នុងរយៈពេល 30 វិនាទី",
   "酒店实景、月租公寓、企业团房与本地服务。": "ទិដ្ឋភាពសណ្ឋាគារពិត អាផាតមិនប្រចាំខែ បន្ទប់ជាក្រុម និងសេវាកម្មក្នុងស្រុក។",
   "关注视频号": "តាមដានឆានែលវីដេអូ", "访问 YouTube": "ចូលមើល YouTube",
-  "精选酒店房型，点击查看详情并预订。": "បន្ទប់សណ្ឋាគារដែលបានជ្រើសរើស។ ចុចមើលព័ត៌មាន និងកក់។",
+  "精选酒店房型，点击查看详情并咨询实际房态。": "បន្ទប់សណ្ឋាគារដែលបានជ្រើសរើស។ ចុចមើលព័ត៌មាន និងកក់។",
   "标准双床房": "បន្ទប់គ្រែពីរស្តង់ដារ", "VIP房": "បន្ទប់ VIP", "精美三室一厅套房": "ស៊ុយបីបន្ទប់គេង និងបន្ទប់ទទួលភ្ញៀវ",
   "品质接待": "ការទទួលភ្ញៀវគុណភាព", "家庭与多人入住": "សម្រាប់គ្រួសារ និងភ្ញៀវច្រើន", "长租公寓": "អាផាតមិនជួលរយៈពេលវែង",
   "查看与预订 →": "មើល និងកក់ →", "查看详情 →": "មើលព័ត៌មានលម្អិត →", "进入供应链平台 →": "ចូលវេទិកាផ្គត់ផ្គង់ →",
@@ -1226,10 +1226,10 @@ applyConsultationSettings();
 
 // V7.2: all pages show a clear release marker without changing the existing layout.
 document.querySelectorAll(".footer-wrap").forEach((footer) => {
-  if (!footer.textContent.includes("ZIEC HOTEL V7.2.2")) {
+  if (!footer.textContent.includes("ZIEC HOTEL V7.3")) {
     const version = document.createElement("div");
     version.className = "site-version";
-    version.textContent = "ZIEC HOTEL V7.2.2";
+    version.textContent = "ZIEC HOTEL V7.3";
     footer.appendChild(version);
   }
 });
@@ -1538,7 +1538,7 @@ window.bookingView = (id) => {
 };
 function printableBooking(x) {
   const row=(a,b)=>`<tr><th>${a}</th><td>${esc(b || "—")}</td></tr>`;
-  return `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>${esc(x.order_no)} ZIEC HOTEL订单</title><style>@page{size:A4;margin:14mm}body{font-family:Arial,"Microsoft YaHei",sans-serif;color:#172b3d;margin:0}.head{display:flex;align-items:center;border-bottom:3px solid #b8862b;padding-bottom:14px;margin-bottom:18px}.head img{width:72px;height:72px;object-fit:contain;margin-right:16px}h1{font-size:22px;margin:0 0 5px}.meta{color:#617182;font-size:12px}table{width:100%;border-collapse:collapse;font-size:14px}th,td{border:1px solid #d9e0e7;padding:9px;text-align:left;vertical-align:top}th{width:26%;background:#f4f7f9}.foot{margin-top:20px;font-size:12px;color:#617182}.actions{margin:18px 0;text-align:center}.actions button{padding:10px 18px}@media print{.actions{display:none}}</style></head><body><div class="head"><img src="${new URL('./assets/logo.png',location.href).href}"><div><h1>ZIEC HOTEL 客户订单</h1><div class="meta">www.ziechotel.top · 打印时间：${new Date().toLocaleString("zh-CN")}</div></div></div><table>${row("订单编号",x.order_no)}${row("客户姓名",x.customer_name)}${row("联系电话",x.contact)}${row("微信 / Telegram",[x.wechat,x.telegram].filter(Boolean).join(" / "))}${row("Messenger / WhatsApp",[x.messenger,x.whatsapp].filter(Boolean).join(" / "))}${row("国家/地区",x.country_region)}${row("入住日期",x.checkin)}${row("退房日期",x.checkout)}${row("房型",x.room_type)}${row("房间数量",x.rooms)}${row("入住人数",x.guests)}${row("接送需求",x.transfer_need)}${row("入住需求",x.stay_purpose)}${row("咨询来源",x.source)}${row("跟进状态",x.status)}${row("客户备注",x.note)}${row("跟进备注",x.follow_up_note)}</table><div class="foot">ZIEC HOTEL · 本订单由后台生成，房态与最终价格以客服确认为准。</div><div class="actions"><button onclick="window.print()">打印或保存为 PDF</button></div><script>setTimeout(()=>window.print(),500)<\/script></body></html>`;
+  return `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>${esc(x.order_no)} ZIEC HOTEL订单</title><style>@page{size:A4;margin:14mm}body{font-family:Arial,"Microsoft YaHei",sans-serif;color:#172b3d;margin:0}.head{display:flex;align-items:center;border-bottom:3px solid #b8862b;padding-bottom:14px;margin-bottom:18px}.head img{width:72px;height:72px;object-fit:contain;margin-right:16px}h1{font-size:22px;margin:0 0 5px}.meta{color:#617182;font-size:12px}table{width:100%;border-collapse:collapse;font-size:14px}th,td{border:1px solid #d9e0e7;padding:9px;text-align:left;vertical-align:top}th{width:26%;background:#f4f7f9}.foot{margin-top:20px;font-size:12px;color:#617182}.actions{margin:18px 0;text-align:center}.actions button{padding:10px 18px}@media print{.actions{display:none}}</style></head><body><div class="head"><img src="${new URL('./assets/logo.png',location.href).href}"><div><h1>ZIEC HOTEL 客户订单</h1><div class="meta">www.ziechotel.com · 打印时间：${new Date().toLocaleString("zh-CN")}</div></div></div><table>${row("订单编号",x.order_no)}${row("客户姓名",x.customer_name)}${row("联系电话",x.contact)}${row("微信 / Telegram",[x.wechat,x.telegram].filter(Boolean).join(" / "))}${row("Messenger / WhatsApp",[x.messenger,x.whatsapp].filter(Boolean).join(" / "))}${row("国家/地区",x.country_region)}${row("入住日期",x.checkin)}${row("退房日期",x.checkout)}${row("房型",x.room_type)}${row("房间数量",x.rooms)}${row("入住人数",x.guests)}${row("接送需求",x.transfer_need)}${row("入住需求",x.stay_purpose)}${row("咨询来源",x.source)}${row("跟进状态",x.status)}${row("客户备注",x.note)}${row("跟进备注",x.follow_up_note)}</table><div class="foot">ZIEC HOTEL · 本订单由后台生成，房态与最终价格以客服确认为准。</div><div class="actions"><button onclick="window.print()">打印或保存为 PDF</button></div><script>setTimeout(()=>window.print(),500)<\/script></body></html>`;
 }
 window.bookingPrint = async (id) => { const x=adminRows.find(r=>String(r.id)===String(id));if(!x)return;const w=window.open("","_blank");if(!w){showToast("浏览器阻止了打印窗口，请允许弹出窗口");return;}w.document.write(printableBooking(x));w.document.close();try{await jsonFetch(`/api/admin-data?type=bookings&id=${encodeURIComponent(id)}`,{method:"PATCH",body:JSON.stringify({mark_printed:true,print_count:(Number(x.print_count)||0)+1})});x.printed_at=new Date().toISOString();x.print_count=(Number(x.print_count)||0)+1;}catch(e){showToast("订单可打印，但打印标记需先执行V6.8数据库升级SQL");}};
 function xmlCell(v){return `<Cell><Data ss:Type="String">${String(v??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}</Data></Cell>`}
@@ -1862,7 +1862,7 @@ window.createSupplierPoster = async (raw) => {
   } catch (_) {}
   c.fillStyle = "#caa45e";
   c.font = "bold 30px Arial";
-  c.fillText("www.ziechotel.top", 80, 1265);
+  c.fillText("www.ziechotel.com", 80, 1265);
   c.fillStyle = "#fff";
   c.font = "24px Arial";
   c.fillText("扫码查看企业资料 · 中鼎供应链平台", 80, 1310);

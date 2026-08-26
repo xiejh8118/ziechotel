@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin
 Disallow: /api/
 
-Sitemap: https://www.ziechotel.top/sitemap.xml
+Sitemap: https://www.ziechotel.com/sitemap.xml

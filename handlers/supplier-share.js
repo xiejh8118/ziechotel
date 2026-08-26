@@ -8,8 +8,8 @@ module.exports = async (req, res) => {
   if (!data) return res.status(404).send("Supplier not found");
   const title = `${data.company_name}｜ZIEC HOTEL供应链平台`;
   const description = text(data.products || data.description || `${data.city || "柬埔寨"}优质供应商`, 180);
-  const image = Array.isArray(data.image_urls) && data.image_urls.find((url) => /^https:\/\//i.test(url)) || "https://www.ziechotel.top/assets/ziec-cover-v66.png";
-  const target = `https://www.ziechotel.top/suppliers?supplier=${encodeURIComponent(id)}`;
+  const image = Array.isArray(data.image_urls) && data.image_urls.find((url) => /^https:\/\//i.test(url)) || "https://www.ziechotel.com/assets/ziec-cover-v66.png";
+  const target = `https://www.ziechotel.com/suppliers?supplier=${encodeURIComponent(id)}`;
   const esc = (value) => String(value || "").replace(/[&<>\"]/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
   res.setHeader("Content-Type", "text/html; charset=utf-8");
   res.setHeader("Cache-Control", "public, s-maxage=300");
