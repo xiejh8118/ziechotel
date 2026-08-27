@@ -615,8 +615,8 @@ Object.assign(I18N_TEXT.kh, {
   "STAY · 住": "STAY · ស្នាក់", "MOVE · 行": "MOVE · ធ្វើដំណើរ", "BUSINESS · 商": "BUSINESS · អាជីវកម្ម", "SUPPLY · 供": "SUPPLY · ផ្គត់ផ្គង់",
   "行｜接送包车与本地协助": "ធ្វើដំណើរ｜ដឹកជញ្ជូន ជួលរថយន្ត និងជំនួយក្នុងស្រុក",
   "接送、包车、司机与本地协助由客服先确认需求、价格与实际可用情况，适合游客、商务客和企业团队。": "ការដឹកជញ្ជូន ជួលរថយន្ត អ្នកបើកបរ និងជំនួយក្នុងស្រុក នឹងបញ្ជាក់តម្រូវការ តម្លៃ និងភាពអាចប្រើបានជាមុន សម្រាប់ភ្ញៀវទេសចរ អ្នកជំនួញ និងក្រុមសហគ្រាស។",
-  "US$35 / 晚": "US$35 / យប់", "US$60 / 晚": "US$60 / យប់", "US$70 / 晚": "US$70 / យប់", "US$260 / 月起": "ចាប់ពី US$260 / ខែ",
-  "精美三室一厅套房｜US$60/晚 | ZIEC HOTEL": "ស៊ុយបីបន្ទប់គេង និងបន្ទប់ទទួលភ្ញៀវ｜US$60/យប់ | ZIEC HOTEL",
+  "US$35 / 晚": "US$35 / យប់", "US$45 / 晚": "US$45 / យប់", "US$65 / 晚": "US$65 / យប់", "US$80 / 晚": "US$80 / យប់", "US$260 / 月起": "ចាប់ពី US$260 / ខែ",
+  "精美三室一厅套房｜US$80/晚 | ZIEC HOTEL": "ស៊ុយបីបន្ទប់គេង និងបន្ទប់ទទួលភ្ញៀវ｜US$80/យប់ | ZIEC HOTEL",
   "真实套房照片，三间卧室与独立客厅，适合家庭、朋友多人同行及企业接待。": "រូបស៊ុយពិត មានបន្ទប់គេងបី និងបន្ទប់ទទួលភ្ញៀវដាច់ដោយឡែក សម្រាប់គ្រួសារ មិត្តភក្តិ និងសហគ្រាស។",
   "三间独立卧室": "បន្ទប់គេងដាច់ដោយឡែកបី", "宽敞独立客厅": "បន្ទប់ទទួលភ្ញៀវធំទូលាយដាច់ដោយឡែក", "家庭及多人入住优选": "ជម្រើសល្អសម្រាប់គ្រួសារ និងភ្ញៀវច្រើន", "适合企业接待": "សម្រាប់ការទទួលភ្ញៀវសហគ្រាស",
   "月租公寓 | ZIEC HOTEL": "អាផាតមិនប្រចាំខែ | ZIEC HOTEL", "US$260 / month 起": "ចាប់ពី US$260 / ខែ", "US$260/月起": "ចាប់ពី US$260/ខែ",
@@ -627,7 +627,7 @@ Object.assign(I18N_TEXT.kh, {
 // V7.1: Khmer coverage for content introduced in V6.9–V7.1.
 Object.assign(I18N_TEXT.kh, {
   "金边酒店与月租公寓｜企业团房｜ZIEC HOTEL Cambodia":"សណ្ឋាគារ និងអាផាតមិនប្រចាំខែនៅភ្នំពេញ｜បន្ទប់ក្រុមហ៊ុន｜ZIEC HOTEL Cambodia",
-  "豪华及行政客房 US$35/晚，家庭套房 US$65/晚起。提交需求后由客服确认实际房态与价格。":"បន្ទប់ប្រណីត និងប្រតិបត្តិចាប់ពី US$35/យប់ និងស៊ុយគ្រួសារចាប់ពី US$65/យប់។ បុគ្គលិកនឹងបញ្ជាក់បន្ទប់ និងតម្លៃបន្ទាប់ពីទទួលសំណើ។",
+  "豪华客房 US$35/晚起，行政客房 US$45/晚，家庭套房 US$65/晚起。提交需求后由客服确认实际房态与价格。":"បន្ទប់ Deluxe ចាប់ពី US$35/យប់ បន្ទប់ Executive US$45/យប់ និងស៊ុយគ្រួសារចាប់ពី US$65/យប់។ បុគ្គលិកនឹងបញ្ជាក់បន្ទប់ និងតម្លៃបន្ទាប់ពីទទួលសំណើ។",
   "WhatsApp咨询":"សាកសួរតាម WhatsApp", "WhatsApp 咨询":"សាកសួរតាម WhatsApp",
   "查看房型 →":"មើលប្រភេទបន្ទប់ →", "查看联系方式":"មើលព័ត៌មានទំនាក់ទំនង",
   "舒适入住":"ការស្នាក់នៅប្រកបដោយផាសុកភាព", "双人优选":"ជម្រើសល្អសម្រាប់ពីរនាក់", "家庭入住":"ការស្នាក់នៅជាគ្រួសារ",
@@ -753,7 +753,7 @@ const I18N_PAGE_META = {
         "Real VIP room photos with spacious comfort for business reception and quality stays."
     },
     "/three-bedroom-suite": {
-      title: "Three-Bedroom Suite · US$60/night | ZIEC HOTEL",
+      title: "Three-Bedroom Suite · US$80/night | ZIEC HOTEL",
       description:
         "A three-bedroom suite with a separate living room for families, groups and corporate stays."
     },
@@ -883,6 +883,24 @@ function setLanguage(lang) {
   applyPageMeta(lang);
   updateLanguageButtons(lang);
 }
+// V7.4: translations for revised pricing, response promise and confirmed map wording.
+Object.assign(I18N_TEXT.kh, {
+  "客服在线时通常10分钟回复":"ពេលបុគ្គលិកអនឡាញ ជាទូទៅឆ្លើយក្នុង 10 នាទី",
+  "填写后由中文客服确认实际房态与价格；客服在线时通常10分钟内回复，提交需求无需立即付款。":"បន្ទាប់ពីដាក់ស្នើ បុគ្គលិកនឹងបញ្ជាក់បន្ទប់ និងតម្លៃ។ ពេលអនឡាញ ជាទូទៅឆ្លើយក្នុង 10 នាទី ហើយមិនចាំបាច់បង់ប្រាក់ភ្លាមទេ។",
+  "提交后客服将核对实际房态、总价和入住安排；房态以客服确认结果为准。":"បន្ទាប់ពីដាក់ស្នើ បុគ្គលិកនឹងបញ្ជាក់បន្ទប់ តម្លៃសរុប និងការរៀបចំស្នាក់នៅ។ បន្ទប់ទំនេរអាស្រ័យលើការបញ្ជាក់ចុងក្រោយ។",
+  "酒店位于柬埔寨金边，Google Maps定位已经确认。点击地图可直接导航；需要中、英、柬文地址时请联系前台发送。":"សណ្ឋាគារស្ថិតនៅភ្នំពេញ ប្រទេសកម្ពុជា ហើយទីតាំង Google Maps បានបញ្ជាក់។ ចុចផែនទីដើម្បីរុករក ឬទាក់ទងផ្នែកទទួលភ្ញៀវសម្រាប់អាសយដ្ឋានជាភាសាចិន អង់គ្លេស និងខ្មែរ។",
+  "柬埔寨 · 金边。Google Maps定位已经确认；需要中、英、柬文地址时请联系前台发送。":"ភ្នំពេញ ប្រទេសកម្ពុជា។ ទីតាំង Google Maps បានបញ្ជាក់។ សូមទាក់ទងផ្នែកទទួលភ្ញៀវសម្រាប់អាសយដ្ឋានជាភាសាចិន អង់គ្លេស និងខ្មែរ។",
+  "US$ 45 / 晚":"US$ 45 / យប់", "US$ 80 / 晚":"US$ 80 / យប់"
+});
+Object.assign(I18N_TEXT.en, {
+  "客服在线时通常10分钟回复":"Usually replies within 10 minutes when support is online",
+  "填写后由中文客服确认实际房态与价格；客服在线时通常10分钟内回复，提交需求无需立即付款。":"Submit your details and support will confirm availability and price. Replies usually arrive within 10 minutes when support is online, with no immediate payment required.",
+  "提交后客服将核对实际房态、总价和入住安排；房态以客服确认结果为准。":"Support will verify availability, total price and stay arrangements after submission. Availability is subject to final confirmation.",
+  "酒店位于柬埔寨金边，Google Maps定位已经确认。点击地图可直接导航；需要中、英、柬文地址时请联系前台发送。":"The hotel is in Phnom Penh, Cambodia, with a confirmed Google Maps pin. Open the map for directions or contact reception for the address in Chinese, English or Khmer.",
+  "柬埔寨 · 金边。Google Maps定位已经确认；需要中、英、柬文地址时请联系前台发送。":"Phnom Penh, Cambodia. The Google Maps pin is confirmed; contact reception for the address in Chinese, English or Khmer.",
+  "US$ 45 / 晚":"US$ 45 / night", "US$ 80 / 晚":"US$ 80 / night"
+});
+
 function refreshCurrentLanguage() {
   const lang = getLanguage();
   translateElementTree(lang);
@@ -1099,6 +1117,15 @@ async function loadSuppliers() {
 async function loadHomeRecommendations() {
   const hotelGrid = document.querySelector("#homeHotelGrid");
   const supplierGrid = document.querySelector("#homeSupplierGrid");
+  const officialRoomPrices = {
+    "豪华大床房": 35,
+    "豪华双床房": 35,
+    "行政大床房": 45,
+    "行政双床房": 45,
+    "家庭两房一厅": 65,
+    "家庭三房一厅": 80,
+    "三卧室套房": 80,
+  };
   const fallbackHotels = [
     {
       label: "酒店住宿",
@@ -1117,7 +1144,7 @@ async function loadHomeRecommendations() {
     {
       label: "家庭与多人入住",
       title: "中鼎国际酒店 · 家庭两房一厅",
-      price: "US$ 70 / 晚",
+      price: "US$ 65 / 晚",
       image: "assets/rooms/family-two-bedroom/F-2-1.webp",
       href: "./hotels.html#hotel-stay",
     },
@@ -1135,20 +1162,17 @@ async function loadHomeRecommendations() {
       href: "./hotels.html",
     },
   ];
-  const fallbackSuppliers = [
-    { label: "供应链入口", title: "建筑材料与工程物资", meta: "采购、报价、交付对接", href: "./suppliers.html" },
-    { label: "供应链入口", title: "家具设备与酒店用品", meta: "房间、办公与餐饮配套", href: "./suppliers.html" },
-    { label: "供应链入口", title: "维修安装与本地协助", meta: "长期合作供应商招募", href: "./join.html" },
-    { label: "供应链入口", title: "物流运输与资源对接", meta: "中柬、本地与项目协同", href: "./suppliers.html" },
-  ];
+  const fallbackSuppliers = [];
   const renderHotelRecommendations = (list) =>
     list
       .slice(0, 10)
       .map((h) => {
         const image = Array.isArray(h.image_urls) ? h.image_urls[0] : h.image;
         const title = h.title || `${h.name || "中鼎国际酒店"} · ${h.room_type || ""}`;
-        const price =
-          typeof h.price === "number" || /^\d+(\.\d+)?$/.test(String(h.price || ""))
+        const officialPrice = officialRoomPrices[h.room_type];
+        const price = officialPrice
+          ? `US$ ${officialPrice} / 晚`
+          : typeof h.price === "number" || /^\d+(\.\d+)?$/.test(String(h.price || ""))
             ? `US$ ${h.price} / ${h.price_unit || "晚"}`
             : h.price || h.meta || "";
         const href = h.href || "./hotels.html";
@@ -1178,10 +1202,17 @@ async function loadHomeRecommendations() {
   if (supplierGrid) {
     try {
       const j = await jsonFetch("/api/suppliers?limit=20");
-      supplierGrid.innerHTML = renderSupplierRecommendations((j.data || []).length ? j.data : fallbackSuppliers);
+      const suppliers = j.data || [];
+      supplierGrid.innerHTML = renderSupplierRecommendations(suppliers);
+      supplierGrid.hidden = suppliers.length === 0;
+      const heading = document.querySelector(".supply-picks-title");
+      if (heading) heading.hidden = suppliers.length === 0;
       refreshCurrentLanguage();
     } catch (e) {
       supplierGrid.innerHTML = renderSupplierRecommendations(fallbackSuppliers);
+      supplierGrid.hidden = true;
+      const heading = document.querySelector(".supply-picks-title");
+      if (heading) heading.hidden = true;
       refreshCurrentLanguage();
     }
   }
@@ -1192,7 +1223,7 @@ loadHomeRecommendations();
 // different countries. Supplier cards render their own company-specific set.
 function universalConsultationChannels(message = "您好，我想咨询ZIEC HOTEL的服务。") {
   const encoded = encodeURIComponent(message);
-  return `<div class="universal-consult" data-universal-consult><div class="supplier-consult-title">选择咨询方式</div><div class="supplier-consult-actions icon-only-consult"><button class="consult-channel consult-wechat" type="button" title="微信" aria-label="微信咨询" data-contact-copy="微信" data-contact-message="${esc(message)}"><span class="consult-icon">微</span></button><a class="consult-channel consult-telegram" title="Telegram" aria-label="Telegram咨询" href="https://t.me/share/url?url=${encodeURIComponent(location.href)}&text=${encoded}" target="_blank" rel="noopener"><span class="consult-icon">➤</span></a><button class="consult-channel consult-messenger" type="button" title="Messenger" aria-label="Messenger咨询" data-contact-copy="Messenger" data-contact-message="${esc(message)}"><span class="consult-icon">⚡</span></button><a class="consult-channel consult-whatsapp" title="WhatsApp" aria-label="WhatsApp咨询" href="https://wa.me/855189958899?text=${encoded}" target="_blank" rel="noopener"><span class="consult-icon">WA</span></a></div></div>`;
+  return `<div class="universal-consult" data-universal-consult><div class="supplier-consult-title">选择咨询方式</div><div class="supplier-consult-actions icon-only-consult"><button class="consult-channel consult-wechat" type="button" title="微信" aria-label="微信咨询" data-contact-copy="微信" data-contact-message="${esc(message)}"><span class="consult-icon">微</span></button><button class="consult-channel consult-messenger" type="button" title="Messenger" aria-label="Messenger咨询" data-contact-copy="Messenger" data-contact-message="${esc(message)}"><span class="consult-icon">⚡</span></button><a class="consult-channel consult-whatsapp" title="WhatsApp" aria-label="WhatsApp咨询" href="https://wa.me/855189958899?text=${encoded}" target="_blank" rel="noopener"><span class="consult-icon">WA</span></a></div></div>`;
 }
 function enhanceConsultationAreas() {
   const hosts = new Set();
@@ -1226,10 +1257,17 @@ applyConsultationSettings();
 
 // V7.2: all pages show a clear release marker without changing the existing layout.
 document.querySelectorAll(".footer-wrap").forEach((footer) => {
-  if (!footer.textContent.includes("ZIEC HOTEL V7.3")) {
+  const versionPattern = /ZIEC HOTEL V\d+(?:\.\d+)*/g;
+  if (versionPattern.test(footer.textContent)) {
+    footer.querySelectorAll("div").forEach((item) => {
+      if (/ZIEC HOTEL V\d+(?:\.\d+)*/.test(item.textContent)) {
+        item.innerHTML = item.innerHTML.replace(versionPattern, "ZIEC HOTEL V7.4");
+      }
+    });
+  } else {
     const version = document.createElement("div");
     version.className = "site-version";
-    version.textContent = "ZIEC HOTEL V7.3";
+    version.textContent = "ZIEC HOTEL V7.4";
     footer.appendChild(version);
   }
 });
@@ -1671,8 +1709,10 @@ if (login) loadAdmin();
 loadSuppliers();
 
 // V6.0 supplier share and poster
+const ZIEC_PUBLIC_ORIGIN = "https://www.ziechotel.com";
+
 function supplierShareData(s) {
-  const url = `${location.origin}/api/supplier-share?id=${encodeURIComponent(s.id || "")}`;
+  const url = `${ZIEC_PUBLIC_ORIGIN}/api/supplier-share?id=${encodeURIComponent(s.id || "")}`;
   const text = `${s.company_name || "供应商"}\n联系人：${s.contact_name || ""}\n电话：${s.phone || s.whatsapp || ""}\n地址：${s.address || s.city || "柬埔寨"}\n${s.products || s.description || ""}`;
   return { url, text };
 }
@@ -1762,7 +1802,7 @@ window.openSupplierShare = (raw) => {
 
 window.shareSupplier = async (raw) => {
   const s = JSON.parse(raw);
-  const url = `${location.origin}/api/supplier-share?id=${encodeURIComponent(s.id || "")}`;
+  const url = `${ZIEC_PUBLIC_ORIGIN}/api/supplier-share?id=${encodeURIComponent(s.id || "")}`;
   const text = `${s.company_name}\n分类：${s.category}\n主营：${s.products || s.description || ""}\n来自中鼎供应链平台`;
   try {
     if (navigator.share)

@@ -88,7 +88,7 @@
           <div class="section-title">
             <span>BOOKING</span>
             <h2>提交入住需求</h2>
-            <p class="muted">填写后由中文客服确认实际房态与价格，正常情况下预计10分钟内回复；无需立即付款。</p>
+            <p class="muted">填写后由中文客服确认实际房态与价格；客服在线时通常10分钟内回复，提交需求无需立即付款。</p>
           </div>
           <form class="hotel-booking-bar v72-booking-form" id="hotelBookingForm">
             <label>姓名<input name="customer_name" required maxlength="80" /></label>
@@ -100,7 +100,7 @@
             <details class="v72-booking-more full"><summary>补充其他需求（选填）</summary><div class="v72-booking-more-grid"><label>国家 / 地区<input name="country_region" maxlength="80" placeholder="中国 / Cambodia" /></label><label>WhatsApp<input name="whatsapp" maxlength="40" /></label><label>微信<input name="wechat" maxlength="100" /></label><label>Telegram<input name="telegram" maxlength="160" /></label><label>Messenger<input name="messenger" maxlength="200" /></label><label>房间数<select name="rooms" id="roomCount"><option>1间</option><option>2间</option><option>3间</option><option>4间及以上</option></select></label><label>入住类型<select name="stay_purpose"><option>短期住宿</option><option>月租长住</option><option>企业团队住宿</option><option>员工宿舍</option></select></label><label>接送需求<select name="transfer_need"><option value="">暂不需要</option><option>需要机场接送，请联系报价</option><option>需要包车服务，请联系报价</option></select></label><label class="full">备注<textarea name="note" maxlength="500" placeholder="其他入住要求"></textarea></label></div></details>
             <button class="btn btn-primary" type="submit">提交入住需求</button>
           </form>
-          <div class="booking-note" id="bookingNote">此表单不是实时房态查询；提交后由中文客服确认房态、总价和入住安排。</div>
+          <div class="booking-note" id="bookingNote">提交后客服将核对实际房态、总价和入住安排；房态以客服确认结果为准。</div>
         </div>
       </section>
 
@@ -110,7 +110,7 @@
           <div class="v608-card-grid hotel-picks">
             <article class="v608-product-card"><img src="./assets/rooms/deluxe-king/H-1-1.webp" alt="豪华大床房"><div><small>舒适入住</small><h3>豪华大床房</h3><p>大床 · 商务出行 · 免费Wi‑Fi</p><footer><b>US$35<em>/晚</em></b><a href="#booking" data-room-pick="豪华大床房">查询房态</a></footer></div></article>
             <article class="v608-product-card"><img src="./assets/rooms/deluxe-twin/H-2-1.webp" alt="豪华双床房"><div><small>双人优选</small><h3>豪华双床房</h3><p>双床 · 同事朋友 · 舒适入住</p><footer><b>US$35<em>/晚</em></b><a href="#booking" data-room-pick="豪华双床房">查询房态</a></footer></div></article>
-            <article class="v608-product-card"><img src="./assets/rooms/family-two-bedroom/F-2-1.webp" alt="家庭两房一厅"><div><small>家庭入住</small><h3>家庭两房一厅</h3><p>两间卧室 · 独立客厅 · 多人入住</p><footer><b>US$70<em>/晚</em></b><a href="#booking" data-room-pick="家庭两房一厅">查询房态</a></footer></div></article>
+            <article class="v608-product-card"><img src="./assets/rooms/family-two-bedroom/F-2-1.webp" alt="家庭两房一厅"><div><small>家庭入住</small><h3>家庭两房一厅</h3><p>两间卧室 · 独立客厅 · 多人入住</p><footer><b>US$65<em>/晚</em></b><a href="#booking" data-room-pick="家庭两房一厅">查询房态</a></footer></div></article>
             <article class="v608-product-card"><img src="./assets/monthly-6.jpg" alt="月租公寓"><div><small>长住推荐</small><h3>月租公寓</h3><p>独立客厅 · 简易厨房 · 拎包入住</p><footer><b>US$260<em>/月起</em></b><a href="#booking">提交入住需求</a></footer></div></article>
             <article class="v608-product-card v608-service-card"><div class="service-icon">24H</div><div><small>企业专属</small><h3>团队与协议住宿</h3><p>长期住宿、团队接待与企业协议价。</p><footer><b>专属方案</b><a href="#corporate">立即咨询</a></footer></div></article>
           </div>
@@ -129,11 +129,11 @@
           <div class="grid room-catalog-grid">
             <article class="card"><div class="card-media"><img src="./assets/rooms/deluxe-king/H-1-1.webp" alt="豪华大床房实景" loading="lazy"></div><div class="card-body"><div class="card-label">DELUXE KING</div><h3>豪华大床房</h3><div class="price">US$35 <small>/ 晚</small></div><p class="muted">适合商务出行、情侣及单人舒适入住。</p><div class="card-actions"><a class="btn btn-primary" href="#booking" data-room-pick="豪华大床房">查询房态</a></div></div></article>
             <article class="card"><div class="card-media"><img src="./assets/rooms/deluxe-twin/H-2-1.webp" alt="豪华双床房实景" loading="lazy"></div><div class="card-body"><div class="card-label">DELUXE TWIN</div><h3>豪华双床房</h3><div class="price">US$35 <small>/ 晚</small></div><p class="muted">适合同事、朋友及商务团队双人入住。</p><div class="card-actions"><a class="btn btn-primary" href="#booking" data-room-pick="豪华双床房">查询房态</a></div></div></article>
-            <article class="card"><div class="card-media"><img src="./assets/rooms/family-two-bedroom/F-2-1.webp" alt="家庭两房一厅实景" loading="lazy"></div><div class="card-body"><div class="card-label">TWO-BEDROOM FAMILY</div><h3>家庭两房一厅</h3><div class="price">US$70 <small>/ 晚</small></div><p class="muted">两间卧室与独立客厅，适合家庭及多人入住。</p><div class="card-actions"><a class="btn btn-primary" href="#booking" data-room-pick="家庭两房一厅">查询房态</a></div></div></article>
-            <article class="card"><div class="card-media"><img src="./assets/rooms/family-three-bedroom/F-3-1.webp" alt="家庭三房一厅实景" loading="lazy"></div><div class="card-body"><div class="card-label">THREE-BEDROOM FAMILY</div><h3>家庭三房一厅</h3><div class="price">US$65 <small>/ 晚</small></div><p class="muted">三间卧室与客厅，适合家庭、朋友及多人同行。</p><div class="card-actions"><a class="btn btn-primary" href="#booking" data-room-pick="家庭三房一厅">查询房态</a></div></div></article>
-            <article class="card"><div class="card-media"><img src="./assets/rooms/three-bedroom-suite-new/R-3-1.webp" alt="三卧室套房实景" loading="lazy"></div><div class="card-body"><div class="card-label">THREE-BEDROOM SUITE</div><h3>三卧室套房</h3><div class="price">US$65 <small>/ 晚</small></div><p class="muted">三卧室套房布局，适合家庭、团队及企业接待。</p><div class="card-actions"><a class="btn btn-primary" href="#booking" data-room-pick="三卧室套房">查询房态</a></div></div></article>
-            <article class="card"><div class="card-media"><img src="./assets/rooms/executive-king/X-1-1.webp" alt="行政大床房实景" loading="lazy"></div><div class="card-body"><div class="card-label">EXECUTIVE KING</div><h3>行政大床房</h3><div class="price">US$35 <small>/ 晚</small></div><p class="muted">大床配置，适合商务客人与管理人员长住。</p><div class="card-actions"><a class="btn btn-primary" href="#booking" data-room-pick="行政大床房">查询房态</a></div></div></article>
-            <article class="card"><div class="card-media"><img src="./assets/rooms/executive-twin/R-2-1.webp" alt="行政双床房实景" loading="lazy"></div><div class="card-body"><div class="card-label">EXECUTIVE TWIN</div><h3>行政双床房</h3><div class="price">US$35 <small>/ 晚</small></div><p class="muted">双床配置，适合商务同行及企业团队入住。</p><div class="card-actions"><a class="btn btn-primary" href="#booking" data-room-pick="行政双床房">查询房态</a></div></div></article>
+            <article class="card"><div class="card-media"><img src="./assets/rooms/family-two-bedroom/F-2-1.webp" alt="家庭两房一厅实景" loading="lazy"></div><div class="card-body"><div class="card-label">TWO-BEDROOM FAMILY</div><h3>家庭两房一厅</h3><div class="price">US$65 <small>/ 晚</small></div><p class="muted">两间卧室与独立客厅，适合家庭及多人入住。</p><div class="card-actions"><a class="btn btn-primary" href="#booking" data-room-pick="家庭两房一厅">查询房态</a></div></div></article>
+            <article class="card"><div class="card-media"><img src="./assets/rooms/family-three-bedroom/F-3-1.webp" alt="家庭三房一厅实景" loading="lazy"></div><div class="card-body"><div class="card-label">THREE-BEDROOM FAMILY</div><h3>家庭三房一厅</h3><div class="price">US$80 <small>/ 晚</small></div><p class="muted">三间卧室与客厅，适合家庭、朋友及多人同行。</p><div class="card-actions"><a class="btn btn-primary" href="#booking" data-room-pick="家庭三房一厅">查询房态</a></div></div></article>
+            <article class="card"><div class="card-media"><img src="./assets/rooms/three-bedroom-suite-new/R-3-1.webp" alt="三卧室套房实景" loading="lazy"></div><div class="card-body"><div class="card-label">THREE-BEDROOM SUITE</div><h3>三卧室套房</h3><div class="price">US$80 <small>/ 晚</small></div><p class="muted">三卧室套房布局，适合家庭、团队及企业接待。</p><div class="card-actions"><a class="btn btn-primary" href="#booking" data-room-pick="三卧室套房">查询房态</a></div></div></article>
+            <article class="card"><div class="card-media"><img src="./assets/rooms/executive-king/X-1-1.webp" alt="行政大床房实景" loading="lazy"></div><div class="card-body"><div class="card-label">EXECUTIVE KING</div><h3>行政大床房</h3><div class="price">US$45 <small>/ 晚</small></div><p class="muted">大床配置，适合商务客人与管理人员长住。</p><div class="card-actions"><a class="btn btn-primary" href="#booking" data-room-pick="行政大床房">查询房态</a></div></div></article>
+            <article class="card"><div class="card-media"><img src="./assets/rooms/executive-twin/R-2-1.webp" alt="行政双床房实景" loading="lazy"></div><div class="card-body"><div class="card-label">EXECUTIVE TWIN</div><h3>行政双床房</h3><div class="price">US$45 <small>/ 晚</small></div><p class="muted">双床配置，适合商务同行及企业团队入住。</p><div class="card-actions"><a class="btn btn-primary" href="#booking" data-room-pick="行政双床房">查询房态</a></div></div></article>
             <article class="card">
               <a href="#monthly"
                 ><div class="card-media">
@@ -209,7 +209,7 @@
         <div class="container">
           <div class="section-title"><span>BEFORE YOU BOOK</span><h2>酒店详情与入住信息</h2><p class="muted">预订前先确认地址、房态、入住政策与付款规则，让每一次入住更清楚。</p></div>
           <div class="hotel-info-grid">
-            <article><h3>地址与地图</h3><p>柬埔寨 · 金边。三语完整门牌地址正在按地图正式资料核准。</p><a href="https://maps.app.goo.gl/pG3x9t78Urur73bYA?g_st=ac" target="_blank" rel="noopener">打开 Google Maps 导航 →</a></article>
+            <article><h3>地址与地图</h3><p>柬埔寨 · 金边。Google Maps定位已经确认；需要中、英、柬文地址时请联系前台发送。</p><a href="https://maps.app.goo.gl/pG3x9t78Urur73bYA?g_st=ac" target="_blank" rel="noopener">打开 Google Maps 导航 →</a></article>
             <article><h3>入住政策</h3><p>入住时间、退房时间、押金、加床及儿童政策以具体房型确认单为准。</p><a href="https://wa.me/855189958899?text=您好，我想确认酒店入住政策" target="_blank" rel="noopener">确认入住须知 →</a></article>
             <article><h3>客户评价征集中</h3><p>只展示已核实的真实入住评价；没有真实评价前不虚构、不代写。</p><button type="button" data-ai-open>咨询入住体验 →</button></article>
             <article><h3>付款与退款</h3><p>房态确认后再付款；取消期限、不可退条件与退款时间会在付款前说明。</p><a href="./payment.html">查看付款说明 →</a></article>
