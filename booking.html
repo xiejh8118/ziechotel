@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="description" content="ZIEC HOTEL网上订单：填写入住日期、房型和联系方式，客服确认实际房态与价格。">
+  <title>网上订单｜ZIEC HOTEL Cambodia</title>
+  <link rel="canonical" href="https://www.ziechotel.com/booking">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="site-header"><div class="container nav"><a class="brand" href="./index.html"><img src="./assets/logo.png" alt="ZIEC HOTEL"><span><strong>ZIEC HOTEL</strong><small>中鼎国际酒店</small></span></a><button class="menu-toggle" type="button" aria-label="打开菜单"><span></span><span></span><span></span></button><nav class="nav-links"><a href="./index.html">首页</a><a href="./rooms.html">查看房型</a><a class="active" href="./booking.html">网上订单</a><a href="./contact.html">联系我们</a><button class="nav-ai" type="button" data-ai-open>AI客服</button></nav></div></header>
+  <main class="facebook-order-page">
+    <section class="compact-order-head"><div class="container"><span>FACEBOOK BOOKING</span><h1>网上订单</h1><p>填写入住需求，客服确认实际房态和价格后联系您。提交订单无需立即付款。</p><div class="order-source-badges"><strong>Facebook客户快捷入口</strong><span>客服在线时通常10分钟回复</span><span>中文客服：+855 18 995 8899</span></div></div></section>
+    <section class="hotel-booking-wrap facebook-booking-wrap" id="booking"><div class="container"><div class="section-title"><span>BOOK NOW</span><h2>填写入住资料</h2><p class="muted">带 * 为必填项。订单提交后可保存订单编号，方便客服查询。</p></div>
+      <form class="hotel-booking-bar v72-booking-form facebook-booking-form" id="hotelBookingForm">
+        <input type="hidden" name="source" value="facebook">
+        <label>姓名 *<input name="customer_name" required maxlength="80" autocomplete="name"></label>
+        <label>电话 / WhatsApp *<input name="contact" required maxlength="40" autocomplete="tel"></label>
+        <label>入住日期 *<input name="checkin" type="date" id="checkin" required></label>
+        <label>退房日期 *<input name="checkout" type="date" id="checkout" required></label>
+        <label>房型<select name="room_type" id="bookingRoomType"><option>豪华大床房</option><option>豪华双床房</option><option>家庭两房一厅</option><option>家庭三房一厅</option><option>三卧室套房</option><option>行政大床房</option><option>行政双床房</option><option>月租公寓</option><option>企业团队住宿</option></select></label>
+        <label>入住人数<select name="guests" id="guestCount"><option>1位</option><option selected>2位</option><option>3位</option><option>4位及以上</option></select></label>
+        <details class="v72-booking-more full"><summary>补充其他需求（选填）</summary><div class="v72-booking-more-grid"><label>国家 / 地区<input name="country_region" maxlength="80"></label><label>WhatsApp<input name="whatsapp" maxlength="40"></label><label>微信<input name="wechat" maxlength="100"></label><label>房间数<select name="rooms" id="roomCount"><option>1间</option><option>2间</option><option>3间</option><option>4间及以上</option></select></label><label>接送需求<select name="transfer_need"><option value="">暂不需要</option><option>需要机场接送，请联系报价</option><option>需要包车服务，请联系报价</option></select></label><label class="full">备注<textarea name="note" maxlength="500" placeholder="预计到店时间、儿童、长期入住或其他要求"></textarea></label></div></details>
+        <button class="btn btn-primary" type="submit">提交网上订单</button>
+      </form>
+      <div class="booking-note" id="bookingNote">房态以客服最终确认结果为准。</div>
+      <div class="facebook-order-actions"><a class="btn btn-dark" href="./rooms.html">先查看全部房型</a><a class="btn btn-primary" href="https://wa.me/855189958899?text=您好，我从Facebook看到ZIEC HOTEL，想咨询入住" target="_blank" rel="noopener">WhatsApp人工咨询</a></div>
+    </div></section>
+  </main>
+  <footer class="footer"><div class="container footer-wrap"><div>ZIEC HOTEL · 中鼎国际酒店</div><div>© 2026 ZIEC HOTEL V7.6 · www.ziechotel.com</div></div></footer>
+  <div class="toast"></div><script src="./script.js"></script>
+  <script>
+  (()=>{const form=document.querySelector('#hotelBookingForm'),cin=document.querySelector('#checkin'),cout=document.querySelector('#checkout'),note=document.querySelector('#bookingNote'),fmt=d=>d.toISOString().slice(0,10);const today=new Date(),tomorrow=new Date(Date.now()+86400000);cin.min=fmt(today);cout.min=fmt(tomorrow);cin.value=fmt(today);cout.value=fmt(tomorrow);const requested=new URLSearchParams(location.search).get('room');if(requested&&[...form.room_type.options].some(o=>o.value===requested))form.room_type.value=requested;form.addEventListener('submit',async e=>{e.preventDefault();if(cout.value<=cin.value){note.textContent=translateTextValue('退房日期必须晚于入住日期。',getLanguage());return}note.textContent=translateTextValue('正在提交入住需求……',getLanguage());try{const payload=Object.fromEntries(new FormData(form).entries()),response=await fetch('/api/bookings',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}),result=await response.json();if(!response.ok)throw new Error(result.message||`提交失败（HTTP ${response.status}）`);note.textContent=translateTextValue(`${result.message}。客服确认房态与价格后会联系您。`,getLanguage());note.className='booking-note ok'}catch(error){note.textContent=translateTextValue(`${error.message}。您填写的内容仍保留，请把本提示截图发给客服。`,getLanguage());note.className='booking-note bad'}})})();
+  </script>
+</body></html>

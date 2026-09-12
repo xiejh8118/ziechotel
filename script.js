@@ -883,6 +883,26 @@ function setLanguage(lang) {
   applyPageMeta(lang);
   updateLanguageButtons(lang);
 }
+// V7.6: Facebook booking and room-selection entry pages.
+Object.assign(I18N_TEXT.en, {
+  "查看房型":"View Rooms", "网上订单":"Online Booking", "网上订单｜ZIEC HOTEL Cambodia":"Online Booking | ZIEC HOTEL Cambodia", "查看房型｜ZIEC HOTEL Cambodia":"View Rooms | ZIEC HOTEL Cambodia",
+  "填写入住需求，客服确认实际房态和价格后联系您。提交订单无需立即付款。":"Submit your stay request. Support will contact you after confirming availability and price. No immediate payment is required.",
+  "Facebook客户快捷入口":"Quick Entry for Facebook Guests", "客服在线时通常10分钟回复":"Usually replies within 10 minutes when support is online", "中文客服：+855 18 995 8899":"Chinese Support: +855 18 995 8899",
+  "填写入住资料":"Enter Stay Details", "带 * 为必填项。订单提交后可保存订单编号，方便客服查询。":"Fields marked * are required. Save your order number after submission for easy follow-up.",
+  "姓名 *":"Name *", "电话 / WhatsApp *":"Phone / WhatsApp *", "入住日期 *":"Check-in *", "退房日期 *":"Check-out *", "提交网上订单":"Submit Online Booking", "房态以客服最终确认结果为准。":"Availability is subject to final confirmation by support.",
+  "先查看全部房型":"View All Rooms First", "WhatsApp人工咨询":"WhatsApp Support", "先选择适合的房型，再进入网上订单提交日期和联系方式。":"Choose a suitable room, then enter your dates and contact details in the online booking form.",
+  "立即预订":"Book Now", "选择并预订":"Select & Book", "进入网上订单":"Open Online Booking", "大床 · 商务出行 · 舒适入住":"King bed · Business travel · Comfortable stay", "双床 · 同事朋友 · 商务团队":"Twin beds · Friends · Business teams", "适合商务客人与管理人员长住":"For business guests and managers on long stays", "适合商务同行及企业团队":"For business companions and corporate teams", "两间卧室与独立客厅":"Two bedrooms and a separate living room", "三间卧室与客厅，多人入住":"Three bedrooms and a living room for groups", "适合家庭、团队及企业接待":"For families, teams and corporate stays", "适合商务长住与企业员工":"For business long stays and company staff"
+});
+Object.assign(I18N_TEXT.kh, {
+  "查看房型":"មើលប្រភេទបន្ទប់", "网上订单":"ការកក់តាមអ៊ីនធឺណិត", "网上订单｜ZIEC HOTEL Cambodia":"ការកក់តាមអ៊ីនធឺណិត | ZIEC HOTEL Cambodia", "查看房型｜ZIEC HOTEL Cambodia":"មើលប្រភេទបន្ទប់ | ZIEC HOTEL Cambodia",
+  "填写入住需求，客服确认实际房态和价格后联系您。提交订单无需立即付款。":"ដាក់សំណើស្នាក់នៅ ហើយបុគ្គលិកនឹងទាក់ទងបន្ទាប់ពីបញ្ជាក់បន្ទប់ និងតម្លៃ។ មិនចាំបាច់បង់ប្រាក់ភ្លាមទេ។",
+  "Facebook客户快捷入口":"ច្រករហ័សសម្រាប់ភ្ញៀវ Facebook", "客服在线时通常10分钟回复":"ពេលបុគ្គលិកអនឡាញ ជាទូទៅឆ្លើយក្នុង 10 នាទី", "中文客服：+855 18 995 8899":"សេវាភាសាចិន៖ +855 18 995 8899",
+  "填写入住资料":"បំពេញព័ត៌មានស្នាក់នៅ", "带 * 为必填项。订单提交后可保存订单编号，方便客服查询。":"វាលមានសញ្ញា * ត្រូវបំពេញ។ សូមរក្សាលេខកក់សម្រាប់ការតាមដាន។",
+  "姓名 *":"ឈ្មោះ *", "电话 / WhatsApp *":"ទូរស័ព្ទ / WhatsApp *", "入住日期 *":"ថ្ងៃចូល *", "退房日期 *":"ថ្ងៃចេញ *", "提交网上订单":"ដាក់ការកក់តាមអ៊ីនធឺណិត", "房态以客服最终确认结果为准。":"បន្ទប់ទំនេរអាស្រ័យលើការបញ្ជាក់ចុងក្រោយរបស់បុគ្គលិក។",
+  "先查看全部房型":"មើលបន្ទប់ទាំងអស់ជាមុន", "WhatsApp人工咨询":"ទាក់ទងបុគ្គលិកតាម WhatsApp", "先选择适合的房型，再进入网上订单提交日期和联系方式。":"ជ្រើសបន្ទប់សមស្រប រួចបញ្ចូលកាលបរិច្ឆេទ និងព័ត៌មានទំនាក់ទំនងក្នុងការកក់តាមអ៊ីនធឺណិត។",
+  "立即预订":"កក់ឥឡូវ", "选择并预订":"ជ្រើស និងកក់", "进入网上订单":"បើកការកក់តាមអ៊ីនធឺណិត", "大床 · 商务出行 · 舒适入住":"គ្រែធំ · ដំណើរអាជីវកម្ម · ស្នាក់នៅផាសុកភាព", "双床 · 同事朋友 · 商务团队":"គ្រែពីរ · មិត្តភក្តិ · ក្រុមអាជីវកម្ម", "适合商务客人与管理人员长住":"សម្រាប់ភ្ញៀវអាជីវកម្ម និងអ្នកគ្រប់គ្រងស្នាក់យូរ", "适合商务同行及企业团队":"សម្រាប់អ្នកធ្វើដំណើរអាជីវកម្ម និងក្រុមហ៊ុន", "两间卧室与独立客厅":"បន្ទប់គេងពីរ និងបន្ទប់ទទួលភ្ញៀវដាច់ដោយឡែក", "三间卧室与客厅，多人入住":"បន្ទប់គេងបី និងបន្ទប់ទទួលភ្ញៀវ សម្រាប់ភ្ញៀវច្រើន", "适合家庭、团队及企业接待":"សម្រាប់គ្រួសារ ក្រុម និងក្រុមហ៊ុន", "适合商务长住与企业员工":"សម្រាប់ការស្នាក់នៅយូររបស់អ្នកជំនួញ និងបុគ្គលិកក្រុមហ៊ុន"
+});
+
 // V7.5: complete translations for contact, admin and revised monthly pricing.
 Object.assign(I18N_TEXT.en, {
   "联系酒店与到店导航":"Contact the Hotel and Get Directions",
@@ -1287,13 +1307,13 @@ document.querySelectorAll(".footer-wrap").forEach((footer) => {
   if (versionPattern.test(footer.textContent)) {
     footer.querySelectorAll("div").forEach((item) => {
       if (/ZIEC HOTEL V\d+(?:\.\d+)*/.test(item.textContent)) {
-        item.innerHTML = item.innerHTML.replace(versionPattern, "ZIEC HOTEL V7.5");
+        item.innerHTML = item.innerHTML.replace(versionPattern, "ZIEC HOTEL V7.6");
       }
     });
   } else {
     const version = document.createElement("div");
     version.className = "site-version";
-    version.textContent = "ZIEC HOTEL V7.5";
+    version.textContent = "ZIEC HOTEL V7.6";
     footer.appendChild(version);
   }
 });
