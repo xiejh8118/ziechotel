@@ -58,7 +58,7 @@ const I18N_TEXT = {
     "企业协议价": "Corporate Rates",
     "付款退款说明": "Payment & Refund Guide",
     "运营主体": "Operator",
-    "中鼎瑞德酒店管理有限公司": "Zhongding Ruide Hotel Management Co., Ltd.",
+    "中鼎国际酒店": "Zhongding International Hotel",
     "服务城市": "Service Cities",
     "金边 · 西港 · 暹粒": "Phnom Penh · Sihanoukville · Siem Reap",
     "中文服务热线": "Chinese Hotline",
@@ -497,7 +497,7 @@ Object.assign(I18N_TEXT.kh, {
   "入住前需要确认的信息": "ព័ត៌មានត្រូវបញ្ជាក់មុនចូលស្នាក់", "房态、价格及下列政策以客服发送的最终确认单为准。": "បន្ទប់ទំនេរ តម្លៃ និងគោលការណ៍ខាងក្រោមអាស្រ័យលើការបញ្ជាក់ចុងក្រោយពីសេវាអតិថិជន។",
   "房间与入住": "បន្ទប់ និងការស្នាក់នៅ", "设施与服务": "បរិក្ខារ និងសេវាកម្ម", "入住政策": "គោលការណ៍ចូលស្នាក់", "取消与退款": "ការលុបចោល និងសងប្រាក់", "酒店地图": "ផែនទីសណ្ឋាគារ", "指定日期房态": "បន្ទប់ទំនេរតាមកាលបរិច្ឆេទ",
   "首页": "ទំព័រដើម", "酒店公寓": "សណ្ឋាគារ និងអាផាតមិន", "酒店住宿": "ការស្នាក់នៅសណ្ឋាគារ", "企业服务": "សេវាសហគ្រាស", "供应链平台": "វេទិកាផ្គត់ផ្គង់", "联系我们": "ទាក់ទងយើង", "AI客服": "ជំនួយការ AI",
-  "中鼎国际酒店": "សណ្ឋាគារអន្តរជាតិ Zhongding", "中鼎瑞德酒店管理有限公司": "ក្រុមហ៊ុនគ្រប់គ្រងសណ្ឋាគារ Zhongding Ruide", "运营主体": "អង្គភាពប្រតិបត្តិការ", "核心服务": "សេវាសំខាន់", "服务城市": "ទីក្រុងសេវាកម្ម", "服务保障": "ការធានាសេវា",
+  "中鼎国际酒店": "សណ្ឋាគារអន្តរជាតិ Zhongding", "运营主体": "អង្គភាពប្រតិបត្តិការ", "核心服务": "សេវាសំខាន់", "服务城市": "ទីក្រុងសេវាកម្ម", "服务保障": "ការធានាសេវា",
   "住得安心": "ស្នាក់នៅដោយទំនុកចិត្ត", "出行省心": "ធ្វើដំណើរដោយងាយស្រួល", "企业好安排": "ការរៀបចំងាយស្រួលសម្រាប់សហគ្រាស", "资源对得上": "ភ្ជាប់ធនធានត្រឹមត្រូវ", "查看企业服务 →": "មើលសេវាសហគ្រាស →",
   "供应商平台 | ZIEC": "វេទិកាអ្នកផ្គត់ផ្គង់ | ZIEC", "供应商入驻 | ZIEC": "ចុះឈ្មោះអ្នកផ្គត់ផ្គង់ | ZIEC", "供应商入驻申请": "ពាក្យស្នើចុះឈ្មោះអ្នកផ្គត់ផ្គង់", "提交企业资料": "ដាក់ស្នើព័ត៌មានក្រុមហ៊ុន",
   "房型实景": "រូបភាពបន្ទប់ពិត", "系统分享": "ចែករំលែកតាមប្រព័ន្ធ", "复制链接": "ចម្លងតំណ", "下载专属海报": "ទាញយកផ្ទាំងផ្សព្វផ្សាយ", "立即咨询": "សាកសួរឥឡូវ", "查看全部房型 →": "មើលបន្ទប់ទាំងអស់ →",
@@ -689,6 +689,91 @@ Object.assign(I18N_TEXT.kh, {
 Object.assign(I18N_TEXT.en, {
   "中鼎国际酒店 · 豪华大床房":"Zhongding International Hotel · Deluxe King Room", "中鼎国际酒店 · 豪华双床房":"Zhongding International Hotel · Deluxe Twin Room", "中鼎国际酒店 · 家庭两房一厅":"Zhongding International Hotel · Two-Bedroom Family Suite", "金边月租公寓 · 长住方案":"Phnom Penh Monthly Apartment · Long-Stay Plan", "企业协议住宿 · 团队接待":"Corporate Contract Stay · Group Reception", "推荐酒店":"Recommended Hotel", "家庭与多人入住":"Family & Group Stay", "长租公寓":"Long-Stay Apartment", "企业住宿":"Corporate Stay", "US$ 35 / 晚":"US$ 35 / night", "US$ 65 / 晚":"US$ 65 / night", "US$ 70 / 晚":"US$ 70 / night", "US$ 200 / 月起":"From US$ 200 / month", "月结、长住与接待需求可核价":"Rates available for monthly settlement, long stays and group reception", "查看与预订 →":"View & Book →"
 });
+
+// V7.7.1: one public brand, language-complete booking copy and accommodation-first navigation.
+Object.assign(I18N_TEXT.en, {
+  "柬埔寨 · 金边":"Phnom Penh, Cambodia",
+  "金边住宿、月租公寓与企业团房":"Phnom Penh Hotel, Monthly Apartments & Corporate Stays",
+  "客房每晚 US$35 起，月租公寓每月 US$200 起。在线提交日期和房型，客服确认实际房态与价格。":"Rooms from US$35 per night and monthly apartments from US$200. Submit your dates and room choice online; support will confirm availability and price.",
+  "网上预订":"Book Online",
+  "住宿服务":"STAY",
+  "短住、长租和企业住宿，一次安排清楚":"Short Stays, Long Stays and Corporate Accommodation",
+  "先选择客房或公寓，再提交日期和人数；客服核实房态、价格及服务内容后与您确认。":"Choose a room or apartment, then submit your dates and guest count. Support will verify availability, price and included services.",
+  "酒店客房":"Hotel Rooms","月租公寓":"Monthly Apartments","企业团房":"Corporate Stays",
+  "豪华房、行政房及家庭套房，展示真实图片与清晰价格。":"Deluxe, executive and family rooms with real photos and clear reference rates.",
+  "每月 US$200 起，适合商务长住、企业员工及长期居住。":"From US$200 per month for business travelers, company staff and long stays.",
+  "团队住宿、员工长住与协议合作，根据人数和周期提供方案。":"Group accommodation, staff long stays and corporate plans based on group size and duration.",
+  "中文和英文服务":"Chinese and English service",
+  "房型基础设施":"Core Room Amenities","免费 Wi-Fi":"Free Wi-Fi","空调":"Air Conditioning","热水":"Hot Water","电视":"Television","每日客房服务以实际安排为准":"Housekeeping subject to the confirmed arrangement",
+  "房间面积、床型尺寸、早餐、窗景、阳台及加床安排因房型而异，提交订单后由客服逐项确认。":"Room size, bed dimensions, breakfast, views, balcony and extra-bed arrangements vary by room and will be confirmed after submission.",
+  "预订说明":"BOOKING GUIDE","先确认房态，再安全付款":"Confirm Availability Before Payment",
+  "网上订单是入住需求，不会立即扣款。客服确认房型、总价和取消规则后，再发送正式确认信息。":"An online order is a stay request and does not charge you immediately. Support confirms the room, total price and cancellation rules before sending the final confirmation.",
+  "选择房型":"Choose a Room","提交日期":"Submit Dates","人工确认":"Manual Confirmation","确认后付款":"Pay After Confirmation",
+  "查看实景图片、参考价格和基本设施。":"Review real photos, reference rates and amenities.","填写入住日期、人数和有效联系方式。":"Enter dates, guest count and a valid contact.","客服核实实际房态、费用和特殊需求。":"Support verifies availability, charges and special requests.","付款前明确取消期限、退款条件和收款信息。":"Cancellation deadlines, refund terms and payment details are stated before payment.",
+  "这是入住需求单，不会立即扣款；房态、总价、取消规则及付款方式以客服最终确认信息为准。":"This is a stay request and no immediate charge is made. Availability, total price, cancellation rules and payment method are subject to the final confirmation from support.",
+  "运营主体：中鼎国际酒店":"Operator: Zhongding International Hotel",
+  "常见问题":"FAQ","预订与退款说明":"Booking & Refund Guide"
+});
+Object.assign(I18N_TEXT.kh, {
+  "柬埔寨 · 金边":"ភ្នំពេញ · កម្ពុជា",
+  "金边住宿、月租公寓与企业团房":"សណ្ឋាគារ អាផាតមិនប្រចាំខែ និងការស្នាក់នៅសម្រាប់ក្រុមហ៊ុននៅភ្នំពេញ",
+  "客房每晚 US$35 起，月租公寓每月 US$200 起。在线提交日期和房型，客服确认实际房态与价格。":"បន្ទប់ចាប់ពី US$35 ក្នុងមួយយប់ និងអាផាតមិនចាប់ពី US$200 ក្នុងមួយខែ។ សូមដាក់ថ្ងៃស្នាក់ និងប្រភេទបន្ទប់ ដើម្បីឱ្យបុគ្គលិកបញ្ជាក់បន្ទប់ទំនេរ និងតម្លៃ។",
+  "网上预订":"កក់តាមអ៊ីនធឺណិត",
+  "住宿服务":"ការស្នាក់នៅ","短住、长租和企业住宿，一次安排清楚":"ការស្នាក់ខ្លី ការជួលរយៈពេលវែង និងការស្នាក់សម្រាប់ក្រុមហ៊ុន",
+  "先选择客房或公寓，再提交日期和人数；客服核实房态、价格及服务内容后与您确认。":"ជ្រើសរើសបន្ទប់ ឬអាផាតមិន រួចដាក់ថ្ងៃ និងចំនួនភ្ញៀវ។ បុគ្គលិកនឹងបញ្ជាក់បន្ទប់ តម្លៃ និងសេវាដែលរួមបញ្ចូល។",
+  "酒店客房":"បន្ទប់សណ្ឋាគារ","月租公寓":"អាផាតមិនប្រចាំខែ","企业团房":"ការស្នាក់នៅសម្រាប់ក្រុមហ៊ុន",
+  "豪华房、行政房及家庭套房，展示真实图片与清晰价格。":"បន្ទប់ Deluxe បន្ទប់ Executive និងបន្ទប់គ្រួសារ ជាមួយរូបភាពពិត និងតម្លៃយោងច្បាស់លាស់។",
+  "每月 US$200 起，适合商务长住、企业员工及长期居住。":"ចាប់ពី US$200 ក្នុងមួយខែ សម្រាប់អ្នកធ្វើការ បុគ្គលិកក្រុមហ៊ុន និងការស្នាក់រយៈពេលវែង។",
+  "团队住宿、员工长住与协议合作，根据人数和周期提供方案。":"ដំណោះស្រាយសម្រាប់ក្រុម បុគ្គលិក និងកិច្ចព្រមព្រៀងស្នាក់យូរ តាមចំនួនភ្ញៀវ និងរយៈពេល។",
+  "房型基础设施":"សម្ភារៈមូលដ្ឋានក្នុងបន្ទប់","免费 Wi-Fi":"Wi-Fi ឥតគិតថ្លៃ","空调":"ម៉ាស៊ីនត្រជាក់","热水":"ទឹកក្តៅ","电视":"ទូរទស្សន៍","每日客房服务以实际安排为准":"សេវាសម្អាតបន្ទប់អាស្រ័យលើការបញ្ជាក់",
+  "房间面积、床型尺寸、早餐、窗景、阳台及加床安排因房型而异，提交订单后由客服逐项确认。":"ទំហំបន្ទប់ ទំហំគ្រែ អាហារពេលព្រឹក ទិដ្ឋភាព យ៉រ និងគ្រែបន្ថែម ខុសគ្នាតាមប្រភេទបន្ទប់ ហើយនឹងបញ្ជាក់ក្រោយដាក់សំណើ។",
+  "预订说明":"ការណែនាំកក់","先确认房态，再安全付款":"បញ្ជាក់បន្ទប់ទំនេរ មុនពេលបង់ប្រាក់",
+  "网上订单是入住需求，不会立即扣款。客服确认房型、总价和取消规则后，再发送正式确认信息。":"ការកក់តាមអ៊ីនធឺណិតគឺជាសំណើស្នាក់នៅ ហើយមិនកាត់ប្រាក់ភ្លាមទេ។ បុគ្គលិកនឹងបញ្ជាក់បន្ទប់ តម្លៃសរុប និងគោលការណ៍លុបចោលជាមុន។",
+  "选择房型":"ជ្រើសបន្ទប់","提交日期":"ដាក់ថ្ងៃស្នាក់","人工确认":"បុគ្គលិកបញ្ជាក់","确认后付款":"បង់ក្រោយបញ្ជាក់",
+  "查看实景图片、参考价格和基本设施。":"មើលរូបភាពពិត តម្លៃយោង និងសម្ភារៈ។","填写入住日期、人数和有效联系方式。":"បំពេញថ្ងៃស្នាក់ ចំនួនភ្ញៀវ និងទំនាក់ទំនងត្រឹមត្រូវ។","客服核实实际房态、费用和特殊需求。":"បុគ្គលិកពិនិត្យបន្ទប់ តម្លៃ និងតម្រូវការពិសេស។","付款前明确取消期限、退款条件和收款信息。":"លក្ខខណ្ឌលុបចោល សងប្រាក់ និងព័ត៌មានបង់ប្រាក់នឹងបញ្ជាក់ជាមុន។",
+  "这是入住需求单，不会立即扣款；房态、总价、取消规则及付款方式以客服最终确认信息为准。":"នេះជាសំណើស្នាក់នៅ ហើយមិនកាត់ប្រាក់ភ្លាមទេ។ បន្ទប់ទំនេរ តម្លៃសរុប ការលុបចោល និងការបង់ប្រាក់ អាស្រ័យលើការបញ្ជាក់ចុងក្រោយ។",
+  "运营主体：中鼎国际酒店":"ប្រតិបត្តិករ៖ សណ្ឋាគារអន្តរជាតិ Zhongding",
+  "常见问题":"សំណួរញឹកញាប់","预订与退款说明":"ការកក់ និងការសងប្រាក់"
+});
+Object.assign(I18N_TEXT.en, {
+  "查看房型":"View Rooms","网上订单":"Online Booking","填写入住资料":"Enter Stay Details","提交网上订单":"Submit Booking Request","选择并预订":"Select & Book","进入网上订单":"Open Online Booking",
+  "/ 晚":"/ night","/ 月起":"/ month","大床 · 商务出行 · 舒适入住":"King bed · Business travel · Comfortable stay","双床 · 同事朋友 · 商务团队":"Twin beds · Colleagues, friends and business teams","适合商务客人与管理人员长住":"For business travelers and management long stays","适合商务同行及企业团队":"For business companions and corporate teams","两间卧室与独立客厅":"Two bedrooms and a separate living room","三间卧室与客厅，多人入住":"Three bedrooms and a living room for groups","适合家庭、团队及企业接待":"For families, groups and corporate reception","适合商务长住与企业员工":"For business long stays and company staff",
+  "姓名":"Name","姓名 *":"Name *","房型":"Room Type","企业团队住宿":"Corporate Group Stay","国家 / 地区":"Country / Region","微信":"WeChat","接送需求":"Transfer Request","暂不需要":"Not Required","需要包车服务，请联系报价":"Car service required; please quote","提交入住需求":"Submit Stay Request","填写入住资料":"Enter Stay Details","Facebook客户快捷入口":"Quick Entry for Facebook Guests","WhatsApp人工咨询":"WhatsApp Support",
+  "联系酒店与到店导航":"Contact & Directions","柬埔寨金边":"Phnom Penh, Cambodia","柬语／酒店前台：":"Khmer / Hotel Reception:","邮箱：":"Email:","打开 Google Maps 导航":"Open Google Maps","WhatsApp中文咨询":"WhatsApp Support","拨打酒店前台":"Call Hotel Reception","点击打开酒店准确定位 →":"Open Confirmed Hotel Location →",
+  "客厅与独立睡眠区":"Living room and separate sleeping area","阳台与简易厨房":"Balcony and kitchenette","长期入住可咨询优惠":"Ask about long-stay rates",
+  "入住类型":"Stay Type","短期住宿":"Short Stay","月租长住":"Monthly Long Stay","员工宿舍":"Staff Accommodation","需要机场接送，请联系报价":"Airport transfer required; please quote",
+  "入住和退房时间是什么？":"What are the check-in and check-out times?","付款前会说明取消期限、不可退条件和退款时间，确认后再付款。":"Cancellation deadlines, non-refundable conditions and refund timing are provided before payment.",
+  "隐私说明":"Privacy Notice","服务条款":"Terms of Service","酒店位置：":"Hotel location:","服务时间：":"Service hours:","24小时接待，提供中文和英文服务。":"24-hour reception with Chinese and English support.",
+  "STAY · 住":"STAY","MOVE · 行":"MOVE","BUSINESS · 商":"BUSINESS","SUPPLY · 供":"SUPPLY","会议接待、团队住宿、长期合作 →":"Meeting reception, group stays and long-term cooperation →","7种客房与家庭套房":"Seven Room Types & Family Suites","您好，我是中鼎 AI":"Hello, I am the ZIEC HOTEL AI assistant","取消与退款":"Cancellation & Refunds"
+});
+Object.assign(I18N_TEXT.en, {
+  "面向附近工厂、工程项目、驻柬企业和商务团队，提供短租、月租、员工住宿及长期协议方案。":"Short stays, monthly rentals, staff accommodation and long-term plans for nearby factories, projects, Cambodia-based companies and business teams.",
+  "适合客户":"Who It Suits","工厂管理人员、工程项目团队、企业员工、商务接待与轮换入住。":"Factory managers, project teams, company staff, business reception and rotating guests.",
+  "短租与月租":"Short & Monthly Stays","客房和公寓组合安排；协议价按人数、房型与入住期限确认。":"Room and apartment combinations; corporate rates are confirmed by guest count, room type and stay duration.",
+  "配套服务":"Supporting Services","接送、洗衣、停车、清洁等项目以企业确认方案为准。":"Transfers, laundry, parking and cleaning are subject to the confirmed corporate plan.",
+  "结算与发票":"Settlement & Invoices","企业办理流程":"Corporate Booking Process","提交6项需求":"Submit Six Details","确认协议与入住":"Confirm Agreement & Stay","公司名称":"Company Name","联系人":"Contact Person","其他需求":"Other Requirements","获取企业报价":"Request Corporate Quote","WhatsApp企业咨询":"Corporate WhatsApp"
+});
+Object.assign(I18N_TEXT.en, {
+  "住":"Stay","租":"Rent","团":"Group","司机服务":"Driver Service","30秒了解 ZIEC HOTEL":"Discover ZIEC HOTEL in 30 Seconds","关注视频号":"Follow WeChat Channels","访问 YouTube":"Visit YouTube","舒适入住":"Comfortable Stay","双人优选":"Ideal for Two","家庭入住":"Family Stay","酒店位置与到店导航":"Location & Directions","查看联系方式":"View Contact Details",
+  "大床 · 商务出行 · 免费Wi‑Fi":"King bed · Business travel · Free Wi-Fi","双床 · 同事朋友 · 舒适入住":"Twin beds · Colleagues and friends · Comfortable stay","两间卧室 · 独立客厅 · 多人入住":"Two bedrooms · Separate living room · Group stay","适合商务出行、情侣及单人舒适入住。":"For business travel, couples and comfortable solo stays.","适合同事、朋友及商务团队双人入住。":"For colleagues, friends and two-person business stays.","三间卧室与客厅，适合家庭、朋友及多人同行。":"Three bedrooms and a living room for families, friends and groups.","客户评价征集中":"Collecting Verified Guest Reviews","只展示已核实的真实入住评价；没有真实评价前不虚构、不代写。":"Only verified guest reviews will be displayed; we do not create or ghostwrite reviews.","咨询入住体验 →":"Ask About the Stay →"
+});
+Object.assign(I18N_TEXT.kh, {
+  "租":"ជួល","团":"ក្រុម","您好，我是中鼎 AI":"សួស្តី ខ្ញុំជា AI របស់ ZIEC HOTEL"
+});
+Object.assign(I18N_TEXT.en, {
+  "我们如何使用您的预订资料":"How We Use Your Booking Information","本说明适用于网站提交的住宿、月租和企业咨询信息。":"This notice applies to hotel, monthly rental and corporate inquiries submitted through the website.","收集的信息":"Information We Collect","我们仅收集处理需求所需的姓名、联系方式、入住日期、房型、人数及您主动填写的备注。":"We collect only the name, contact details, stay dates, room type, guest count and notes needed to handle your request.","使用目的":"How We Use It","这些资料用于核实房态、回复报价、安排入住及处理相关服务，不用于未经同意的公开展示。":"We use this information to check availability, provide quotations, arrange stays and related services. It is not published without consent.","保存与保护":"Storage & Protection","我们采取合理措施保护订单资料，并仅允许负责预订、前台或相关服务的人员处理。法律要求或处理争议需要时，资料可能在必要期限内保存。":"We take reasonable measures to protect booking data and limit access to staff handling reservations, reception or related services. Data may be retained when legally required or needed to resolve disputes.","第三方联系":"Third-Party Services","WhatsApp、Google Maps及其他外部服务分别适用其自身的隐私规则。请勿通过网站提交银行卡密码、验证码等敏感资料。":"WhatsApp, Google Maps and other external services apply their own privacy rules. Do not submit bank passwords or verification codes through this website.","查询与更正":"Access & Correction","如需查询、更正或申请删除您提交的资料，请联系中文客服：+855 18 995 8899。":"To access, correct or request deletion of submitted information, contact +855 18 995 8899.",
+  "预订与网站使用说明":"Booking & Website Terms","提交前请了解房态确认、付款及取消规则。":"Please review availability confirmation, payment and cancellation rules before submitting.","网站价格":"Website Rates","页面价格为公开参考价或“起”价，实际价格可能因日期、房型、人数、租期及服务内容变化。":"Published prices are reference or starting rates and may vary by date, room type, guest count, rental term and included services.","订单成立":"When a Booking Is Confirmed","网站表单属于入住需求。只有在客服确认房态、总价、政策，并收到双方确认后，订单才正式成立。":"The website form is a stay request. A booking is confirmed only after support verifies availability, total price and policies and both parties agree.","付款安全":"Payment Safety","请仅按客服发送的正式确认信息付款。网站不会要求您提供银行卡密码或短信验证码。":"Pay only according to the official confirmation from support. The website will not ask for bank passwords or SMS verification codes.","图片与设施":"Images & Facilities","图片用于展示实际房型与公共区域。设施开放时间、具体房间布置及服务安排可能调整，请以入住前确认信息为准。":"Images show actual room types and public areas. Facility hours, room layouts and services may change; please rely on the pre-arrival confirmation.","如对订单或条款有疑问，请通过网站公布的电话或WhatsApp联系。":"For booking or terms questions, contact the official phone number or WhatsApp listed on this website."
+});
+Object.assign(I18N_TEXT.kh, {
+  "隐私说明":"សេចក្តីជូនដំណឹងឯកជនភាព","我们如何使用您的预订资料":"របៀបដែលយើងប្រើព័ត៌មានកក់របស់អ្នក","本说明适用于网站提交的住宿、月租和企业咨询信息。":"សេចក្តីជូនដំណឹងនេះអនុវត្តចំពោះសំណើស្នាក់នៅ ជួលប្រចាំខែ និងសំណើក្រុមហ៊ុនតាមគេហទំព័រ។","收集的信息":"ព័ត៌មានដែលយើងប្រមូល","我们仅收集处理需求所需的姓名、联系方式、入住日期、房型、人数及您主动填写的备注。":"យើងប្រមូលតែឈ្មោះ ទំនាក់ទំនង ថ្ងៃស្នាក់ ប្រភេទបន្ទប់ ចំនួនភ្ញៀវ និងកំណត់សម្គាល់ដែលត្រូវការ។","使用目的":"គោលបំណងប្រើប្រាស់","这些资料用于核实房态、回复报价、安排入住及处理相关服务，不用于未经同意的公开展示。":"ព័ត៌មាននេះប្រើសម្រាប់ពិនិត្យបន្ទប់ ផ្តល់តម្លៃ រៀបចំការស្នាក់ និងសេវាពាក់ព័ន្ធ ហើយមិនផ្សព្វផ្សាយដោយគ្មានការយល់ព្រមទេ។","保存与保护":"ការរក្សាទុក និងការពារ","我们采取合理措施保护订单资料，并仅允许负责预订、前台或相关服务的人员处理。法律要求或处理争议需要时，资料可能在必要期限内保存。":"យើងការពារទិន្នន័យកក់ និងអនុញ្ញាតតែបុគ្គលិកពាក់ព័ន្ធប្រើប្រាស់។ ទិន្នន័យអាចរក្សាទុកតាមច្បាប់ ឬសម្រាប់ដោះស្រាយវិវាទ។","第三方联系":"សេវាភាគីទីបី","WhatsApp、Google Maps及其他外部服务分别适用其自身的隐私规则。请勿通过网站提交银行卡密码、验证码等敏感资料。":"WhatsApp Google Maps និងសេវាផ្សេងៗមានគោលការណ៍ឯកជនភាពរបស់ខ្លួន។ កុំផ្ញើពាក្យសម្ងាត់ធនាគារ ឬលេខកូដផ្ទៀងផ្ទាត់។","查询与更正":"ការចូលមើល និងកែតម្រូវ","如需查询、更正或申请删除您提交的资料，请联系中文客服：+855 18 995 8899。":"ដើម្បីមើល កែ ឬស្នើលុបទិន្នន័យ សូមទាក់ទង +855 18 995 8899។",
+  "服务条款":"លក្ខខណ្ឌសេវា","预订与网站使用说明":"លក្ខខណ្ឌកក់ និងប្រើគេហទំព័រ","提交前请了解房态确认、付款及取消规则。":"សូមអានការបញ្ជាក់បន្ទប់ ការបង់ប្រាក់ និងការលុបចោលមុនដាក់សំណើ។","网站价格":"តម្លៃលើគេហទំព័រ","页面价格为公开参考价或“起”价，实际价格可能因日期、房型、人数、租期及服务内容变化。":"តម្លៃលើទំព័រជាតម្លៃយោង ឬតម្លៃចាប់ផ្តើម ហើយអាចប្រែប្រួលតាមថ្ងៃ បន្ទប់ ចំនួនភ្ញៀវ រយៈពេល និងសេវា។","订单成立":"ការបញ្ជាក់ការកក់","网站表单属于入住需求。只有在客服确认房态、总价、政策，并收到双方确认后，订单才正式成立。":"សំណុំបែបបទគឺជាសំណើស្នាក់នៅ។ ការកក់មានសុពលភាពបន្ទាប់ពីបញ្ជាក់បន្ទប់ តម្លៃ គោលការណ៍ និងការយល់ព្រមទាំងពីរ។","付款安全":"សុវត្ថិភាពការបង់ប្រាក់","请仅按客服发送的正式确认信息付款。网站不会要求您提供银行卡密码或短信验证码。":"សូមបង់ប្រាក់តាមព័ត៌មានបញ្ជាក់ផ្លូវការប៉ុណ្ណោះ។ គេហទំព័រមិនស្នើពាក្យសម្ងាត់ធនាគារ ឬលេខកូដ SMS ទេ។","图片与设施":"រូបភាព និងបរិក្ខារ","图片用于展示实际房型与公共区域。设施开放时间、具体房间布置及服务安排可能调整，请以入住前确认信息为准。":"រូបភាពបង្ហាញបន្ទប់ និងតំបន់សាធារណៈពិត។ ម៉ោងបើក ប្លង់បន្ទប់ និងសេវាអាចផ្លាស់ប្តូរ សូមយោងតាមការបញ្ជាក់មុនមកដល់។","如对订单或条款有疑问，请通过网站公布的电话或WhatsApp联系。":"សម្រាប់សំណួរអំពីការកក់ ឬលក្ខខណ្ឌ សូមទាក់ទងលេខទូរស័ព្ទ ឬ WhatsApp ផ្លូវការ។"
+});
+Object.assign(I18N_TEXT.kh, {
+  "查看房型":"មើលបន្ទប់","网上订单":"កក់តាមអ៊ីនធឺណិត","填写入住资料":"បំពេញព័ត៌មានស្នាក់នៅ","提交网上订单":"ដាក់សំណើកក់","选择并预订":"ជ្រើស និងកក់","进入网上订单":"ចូលទំព័រកក់",
+  "Facebook客户快捷入口":"ច្រករហ័សសម្រាប់ភ្ញៀវ Facebook","WhatsApp人工咨询":"ទាក់ទងបុគ្គលិកតាម WhatsApp","/ 晚":"/ យប់","双床 · 同事朋友 · 商务团队":"គ្រែពីរ · មិត្តភក្តិ និងក្រុមការងារ","适合商务客人与管理人员长住":"សម្រាប់អ្នកធ្វើការ និងអ្នកគ្រប់គ្រងស្នាក់យូរ","适合商务同行及企业团队":"សម្រាប់ដៃគូការងារ និងក្រុមហ៊ុន","两间卧室与独立客厅":"បន្ទប់គេងពីរ និងបន្ទប់ទទួលភ្ញៀវដាច់ដោយឡែក","三间卧室与客厅，多人入住":"បន្ទប់គេងបី និងបន្ទប់ទទួលភ្ញៀវ សម្រាប់មនុស្សច្រើន","适合家庭、团队及企业接待":"សម្រាប់គ្រួសារ ក្រុម និងការទទួលក្រុមហ៊ុន","进入网上订单":"ចូលទំព័រកក់",
+  "24小时接待，提供中文和英文服务。":"ទទួលភ្ញៀវ 24 ម៉ោង និងផ្តល់សេវាភាសាចិន និងអង់គ្លេស។","酒店位置：":"ទីតាំងសណ្ឋាគារ៖","服务时间：":"ម៉ោងសេវា៖","隐私说明":"សេចក្តីជូនដំណឹងឯកជនភាព","服务条款":"លក្ខខណ្ឌសេវា",
+  "月租 US$200 包含什么？":"តើតម្លៃជួល US$200 រួមបញ្ចូលអ្វីខ្លះ?","US$200为起租参考价。具体租期、押金、水电、网络、清洁、停车及发票安排以书面确认方案为准。":"US$200 គឺជាតម្លៃចាប់ផ្តើម។ រយៈពេលជួល ប្រាក់កក់ ទឹកភ្លើង អ៊ីនធឺណិត សម្អាត ចំណត និងវិក្កយបត្រ នឹងបញ្ជាក់ជាលាយលក្ខណ៍អក្សរ។","入住和退房时间是什么？":"តើម៉ោងចូល និងចេញពីបន្ទប់ជាអ្វី?"
+});
 Object.assign(I18N_TEXT.kh, {
   "预订保障":"ការធានាការកក់", "客房US$35/晚起":"បន្ទប់ចាប់ពី US$35/យប់", "提交需求无需付款":"ដាក់សំណើដោយមិនចាំបាច់បង់ប្រាក់", "预计10分钟内回复":"រំពឹងឆ្លើយក្នុង 10 នាទី", "已提供Google地图":"មានទីតាំង Google Maps"
 });
@@ -737,6 +822,12 @@ const I18N_PAGE_META = {
       description:
         "Cambodia hotel booking and monthly apartment service with room details, stay policies, corporate rates and local support."
     },
+    "/rooms": { title: "Rooms & Rates | ZIEC HOTEL Phnom Penh", description: "View ZIEC HOTEL rooms, family suites and monthly apartments with real photos and reference rates." },
+    "/booking": { title: "Online Booking Request | ZIEC HOTEL", description: "Submit stay dates, room choice and contact details. No immediate payment; availability and price are confirmed by support." },
+    "/monthly": { title: "Monthly Apartments from US$200 | ZIEC HOTEL", description: "Monthly apartments in Phnom Penh from US$200, suitable for business and corporate long stays." },
+    "/corporate": { title: "Corporate Accommodation | ZIEC HOTEL", description: "Group rooms, staff long stays and corporate accommodation plans in Phnom Penh." },
+    "/contact": { title: "Contact & Directions | ZIEC HOTEL Phnom Penh", description: "Official phone numbers, WhatsApp contact and confirmed Google Maps directions for ZIEC HOTEL." },
+    "/faq": { title: "Booking FAQ | ZIEC HOTEL", description: "Answers about booking, monthly rent, payment, cancellation, airport transfer and corporate accommodation." },
     "/suppliers": {
       title: "Supplier Platform | ZIEC",
       description:
@@ -772,6 +863,12 @@ const I18N_PAGE_META = {
     "/": { title: "ZIEC HOTEL | សណ្ឋាគារ និងសេវាកម្មនៅកម្ពុជា", description: "សណ្ឋាគារ អាផាតមិន សេវាកម្មសហគ្រាស និងបណ្តាញអ្នកផ្គត់ផ្គង់នៅកម្ពុជា។" },
     "/index": { title: "ZIEC HOTEL | សណ្ឋាគារ និងសេវាកម្មនៅកម្ពុជា", description: "សណ្ឋាគារ អាផាតមិន សេវាកម្មសហគ្រាស និងបណ្តាញអ្នកផ្គត់ផ្គង់នៅកម្ពុជា។" },
     "/hotels": { title: "សណ្ឋាគារ និងការកក់ | ZIEC HOTEL", description: "មើលបន្ទប់ អាផាតមិន និងដាក់សំណើស្នាក់នៅ។" },
+    "/rooms": { title: "បន្ទប់ និងតម្លៃ | ZIEC HOTEL ភ្នំពេញ", description: "មើលបន្ទប់ ស៊ុយគ្រួសារ និងអាផាតមិនប្រចាំខែ ជាមួយរូបភាពពិត និងតម្លៃយោង។" },
+    "/booking": { title: "សំណើកក់តាមអ៊ីនធឺណិត | ZIEC HOTEL", description: "ដាក់ថ្ងៃស្នាក់ ប្រភេទបន្ទប់ និងទំនាក់ទំនង។ មិនត្រូវបង់ប្រាក់ភ្លាមទេ។" },
+    "/monthly": { title: "អាផាតមិនចាប់ពី US$200 | ZIEC HOTEL", description: "អាផាតមិនប្រចាំខែនៅភ្នំពេញ សម្រាប់ការស្នាក់យូរ និងក្រុមហ៊ុន។" },
+    "/corporate": { title: "ការស្នាក់នៅសម្រាប់ក្រុមហ៊ុន | ZIEC HOTEL", description: "បន្ទប់ក្រុម ការស្នាក់យូរសម្រាប់បុគ្គលិក និងផែនការក្រុមហ៊ុននៅភ្នំពេញ។" },
+    "/contact": { title: "ទំនាក់ទំនង និងផ្លូវ | ZIEC HOTEL", description: "លេខទូរស័ព្ទ WhatsApp និងទីតាំង Google Maps ផ្លូវការរបស់ ZIEC HOTEL។" },
+    "/faq": { title: "សំណួរអំពីការកក់ | ZIEC HOTEL", description: "ចម្លើយអំពីការកក់ ការជួលប្រចាំខែ ការបង់ប្រាក់ ការលុបចោល និងការដឹកជញ្ជូន។" },
     "/suppliers": { title: "វេទិកាផ្គត់ផ្គង់ | ZIEC", description: "បណ្តាញអ្នកផ្គត់ផ្គង់ និងសេវាកម្មសហគ្រាសនៅកម្ពុជា។" }
   }
 };
@@ -960,22 +1057,22 @@ function normalizePublicNavigation() {
   const page = normalizePageKey();
   const hotelPages = new Set([
     "/hotels",
+    "/rooms",
     "/standard",
     "/vip",
     "/monthly",
     "/three-bedroom-suite",
     "/payment"
   ]);
-  const supplierPages = new Set(["/suppliers", "/join", "/inquiry"]);
   const active = page === "/" || page === "/index"
     ? "home"
     : hotelPages.has(page)
       ? "hotel"
+      : page === "/booking"
+        ? "booking"
       : page === "/corporate"
         ? "corporate"
-        : supplierPages.has(page)
-          ? "suppliers"
-          : page === "/contact"
+        : page === "/contact"
             ? "contact"
             : "";
 
@@ -984,11 +1081,10 @@ function normalizePublicNavigation() {
   nav.setAttribute("aria-label", "主导航");
   nav.innerHTML = [
     item("home", "./index.html", "首页"),
-    item("hotel", "./hotels.html#hotel-stay", "酒店公寓"),
-    item("corporate", "./hotels.html#corporate", "企业服务"),
-    item("suppliers", "./suppliers.html", "供应链平台"),
-    item("contact", "./hotels.html#contact", "联系我们"),
-    '<button class="nav-ai" type="button" data-ai-open>AI客服</button>'
+    item("hotel", "./rooms.html", "查看房型"),
+    item("booking", "./booking.html", "网上订单"),
+    item("corporate", "./corporate.html", "企业服务"),
+    item("contact", "./contact.html", "联系我们")
   ].join("");
 }
 function initLanguageSwitcher() {
@@ -1175,21 +1271,21 @@ async function loadHomeRecommendations() {
   const fallbackHotels = [
     {
       label: "酒店住宿",
-      title: "中鼎国际酒店 · 豪华大床房",
+      title: "ZIEC HOTEL · 豪华大床房",
       price: "US$ 35 / 晚",
       image: "assets/rooms/deluxe-king/H-1-1.webp",
       href: "./hotels.html#hotel-stay",
     },
     {
       label: "酒店住宿",
-      title: "中鼎国际酒店 · 豪华双床房",
+      title: "ZIEC HOTEL · 豪华双床房",
       price: "US$ 35 / 晚",
       image: "assets/rooms/deluxe-twin/H-2-1.webp",
       href: "./hotels.html#hotel-stay",
     },
     {
       label: "家庭与多人入住",
-      title: "中鼎国际酒店 · 家庭两房一厅",
+      title: "ZIEC HOTEL · 家庭两房一厅",
       price: "US$ 65 / 晚",
       image: "assets/rooms/family-two-bedroom/F-2-1.webp",
       href: "./hotels.html#hotel-stay",
@@ -1214,7 +1310,7 @@ async function loadHomeRecommendations() {
       .slice(0, 10)
       .map((h) => {
         const image = Array.isArray(h.image_urls) ? h.image_urls[0] : h.image;
-        const title = h.title || `${h.name || "中鼎国际酒店"} · ${h.room_type || ""}`;
+        const title = h.title || `${h.name || "ZIEC HOTEL"} · ${h.room_type || ""}`;
         const officialPrice = officialRoomPrices[h.room_type];
         const price = officialPrice
           ? `US$ ${officialPrice} / 晚`

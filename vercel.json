@@ -22,6 +22,8 @@
     { "source": "/hotels.html", "destination": "/hotels", "permanent": true },
     { "source": "/booking.html", "destination": "/booking", "permanent": true },
     { "source": "/rooms.html", "destination": "/rooms", "permanent": true }
+    ,{ "source": "/privacy.html", "destination": "/privacy", "permanent": true }
+    ,{ "source": "/terms.html", "destination": "/terms", "permanent": true }
   ],
   "rewrites": [
     { "source": "/en", "destination": "/?lang=en" }, { "source": "/en/:path*", "destination": "/:path*?lang=en" },

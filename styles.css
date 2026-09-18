@@ -68,6 +68,7 @@ body {
   border-radius: 0 0 42px 42px;
   overflow: hidden;
 }
+.hotel-banner { background-image:url("./assets/pool.jpg");background-position:center 55%; }
 
 .hero-copy { padding-bottom: 105px; }
 
@@ -2672,6 +2673,43 @@ html[lang="km"] .ad-card small { display: none; }
 /* V7.1: premium homepage, safe responsive media and compact supplier cards. */
 html,body{width:100%;max-width:100%;overflow-x:clip}*,*::before,*::after{box-sizing:border-box}img,video,iframe,svg{max-width:100%}.container,.section,main,section{min-width:0}
 .hero{border-radius:0;box-shadow:inset 0 -1px rgba(255,255,255,.12)}.hero-copy{max-width:760px}.hero h1{font-family:Georgia,"Times New Roman",serif;font-weight:600;line-height:.98}.hero-cn{margin-top:16px;font-weight:500;letter-spacing:.04em}.hero .btn{border-radius:999px;padding-inline:24px}
+
+/* V7.7.1: keep the home page focused on accommodation and booking. */
+.hero {
+  background:
+    linear-gradient(90deg,rgba(6,27,39,.94) 0%,rgba(6,27,39,.68) 48%,rgba(6,27,39,.12) 100%),
+    linear-gradient(0deg,rgba(6,27,39,.28),transparent 48%),
+    url("./assets/rooms/deluxe-king/H-1-1.webp") center 48%/cover no-repeat;
+}
+.home-core-services .audience-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.travel-service-section,
+.ad-zone,
+.home-recommendations .supply-picks-title,
+.home-recommendations .supplier-picks,
+.quick-links { display:none; }
+.room-facts-note {
+  margin-top:28px;padding:18px 20px;border:1px solid rgba(39,65,50,.14);
+  border-radius:14px;background:#f7faf8;display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+}
+.room-facts-note strong { margin-right:8px;color:var(--v608-green,#315c46); }
+.room-facts-note span { padding:7px 11px;border-radius:999px;background:#fff;border:1px solid rgba(39,65,50,.12); }
+.room-detail-disclaimer { margin:14px 0 0;color:#65736b;line-height:1.7; }
+.booking-clarity { background:#f7f4ec; }
+.v69-map-card:has(.map-pin) {
+  min-height:300px;background:linear-gradient(145deg,#e9f1ed,#cbded5);display:grid;
+  place-content:center;text-align:center;gap:8px;color:#163f37;border:1px solid rgba(22,63,55,.16);
+}
+.v69-map-card .map-pin { font-size:76px;line-height:1;color:#c8953e; }
+.v69-map-card .map-pin + span { font-size:22px;font-weight:800;letter-spacing:.04em; }
+.footer a { color:inherit;text-decoration:underline;text-underline-offset:3px; }
+.legal-copy { max-width:860px; }
+.legal-copy h2 { margin:28px 0 8px;color:#163f37;font-size:24px; }
+.legal-copy p { margin:0;color:#58665f;line-height:1.9; }
+@media (max-width:800px) {
+  .home-core-services .audience-grid { grid-template-columns:1fr; }
+  .hero { background-position:62% center; }
+  .room-facts-note { align-items:flex-start; }
+}
 .home-recommendations{background:linear-gradient(180deg,#f8f5ee 0%,#fff 100%)}.recommend-card{border-radius:20px}.recommend-card img{width:100%;aspect-ratio:4/3;height:auto;object-fit:cover;object-position:center}.facility img,.monthly-gallery img,.v69-map-card img{object-position:center}.facility-grid,.recommend-grid,.supplier-grid,.facility,.recommend-card,.supplier-card{min-width:0}
 .supplier-card-compact{position:relative;display:grid;grid-template-rows:auto auto}.supplier-card-compact .supplier-cover{width:100%;aspect-ratio:4/3;height:auto;border:0;padding:0;overflow:hidden;background:#e9eee9;cursor:pointer}.supplier-card-compact .supplier-cover img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}.supplier-card-compact .supplier-brand{aspect-ratio:4/3;min-height:0}.supplier-card-compact .card-body{padding:16px;display:grid;gap:12px}.supplier-card-compact .supplier-company-name{margin:0;min-height:2.7em;line-height:1.35;font-size:20px!important}.supplier-detail-button{width:100%;min-height:42px;border:1px solid var(--gold);border-radius:10px;background:#fffaf0;color:var(--navy);font:inherit;font-weight:800;cursor:pointer}.supplier-detail-button:hover{color:#fff;background:var(--navy);border-color:var(--navy)}
 @media(max-width:760px){.hero{background-position:center center}.hero-copy{width:100%;padding-inline:0}.trust-strip-grid,.facility-grid,.recommend-grid,.supplier-grid{width:100%}.recommend-card img{aspect-ratio:4/3;height:auto}}

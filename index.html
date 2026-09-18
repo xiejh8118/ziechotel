@@ -25,8 +25,9 @@
       content="https://www.ziechotel.com/assets/ziec-cover-v69.webp"
     />
     <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/png" href="./assets/logo.png" />
     <script type="application/ld+json">
-      {"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"ZIEC HOTEL Cambodia","alternateName":"ZIEC LIFE Cambodia","url":"https://www.ziechotel.com/","telephone":"+855189958899","email":"ziechotel@qq.com"},{"@type":"Hotel","name":"ZIEC HOTEL Cambodia","url":"https://www.ziechotel.com/hotels","hasMap":"https://maps.app.goo.gl/pG3x9t78Urur73bYA?g_st=ac","image":"https://www.ziechotel.com/assets/ziec-cover-v69.webp","priceRange":"US$35–80","telephone":"+855183180888","amenityFeature":[{"@type":"LocationFeatureSpecification","name":"中文客服","value":true},{"@type":"LocationFeatureSpecification","name":"月租公寓","value":true}]}]}
+      {"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.ziechotel.com/#organization","name":"ZIEC HOTEL","legalName":"中鼎国际酒店","url":"https://www.ziechotel.com/","logo":"https://www.ziechotel.com/assets/logo.png","telephone":"+855189958899","email":"ziechotel@qq.com"},{"@type":"Hotel","@id":"https://www.ziechotel.com/#hotel","name":"ZIEC HOTEL","url":"https://www.ziechotel.com/hotels","hasMap":"https://maps.app.goo.gl/pG3x9t78Urur73bYA?g_st=ac","image":"https://www.ziechotel.com/assets/ziec-cover-v69.webp","priceRange":"US$35–80","telephone":"+855183180888","parentOrganization":{"@id":"https://www.ziechotel.com/#organization"},"amenityFeature":[{"@type":"LocationFeatureSpecification","name":"Chinese-language support","value":true},{"@type":"LocationFeatureSpecification","name":"Monthly apartments","value":true},{"@type":"LocationFeatureSpecification","name":"Swimming pool","value":true},{"@type":"LocationFeatureSpecification","name":"Fitness room","value":true}]}]}
     </script>
     <link rel="stylesheet" href="./styles.css" />
   </head>
@@ -35,7 +36,7 @@
       <div class="container nav">
         <a class="brand" href="./index.html" aria-label="ZIEC HOTEL 首页">
           <img src="./assets/logo.png" alt="ZIEC Logo" />
-          <span><strong>ZIEC HOTEL</strong><small>中鼎国际酒店</small></span>
+          <span><strong>ZIEC HOTEL</strong><small>柬埔寨 · 金边</small></span>
         </a>
         <button
           class="menu-toggle"
@@ -61,10 +62,10 @@
         <div class="container hero-copy">
           <div class="eyebrow">ZIEC HOTEL CAMBODIA · PHNOM PENH</div>
           <h1>ZIEC HOTEL Cambodia</h1>
-          <div class="hero-cn">金边酒店住宿 · 月租公寓 · 企业团房</div>
-          <p>豪华客房 US$35/晚起，行政客房 US$45/晚，家庭套房 US$65/晚起。提交需求后由客服确认实际房态与价格。</p>
+          <div class="hero-cn">金边住宿、月租公寓与企业团房</div>
+          <p>客房每晚 US$35 起，月租公寓每月 US$200 起。在线提交日期和房型，客服确认实际房态与价格。</p>
           <div class="actions">
-            <a class="btn btn-primary" href="./hotels.html#booking">查询房态</a>
+            <a class="btn btn-primary" href="./booking.html">网上预订</a>
             <a class="btn btn-dark" href="https://wa.me/855189958899?text=您好，我想咨询ZIEC HOTEL房态和价格" target="_blank" rel="noopener">WhatsApp咨询</a>
           </div>
           <div class="hero-features brand-line-tags" aria-label="预订保障">
@@ -76,21 +77,20 @@
 
       <section class="trust-strip" aria-label="平台身份与服务范围">
         <div class="container trust-strip-grid">
-          <div><small>运营主体</small><strong>中鼎瑞德酒店管理有限公司</strong></div>
+          <div><small>运营主体</small><strong>中鼎国际酒店</strong></div>
           <div><small>核心服务</small><strong>住宿 · 出行 · 企业 · 供应链</strong></div>
           <div><small>服务城市</small><strong>金边 · 西港 · 暹粒</strong></div>
           <a href="#contact"><small>服务保障</small><strong>订单 · 付款 · 退款说明 →</strong></a>
         </div>
       </section>
 
-      <section class="section audience-section" id="services">
+      <section class="section audience-section home-core-services" id="services">
         <div class="container">
-          <div class="section-title"><span>ZIEC LIFE SERVICES</span><h2 class="single-line-fit-title">在柬埔寨，把住宿、出行和企业资源安排好</h2><p class="muted">从短住长租到接送包车、企业接待和采购对接，中鼎本地团队协助确认需求、价格与可用资源。</p></div>
+          <div class="section-title"><span>住宿服务</span><h2 class="single-line-fit-title">短住、长租和企业住宿，一次安排清楚</h2><p class="muted">先选择客房或公寓，再提交日期和人数；客服核实房态、价格及服务内容后与您确认。</p></div>
           <div class="audience-grid brand-line-grid">
-            <article><span>住</span><h3>住得安心</h3><p>酒店客房、月租公寓、长期住宿、企业团房与员工宿舍，按入住周期和预算匹配。</p><a href="./hotels.html">查看住宿公寓 →</a></article>
-            <article><span>行</span><h3>出行省心</h3><p>机场接送、市内包车、司机服务和本地协助，适合旅游、商务和团队行程。</p><a href="#move">咨询接送包车 →</a></article>
-            <article><span>商</span><h3>企业好安排</h3><p>团队住宿、会议接待、员工长住、月结方案和长期合作，减少企业落地成本。</p><a href="#corporate">查看企业服务 →</a></article>
-            <article><span>供</span><h3>资源对得上</h3><p>建筑材料、工程维修、家具设备、物流和企业服务供应商，支持采购询价与人工匹配。</p><a href="./suppliers.html">进入供应链平台 →</a></article>
+            <article><span>住</span><h3>酒店客房</h3><p>豪华房、行政房及家庭套房，展示真实图片与清晰价格。</p><a href="./rooms.html">查看全部房型 →</a></article>
+            <article><span>租</span><h3>月租公寓</h3><p>每月 US$200 起，适合商务长住、企业员工及长期居住。</p><a href="./monthly.html">查看月租公寓 →</a></article>
+            <article><span>团</span><h3>企业团房</h3><p>团队住宿、员工长住与协议合作，根据人数和周期提供方案。</p><a href="./corporate.html">查看企业服务 →</a></article>
           </div>
         </div>
       </section>
@@ -124,9 +124,9 @@
         <div class="container">
           <div class="section-title"><span>HOTEL ROOM PICKS</span><h2>酒店房型推荐</h2><p class="muted">精选酒店房型，点击查看详情并咨询实际房态。</p></div>
           <div class="recommend-grid" id="homeHotelGrid">
-            <article class="recommend-card"><img src="./assets/rooms/deluxe-king/H-1-1.webp" alt="中鼎国际酒店豪华大床房"><div><small>舒适入住</small><h3>豪华大床房</h3><p>US$35 / 晚</p><a href="./hotels.html#hotel-stay">查看房型 →</a></div></article>
-            <article class="recommend-card"><img src="./assets/rooms/deluxe-twin/H-2-1.webp" alt="中鼎国际酒店豪华双床房"><div><small>双人优选</small><h3>豪华双床房</h3><p>US$35 / 晚</p><a href="./hotels.html#hotel-stay">查看房型 →</a></div></article>
-            <article class="recommend-card"><img src="./assets/rooms/family-two-bedroom/F-2-1.webp" alt="中鼎国际酒店家庭两房一厅"><div><small>家庭入住</small><h3>家庭两房一厅</h3><p>US$65 / 晚</p><a href="./hotels.html#hotel-stay">查看房型 →</a></div></article>
+            <article class="recommend-card"><img src="./assets/rooms/deluxe-king/H-1-1.webp" alt="ZIEC HOTEL 豪华大床房"><div><small>舒适入住</small><h3>豪华大床房</h3><p>US$35 / 晚</p><a href="./hotels.html#hotel-stay">查看房型 →</a></div></article>
+            <article class="recommend-card"><img src="./assets/rooms/deluxe-twin/H-2-1.webp" alt="ZIEC HOTEL 豪华双床房"><div><small>双人优选</small><h3>豪华双床房</h3><p>US$35 / 晚</p><a href="./hotels.html#hotel-stay">查看房型 →</a></div></article>
+            <article class="recommend-card"><img src="./assets/rooms/family-two-bedroom/F-2-1.webp" alt="ZIEC HOTEL 家庭两房一厅"><div><small>家庭入住</small><h3>家庭两房一厅</h3><p>US$65 / 晚</p><a href="./hotels.html#hotel-stay">查看房型 →</a></div></article>
             <article class="recommend-card"><img src="./assets/monthly-6.jpg" alt="金边月租公寓"><div><small>长租公寓</small><h3>月租公寓</h3><p>US$200 / 月起</p><a href="./monthly.html">查看详情 →</a></div></article>
           </div>
           <div class="section-title supply-picks-title"><span>SUPPLIER PICKS</span><h2>供应商推荐</h2><p class="muted">展示已审核的优质供应商。</p></div>
@@ -140,7 +140,7 @@
             <div class="section-title"><span>LOCATION · PHNOM PENH</span><h2>酒店位置与到店导航</h2><p class="muted">酒店位于柬埔寨金边，Google Maps定位已经确认。点击地图可直接导航；需要中、英、柬文地址时请联系前台发送。</p></div>
             <div class="actions"><a class="btn btn-primary" href="https://maps.app.goo.gl/pG3x9t78Urur73bYA?g_st=ac" target="_blank" rel="noopener">打开 Google Maps 导航</a><a class="btn btn-dark" href="./contact.html">查看联系方式</a></div>
           </div>
-          <a class="v69-map-card" href="https://maps.app.goo.gl/pG3x9t78Urur73bYA?g_st=ac" target="_blank" rel="noopener"><img src="./assets/map.jpg" alt="ZIEC HOTEL Cambodia 酒店位置地图" loading="lazy"><strong>点击打开酒店准确定位 →</strong></a>
+          <a class="v69-map-card" href="https://maps.app.goo.gl/pG3x9t78Urur73bYA?g_st=ac" target="_blank" rel="noopener"><span class="map-pin" aria-hidden="true">⌖</span><span>Google Maps</span><strong>点击打开酒店准确定位 →</strong></a>
         </div>
       </section>
 
@@ -228,7 +228,7 @@
               <img class="facility-image-contain" src="./assets/reception.jpg" alt="酒店前台服务" />
               <div>
                 <h3>前台服务</h3>
-                <p>24小时接待，提供中文与 English 服务。</p>
+              <p>24小时接待，提供中文和英文服务。</p>
               </div>
             </article>
           </div>
@@ -273,7 +273,7 @@
               <p>客房预订、月租公寓和企业合作，欢迎直接联系我们。</p>
             </div>
             <div class="home-contact-trust">
-              <p><strong>运营主体：</strong>中鼎瑞德酒店管理有限公司</p>
+              <p><strong>运营主体：</strong>中鼎国际酒店</p>
               <p><strong>酒店位置：</strong>柬埔寨金边，准确门牌以 Google Maps 定位为准</p>
               <p><strong>服务时间：</strong>酒店前台24小时；中文咨询按客服在线时间回复</p>
               <a class="btn btn-primary" href="https://maps.app.goo.gl/pG3x9t78Urur73bYA?g_st=ac" target="_blank" rel="noopener">打开 Google Maps 导航</a>
@@ -298,10 +298,10 @@
       <div class="container footer-wrap">
         <div class="footer-brand">
           <img src="./assets/logo.png" alt="ZIEC" /><span
-            ><strong>ZIEC HOTEL</strong><small>中鼎国际酒店</small></span
+            ><strong>ZIEC HOTEL</strong><small>运营主体：中鼎国际酒店</small></span
           >
         </div>
-        <div>© 2026 ZIEC HOTEL V7.5 · www.ziechotel.com</div>
+        <div>© 2026 ZIEC HOTEL V7.7.1 · <a href="./faq.html">常见问题</a> · <a href="./payment.html">预订与退款说明</a> · <a href="./privacy.html">隐私说明</a> · <a href="./terms.html">服务条款</a> · www.ziechotel.com</div>
       </div>
     </footer>
     <a
