@@ -690,7 +690,7 @@ Object.assign(I18N_TEXT.en, {
   "中鼎国际酒店 · 豪华大床房":"Zhongding International Hotel · Deluxe King Room", "中鼎国际酒店 · 豪华双床房":"Zhongding International Hotel · Deluxe Twin Room", "中鼎国际酒店 · 家庭两房一厅":"Zhongding International Hotel · Two-Bedroom Family Suite", "金边月租公寓 · 长住方案":"Phnom Penh Monthly Apartment · Long-Stay Plan", "企业协议住宿 · 团队接待":"Corporate Contract Stay · Group Reception", "推荐酒店":"Recommended Hotel", "家庭与多人入住":"Family & Group Stay", "长租公寓":"Long-Stay Apartment", "企业住宿":"Corporate Stay", "US$ 35 / 晚":"US$ 35 / night", "US$ 65 / 晚":"US$ 65 / night", "US$ 70 / 晚":"US$ 70 / night", "US$ 200 / 月起":"From US$ 200 / month", "月结、长住与接待需求可核价":"Rates available for monthly settlement, long stays and group reception", "查看与预订 →":"View & Book →"
 });
 
-// V7.7.1: one public brand, language-complete booking copy and accommodation-first navigation.
+// V7.8: one public brand, language-complete booking copy and accommodation-first navigation.
 Object.assign(I18N_TEXT.en, {
   "柬埔寨 · 金边":"Phnom Penh, Cambodia",
   "金边住宿、月租公寓与企业团房":"Phnom Penh Hotel, Monthly Apartments & Corporate Stays",
@@ -756,6 +756,14 @@ Object.assign(I18N_TEXT.en, {
 Object.assign(I18N_TEXT.en, {
   "住":"Stay","租":"Rent","团":"Group","司机服务":"Driver Service","30秒了解 ZIEC HOTEL":"Discover ZIEC HOTEL in 30 Seconds","关注视频号":"Follow WeChat Channels","访问 YouTube":"Visit YouTube","舒适入住":"Comfortable Stay","双人优选":"Ideal for Two","家庭入住":"Family Stay","酒店位置与到店导航":"Location & Directions","查看联系方式":"View Contact Details",
   "大床 · 商务出行 · 免费Wi‑Fi":"King bed · Business travel · Free Wi-Fi","双床 · 同事朋友 · 舒适入住":"Twin beds · Colleagues and friends · Comfortable stay","两间卧室 · 独立客厅 · 多人入住":"Two bedrooms · Separate living room · Group stay","适合商务出行、情侣及单人舒适入住。":"For business travel, couples and comfortable solo stays.","适合同事、朋友及商务团队双人入住。":"For colleagues, friends and two-person business stays.","三间卧室与客厅，适合家庭、朋友及多人同行。":"Three bedrooms and a living room for families, friends and groups.","客户评价征集中":"Collecting Verified Guest Reviews","只展示已核实的真实入住评价；没有真实评价前不虚构、不代写。":"Only verified guest reviews will be displayed; we do not create or ghostwrite reviews.","咨询入住体验 →":"Ask About the Stay →"
+});
+Object.assign(I18N_TEXT.en, {
+  "电话":"Phone", "邮箱":"Email", "官网":"Official Website", "联系 Telegram":"Contact on Telegram",
+  "累计浏览量：":"Total visits: ", "选择咨询方式":"Choose a Contact Method"
+});
+Object.assign(I18N_TEXT.kh, {
+  "电话":"ទូរស័ព្ទ", "邮箱":"អ៊ីមែល", "官网":"គេហទំព័រផ្លូវការ", "联系 Telegram":"ទាក់ទងតាម Telegram",
+  "累计浏览量：":"ចំនួនទស្សនាសរុប៖ ", "选择咨询方式":"ជ្រើសរើសវិធីទំនាក់ទំនង"
 });
 Object.assign(I18N_TEXT.kh, {
   "租":"ជួល","团":"ក្រុម","您好，我是中鼎 AI":"សួស្តី ខ្ញុំជា AI របស់ ZIEC HOTEL"
@@ -1365,7 +1373,7 @@ loadHomeRecommendations();
 // different countries. Supplier cards render their own company-specific set.
 function universalConsultationChannels(message = "您好，我想咨询ZIEC HOTEL的服务。") {
   const encoded = encodeURIComponent(message);
-  return `<div class="universal-consult" data-universal-consult><div class="supplier-consult-title">选择咨询方式</div><div class="supplier-consult-actions icon-only-consult"><button class="consult-channel consult-wechat" type="button" title="微信" aria-label="微信咨询" data-contact-copy="微信" data-contact-message="${esc(message)}"><span class="consult-icon">微</span></button><button class="consult-channel consult-messenger" type="button" title="Messenger" aria-label="Messenger咨询" data-contact-copy="Messenger" data-contact-message="${esc(message)}"><span class="consult-icon">⚡</span></button><a class="consult-channel consult-whatsapp" title="WhatsApp" aria-label="WhatsApp咨询" href="https://wa.me/855189958899?text=${encoded}" target="_blank" rel="noopener"><span class="consult-icon">WA</span></a></div></div>`;
+  return `<div class="universal-consult" data-universal-consult><div class="supplier-consult-title">选择咨询方式</div><div class="supplier-consult-actions icon-only-consult"><a class="consult-channel consult-telegram" title="Telegram" aria-label="Telegram咨询" href="https://t.me/+IfLq7houMC5lZjU1" target="_blank" rel="noopener"><span class="consult-icon">TG</span></a><a class="consult-channel consult-messenger" title="Facebook" aria-label="Facebook咨询" href="https://web.facebook.com/ziechotel" target="_blank" rel="noopener"><span class="consult-icon">FB</span></a><a class="consult-channel consult-whatsapp" title="WhatsApp" aria-label="WhatsApp咨询" href="https://wa.me/855189958899?text=${encoded}" target="_blank" rel="noopener"><span class="consult-icon">WA</span></a><a class="consult-channel" title="电话" aria-label="电话咨询" href="tel:+855183180888"><span class="consult-icon">☎</span></a></div></div>`;
 }
 function enhanceConsultationAreas() {
   const hosts = new Set();
@@ -1403,16 +1411,80 @@ document.querySelectorAll(".footer-wrap").forEach((footer) => {
   if (versionPattern.test(footer.textContent)) {
     footer.querySelectorAll("div").forEach((item) => {
       if (/ZIEC HOTEL V\d+(?:\.\d+)*/.test(item.textContent)) {
-        item.innerHTML = item.innerHTML.replace(versionPattern, "ZIEC HOTEL V7.6");
+        item.innerHTML = item.innerHTML.replace(versionPattern, "ZIEC HOTEL V7.8");
       }
     });
   } else {
     const version = document.createElement("div");
     version.className = "site-version";
-    version.textContent = "ZIEC HOTEL V7.6";
+    version.textContent = "ZIEC HOTEL V7.8";
     footer.appendChild(version);
   }
 });
+
+// V7.8: official contact details and a real, site-wide visitor counter.
+const OFFICIAL_CONTACTS = {
+  phone: "+855 018 318 0888",
+  email: "ziechotel@163.com",
+  website: "www.ziechotel.com",
+  telegram: "https://t.me/+IfLq7houMC5lZjU1",
+  facebook: "https://web.facebook.com/ziechotel",
+};
+
+function officialContactCards() {
+  return [
+    `<a href="tel:+855183180888"><small>电话</small><strong>${OFFICIAL_CONTACTS.phone}</strong></a>`,
+    `<a href="mailto:${OFFICIAL_CONTACTS.email}"><small>邮箱</small><strong>${OFFICIAL_CONTACTS.email}</strong></a>`,
+    `<a href="https://${OFFICIAL_CONTACTS.website}" target="_blank" rel="noopener"><small>官网</small><strong>${OFFICIAL_CONTACTS.website}</strong></a>`,
+    `<a href="${OFFICIAL_CONTACTS.telegram}" target="_blank" rel="noopener"><small>Telegram</small><strong>联系 Telegram</strong></a>`,
+    `<a href="${OFFICIAL_CONTACTS.facebook}" target="_blank" rel="noopener"><small>Facebook</small><strong>ZIEC HOTEL</strong></a>`,
+  ].join("");
+}
+
+function installOfficialContacts() {
+  document.querySelectorAll(".contact-list").forEach((list) => {
+    list.innerHTML = officialContactCards();
+  });
+  document.querySelectorAll(".footer-wrap").forEach((footer) => {
+    if (footer.querySelector(".footer-official-contact")) return;
+    const block = document.createElement("div");
+    block.className = "footer-official-contact";
+    block.innerHTML = `<strong>联系我们</strong><a href="tel:+855183180888">${OFFICIAL_CONTACTS.phone}</a><a href="mailto:${OFFICIAL_CONTACTS.email}">${OFFICIAL_CONTACTS.email}</a><a href="https://${OFFICIAL_CONTACTS.website}">${OFFICIAL_CONTACTS.website}</a><a href="${OFFICIAL_CONTACTS.telegram}" target="_blank" rel="noopener">Telegram</a><a href="${OFFICIAL_CONTACTS.facebook}" target="_blank" rel="noopener">Facebook</a><span class="footer-visitor-count" aria-live="polite">累计浏览量：<b>—</b></span>`;
+    footer.appendChild(block);
+  });
+}
+
+async function updateVisitorCount() {
+  if (normalizePageKey() === "/admin") return;
+  const nodes = document.querySelectorAll(".footer-visitor-count b");
+  if (!nodes.length) return;
+  let shouldCount = true;
+  try {
+    const last = Number(localStorage.getItem("ziec_last_counted_visit") || 0);
+    shouldCount = !last || Date.now() - last > 24 * 60 * 60 * 1000;
+  } catch (_) {}
+  try {
+    const response = await fetch("/api/visitor-count", {
+      method: shouldCount ? "POST" : "GET",
+      headers: { "Content-Type": "application/json" },
+      body: shouldCount ? "{}" : undefined,
+      cache: "no-store",
+    });
+    const payload = await response.json();
+    if (!response.ok || !Number.isFinite(Number(payload.count))) throw new Error("counter unavailable");
+    const value = Number(payload.count).toLocaleString("en-US");
+    nodes.forEach((node) => (node.textContent = value));
+    if (shouldCount) {
+      try { localStorage.setItem("ziec_last_counted_visit", String(Date.now())); } catch (_) {}
+    }
+  } catch (_) {
+    nodes.forEach((node) => (node.textContent = "—"));
+  }
+}
+
+installOfficialContacts();
+refreshCurrentLanguage();
+updateVisitorCount();
 function renderSuppliers(list) {
   const grid = document.querySelector("#supplierGrid");
   grid.innerHTML =

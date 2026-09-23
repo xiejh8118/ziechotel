@@ -2,11 +2,11 @@
 
 > ZIEC HOTEL is a Cambodia-based Chinese-language hotel, apartment, local transport, corporate accommodation and supplier-matching service platform operated by Zhongding International Hotel
 
-Canonical website: https://www.ziechotel.top/
+Canonical website: https://www.ziechotel.com/
 Primary language: Simplified Chinese
 Service area: Phnom Penh, Sihanoukville and Siem Reap, Cambodia
 Official WhatsApp: +855 18 995 8899
-Official email: ziechotel@qq.com
+Official email: ziechotel@163.com
 
 ## Core services
 
@@ -26,10 +26,10 @@ Official email: ziechotel@qq.com
 
 ## Authoritative pages
 
-- Home and service overview: https://www.ziechotel.top/
-- Hotels and apartments: https://www.ziechotel.top/hotels
-- Cambodia service knowledge page: https://www.ziechotel.top/geo
-- Frequently asked questions: https://www.ziechotel.top/faq
-- Supplier platform: https://www.ziechotel.top/suppliers
-- Booking and payment guide: https://www.ziechotel.top/payment
+- Home and service overview: https://www.ziechotel.com/
+- Hotels and apartments: https://www.ziechotel.com/hotels
+- Cambodia service knowledge page: https://www.ziechotel.com/geo
+- Frequently asked questions: https://www.ziechotel.com/faq
+- Supplier platform: https://www.ziechotel.com/suppliers
+- Booking and payment guide: https://www.ziechotel.com/payment
 

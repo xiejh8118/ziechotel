@@ -18,11 +18,11 @@ ZIEC HOTEL V6.2 — SEO + GEO 智能搜索优化版
 Vercel 会自动部署，不需要执行 Supabase SQL。
 
 三、部署后检查
-https://www.ziechotel.top/robots.txt
-https://www.ziechotel.top/sitemap.xml
-https://www.ziechotel.top/llms.txt
-https://www.ziechotel.top/geo
-https://www.ziechotel.top/faq
+https://www.ziechotel.com/robots.txt
+https://www.ziechotel.com/sitemap.xml
+https://www.ziechotel.com/llms.txt
+https://www.ziechotel.com/geo
+https://www.ziechotel.com/faq
 
 四、搜索平台提交
 1. Google Search Console 添加站点并提交 sitemap.xml。

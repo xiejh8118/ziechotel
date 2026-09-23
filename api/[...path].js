@@ -12,6 +12,7 @@ const routes = {
   "supplier-image": require("../handlers/supplier-image"),
   "supplier-share": require("../handlers/supplier-share"),
   suppliers: require("../handlers/suppliers"),
+  "visitor-count": require("../handlers/visitor-count"),
 };
 
 module.exports = async (req, res) => {
